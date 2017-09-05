@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>요괴 유치원 | 선생님</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -151,7 +151,7 @@
       <ul class="sidebar-menu" data-widget="tree">
       <li class="header">주요 기능</li>
       <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>출석부</span></a></li>
-      <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>출석체크</span></a></li>
+      <li><a href="ACheck"><i class="fa fa-book"></i> <span>출석체크</span></a></li>
       <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>인원확인</span></a></li>
       <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>학생등록</span></a></li>
       <li>
@@ -163,6 +163,9 @@
           <a href="#">
             <i class="fa fa-files-o"></i>
             <span>기능</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>자동 반 배정</a></li>
