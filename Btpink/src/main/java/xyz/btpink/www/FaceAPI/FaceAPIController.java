@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import xyz.btpink.www.Users.UsersController;
+import xyz.btpink.www.util.Base64ToImgDecoder;
 
 @Controller
 public class FaceAPIController {

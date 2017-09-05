@@ -26,4 +26,11 @@ public class AdminController {
 		logger.info("Go! ACheck");
 		return "AdminPage/ACheck";
 	}
+	
+	//인원확인
+	@RequestMapping(value = "PCheck", method = RequestMethod.GET)
+	public String PCheck(Locale locale, Model model) {
+		logger.info("Go! PCheck");
+		return "AdminPage/PCheck";
+	}
 }

@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>요괴 유치원 | 출석 체크</title>
+  <title>요괴 유치원 | 인원 확인</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -183,16 +183,16 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-               출석체크
+               인원확인
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">출석체크</li>
+        <li class="active">인원확인</li>
       </ol>
     </section>
 	
-	<!-- Main row -->
+         <!-- Main row -->
       <div class="row">
         <!-- Left col -->
         <section class="col-lg-6 connectedSortable">
@@ -200,28 +200,43 @@
 				<video autoplay="autoplay" id="myVideo" width="400" height="300" />
 			</div>
 			<button type="button" onclick="snapshot()">snapshot</button>
-			<br>
-			<div id="jsonOutput">
-				Reponse:<br>
-				<textarea id="responseTextArea" class="UIInput"
-					style="width: 400px; height: 100px;"></textarea>
-			</div>
+			<form id="formId" action="getCount" method="post">
+				<input type="hidden" id="image" name="image">
+				<canvas id="store" style="display: none;"></canvas>
+			</form>
         </section>
         <!-- /.Left col -->
         
-        
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-6 connectedSortable">
-			<form id="formTest">
-<!-- 				<img id="selfieimage" src="" width="400" height="300">  -->
-				<input type="hidden" id="image" name="image" > <br>
-				<canvas id="store" style="display: none;" ></canvas>
-			</form>
+        <section class="col-lg-6 connectedSortable">    
+		  <p id="img"></p>
+<!-- 		<img src="https://www.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/> -->
+<!-- 		<img src="https://gunho.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/> -->
+<!-- 		<img src="https://daheen.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/> -->
+<!-- 		<img src="https://suenghan.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/> -->
+
+	      <!-- Small boxes (Stat box) -->
+	      <div class="row">
+	        <!-- ./col -->
+	        <div class="col-lg-3 col-xs-6">
+	          <!-- small box -->
+	          <div class="small-box bg-yellow">
+	            <div class="inner">
+	              <h3 id="cnt"></h3>
+	              <p>교실 현원</p>
+	            </div>
+	            <div class="icon">
+	              <i class="ion ion-person-add"></i>
+	            </div>
+	            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+	          </div>
+	        </div>
+	        <!-- ./col -->
+	      </div>
         </section>
         <!-- right col -->
       </div>
       <!-- /.row (main row) -->
-      
   </div>
   <!-- /.content-wrapper -->
   
@@ -268,7 +283,7 @@
 <script src="./resources/AdminLTE/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="./resources/AdminLTE/dist/js/demo.js"></script>
-<!-- Face API 자바스크립트 -->
-<script src="./resources/AdminLTE/js/acheck.js"></script>
+<!-- Tensorflow API 자바스크립트 -->
+<script src="./resources/object_detection/js/pcheck.js"></script>
 </body>
 </html>
