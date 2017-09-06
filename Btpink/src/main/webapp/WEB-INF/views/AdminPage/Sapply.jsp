@@ -217,7 +217,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="adminPagel" class="logo">
+    <a href="adminPage" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>요괴</b></span>
       <!-- logo for regular state and mobile devices -->
