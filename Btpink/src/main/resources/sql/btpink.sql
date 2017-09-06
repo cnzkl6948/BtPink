@@ -1,1 +1,76 @@
-﻿
+﻿CREATE TABLE account(
+	memno 	VARCHAR2(50) 	PRIMARY KEY,
+	name 	VARCHAR2(30) 	NOT NULL,
+	type 	VARCHAR2(30) 	NOT NULL,
+	id 	VARCHAR2(30)	NOT NULL,
+	pw	VARCHAR2(30)	NOT NULL,
+	email 	VARCHAR2(50) 	NOT NULL,
+	phone 	CHAR		NOT NULL,
+	status 	NUMBER		NOT NULL
+);
+
+CREATE TABLE parent(
+	parentno VARCHAR2(50)	PRIMARY KEY,
+	memno 	 VARCHAR2(50)	CONSTRAINT PARENT_FK REFERENCES account(memno),
+	stdno	 VARCHAR2(50)	NOT NULL
+);
+
+CREATE TABLE teacher(
+	memno 	 VARCHAR2(50)	PRIMARY KEY,
+	rank	 VARCHAR2(50)	NOT NULL,
+	CONSTRAINT TEACHER_FK FOREIGN KEY(memno) REFERENCES account(memno)
+);
+
+
+CREATE TABLE student(
+	stdno		VARCHAR2(50)	PRIMARY KEY,
+	name		VARCHAR2(30)	NOT NULL,
+	age		NUMBER		NOT NULL,
+	height		NUMBER		NOT NULL,
+	class		VARCHAR2(50)	NOT NULL,
+	birth		DATE		NOT NULL,
+	adress		VARCHAR2(200)	NOT NULL,
+	image		VARCHAR2(50)	NOT NULL,
+	gender		VARCHAR2(50)	NOT NULL,
+	parentno	VARCHAR2(50)
+);
+
+
+CREATE TABLE class(
+	classno 	VARCHAR2(50)	PRIMARY KEY,
+	classname	VARCHAR2(50)	NOT NULL,
+	capa		NUMBER		NOT NULL,
+	memno		VARCHAR2(50)	CONSTRAINT CLASS_FK REFERENCES account(memno) -- teacher의 memno
+);
+
+
+CREATE TABLE cctv(
+	time		TIMESTAMP	PRIMARY KEY,
+	count		NUMBER		NOT NULL,
+	classno 	VARCHAR2(50)	CONSTRAINT CCTV_FK REFERENCES account(memno) 
+);
+
+
+CREATE TABLE attendence(
+	stdno		VARCHAR2(50),
+	classno		VARCHAR2(50)	CONSTRAINT ATTENDENCE_FK REFERENCES class(classno),
+	today		DATE		DEFAULT sysdate,
+	absent		NUMBER		DEFAULT 0,
+	early		NUMBER		DEFAULT 0,
+	sick		NUMBER		DEFAULT 0,
+	late		NUMBER		DEFAULT 0,
+	emotion		VARCHAR2(50),
+  CONSTRAINT ATTENDENCE_PK PRIMARY KEY(stdno, today),
+  CONSTRAINT ATTENDENCE2_FK FOREIGN KEY (stdno) REFERENCES student(stdno)
+);
+
+
+
+
+
+
+
+
+
+
+
