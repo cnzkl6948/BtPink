@@ -151,7 +151,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
       <li class="header">주요 기능</li>
-      <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>출석부</span></a></li>
+      <li><a href="adminPage"><i class="fa fa-book"></i> <span>출석부</span></a></li>
       <li><a href="ACheck"><i class="fa fa-book"></i> <span>출석체크</span></a></li>
       <li><a href="PCheck"><i class="fa fa-book"></i> <span>인원확인</span></a></li>
       <li><a href="Sapply"><i class="fa fa-book"></i> <span>학생등록</span></a></li>
@@ -169,8 +169,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="https://adminlte.io/docs"><i class="fa fa-circle-o"></i>자동 반 배정</a></li>
-            <li><a href="https://adminlte.io/docs"><i class="fa fa-circle-o"></i>자동 자리 배치</a></li>
+            <li><a href="adminPage"><i class="fa fa-circle-o"></i>자동 반 배정</a></li>
+            <li><a href="adminPage"><i class="fa fa-circle-o"></i>자동 자리 배치</a></li>
           </ul>
         </li>
       </ul>

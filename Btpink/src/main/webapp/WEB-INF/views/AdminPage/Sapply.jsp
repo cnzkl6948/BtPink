@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="./resources/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="./resources/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="./resources/AdminLTE/dist/css/sapply.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,171 +44,7 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   
-  <style>
-    #f1
-    {
-        font-family: 'Nunito', sans-serif;
-        color: #384047;
-    }
-
-    #panel1
-    {
-        padding: 10px 20px;
-        background: #f4f7f8;
-        border-radius: 8px;
-    }
-
-    h1
-    {
-        margin: 0 0 30px 0;
-        text-align: center;
-    }
-
-    #f1 input[type="text"],
-    #f1 input[type="password"],
-    #f1 input[type="date"],
-    #f1 input[type="datetime"],
-    #f1 input[type="email"],
-    #f1 input[type="number"],
-    #f1 input[type="search"],
-    #f1 input[type="tel"],
-    #f1 input[type="time"],
-    #f1 input[type="url"],
-    #f1 textarea,
-    #f1 select
-    {
-        background: rgba(255,255,255,0.1);
-        
-        font-size: 16px;
-        height: auto;
-        margin: 0;
-        outline: 0;
-        padding: 15px;
-        width: 100%;
-        background-color: #fff;
-        color: #8a97a0;
-        box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-    }
-
-    #f1 textarea,
-    #f1 select
-    {
-        border: 1px solid #ccc;
-    }
-
-    #f1 input[type="radio"],
-    #f1 input[type="checkbox"]
-    {
-        margin: 0 4px 8px 0;
-    }
-
-    #f1 .sui-sprite.sui-calendar-icon
-    {
-        margin-top: 14px;
-    }
-
-    #b1
-    {
-        padding: 19px 39px 18px 39px;
-        color: #FFF;
-        background-color: #4bc970;
-        font-size: 18px;
-        text-align: center;
-        font-style: normal;
-        border-radius: 5px;
-        width: 100%;
-        border: 1px solid #3ac162;
-        border-width: 1px 1px 3px;
-        box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
-        margin-bottom: 10px;
-    }
-
-    fieldset
-    {
-        margin-bottom: 30px;
-        border: none;
-    }
-
-    legend
-    {
-        font-size: 1.4em;
-        margin-bottom: 10px;
-    }
-
-    label
-    {
-        display: block;
-        margin-bottom: 8px;
-    }
-
-        label.light
-        {
-            font-weight: 300;
-            display: inline;
-        }
-
-    .number
-    {
-        background-color: #5fcf80;
-        color: #fff;
-        height: 30px;
-        width: 30px;
-        display: inline-block;
-        font-size: 0.8em;
-        margin-right: 4px;
-        line-height: 30px;
-        text-align: center;
-        text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-        border-radius: 100%;
-    }
-
-    #footer
-    {
-        font-size: 10px;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    #passwordMatch
-    {
-        text-align: center;
-    }
-
-    .input-group-addon
-    {
-        background-color: #e8eeef;
-    }
-
-    #or
-    {
-        text-align: center;
-        font-weight: bold;
-    }
-
-    .social
-    {
-        list-style-type: none;
-        background: #29AFBB;
-        height: 52px;
-        border: 2px solid#218C95;
-    }
-
-        .social li
-        {
-            padding-right: 20px;
-            display: inline-block;
-            font-size: 27px;
-            border-bottom: 5px solid#29AFBB;
-            cursor: pointer;
-            margin-top: 5px;
-        }
-
-            .social li a
-            {
-                color: #fff;
-                vertical-align: -webkit-baseline-middle;
-            }
-</style>
+ 
   
   
   
@@ -322,9 +159,9 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
       <li class="header">주요 기능</li>
-      <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>출석부</span></a></li>
+      <li><a href="adminPage"><i class="fa fa-book"></i> <span>출석부</span></a></li>
       <li><a href="ACheck"><i class="fa fa-book"></i> <span>출석체크</span></a></li>
-      <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>인원확인</span></a></li>
+      <li><a href="PCheck"><i class="fa fa-book"></i> <span>인원확인</span></a></li>
       <li><a href="Sapply"><i class="fa fa-book"></i> <span>학생등록</span></a></li>
       <li>
         <a href="./resources/AdminLTE/pages/calendar.html">
@@ -340,8 +177,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>자동 반 배정</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>자동 자리 배치</a></li>
+            <li><a href="adminPage"><i class="fa fa-circle-o"></i>자동 반 배정</a></li>
+            <li><a href="adminPage"><i class="fa fa-circle-o"></i>자동 자리 배치</a></li>
           </ul>
         </li>
       </ul>
@@ -437,119 +274,7 @@
 </div>
 <!-- ./wrapper -->
 
-<script type="text/javascript">
-
-function readUploadImage( inputObject ) {
-
-	/*
-
-	브라우저에서 FileReader가 지원되는지
-
-	확인하기 위해 
-
-	window.File && window.FileReader 
-
-	해 본다. 
-
-	안되면 안된다고 알려 주면 되지~ ㅋㅋ
-
-	*/
-
-		if ( window.File && window.FileReader ) {
-
-			/*
-
-			입력된 파일이 1개 이상 있는지 확인~
-
-			*/
-
-			if ( inputObject.files && inputObject.files[0]) {
-
-
-
-				/* 이미지 파일인지도 체크해 주면 좋지~ */
-
-				if ( !(/image/i).test(inputObject.files[0].type ) ){
-
-					alert("이미지 파일을 선택해 주세요!");
-
-					return false;
-
-				}
-
-				/* FileReader 를 준비 한다. */
-
-				var reader = new FileReader();
-
-				reader.onload = function (e) {
-
-					/* reader가 다 읽으면 imagePreview에 뿌려 주면 끝~  */
-
-					$('#imagePreview').attr('src', e.target.result);
-
-				}
-
-
-
-				/* input file에 있는 파일 하나를 읽어온다. */
-
-				reader.readAsDataURL(inputObject.files[0]);
-
-			}
-
-
-
-		} else {
-
-			alert( "미리보기 안되요.~ 브라우저를 업그레이드하세요~");
-
-		}
-
-	}
-
-
-
-	/*
-
-	input 태그에 보통
-
-	<element onchange="SomeJavaScriptCode">
-
-	해 주던지 아님
-
-	jquery를 이용해 change 이벤트를 달아 줘도 된다.
-
-	*/
-
-	$("#uploadImage").change(function(){
-
-	    readUploadImage(this);
-
-	});
-
-
-</script>
-
-
-<script type="text/javascript">
-    jQuery(function ($) {
-    	  	
-    	
-        $(function () {
-            $("#dateTimePicker").shieldDatePicker();
-
-            $('#confirmPass').on('keyup', function () {
-                if ($('#confirmPass').val() == $('#pass').val()) {
-                    $('#passwordMatch').html('Passwords match!').css('color', 'green');
-                }
-                else {
-                    $('#passwordMatch').html('Passwords do not match!').css('color', 'red');
-                }
-            });
-        });
-    });
-        
-</script>
+<script src="./resources/AdminLTE/js/sapply.js"></script>
 
 
 
@@ -589,15 +314,6 @@ function readUploadImage( inputObject ) {
 <!-- AdminLTE for demo purposes -->
 <script src="./resources/AdminLTE/dist/js/demo.js"></script>
 
-<script>
-$(function(){
-	//Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    })
-	
-})
-</script>
 
 </body>
 </html>
