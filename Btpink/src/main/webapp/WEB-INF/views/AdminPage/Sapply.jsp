@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,10 +6,11 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>요괴 유치원 | 선생님</title>
+  <title>요괴 유치원 | 출석 체크</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    
+  <script src="./resources/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="./resources/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -37,7 +39,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
+  
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   
@@ -207,6 +209,8 @@
             }
 </style>
   
+  
+  
 </head>
 <body class="hold-transition skin-red-light fixed sidebar-mini">
 <div class="wrapper">
@@ -350,325 +354,79 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        선생님 메인 화면
-        <small>컨트롤 패널</small>
+<!--                출석체크 -->
+<!--         <small>Control panel</small> -->
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li class="active">학생등록</li>
       </ol>
     </section>
+	
+	<!-- Main row -->
+    <div class="container" id="f1">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div id="panel1" class="panel panel-default">
+            <h1>학생등록</h1>
+            
+             <form action="#" method="POST" role="form" enctype="multipart/form-data">
+          <div class="form-group formField">
+            <input type="text" class="form-control" placeholder="이름">
+          </div>
+          <div class="form-group formField">
+            <input type="text" class="form-control" placeholder="키">
+          </div>
+          <!-- Date -->
+              <div class="form-group">
+                <label>Date:</label>
 
-
-    <!-- Main content -->
-    <section class="content">
-        
-    	<div class="col-lg-6">
-    	
-              <!-- TO DO List -->
-          <div class="box box-primary">
-            <div class="box-header">
-              <i class="ion ion-clipboard"></i>
-
-              <h3 class="box-title">공지사항 또는 할일</h3>
-
-              <div class="box-tools pull-right">
-                <ul class="pagination pagination-sm inline">
-                  <li><a href="#">&laquo;</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">&raquo;</a></li>
-                </ul>
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="form-control pull-right" id="datepicker">
+                </div>
+                <!-- /.input group -->
               </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-              <ul class="todo-list">
-                <li>
-                  <!-- drag handle -->
-                  <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <!-- checkbox -->
-                  <input type="checkbox" value="">
-                  <!-- todo text -->
-                  <span class="text">Design a nice theme</span>
-                  <!-- Emphasis label -->
-                  <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                  <!-- General tools such as edit or delete-->
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Make the theme responsive</span>
-                  <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Check your messages and notifications</span>
-                  <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-                <li>
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <input type="checkbox" value="">
-                  <span class="text">Let theme shine like a star</span>
-                  <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
-                  <div class="tools">
-                    <i class="fa fa-edit"></i>
-                    <i class="fa fa-trash-o"></i>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix no-border">
-              <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
-            </div>
+              <!-- /.form group -->
+          
+          <div class="form-group formField">
+            <input type="text" class="form-control" placeholder="반">
           </div>
-          <!-- /.box -->
-    	</div>
-    
-    
-    
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3>150<sup style="font-size: 20px">명</sup></h3>
-
-              <p>출석자 수</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <div class="form-group formField">
+            <input type="text" class="form-control" placeholder="주소">
           </div>
-        </div>
-        <!-- ./col -->
+          <div class="form-group formField">
+            <input type="text" class="form-control" placeholder="시력">
+          </div>
+          <div class="form-group formField">
+            <input type="text" class="form-control" placeholder="학부모번호">
+          </div>
+         <div class="form-group formField">
+  			<input type='file' id="uploadImage" />
+			    <div id="preview"><!-- 사이즈는 알아서 하고~ ㅋㅋ -->
+				<img id="imagePreview" src="#" alt="Preview upload images" />
+				</div>
+		</div>
         
-        
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>53<sup style="font-size: 20px">명</sup></h3>
-
-              <p>전체 인원수</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        <div class="form-group formField">
+            <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" value="Register">
           </div>
+         </form>
+            <footer>
+                <p id="footer">Desing provided by <a href="https://www.shieldui.com/">Shield UI</a></p>
+            </footer>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>44<sup style="font-size: 20px">명</sup></h3>
-
-              <p>조퇴자 수</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>65<sup style="font-size: 20px">명</sup></h3>
-
-              <p>결석자수</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
       <!-- /.row -->
-      
-      
-      
-      <!-- Main row -->
-      <div class="row">
-      
-      
-        <!-- Left col -->
-        <section class="col-lg-6 connectedSortable">
-          <!-- Custom tabs (Charts with tabs)-->
-          <div class="nav-tabs-custom">
-            <!-- Tabs within a box -->
-            <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-              <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-              <li class="pull-left header"><i class="fa fa-inbox"></i>출석인원 변동 현황</li>
-            </ul>
-            <div class="tab-content no-padding">
-              <!-- Morris chart - Sales -->
-              <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-              <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
-            </div>
-          </div>
-          <!-- /.nav-tabs-custom -->
-                    
-
-        </section>
-        <!-- /.Left col -->
-        
-        
-        
-        
-        
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable">    
-
-          <!-- Calendar -->
-          <div class="box box-solid bg-green-gradient">
-            <div class="box-header">
-              <i class="fa fa-calendar"></i>
-
-              <h3 class="box-title">현황별 일정</h3>
-              <!-- tools box -->
-              <div class="pull-right box-tools">
-                <!-- button with a dropdown -->
-                <div class="btn-group">
-                  <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-bars"></i></button>
-                  <ul class="dropdown-menu pull-right" role="menu">
-                    <li><a href="#">Add new event</a></li>
-                    <li><a href="#">Clear events</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">View calendar</a></li>
-                  </ul>
-                </div>
-                <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
-                </button>
-              </div>
-              <!-- /. tools -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body no-padding">
-              <!--The calendar -->
-              <div id="calendar" style="width: 100%"></div>
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer text-black">
-              <div class="row">
-                <div class="col-sm-6">
-                  <!-- Progress bars -->
-                  <div class="clearfix">
-                    <span class="pull-left">Task #1</span>
-                    <small class="pull-right">90%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 90%;"></div>
-                  </div>
-
-                  <div class="clearfix">
-                    <span class="pull-left">Task #2</span>
-                    <small class="pull-right">70%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 70%;"></div>
-                  </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-6">
-                  <div class="clearfix">
-                    <span class="pull-left">Task #3</span>
-                    <small class="pull-right">60%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 60%;"></div>
-                  </div>
-
-                  <div class="clearfix">
-                    <span class="pull-left">Task #4</span>
-                    <small class="pull-right">40%</small>
-                  </div>
-                  <div class="progress xs">
-                    <div class="progress-bar progress-bar-green" style="width: 40%;"></div>
-                  </div>
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-          </div>
-          <!-- /.box -->
-
-        </section>
-        <!-- right col -->
-      </div>
-      <!-- /.row (main row) -->
-
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
@@ -677,22 +435,137 @@
     reserved.
   </footer>
 </div>
-
 <!-- ./wrapper -->
 
+<script type="text/javascript">
+
+function readUploadImage( inputObject ) {
+
+	/*
+
+	브라우저에서 FileReader가 지원되는지
+
+	확인하기 위해 
+
+	window.File && window.FileReader 
+
+	해 본다. 
+
+	안되면 안된다고 알려 주면 되지~ ㅋㅋ
+
+	*/
+
+		if ( window.File && window.FileReader ) {
+
+			/*
+
+			입력된 파일이 1개 이상 있는지 확인~
+
+			*/
+
+			if ( inputObject.files && inputObject.files[0]) {
+
+
+
+				/* 이미지 파일인지도 체크해 주면 좋지~ */
+
+				if ( !(/image/i).test(inputObject.files[0].type ) ){
+
+					alert("이미지 파일을 선택해 주세요!");
+
+					return false;
+
+				}
+
+				/* FileReader 를 준비 한다. */
+
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+
+					/* reader가 다 읽으면 imagePreview에 뿌려 주면 끝~  */
+
+					$('#imagePreview').attr('src', e.target.result);
+
+				}
+
+
+
+				/* input file에 있는 파일 하나를 읽어온다. */
+
+				reader.readAsDataURL(inputObject.files[0]);
+
+			}
+
+
+
+		} else {
+
+			alert( "미리보기 안되요.~ 브라우저를 업그레이드하세요~");
+
+		}
+
+	}
+
+
+
+	/*
+
+	input 태그에 보통
+
+	<element onchange="SomeJavaScriptCode">
+
+	해 주던지 아님
+
+	jquery를 이용해 change 이벤트를 달아 줘도 된다.
+
+	*/
+
+	$("#uploadImage").change(function(){
+
+	    readUploadImage(this);
+
+	});
+
+
+</script>
+
+
+<script type="text/javascript">
+    jQuery(function ($) {
+    	  	
+    	
+        $(function () {
+            $("#dateTimePicker").shieldDatePicker();
+
+            $('#confirmPass').on('keyup', function () {
+                if ($('#confirmPass').val() == $('#pass').val()) {
+                    $('#passwordMatch').html('Passwords match!').css('color', 'green');
+                }
+                else {
+                    $('#passwordMatch').html('Passwords do not match!').css('color', 'red');
+                }
+            });
+        });
+    });
+        
+</script>
+
+
+
+
+<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 <!-- jQuery 3 -->
-<script src="./resources/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="./resources/AdminLTE/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
+
 <!-- Bootstrap 3.3.7 -->
 <script src="./resources/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- Morris.js charts -->
-<script src="./resources/AdminLTE/bower_components/raphael/raphael.min.js"></script>
-<script src="./resources/AdminLTE/bower_components/morris.js/morris.min.js"></script>
 <!-- Sparkline -->
 <script src="./resources/AdminLTE/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -713,9 +586,18 @@
 <script src="./resources/AdminLTE/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="./resources/AdminLTE/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="./resources/AdminLTE/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="./resources/AdminLTE/dist/js/demo.js"></script>
+
+<script>
+$(function(){
+	//Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    })
+	
+})
+</script>
+
 </body>
 </html>

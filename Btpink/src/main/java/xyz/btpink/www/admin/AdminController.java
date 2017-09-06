@@ -26,4 +26,11 @@ public class AdminController {
 		logger.info("Go! ACheck");
 		return "AdminPage/ACheck";
 	}
+	
+	//학생등록
+		@RequestMapping(value = "Sapply", method = RequestMethod.GET)
+		public String Sapply(Locale locale, Model model) {
+			logger.info("Go! Sapply");
+			return "AdminPage/Sapply";
+		}
 }
