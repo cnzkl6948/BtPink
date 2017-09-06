@@ -46,7 +46,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="adminPagel" class="logo">
+    <a href="adminPage" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>요괴</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -153,7 +153,7 @@
       <li class="header">주요 기능</li>
       <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>출석부</span></a></li>
       <li><a href="ACheck"><i class="fa fa-book"></i> <span>출석체크</span></a></li>
-      <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>인원확인</span></a></li>
+      <li><a href="PCheck"><i class="fa fa-book"></i> <span>인원확인</span></a></li>
       <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>학생등록</span></a></li>
       <li>
         <a href="./resources/AdminLTE/pages/calendar.html">
@@ -169,8 +169,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>자동 반 배정</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>자동 자리 배치</a></li>
+            <li><a href="https://adminlte.io/docs"><i class="fa fa-circle-o"></i>자동 반 배정</a></li>
+            <li><a href="https://adminlte.io/docs"><i class="fa fa-circle-o"></i>자동 자리 배치</a></li>
           </ul>
         </li>
       </ul>
@@ -213,7 +213,7 @@
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
         <section class="col-lg-6 connectedSortable">
 			<form id="formTest">
-				<img id="selfieimage" src="" width="400" height="300"> 
+<!-- 				<img id="selfieimage" src="" width="400" height="300">  -->
 				<input type="hidden" id="image" name="image" > <br>
 				<canvas id="store" style="display: none;" ></canvas>
 			</form>
@@ -222,76 +222,6 @@
       </div>
       <!-- /.row (main row) -->
       
-    <!-- Main content -->
-    <section class="content">
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3>150</h3>
-
-              <p>New Orders</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        
-      
-	  <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-              <p>Bounce Rate</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>User Registrations</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>65</h3>
-
-              <p>Unique Visitors</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   

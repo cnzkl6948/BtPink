@@ -31,16 +31,13 @@ function takePhoto() {
 	}
 }
 function snapshot() {
-	var image = document.getElementById('selfieimage');
 	var set = document.getElementById('image');
 	// 찍은 사진을 저장한다.
 
 	var snap = takePhoto();
 	// 이미지의 소스와 다운로드 링크 주소를 캔버스에서 그린 그림의 주소 값으로 한다.
 	var formTest = document.getElementById('formTest');
-	image.setAttribute('src', snap);
 	set.setAttribute('value', snap);
-	image.setAttribute('style', 'display: block;');
 	$.ajax({
 		url : "detectImage",
 		type : "POST",

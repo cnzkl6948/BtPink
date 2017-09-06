@@ -27,10 +27,19 @@ public class AdminController {
 		return "AdminPage/ACheck";
 	}
 	
+
 	//학생등록
 		@RequestMapping(value = "Sapply", method = RequestMethod.GET)
 		public String Sapply(Locale locale, Model model) {
 			logger.info("Go! Sapply");
 			return "AdminPage/Sapply";
 		}
+
+	//인원확인
+	@RequestMapping(value = "PCheck", method = RequestMethod.GET)
+	public String PCheck(Locale locale, Model model) {
+		logger.info("Go! PCheck");
+		return "AdminPage/PCheck";
+	}
+
 }

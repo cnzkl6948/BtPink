@@ -1,4 +1,4 @@
-package xyz.btpink.www.FaceAPI;
+package xyz.btpink.www.util;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;

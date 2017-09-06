@@ -213,7 +213,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="adminPagel" class="logo">
+    <a href="adminPage" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>요괴</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -322,6 +322,8 @@
       <li><a href="ACheck"><i class="fa fa-book"></i> <span>출석체크</span></a></li>
       <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>인원확인</span></a></li>
       <li><a href="Sapply"><i class="fa fa-book"></i> <span>학생등록</span></a></li>
+      <li><a href="PCheck"><i class="fa fa-book"></i> <span>인원확인</span></a></li>
+      <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>학생등록</span></a></li>
       <li>
         <a href="./resources/AdminLTE/pages/calendar.html">
           <i class="fa fa-calendar"></i> <span>감정달력</span>
@@ -336,8 +338,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>자동 반 배정</a></li>
-            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>자동 자리 배치</a></li>
+            <li><a href="https://adminlte.io/docs"><i class="fa fa-circle-o"></i>자동 반 배정</a></li>
+            <li><a href="https://adminlte.io/docs"><i class="fa fa-circle-o"></i>자동 자리 배치</a></li>
           </ul>
         </li>
       </ul>
@@ -552,8 +554,6 @@
       
       <!-- Main row -->
       <div class="row">
-      
-      
         <!-- Left col -->
         <section class="col-lg-6 connectedSortable">
           <!-- Custom tabs (Charts with tabs)-->
@@ -571,18 +571,11 @@
             </div>
           </div>
           <!-- /.nav-tabs-custom -->
-                    
-
         </section>
         <!-- /.Left col -->
         
-        
-        
-        
-        
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
         <section class="col-lg-5 connectedSortable">    
-
           <!-- Calendar -->
           <div class="box box-solid bg-green-gradient">
             <div class="box-header">
