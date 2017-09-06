@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="xyz.btpink.www.vo.Teacher" alias="Teacher" />
+		<typeAlias type="xyz.btpink.www.vo.Student" alias="Student" />
+		<typeAlias type="xyz.btpink.www.vo.Parent" alias="Parent" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="mapper/studentMapper.xml" />
+		<mapper resource="mapper/parentMapper.xml" />
+		<mapper resource="mapper/teacherMapper.xml" />
+	</mappers>
+</configuration>
