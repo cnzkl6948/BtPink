@@ -154,7 +154,7 @@
       <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>출석부</span></a></li>
       <li><a href="ACheck"><i class="fa fa-book"></i> <span>출석체크</span></a></li>
       <li><a href="PCheck"><i class="fa fa-book"></i> <span>인원확인</span></a></li>
-      <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>학생등록</span></a></li>
+      <li><a href="Sapply"><i class="fa fa-book"></i> <span>학생등록</span></a></li>
       <li>
         <a href="./resources/AdminLTE/pages/calendar.html">
           <i class="fa fa-calendar"></i> <span>감정달력</span>
