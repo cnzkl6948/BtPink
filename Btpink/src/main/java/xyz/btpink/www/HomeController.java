@@ -35,5 +35,28 @@ public class HomeController {
 		
 		return "home";
 	}
+
+	@RequestMapping(value ="now-gps",method = RequestMethod.GET)
+	public String location(){
+		
+		 System.out.println("gps");
+		return "TestPages/now-gps";
+	}
+	
+	
+	@RequestMapping(value ="now-gps3",method = RequestMethod.GET)
+	public String location3(){
+		
+		 System.out.println("gps3");
+		return "TestPages/now-gps3";
+	}
+	
+	
+	@RequestMapping(value ="current-location",method = RequestMethod.GET)
+	public String location2(){
+		
+		 System.out.println("current-location");
+		return "MainpPage/current-location";
+	}
 	
 }

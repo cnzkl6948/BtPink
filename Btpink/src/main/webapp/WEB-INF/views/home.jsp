@@ -184,9 +184,9 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-left">
                   <li class=" active "><a href="home">Kidz School</a></li>
-                  <li class=""><a href="index-v2.html">Kidz Store</a></li>
-                  <li class=""><a href="index-v3.html">Kidz Daycare</a></li>
-                  <li class=""><a href="index-v4.html">Kidz Fashion</a></li>
+                  <li class=""><a href="now-gps">now gps</a></li>
+                  <li class=""><a href="current-location">current-location</a></li>
+                  <li class=""><a href="now-gps3">now-gps3</a></li>
                 </ul>
               </li>
               <li class="dropdown singleDrop color-3 ">
