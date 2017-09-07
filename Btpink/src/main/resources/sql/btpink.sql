@@ -1,4 +1,13 @@
-﻿CREATE TABLE account(
+﻿
+DROP TABLE parent;
+DROP TABLE teacher;
+DROP TABLE cctv;
+DROP TABLE attendence;
+DROP TABLE student;
+DROP TABLE class;
+DROP TABLE account;
+
+CREATE TABLE account(
 	memno 	VARCHAR2(50) 	PRIMARY KEY,
 	name 	VARCHAR2(30) 	NOT NULL,
 	type 	VARCHAR2(30) 	NOT NULL,
@@ -6,13 +15,13 @@
 	pw	VARCHAR2(30)	NOT NULL,
 	email 	VARCHAR2(50) 	NOT NULL,
 	phone 	CHAR		NOT NULL,
-	status 	NUMBER		NOT NULL
+	status 	NUMBER	DEFAULT 0 NOT NULL
 );
 
 CREATE TABLE parent(
-	parentno VARCHAR2(50)	PRIMARY KEY,
 	memno 	 VARCHAR2(50)	CONSTRAINT PARENT_FK REFERENCES account(memno),
-	stdno	 VARCHAR2(50)	NOT NULL
+	stdno	 VARCHAR2(50),
+	CONSTRAINT PARENT_PK PRIMARY KEY(memno)
 );
 
 CREATE TABLE teacher(
@@ -27,12 +36,13 @@ CREATE TABLE student(
 	name		VARCHAR2(30)	NOT NULL,
 	age		NUMBER		NOT NULL,
 	height		NUMBER		NOT NULL,
-	class		VARCHAR2(50)	NOT NULL,
+	classno		VARCHAR2(50)	NOT NULL,
 	birth		DATE		NOT NULL,
 	adress		VARCHAR2(200)	NOT NULL,
 	image		VARCHAR2(50)	NOT NULL,
 	gender		VARCHAR2(50)	NOT NULL,
-	parentno	VARCHAR2(50)
+	parentno	VARCHAR2(50),
+	glass		NUMBER		 DEFAULT 0 NOT NULL
 );
 
 
@@ -65,12 +75,5 @@ CREATE TABLE attendence(
 );
 
 
-
-
-
-
-
-
-
-
-
+-- INSERT INTO teacher ()
+-- VALUES();
