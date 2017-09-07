@@ -227,46 +227,48 @@
                 </ul>
               </li>
               <li class=" dropdown megaDropMenu color-2 ">
-                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="300" data-close-others="true" aria-expanded="false">
+                <a href="course-single" class="dropdown-toggle"> 
+<!--                 data-toggle="dropdown" data-hover="dropdown" data-delay="300" data-close-others="true" aria-expanded="false"> -->
+                
                   <i class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i>
                   <span>Courses</span>
                 </a>
-                <ul class="row dropdown-menu">
-                  <li class="col-sm-3 col-xs-12">
-                    <ul class="list-unstyled">
-                      <li>Courses Grid</li>
-                      <li class=""><a href="course-grid-full.html">Courses Grid Fullwidth</a></li>
-                      <li class="">
-                        <a href="course-grid-left-sidebar.html">Courses Grid Left Sidebar</a></li>
-                      <li class="">
-                        <a href="course-grid-right-sidebar.html">Courses Grid Right Sidebar</a></li>
-                    </ul>
-                  </li>
-                  <li class="col-sm-3 col-xs-12">
-                    <ul class="list-unstyled">
-                      <li>Courses List</li>
-                      <li class=""><a href="course-list-fullwidth.html">Courses List Fullwidth</a></li>
-                      <li class=""><a href="course-list-left-sidebar.html">Courses List left Sidebar</a></li>
-                      <li class=""><a href="course-list-right-sidebar.html">Courses List Right Sidebar</a></li>
-                    </ul>
-                  </li>
-                  <li class="col-sm-3 col-xs-12">
-                    <ul class="list-unstyled">
-                      <li>Single Course</li>
-                      <li class=""><a href="course-single.html">Single Course Fullwidth</a></li>
-                      <li class=""><a href="course-single-left-sidebar.html">Single Course left Sidebar</a></li>
-                      <li class=""><a href="course-single-right-sidebar.html">Single Course Right Sidebar</a></li>
-                    </ul>
-                  </li>
-                  <li class="col-sm-3 col-xs-12">
-                    <ul class="list-unstyled">
-                      <li>Checkout</li>
-                      <li class="" ><a href="checkout-step-1.html">Personal Info</a></li>
-                      <li class="" ><a href="checkout-step-2.html">Payment Info</a></li>
-                      <li class="" ><a href="checkout-step-3.html">Confirmation</a></li>
-                    </ul>
-                  </li>
-                </ul>
+<!--                 <ul class="row dropdown-menu"> -->
+<!--                   <li class="col-sm-3 col-xs-12"> -->
+<!--                     <ul class="list-unstyled"> -->
+<!--                       <li>Courses Grid</li> -->
+<!--                       <li class=""><a href="course-grid-full.html">Courses Grid Fullwidth</a></li> -->
+<!--                       <li class=""> -->
+<!--                         <a href="course-grid-left-sidebar.html">Courses Grid Left Sidebar</a></li> -->
+<!--                       <li class=""> -->
+<!--                         <a href="course-grid-right-sidebar.html">Courses Grid Right Sidebar</a></li> -->
+<!--                     </ul> -->
+<!--                   </li> -->
+<!--                   <li class="col-sm-3 col-xs-12"> -->
+<!--                     <ul class="list-unstyled"> -->
+<!--                       <li>Courses List</li> -->
+<!--                       <li class=""><a href="course-list-fullwidth.html">Courses List Fullwidth</a></li> -->
+<!--                       <li class=""><a href="course-list-left-sidebar.html">Courses List left Sidebar</a></li> -->
+<!--                       <li class=""><a href="course-list-right-sidebar.html">Courses List Right Sidebar</a></li> -->
+<!--                     </ul> -->
+<!--                   </li> -->
+<!--                   <li class="col-sm-3 col-xs-12"> -->
+<!--                     <ul class="list-unstyled"> -->
+<!--                       <li>Single Course</li> -->
+<!--                       <li class=""><a href="course-single.html">Single Course Fullwidth</a></li> -->
+<!--                       <li class=""><a href="course-single-left-sidebar.html">Single Course left Sidebar</a></li> -->
+<!--                       <li class=""><a href="course-single-right-sidebar.html">Single Course Right Sidebar</a></li> -->
+<!--                     </ul> -->
+<!--                   </li> -->
+<!--                   <li class="col-sm-3 col-xs-12"> -->
+<!--                     <ul class="list-unstyled"> -->
+<!--                       <li>Checkout</li> -->
+<!--                       <li class="" ><a href="checkout-step-1.html">Personal Info</a></li> -->
+<!--                       <li class="" ><a href="checkout-step-2.html">Payment Info</a></li> -->
+<!--                       <li class="" ><a href="checkout-step-3.html">Confirmation</a></li> -->
+<!--                     </ul> -->
+<!--                   </li> -->
+<!--                 </ul> -->
               </li>
               <li class="dropdown singleDrop color-4 ">
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -303,12 +305,11 @@
               <li class="dropdown singleDrop color-5  ">
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-calendar bg-color-5" aria-hidden="true"></i>
-                  <span>Blog</span>
+                  <span>Bus</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li class="dropdown dropdown-submenu
                      ||
-                    
                     
                   ">
                     <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Blog Grid
@@ -346,7 +347,7 @@
                 </ul>
               </li>
               <li class="dropdown singleDrop color-6 ">
-                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gg bg-color-6" aria-hidden="true"></i> <span>Components</span></a>
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gg bg-color-6" aria-hidden="true"></i> <span>Teacher</span></a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li class=" "><a href="accordion-toggles.html">Accordions &amp; Toggles</a></li>
                   <li class=""><a href="tabs-dropdown.html">Tabs &amp; Dropdowns</a></li>
@@ -691,15 +692,15 @@
     </section>
 
     <!-- WHITE SECTION -->
-    <section class="whiteSection full-width clearfix coursesSection" id="ourCourses">
-      <div class="container">
-        <div class="sectionTitle text-center">
-          <h2>
-            <span class="shape shape-left bg-color-4"></span>
-            <span>Our Courses</span>
-            <span class="shape shape-right bg-color-4"></span>
-          </h2>
-        </div>
+<!--     <section class="whiteSection full-width clearfix coursesSection" id="ourCourses"> -->
+<!--       <div class="container"> -->
+<!--         <div class="sectionTitle text-center"> -->
+<!--           <h2> -->
+<!--             <span class="shape shape-left bg-color-4"></span> -->
+<!--             <span>Our Courses</span> -->
+<!--             <span class="shape shape-right bg-color-4"></span> -->
+<!--           </h2> -->
+<!--         </div> -->
 
         <div class="row">
           <div class="col-sm-3 col-xs-12 block">
@@ -1463,6 +1464,31 @@
           <div class="form-group formField">
             <input type="password" class="form-control" placeholder="Re-Password">
           </div>
+          
+          
+          <div class="tabCommon">
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#create_teacher" aria-expanded="false">Teacher</a></li>
+                <li class=""><a data-toggle="tab" href="#create_parent" aria-expanded="false">Parent</a></li>
+              </ul>
+              <div class="tab-content">
+                <div id="create_teacher" class="tab-pane fade in active">
+                  <div class="media">
+			          <div class="form-group formField">
+			            <input type="text" class="form-control" placeholder="User name">
+			          </div>
+                  </div>
+                </div>
+                <div id="create_parent" class="tab-pane fade">
+		          <div class="form-group formField">
+		            <input type="text" class="form-control" placeholder="User name">
+		          </div>
+		          <div class="form-group formField">
+		            <input type="text" class="form-control" placeholder="User name">
+		          </div>
+                </div>
+              </div>
+            </div>
           <div class="form-group formField">
             <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" value="Register">
           </div>
