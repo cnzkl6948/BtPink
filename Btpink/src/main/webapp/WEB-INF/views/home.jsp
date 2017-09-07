@@ -680,7 +680,7 @@
     </section>
 
     <!-- PROMOTION SECTION-->
-    <section class="promotionWrapper" style="background-image: url(/www/resources/img/home/promotion-1.jpg);">
+    <section class="promotionWrapper" style="background-image: url(img/home/promotion-1.jpg);">
       <div class="container">
         <div class="promotionInfo">
           <h2>Need More Information?</h2>
@@ -982,7 +982,7 @@
                   <div class="inner"></div>
                 </div>
                 <div class="overlay">
-                  <a class="fancybox-pop" rel="portfolio-1" href="./resources/img/home/home_gallery/gallery_lg_1.jpg">
+                  <a class="fancybox-pop" rel="portfolio-1" href="img/home/home_gallery/gallery_lg_1.jpg">
                     <i class="fa fa-search-plus" aria-hidden="true"></i>
                   </a>
                 </div>
@@ -998,7 +998,7 @@
                   <div class="inner"></div>
                 </div>
                 <div class="overlay">
-                  <a class="fancybox-pop" rel="portfolio-1" href="./resources/img/home/home_gallery/gallery_lg_2.jpg">
+                  <a class="fancybox-pop" rel="portfolio-1" href="img/home/home_gallery/gallery_lg_2.jpg">
                     <i class="fa fa-search-plus" aria-hidden="true"></i>
                   </a>
                 </div>
@@ -1014,7 +1014,7 @@
                   <div class="inner"></div>
                 </div>
                 <div class="overlay">
-                  <a class="fancybox-pop" rel="portfolio-1" href="./resources/img/home/home_gallery/gallery_lg_3.jpg">
+                  <a class="fancybox-pop" rel="portfolio-1" href="img/home/home_gallery/gallery_lg_3.jpg">
                     <i class="fa fa-search-plus" aria-hidden="true"></i>
                   </a>
                 </div>
@@ -1030,7 +1030,7 @@
                   <div class="inner"></div>
                 </div>
                 <div class="overlay">
-                  <a class="fancybox-pop" rel="portfolio-1" href="./resources/img/home/home_gallery/gallery_lg_4.jpg">
+                  <a class="fancybox-pop" rel="portfolio-1" href="img/home/home_gallery/gallery_lg_4.jpg">
                     <i class="fa fa-search-plus" aria-hidden="true"></i>
                   </a>
                 </div>
@@ -1046,7 +1046,7 @@
                   <div class="inner"></div>
                 </div>
                 <div class="overlay">
-                  <a class="fancybox-pop" rel="portfolio-1" href="./resources/img/home/home_gallery/gallery_lg_5.jpg">
+                  <a class="fancybox-pop" rel="portfolio-1" href="img/home/home_gallery/gallery_lg_5.jpg">
                     <i class="fa fa-search-plus" aria-hidden="true"></i>
                   </a>
                 </div>
@@ -1062,7 +1062,7 @@
                   <div class="inner"></div>
                 </div>
                 <div class="overlay">
-                  <a class="fancybox-pop" rel="portfolio-1" href="./resources/img/home/home_gallery/gallery_lg_6.jpg">
+                  <a class="fancybox-pop" rel="portfolio-1" href="img/home/home_gallery/gallery_lg_6.jpg">
                     <i class="fa fa-search-plus" aria-hidden="true"></i>
                   </a>
                 </div>
@@ -1078,7 +1078,7 @@
                   <div class="inner"></div>
                 </div>
                 <div class="overlay">
-                  <a class="fancybox-pop" rel="portfolio-1" href="./resources/img/home/home_gallery/gallery_lg_7.jpg">
+                  <a class="fancybox-pop" rel="portfolio-1" href="img/home/home_gallery/gallery_lg_7.jpg">
                     <i class="fa fa-search-plus" aria-hidden="true"></i>
                   </a>
                 </div>
@@ -1094,7 +1094,7 @@
                   <div class="inner"></div>
                 </div>
                 <div class="overlay">
-                  <a class="fancybox-pop" rel="portfolio-1" href="./resources/img/home/home_gallery/gallery_lg_8.jpg">
+                  <a class="fancybox-pop" rel="portfolio-1" href="img/home/home_gallery/gallery_lg_8.jpg">
                     <i class="fa fa-search-plus" aria-hidden="true"></i>
                   </a>
                 </div>
@@ -1277,12 +1277,12 @@
     </div>
   </div>
   <!-- FOOTER INFO AREA -->
-  <div class="footerInfoArea full-width clearfix" style="background-image: url(/www/resources/img/footer/footer-bg-1.png);">
+  <div class="footerInfoArea full-width clearfix" style="background-image: url(img/footer/footer-bg-1.png);">
     <div class="container">
       <div class="row">
         <div class="col-sm-3 col-xs-12">
           <div class="footerTitle">
-            <a href="index.html"><img src="./resources/img/logo-footer.png"></a>
+            <a href="index.html"><img src="img/logo-footer.png"></a>
           </div>
           <div class="footerInfo">
             <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa officia.Lorem ipsum dolor sit amet.</p>
