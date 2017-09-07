@@ -20,9 +20,15 @@ public class MainPageController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "course-single", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String course() {
 	
 		
-		return "MainpPage/course-single";
+		return "MainPage/course-single";
+	}
+	@RequestMapping(value = "teachers", method = RequestMethod.GET)
+	public String teachers() {
+	
+		
+		return "MainPage/Teachers";
 	}
 }
