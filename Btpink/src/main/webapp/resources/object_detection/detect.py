@@ -96,7 +96,7 @@ while(True):
               
           num = len(np.squeeze(scores))
           for i in range(num):
-              if (np.squeeze(scores)[i] >= 0.7 and np.squeeze(classes).astype(np.int32)[i] == 1):
+              if (np.squeeze(scores)[i] >= 0.75 and np.squeeze(classes).astype(np.int32)[i] == 1):
                   cnt = cnt + 1
           # 검색결과를 사진에 표시.
           vis_util.visualize_boxes_and_labels_on_image_array(image_np,np.squeeze(boxes), np.squeeze(classes).astype(np.int32),np.squeeze(scores),category_index,use_normalized_coordinates=True,line_thickness=3)

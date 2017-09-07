@@ -172,7 +172,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home"><img src="./resources/img/logo-school.png" alt="Kidz School"></a>
+            <a class="navbar-brand" href="/www"><img src="./resources/img/logo-school.png" alt="Kidz School"></a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
