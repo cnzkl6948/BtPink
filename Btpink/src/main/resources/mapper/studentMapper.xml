@@ -12,12 +12,13 @@
 	#{name}, 
 	#{age}, 
 	#{height}, 
-	#{class}, 
-	#{birth},
-	#{address},
+	#{classno}, 
+	TO_DATE(#{birth},'MM-DD-YYYY HH24:MI:SS'),
+	#{adress},
 	#{image},
 	#{gender},
-	#{parentno}	
+	#{parentno},
+	#{glass}
 	)
 </insert>
 
