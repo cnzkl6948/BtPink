@@ -195,9 +195,9 @@
 	<!-- Main row -->
       <div class="row">
         <!-- Left col -->
-        <section class="col-lg-6 connectedSortable">
+        <section class="col-lg-12 connectedSortable">
           	<div>
-				<video autoplay="autoplay" id="myVideo" width="400" height="300" />
+				<video autoplay="autoplay" id="myVideo" width="640" height="360" />
 			</div>
 			<button type="button" onclick="snapshot()">snapshot</button>
 			<br>
@@ -206,19 +206,16 @@
 				<textarea id="responseTextArea" class="UIInput"
 					style="width: 400px; height: 100px;"></textarea>
 			</div>
-        </section>
-        <!-- /.Left col -->
-        
-        
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-6 connectedSortable">
 			<form id="formTest">
 <!-- 				<img id="selfieimage" src="" width="400" height="300">  -->
 				<input type="hidden" id="image" name="image" > <br>
 				<canvas id="store" style="display: none;" ></canvas>
 			</form>
+			<a href="/www/resources/test.html">test</a>
         </section>
-        <!-- right col -->
+        <!-- /.Left col -->
+        
+        
       </div>
       <!-- /.row (main row) -->
       

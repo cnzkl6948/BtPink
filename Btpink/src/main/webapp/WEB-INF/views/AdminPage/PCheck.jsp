@@ -197,7 +197,7 @@
         <!-- Left col -->
         <section class="col-lg-6 connectedSortable">
           	<div>
-				<video autoplay="autoplay" id="myVideo" width="400" height="300" />
+				<video autoplay="autoplay" id="myVideo" width="640" height="360" />
 			</div>
 			<button type="button" onclick="snapshot()">snapshot</button>
 			<form id="formId" action="getCount" method="post">
