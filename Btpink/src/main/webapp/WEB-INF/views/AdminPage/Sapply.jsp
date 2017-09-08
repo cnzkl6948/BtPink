@@ -204,26 +204,30 @@
 					<div id="panel1" class="panel panel-default">
 						<h1>학생등록</h1>
 
-						<form action="Sapply" method="POST" role="form" enctype="multipart/form-data">
+						<form action="Sapply" method="POST" role="form" enctype="multipart/form-data" onsubmit="return Checkform()">
 							<div class="form-group formField">
 								<input type="text" class="form-control" name="name" placeholder="이름">
 							</div>
-
-							<div class="input-group input-group-md">
-								<label>Gender:</label>
-								<select name="gender">
-									<option value="0">Male</option>
-									<option value="1">Female</option>
-								</select>
+							
+							<div class="form-group formField">
+								<input type="text" class="form-control" name="age" id="age" placeholder="나이">
 							</div>
-
-
+							
 							<div class="form-group formField">
 								<input type="text" class="form-control" name="height" placeholder="키">
 							</div>
+							
+							<div class="form-group formField">
+								<input type="text" class="form-control" name="classno" placeholder="반">
+							</div>
+							
+							<div class="form-group formField">
+								<input type="text" class="form-control" name="parentno" placeholder="학부모번호">
+							</div>
+							
 							<!-- Date -->
 							<div class="form-group formField">
-								<label>Date:</label>
+								<label>생년월일</label>
 
 								<div class="input-group date">
 									<div class="input-group-addon">
@@ -235,19 +239,30 @@
 								<!-- /.input group -->
 							</div>
 							<!-- /.form group -->
+							
+														
+							<div class="form-group formField">
+								<input type="text" class="form-control" name="adress" placeholder="주소">
+							</div>
+							
 
-							<div class="form-group formField">
-								<input type="text" class="form-control" name="sclass" placeholder="반">
+							<div class="input-group input-group-md">
+								<label>성별</label>
+								<select name="gender">
+									<option value="M">Male</option>
+									<option value="W">Female</option>
+								</select>
 							</div>
-							<div class="form-group formField">
-								<input type="text" class="form-control" name="address" placeholder="주소">
+							
+							<div class="input-group input-group-md">
+								<label>안경유무</label>
+								<select name="glass">
+									<option value=0>Yes</option>
+									<option value=1>No</option>
+								</select>
 							</div>
-							<div class="form-group formField">
-								<input type="text" class="form-control" placeholder="시력">
-							</div>
-							<div class="form-group formField">
-								<input type="text" class="form-control" name="parentno" placeholder="학부모번호">
-							</div>
+														
+							
 							<div class="form-group formField">
 								<input type='file' id="uploadImage" name="file" />
 								<div id="preview">
@@ -255,6 +270,7 @@
 									<img id="imagePreview" src="#" alt="Preview upload images" />
 								</div>
 							</div>
+													
 
 							<div class="form-group formField">
 								<input type="submit"
@@ -293,11 +309,12 @@
 
 	<script src="./resources/AdminLTE/js/sapply.js"></script>
 
-
-
-
 	<script type="text/javascript"
-		src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+		src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js">
+	
+	
+	
+	</script>
 	<!-- jQuery 3 -->
 
 	<!-- jQuery UI 1.11.4 -->

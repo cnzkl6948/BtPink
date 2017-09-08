@@ -68,8 +68,11 @@ public class AdminController {
 			
 			
 			System.out.println(student);
-			dao.insert(student);
-			return "redirect:insertStudent";
+			int result=dao.insert(student);
+			if(result==1){
+				System.out.println("입력성공");
+			}
+			return "AdminPage/Sapply";
 		}
 		
 

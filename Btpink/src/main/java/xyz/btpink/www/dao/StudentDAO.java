@@ -24,6 +24,7 @@ public class StudentDAO {
 		
 		int result = 0;
 		try {
+			result = mapper.insertStudent(student);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

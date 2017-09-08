@@ -26,7 +26,7 @@
 	</beans:bean>
 	
 	<beans:bean id="path" class="java.lang.String">
-		<beans:constructor-arg value="C:/upload">
+		<beans:constructor-arg value="C:/BtPink/Btpink/src/main/webapp/resources/Sapply">
 		</beans:constructor-arg>
 	</beans:bean>
 	
