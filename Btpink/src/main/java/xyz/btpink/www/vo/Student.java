@@ -1,6 +1,7 @@
 package xyz.btpink.www.vo;
 
 public class Student {
+
 	private String stdno;
 	private String name;
 	private String age;
