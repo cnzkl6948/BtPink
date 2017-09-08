@@ -170,7 +170,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="adminPage"><i class="fa fa-circle-o"></i>자동 반 배정</a></li>
-            <li><a href="adminPage"><i class="fa fa-circle-o"></i>자동 자리 배치</a></li>
+            <li><a href="maptest"><i class="fa fa-circle-o"></i>자동 자리 배치</a></li>
           </ul>
         </li>
       </ul>
