@@ -1,34 +1,34 @@
 package xyz.btpink.www.vo;
 
 public class Student {
+
+	private String stdno;
+	private String name;
+	private String age;
+	private String height;
+	private String classno;
+	private String birth;
+	private String address;
+	private String image;
+	private String gender;
+	private String parentno;
+	private String glass;
 	
-	String stdno;
-	String name;
-	int age;
-	int height;
-	String sclass;
-	String birth;
-	String address;
-	String image;
-	String gender;
-	String parentno;
-	
-	public Student(){
-		
-	}
-		
-	public Student(String stdno, String name, int age, int height, String sclass, String birth, String address,
-			String image, String gender, String parentno) {
+	public Student() {}
+
+	public Student(String stdno, String name, String age, String height, String classno, String birth, String address,
+			String image, String gender, String parentno, String glass) {
 		this.stdno = stdno;
 		this.name = name;
 		this.age = age;
 		this.height = height;
-		this.sclass = sclass;
+		this.classno = classno;
 		this.birth = birth;
 		this.address = address;
 		this.image = image;
 		this.gender = gender;
 		this.parentno = parentno;
+		this.glass = glass;
 	}
 
 	public String getStdno() {
@@ -47,28 +47,28 @@ public class Student {
 		this.name = name;
 	}
 
-	public int getAge() {
+	public String getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 
-	public int getHeight() {
+	public String getHeight() {
 		return height;
 	}
 
-	public void setHeight(int height) {
+	public void setHeight(String height) {
 		this.height = height;
 	}
 
-	public String getSclass() {
-		return sclass;
+	public String getClassno() {
+		return classno;
 	}
 
-	public void setSclass(String sclass) {
-		this.sclass = sclass;
+	public void setClassno(String classno) {
+		this.classno = classno;
 	}
 
 	public String getBirth() {
@@ -79,11 +79,11 @@ public class Student {
 		this.birth = birth;
 	}
 
-	public String getaddress() {
+	public String getAddress() {
 		return address;
 	}
 
-	public void setaddress(String address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
@@ -111,17 +111,18 @@ public class Student {
 		this.parentno = parentno;
 	}
 
+	public String getGlass() {
+		return glass;
+	}
+
+	public void setGlass(String glass) {
+		this.glass = glass;
+	}
+
 	@Override
 	public String toString() {
-		return "Student [stdno=" + stdno + ", name=" + name + ", age=" + age + ", height=" + height + ", sclass="
-				+ sclass + ", birth=" + birth + ", address=" + address + ", image=" + image + ", gender=" + gender
-				+ ", parentno=" + parentno + "]";
+		return "Student [stdno=" + stdno + ", name=" + name + ", age=" + age + ", height=" + height + ", classno="
+				+ classno + ", birth=" + birth + ", address=" + address + ", image=" + image + ", gender=" + gender
+				+ ", parentno=" + parentno + ", glass=" + glass + "]";
 	}
-	
-	
-	
-	
-	
-	
-
 }
