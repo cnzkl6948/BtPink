@@ -210,8 +210,8 @@
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
         <section class="col-lg-6 connectedSortable">    
 		  <p id="img"></p>
+<!-- 		<img src="https://geonho.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/> -->
 <!-- 		<img src="https://www.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/> -->
-<!-- 		<img src="https://gunho.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/> -->
 <!-- 		<img src="https://daheen.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/> -->
 <!-- 		<img src="https://suenghan.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/> -->
 

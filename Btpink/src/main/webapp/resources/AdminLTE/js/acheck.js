@@ -58,7 +58,7 @@ function snapshot() {
 				type : "POST",
 				// Request body
 				data : JSON.stringify({
-							"personGroupId" : "btpink-1",
+							"personGroupId" : "example-group-00",
 							"faceIds" : detectFaceId,
 							"maxNumOfCandidatesReturned" : 2,
 							"confidenceThreshold" : 0.5
@@ -94,7 +94,7 @@ function getName(personId) {
 			type : "GET",
 			// Request body
 			data : JSON.stringify({
-				"personGroupId" : "btpink-1",
+				"personGroupId" : "example-group-00",
 				"personIds" : [ personId ]
 			})
 

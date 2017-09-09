@@ -679,7 +679,7 @@
 						</figure>
 					</article>
 				</div>
-<!-- >>>>>>> develope -->
+				<!-- >>>>>>> develope -->
 
 				<div class="col-md-3 col-sm-6 col-xs-12 isotopeSelector nature">
 					<article class="">

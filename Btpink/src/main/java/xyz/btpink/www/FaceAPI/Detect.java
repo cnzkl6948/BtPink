@@ -41,10 +41,9 @@ public class Detect {
 			// Request headers.
 			request.setHeader("Content-Type", "application/json");
 			request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-
 			// Request body.201708271503837703388.jpg
-			String url = "{\"url\":\"https://www.btpink.xyz/www/resources/face_detection/" + image + "\"}";
-//			String url = "{\"url\":\"https://gunho.btpink.xyz/www/resources/face_detection/" + image + "\"}";
+//			String url = "{\"url\":\"https://www.btpink.xyz/www/resources/face_detection/" + image + "\"}";
+			String url = "{\"url\":\"https://geonho.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 //			String url = "{\"url\":\"https://daheen.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 //			String url = "{\"url\":\"https://suenghan.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 			System.out.println(url);
@@ -52,19 +51,15 @@ public class Detect {
 			StringEntity reqEntity = new StringEntity(url);
 			request.setEntity(reqEntity);
 
-			// Execute the REST API call and get the response entity.
 			HttpResponse response = httpclient.execute(request);
 			HttpEntity entity = response.getEntity();
 
 			if (entity != null) {
-				// Format and display the JSON response.
 				System.out.println("REST Response:\n");
 
 				String jsonString = EntityUtils.toString(entity).trim();
 				if (jsonString.charAt(0) == '[') {
 					JSONArray jsonArray = new JSONArray(jsonString);
-//					String ftest = jsonArray.toString(2);
-//					System.out.println(ftest);
 					faceTest = jsonArray.toString(0).split("faceId\":\"");
 					faceId = new String[faceTest.length - 1];
 					faceResult = "";

@@ -26,7 +26,6 @@ public class FaceAPIController {
 		Thread.sleep(3000);
 		Detect detect = new Detect();
 		String faceId[] = detect.getFaceId(fileName);
-
 		return faceId;
 	}
 	

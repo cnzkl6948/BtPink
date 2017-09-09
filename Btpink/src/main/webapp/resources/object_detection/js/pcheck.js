@@ -36,7 +36,7 @@ function snapshot(){
 		type : "POST",
 		data : $('#formId').serialize(),
 		success : function(count){
-			var url = '<img src="https://www.btpink.xyz/www/resources/object_detection/test.jpg" width="800" height="450"/>';
+			var url = '<img src="https://geonho.btpink.xyz/www/resources/object_detection/test.jpg" width="800" height="450"/>';
 			var cnt = count + '명';
 			$('#img').html(url);
 			$('#cnt').html(cnt);
