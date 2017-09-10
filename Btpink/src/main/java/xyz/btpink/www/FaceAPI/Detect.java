@@ -4,6 +4,10 @@ package xyz.btpink.www.FaceAPI;
 //and the org.json library (org.json:json:20170516).
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -15,17 +19,25 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Detect {
-	public static final String subscriptionKey = "d98e1b55a315483ea2658fbc75ef68b3";
-	public static final String uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
-	public static String faceId[];
-	public static String[] faceTest;
-	public static String faceResult;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-	public String[] getFaceId(String image) {
+import xyz.btpink.www.vo.IdentfyVO;
+
+
+public class Detect {
+	public final String subscriptionKey = "d98e1b55a315483ea2658fbc75ef68b3";
+	public final String uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+	public String faceId[];
+	public String faceResult;
+	public int len;
+	public TreeMap<String, Double> map;
+	TreeMap<String, xyz.btpink.www.vo.IdentfyVO> identifyMap;
+	public Map<String, xyz.btpink.www.vo.IdentfyVO> getFaceId(String image) {
 		HttpClient httpclient = new DefaultHttpClient();
-		System.out.println(image);
 		try {
+			xyz.btpink.www.vo.IdentfyVO identfy = new xyz.btpink.www.vo.IdentfyVO();
+			HashMap<String, xyz.btpink.www.vo.IdentfyVO> detectMap = new HashMap<>();
+			Identfy identy = new Identfy();
 			URIBuilder builder = new URIBuilder(uriBase);
 
 			// Request parameters. All of them are optional.
@@ -55,24 +67,37 @@ public class Detect {
 			HttpEntity entity = response.getEntity();
 
 			if (entity != null) {
+				// Format and display the JSON response.
 				System.out.println("REST Response:\n");
-
 				String jsonString = EntityUtils.toString(entity).trim();
 				if (jsonString.charAt(0) == '[') {
 					JSONArray jsonArray = new JSONArray(jsonString);
-					faceTest = jsonArray.toString(0).split("faceId\":\"");
-					faceId = new String[faceTest.length - 1];
-					faceResult = "";
-
-					for (int i = 1; i < faceTest.length; i++) {
-						System.out.println(i + "번째 배열" + faceTest[i].substring(0, 36));
-						faceResult = faceTest[i].substring(0, 36);
-						faceId[i - 1] = faceResult;
+					System.out.println("json 길이 : "+jsonArray.length());
+					len = jsonArray.length();
+					ArrayList<String> list = new ArrayList<>();
+					String[][] faceId = new String[len][2];
+					for (int i = 0; i < len; i++) {
+						list.add("\"" + (String) jsonArray.getJSONObject(i).get("faceId") + "\"");
+						System.out.println(jsonArray.getJSONObject(i));
+						System.out.println(jsonArray.getJSONObject(i).getJSONObject("faceAttributes").getJSONObject("emotion").toString());
+						map = new ObjectMapper().readValue(jsonArray.getJSONObject(0).getJSONObject("faceAttributes").getJSONObject("emotion").toString(), TreeMap.class);
+						identfy.setFaceId((String) jsonArray.getJSONObject(i).get("faceId"));
+						System.out.println("1");
+						identfy.setEmotion(sortByValue(map));
+						System.out.println("2");
+						detectMap.put(identfy.getFaceId(), identfy);
+						System.out.println(3);
 					}
-
-					for (int i = 0; i < faceId.length; i++) {
-						System.out.println("본 배열 " + i + "번쨰 :" + faceId[i]);
+					System.out.println(identfy);
+					System.err.println("detect Map : "+detectMap);
+					identifyMap = identy.identfy(list);
+					for (String merge : identifyMap.keySet()) {
+						if(detectMap.containsKey(identifyMap.get(merge).getFaceId())){
+							identifyMap.put(merge, new xyz.btpink.www.vo.IdentfyVO(merge, detectMap.get(identifyMap.get(merge).getFaceId()).getEmotion()));
+						}
 					}
+					System.out.println(identifyMap);
+					
 				} else if (jsonString.charAt(0) == '{') {
 					JSONObject jsonObject = new JSONObject(jsonString);
 					System.out.println(jsonObject.toString(2));
@@ -82,7 +107,26 @@ public class Detect {
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			System.err.println("abs");
 		}
-		return faceId;
+		 return identifyMap;
 	}
+
+	public String sortByValue(final Map<String, Double> map) {
+		String temp = "";
+		double d = 0.0;
+		System.out.println(map);
+			for ( String s : map.keySet()) {
+				System.out.println("작은 for문  : "+s);
+				try{
+				if(map.get(s)>d){
+					d = map.get(s);
+					temp = s;
+				}
+				}catch(Exception e){}
+			}
+			System.out.println(temp);
+		return temp;
+	}
+
 }
