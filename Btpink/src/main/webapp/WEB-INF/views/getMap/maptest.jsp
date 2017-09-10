@@ -4,6 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width"/>
     <title>geolocation으로 마커 표시하기</title>
     
 </head>
