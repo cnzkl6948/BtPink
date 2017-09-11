@@ -10,7 +10,6 @@ function readUploadImage(inputObject) {
 	 * 
 	 * 해 본다.
 	 * 
-	 * 안되면 안된다고 알려 주면 되지~ ㅋㅋ
 	 * 
 	 */
 
@@ -43,6 +42,7 @@ function readUploadImage(inputObject) {
 				/* reader가 다 읽으면 imagePreview에 뿌려 주면 끝~ */
 
 				$('#imagePreview').attr('src', e.target.result);
+				$('#imgSelect').val('ok');
 
 			}
 
@@ -97,10 +97,12 @@ jQuery(function($) {
 	});
 });
 
-$(function(){
-	//Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    })
-	
-})
+
+
+function submit(){
+	$('#formId').submit();
+
+}
+function cancel(){
+	$('#formId')[0].reset();
+}

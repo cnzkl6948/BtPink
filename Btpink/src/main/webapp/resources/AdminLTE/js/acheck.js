@@ -33,15 +33,21 @@ function takePhoto() {
 function snapshot() {
 	var set = document.getElementById('image');
 	// 찍은 사진을 저장한다.
-
+	
+	
 	var snap = takePhoto();
 	// 이미지의 소스와 다운로드 링크 주소를 캔버스에서 그린 그림의 주소 값으로 한다.
-	var formTest = document.getElementById('formTest');
-	set.setAttribute('value', snap);
+	var formId = document.getElementById('formId');
+	$('#img_here').html('<img id="selfieimage" src="'+snap+'" width="640" height="480">');
+	
+//	image.setAttribute('src', snap);
+	
+    set.setAttribute('value', snap);
+//    image.setAttribute('style', 'display: block;'); 
 	$.ajax({
 		url : "detectImage",
 		type : "POST",
-		data : $("#formTest").serialize(), // serializes the form's elements.
+		data : $("#formId").serialize(), // serializes the form's elements.
 		success : function(detectFaceId) {
 			// show response from the php script.
 			$.ajax({
@@ -58,14 +64,13 @@ function snapshot() {
 				type : "POST",
 				// Request body
 				data : JSON.stringify({
-							"personGroupId" : "btpink-1",
+							"personGroupId" : "example-group-00",
 							"faceIds" : detectFaceId,
 							"maxNumOfCandidatesReturned" : 2,
 							"confidenceThreshold" : 0.5
 						})
 				}).done(
 					function(data) {
-						$("#responseTextArea").val(JSON.stringify(data, null, 2));
 						try {
 							var personId = data[0].candidates[0].personId;
 							getName(personId);
@@ -81,7 +86,7 @@ function snapshot() {
 function getName(personId) {
 	var params = {};
 	$.ajax({
-			url : "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/btpink-1/persons/"
+			url : "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/example-group-00/persons/"
 					+ personId + "?" + $.param(params),
 			beforeSend : function(xhrObj) {
 				// Request headers
@@ -94,13 +99,19 @@ function getName(personId) {
 			type : "GET",
 			// Request body
 			data : JSON.stringify({
-				"personGroupId" : "btpink-1",
+				"personGroupId" : "example-group-00",
 				"personIds" : [ personId ]
 			})
 
 		}).done(function(data) {
-		$("#responseTextArea").val(data.name);
+		$("#chulcheck").html(data.name);
 	}).fail(function() {
 		alert("getName error");
 	});
+}
+
+
+function closeModal() {
+	$('#img_here').html('');
+	$("#chulcheck").val('출석 체크 중&hellip;');
 }

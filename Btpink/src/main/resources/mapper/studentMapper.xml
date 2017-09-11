@@ -14,7 +14,7 @@
 	#{height}, 
 	#{classno}, 
 	TO_DATE(#{birth},'MM-DD-YYYY HH24:MI:SS'),
-	#{adress},
+	#{address},
 	#{image},
 	#{gender},
 	#{parentno},

@@ -46,5 +46,4 @@
 
 <!-- AdminLTE for demo purposes -->
 <script src="./resources/AdminLTE/dist/js/demo.js"></script>
-</body>
-</html>
+

@@ -52,7 +52,7 @@ public class AdminController {
 	//학생등록 처리	
 		@RequestMapping(value = "Sapply", method = RequestMethod.POST)
 		public String Sapply(Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) {
-			logger.info("Go! Sapply");
+			logger.info("Save Sapply");
 			System.out.println("파일테스트 : "+file);
 			String filename = file.getOriginalFilename();
 			student.setImage(filename);
