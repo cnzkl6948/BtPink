@@ -58,7 +58,7 @@
 
 	<div class="main-wrapper">
 		<!-- HEADER -->
-		<%@ include file="MainPage/MainHeader.html"%>
+		<%@ include file="MainPage/MainHeader.jsp"%>
 		<!-- BANNER -->
 		<section class="bannercontainer bannercontainerV1">
 			<div class="fullscreenbanner-container">
@@ -1244,6 +1244,7 @@
 	<script src="./resources/plugins/velocity/velocity.min.js"></script>
 	<script src="./resources/plugins/smoothscroll/SmoothScroll.js"></script>
 	<script src="./resources/js/custom.js"></script>
+	<script src="./resources/js/createJoin.js"></script>
 </body>
 </html>
 
