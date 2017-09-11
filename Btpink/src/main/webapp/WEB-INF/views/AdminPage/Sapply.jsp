@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="split/Head.jsp"%>
 <style>
-#datepicker{
+.form-group{
 	z-index: 999;
 }
 </style>
