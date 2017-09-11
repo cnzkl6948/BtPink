@@ -2,6 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="split/Head.jsp"%>
+<style>
+#datepicker{
+	z-index: 999;
+}
+</style>
 <%@ include file="split/Header.jsp"%>
 <%@ include file="split/Sidebar.jsp"%>
 
