@@ -10,7 +10,6 @@
 <%@ include file="split/Header.jsp"%>
 <%@ include file="split/Sidebar.jsp"%>
 
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->

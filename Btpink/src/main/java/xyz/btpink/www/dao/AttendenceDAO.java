@@ -15,24 +15,20 @@ import xyz.btpink.www.vo.Student;
  * 게시판 관련 DAO
  */
 @Repository
-public class StudentDAO {
+public class AttendenceDAO {
 	@Autowired
 	SqlSession sqlSession;
 	
-	public int insert(Student student) {
-		System.out.println("다오 진입");
-		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
 		
-		int result = 0;
-		try {
-			result = mapper.insertStudent(student);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+	public ArrayList<Attendence> selectStd(){
+		
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		ArrayList<Attendence> result = new ArrayList<>();
+		result = mapper.selectAtd();
+		
 		return result;
+		
 	}
 	
-
 
 }
