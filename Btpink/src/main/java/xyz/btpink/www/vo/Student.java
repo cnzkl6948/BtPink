@@ -8,7 +8,7 @@ public class Student {
 	private int height;
 	private String classno;
 	private String birth;
-	private String adress;
+	private String address;
 	private String image;
 	private String gender;
 	private String parentno;
@@ -16,7 +16,7 @@ public class Student {
 	
 	public Student() {}
 
-	public Student(String stdno, String name, int age, int height, String classno, String birth, String adress,
+	public Student(String stdno, String name, int age, int height, String classno, String birth, String address,
 			String image, String gender, String parentno, int glass) {
 		this.stdno = stdno;
 		this.name = name;
@@ -24,7 +24,7 @@ public class Student {
 		this.height = height;
 		this.classno = classno;
 		this.birth = birth;
-		this.adress = adress;
+		this.address = address;
 		this.image = image;
 		this.gender = gender;
 		this.parentno = parentno;
@@ -79,12 +79,12 @@ public class Student {
 		this.birth = birth;
 	}
 
-	public String getadress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setadress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getImage() {
@@ -122,7 +122,7 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [stdno=" + stdno + ", name=" + name + ", age=" + age + ", height=" + height + ", classno="
-				+ classno + ", birth=" + birth + ", adress=" + adress + ", image=" + image + ", gender=" + gender
+				+ classno + ", birth=" + birth + ", adress=" + address + ", image=" + image + ", gender=" + gender
 				+ ", parentno=" + parentno + ", glass=" + glass + "]";
 	}
 }
