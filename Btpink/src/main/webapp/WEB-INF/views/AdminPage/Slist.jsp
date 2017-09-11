@@ -5,22 +5,30 @@
 <html>
 <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>요괴 유치원 | 출석 체크</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <script src="./resources/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="./resources/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="./resources/AdminLTE/bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="./resources/AdminLTE/bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="./resources/AdminLTE/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>요괴 유치원 | 출석 체크</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport">
+<script
+	src="./resources/AdminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+<!-- Bootstrap 3.3.7 -->
+<link rel="stylesheet"
+	href="./resources/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="./resources/AdminLTE/bower_components/font-awesome/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="./resources/AdminLTE/bower_components/Ionicons/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet"
+	href="./resources/AdminLTE/dist/css/AdminLTE.min.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
 <link rel="stylesheet"
 	href="./resources/AdminLTE/dist/css/skins/_all-skins.min.css">
 <!-- Morris chart -->
@@ -50,10 +58,6 @@
 <!-- Google Font -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
-
-
-
 
 </head>
 <body class="hold-transition skin-red-light fixed sidebar-mini">
@@ -190,98 +194,42 @@
 			</section>
 
 			<!-- Main row -->
-			<div class="container" id="f1">
-				<div class="col-md-3"></div>
-				<div class="col-md-6">
-					<div id="panel1" class="panel panel-default">
-						<h1>학생등록</h1>
+			<article>
+				<div class="container">
+					<h1>출석부</h1>
 
-						<form action="Sapply" method="POST" role="form" enctype="multipart/form-data" onsubmit="return Checkform()">
-							<div class="form-group formField">
-								<input type="text" class="form-control" name="name" placeholder="이름">
-							</div>
-							
-							<div class="form-group formField">
-								<input type="text" class="form-control" name="age" id="age" placeholder="나이">
-							</div>
-							
-							<div class="form-group formField">
-								<input type="text" class="form-control" name="height" placeholder="키">
-							</div>
-							
-							<div class="form-group formField">
-								<input type="text" class="form-control" name="classno" placeholder="반">
-							</div>
-							
-							<div class="form-group formField">
-								<input type="text" class="form-control" name="parentno" placeholder="학부모번호">
-							</div>
-							
-							<!-- Date -->
-							<div class="form-group formField">
-								<label>생년월일</label>
-
-								<div class="input-group date">
-									<div class="input-group-addon">
-										<i class="fa fa-calendar"></i>
-									</div>
-									<input type="text" class="form-control pull-right" name="birth"
-										id="datepicker">
-								</div>
-								<!-- /.input group -->
-							</div>
-							<!-- /.form group -->
-							
-														
-							<div class="form-group formField">
-								<input type="text" class="form-control" name="adress" placeholder="주소">
-							</div>
-							
-
-							<div class="input-group input-group-md">
-								<label>성별</label>
-								<select name="gender">
-									<option value="M">Male</option>
-									<option value="W">Female</option>
-								</select>
-							</div>
-							
-							<div class="input-group input-group-md">
-								<label>안경유무</label>
-								<select name="glass">
-									<option value=0>Yes</option>
-									<option value=1>No</option>
-								</select>
-							</div>
-														
-							
-							<div class="form-group formField">
-								<input type='file' id="uploadImage" name="file" />
-								<div id="preview">
-									<!-- 사이즈는 알아서 하고~ ㅋㅋ -->
-									<img id="imagePreview" src="#" alt="Preview upload images" />
-								</div>
-							</div>
-													
-
-							<div class="form-group formField">
-								<input type="submit"
-									class="btn btn-primary btn-block bg-color-3 border-color-3"
-									value="Register">
-							</div>
-						</form>
-
-
-						<footer>
-							<p id="footer">
-								Desing provided by <a href="https://www.shieldui.com/">Shield
-									UI</a>
-							</p>
-						</footer>
-					</div>
+					<table style="text-align: center;" class="table">
+						<thead>
+							<tr class="warning">
+								<th style="text-align: center;">학생번호</th>
+								<th style="text-align: center;">반번호</th>
+								<th style="text-align: center;">오늘날짜</th>
+								<th style="text-align: center;">결석</th>
+								<th style="text-align: center;">조퇴</th>
+								<th style="text-align: center;">병결</th>
+								<th style="text-align: center;">지각</th>
+								<th style="text-align: center;">감정</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="rrs" items="${list}">
+								<%--<c:if test="${rm.num == rrs.roomNum}"> --%>
+								<tr class="success">
+									<td class="stdno">${rrs.stdno}</td>
+									<td class="classno">${rrs.classno}</td>
+									<td class="today">${rrs.today}</td>
+									<td class="absent">${rrs.absent }</td>
+									<td class="early">${rrs.early }</td>
+									<td class="sick">${rrs.sick }</td>
+									<td class="late">${rrs.late }</td>
+									<td class="emotion">${rrs.emotion }</td>
+								</tr>
+								<%--</c:if> --%>
+							</c:forEach>
+						</tbody>
+					</table>
 				</div>
-				<div class="col-md-3"></div>
-			</div>
+			</article>
 			<!-- /.row -->
 			</section>
 			<!-- /.content -->
@@ -302,22 +250,9 @@
 	<script src="./resources/AdminLTE/js/sapply.js"></script>
 
 
-<script type="text/javascript" src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js">
-
-function Checkform() {
-	alert('스크립트 진입');
-	var age = document.getElementsById("age");
-	
-	if(isNaN(age)){
-		alert('나이는 숫자만');
-		return false;
-	}
-		
-}
-
-
-</script>
-<!-- jQuery 3 -->
+	<script type="text/javascript"
+		src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+	<!-- jQuery 3 -->
 
 
 	<!-- jQuery UI 1.11.4 -->
@@ -325,8 +260,8 @@ function Checkform() {
 		src="./resources/AdminLTE/bower_components/jquery-ui/jquery-ui.min.js"></script>
 	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 	<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
+		$.widget.bridge('uibutton', $.ui.button);
+	</script>
 
 	<!-- Bootstrap 3.3.7 -->
 	<script

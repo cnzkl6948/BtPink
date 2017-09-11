@@ -1,6 +1,7 @@
 package xyz.btpink.www.admin;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Locale;
 
 import org.apache.ibatis.session.SqlSession;
@@ -14,14 +15,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import xyz.btpink.www.dao.AttendenceDAO;
 import xyz.btpink.www.dao.StudentDAO;
+import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.Student;
 
 @Controller
 public class AdminController {
 	
 	@Autowired
-	StudentDAO dao;
+	StudentDAO sdao;
+	
+	@Autowired
+	AttendenceDAO adao;
 
 	@Autowired
 	private String path;
@@ -68,12 +74,24 @@ public class AdminController {
 			
 			
 			System.out.println(student);
-			int result=dao.insert(student);
+			int result=sdao.insert(student);
 			if(result==1){
 				System.out.println("입력성공");
 			}
 			return "AdminPage/Sapply";
 		}
+		
+	//출석부
+			@RequestMapping(value = "Slist", method = RequestMethod.GET)
+			public String Slist(Locale locale, Model model) {
+				logger.info("Go! Slist");
+				
+				ArrayList<Attendence> result = adao.selectStd();
+				System.out.println(result);
+				model.addAttribute("list", result);
+				
+				return "AdminPage/Slist";
+			}	
 		
 
 	//인원확인
