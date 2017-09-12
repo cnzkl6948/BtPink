@@ -49,49 +49,49 @@ public class AdminController {
 	
 
 	//학생등록
-		@RequestMapping(value = "Sapply", method = RequestMethod.GET)
-		public String Sapply(Locale locale, Model model) {
-			logger.info("Go! Sapply");
-			return "AdminPage/Sapply";
-		}
+	@RequestMapping(value = "Sapply", method = RequestMethod.GET)
+	public String Sapply(Locale locale, Model model) {
+		logger.info("Go! Sapply");
+		return "AdminPage/Sapply";
+	}
 	
 	//학생등록 처리	
-		@RequestMapping(value = "Sapply", method = RequestMethod.POST)
-		public String Sapply(Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) {
-			logger.info("Save Sapply");
-			System.out.println("파일테스트 : "+file);
-			String filename = file.getOriginalFilename();
-			student.setImage(filename);
-			
-			try {
-				File out = new File(path + File.separator + filename);
-				file.transferTo(out);
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-			rttr.addAttribute("filename", filename);
-			
-			
-			
-			System.out.println(student);
-			int result=sdao.insert(student);
-			if(result==1){
-				System.out.println("입력성공");
-			}
-			return "AdminPage/Sapply";
+	@RequestMapping(value = "Sapply", method = RequestMethod.POST)
+	public String Sapply(Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) {
+		logger.info("Save Sapply");
+		System.out.println("파일테스트 : "+file);
+		String filename = file.getOriginalFilename();
+		student.setImage(filename);
+		
+		try {
+			File out = new File(path + File.separator + filename);
+			file.transferTo(out);
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
+		rttr.addAttribute("filename", filename);
+		
+		
+		
+		System.out.println(student);
+		int result=sdao.insert(student);
+		if(result==1){
+			System.out.println("입력성공");
+		}
+		return "AdminPage/Sapply";
+	}
 		
 	//출석부
-			@RequestMapping(value = "Slist", method = RequestMethod.GET)
-			public String Slist(Locale locale, Model model) {
-				logger.info("Go! Slist");
-				
-				ArrayList<Attendence> result = adao.selectStd();
-				System.out.println(result);
-				model.addAttribute("list", result);
-				
-				return "AdminPage/Slist";
-			}	
+	@RequestMapping(value = "Slist", method = RequestMethod.GET)
+	public String Slist(Locale locale, Model model) {
+		logger.info("Go! Slist");
+		
+		ArrayList<Attendence> result = adao.selectStd();
+		System.out.println(result);
+		model.addAttribute("list", result);
+		
+		return "AdminPage/Slist";
+	}	
 		
 
 	//인원확인

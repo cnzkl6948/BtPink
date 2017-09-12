@@ -1,3 +1,38 @@
+$(function(){
+	//Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+    
+	$('#formId').submit(function(){
+		if($('#name').val() === ""){
+			alert('이름을 작성해 주세요');
+			return false;
+		}
+		if($('#classno').val() === ""){
+			alert('반 이름을 작성해 주세요');
+			return false;
+		}
+		if($('#height').val() === ""){
+			alert('키를 작성해 주세요');
+			return false;
+		}
+		if($('#birth').val() === ""){
+			alert('생일을 작성해 주세요');
+			return false;
+		}
+		if($('#address').val() === ""){
+			alert('주소를 작성해 주세요');
+			return false;
+		}
+		if($('#imgSelect').val() === "notyet"){
+			alert('사진을 넣어 주세요');
+			return false;
+		}
+		return true;
+	});
+});
+
 function readUploadImage(inputObject) {
 
 	/*

@@ -3,8 +3,11 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="split/Head.jsp"%>
 <style>
-.form-group{
-	z-index: 999;
+.main-header {
+	z-index: 9; 
+}
+.main-sidebar {
+	z-index: 8; 
 }
 </style>
 <%@ include file="split/Header.jsp"%>
@@ -67,7 +70,7 @@
 				<div class="form-group">
 					<label for="birth" class="col-sm-2 control-label">생일</label>
 					<div class="col-sm-5">
-	                  <input type="text" class="form-control pull-right" name="birth" id="datepicker">
+	                  <input type="text" class="form-control pull-right" name="birth" id="datepicker" placeholder="생일">
 	                </div>
 					<label for="glass" class="col-sm-2 control-label">안경</label>
 					<div class="col-sm-3">
@@ -193,40 +196,5 @@
 <%@ include file="split/Footer.jsp"%> 
 <script src="./resources/AdminLTE/js/sapply.js"></script>
 <script type="text/javascript" src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-<script>
-$(function(){
-	//Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    })
-	$('#formId').submit(function(){
-		if($('#name').val() === ""){
-			alert('이름을 작성해 주세요');
-			return false;
-		}
-		if($('#classno').val() === ""){
-			alert('반 이름을 작성해 주세요');
-			return false;
-		}
-		if($('#height').val() === ""){
-			alert('키를 작성해 주세요');
-			return false;
-		}
-		if($('#birth').val() === ""){
-			alert('생일을 작성해 주세요');
-			return false;
-		}
-		if($('#address').val() === ""){
-			alert('주소를 작성해 주세요');
-			return false;
-		}
-		if($('#imgSelect').val() === "notyet"){
-			alert('사진을 넣어 주세요');
-			return false;
-		}
-		return true;
-	});
-});
-</script>
 </body>
 </html>

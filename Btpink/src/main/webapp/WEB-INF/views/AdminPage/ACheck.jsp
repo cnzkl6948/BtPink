@@ -22,20 +22,20 @@
 	<br>
 	<!-- Main row -->
       <div class="row">
-        <section class="col-lg-6 connectedSortable">
-        	<div class="col-md-12">
-	          	<div>
-					<video autoplay="autoplay" id="myVideo"></video>
-				</div>
-				<form id="formId">
-					<p id="img_here"></p>
-					<input type="hidden" id="image" name="image" > <br>
-					<canvas id="store" style="display: none;" ></canvas>
-				</form>
-        	</div>
+      <!-- left col -->
+        <section class="col-lg-6 col-md-12 connectedSortable">
+          	<div>
+				<video autoplay="autoplay" id="myVideo" width="100%"></video>
+			</div>
+			<form id="formId">
+				<p id="img_here"></p>
+				<input type="hidden" id="image" name="image" > <br>
+				<canvas id="store" style="display: none;" ></canvas>
+			</form>
         </section>
-        <section class="col-lg-6 connectedSortable">
-        	<div class="col-md-12">
+        <!-- /.left col -->
+        <!-- right col -->
+        <section class="col-lg-6 col-md-12 connectedSortable">
 	        	<div class="box box-solid">
 	            <div class="box-header with-border">
 	              <h3 class="box-title">사용 방법</h3>
@@ -116,9 +116,8 @@
 					<!-- /.modal-dialog -->
 				</div>
 				<!-- /.modal -->
-			</div>
         </section>
-        
+        <!-- /.right col -->
       </div>
       <!-- /.row (main row) -->
       

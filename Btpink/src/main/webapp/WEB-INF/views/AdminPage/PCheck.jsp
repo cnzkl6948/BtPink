@@ -22,9 +22,9 @@
 	<br>
       <!-- Main row -->
       <div class="row">
+      <div class="col-lg-12">
         <!-- Left col -->
-        <section class="col-lg-6 connectedSortable">
-          	<div class="col-md-12">
+        <section class="col-lg-6 col-md-12 connectedSortable">
 	          	<div>
 					<video autoplay="autoplay" id="myVideo"></video>
 				</div>
@@ -33,13 +33,11 @@
 					<input type="hidden" id="image" name="image" > <br>
 					<canvas id="store" style="display: none;" ></canvas>
 				</form>
-        	</div>
         </section>
         <!-- /.Left col -->
         
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-6 connectedSortable">    
-        <div class="col-md-12">
+        <section class="col-lg-6 col-md-12 connectedSortable">    
 	        <div class="box box-solid">
 	            <div class="box-header with-border">
 	              <h3 class="box-title">사용 방법</h3>
@@ -120,10 +118,9 @@
 					<!-- /.modal-dialog -->
 				</div>
 				<!-- /.modal -->
-			</div>
-
         </section>
         <!-- right col -->
+        </div>
       </div>
       <!-- /.row (main row) -->
   </div>
