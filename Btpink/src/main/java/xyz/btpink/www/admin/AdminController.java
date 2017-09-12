@@ -100,5 +100,11 @@ public class AdminController {
 		logger.info("Go! PCheck");
 		return "AdminPage/PCheck";
 	}
-
+	
+	//인원확인
+	@RequestMapping(value = "emotionCal", method = RequestMethod.GET)
+	public String emotionCal(Locale locale, Model model) {
+		logger.info("Go! emotionCal");
+		return "AdminPage/emotionCal";
+	}
 }

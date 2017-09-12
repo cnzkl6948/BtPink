@@ -126,7 +126,7 @@
       
   </div>
   <!-- /.content-wrapper -->
-  <a href="/www/resources/test.html">test</a>
+  
 
 <%@ include file="split/Footer.jsp"%> 
 <!-- Face API 자바스크립트 -->
