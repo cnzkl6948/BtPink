@@ -37,7 +37,7 @@ function snapshot(){
 		type : "POST",
 		data : $('#formId').serialize(),
 		success : function(count){
-			var url = '<img src="https://www.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>';
+			var url = '<img src="https://www.btpink.xyz/www/resources/object_detection/test.jpg" width="100%"/>';
 //<img src="https://www.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
 //<img src="https://geonho.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
 //<img src="https://dahuin.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
@@ -51,6 +51,7 @@ function snapshot(){
 	
 }
 function closeModal() {
+	$('#img').html('');
 	$('#img_here').html('');
 	$("#hitocheck").html('인원 확인 중&hellip; <br>30초 이상 시간이 필요합니다. <br>기다려주세요.');
 }

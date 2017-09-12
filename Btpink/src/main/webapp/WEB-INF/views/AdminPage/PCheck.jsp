@@ -26,10 +26,10 @@
         <!-- Left col -->
         <section class="col-lg-6 col-md-12 connectedSortable">
 	          	<div>
-					<video autoplay="autoplay" id="myVideo"></video>
+					<video autoplay="autoplay" id="myVideo" width="100%"></video>
+					<p id="img_here"></p>
 				</div>
 				<form id="formId">
-					<p id="img_here"></p>
 					<input type="hidden" id="image" name="image" > <br>
 					<canvas id="store" style="display: none;" ></canvas>
 				</form>

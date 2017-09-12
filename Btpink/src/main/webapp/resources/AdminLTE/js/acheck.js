@@ -38,7 +38,7 @@ function snapshot() {
 	var snap = takePhoto();
 	// 이미지의 소스와 다운로드 링크 주소를 캔버스에서 그린 그림의 주소 값으로 한다.
 	var formId = document.getElementById('formId');
-	$('#img_here').html('<img id="selfieimage" src="'+snap+'" width="640" height="480">');
+	$('#img_here').html('<img id="selfieimage" src="'+snap+'" width="100%">');
 	
 //	image.setAttribute('src', snap);
 	
