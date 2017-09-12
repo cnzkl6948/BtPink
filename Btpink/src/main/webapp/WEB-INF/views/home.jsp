@@ -54,8 +54,6 @@
 </head>
 
 <body class="body-wrapper">
-
-
 	<div class="main-wrapper">
 		<!-- HEADER -->
 		<%@ include file="MainPage/MainHeader.jsp"%>

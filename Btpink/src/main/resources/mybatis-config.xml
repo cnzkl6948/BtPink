@@ -4,11 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias type="xyz.btpink.www.vo.Account" alias="Account" />
 		<typeAlias type="xyz.btpink.www.vo.Teacher" alias="Teacher" />
 		<typeAlias type="xyz.btpink.www.vo.Student" alias="Student" />
 		<typeAlias type="xyz.btpink.www.vo.Parent" alias="Parent" />
 	</typeAliases>
 	<mappers>
+		<mapper resource="mapper/AccountMapper.xml" />
 		<mapper resource="mapper/studentMapper.xml" />
 		<mapper resource="mapper/parentMapper.xml" />
 		<mapper resource="mapper/teacherMapper.xml" />

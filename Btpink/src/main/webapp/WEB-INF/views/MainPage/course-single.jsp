@@ -56,7 +56,7 @@
 
 <body class="body-wrapper">
 	<div class="main-wrapper">
-		<%@ include file="MainHeader.html"%>
+		<%@ include file="MainHeader.jsp"%>
 		<!-- WHITE SECTION -->
 
 		<div class="col-md-9 col-sm-3 col-xs-12 block pull-right">

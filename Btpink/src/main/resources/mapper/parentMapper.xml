@@ -4,6 +4,23 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="xyz.btpink.www.dao.ParentMapper">
-
-
+<!-- 	<insert id="Insert" parameterType="Parent"> -->
+<!-- 		insert into account values( -->
+<!-- 		#{memNo} -->
+<!-- 		,#{name} -->
+<!-- 		,#{type} -->
+<!-- 		,#{id} -->
+<!-- 		,#{pw} -->
+<!-- 		,#{email} -->
+<!-- 		,#{phone} -->
+<!-- 		,0 -->
+<!-- 		) -->
+<!-- 	</insert> -->
+	
+	<insert id="parentInsert" parameterType="Parent">
+		insert into parent values(
+		#{memNo}
+		,#{stdNo}
+		)
+	</insert>
 </mapper>

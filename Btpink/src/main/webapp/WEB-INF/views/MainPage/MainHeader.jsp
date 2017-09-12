@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<header id="pageTop" class="header-wrapper"> <!-- COLOR BAR -->
 	<div class="container-fluid color-bar top-fixed clearfix">
 		<div class="row">
@@ -72,11 +71,10 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown singleDrop color-1   active "><a
-					href="javascript:void(0)" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false"> <i class="fa fa-home bg-color-1"
-						aria-hidden="true"></i> <span class="active">MY SUN</span>
+				<li class="dropdown singleDrop color-1"><a
+					href="MySun" class="dropdown-toggle""> <i
+						class="fa fa-home bg-color-1" aria-hidden="true"></i> <span
+						class="active">MY SUN</span>
 				</a>
 				<li class="dropdown singleDrop color-3 "><a href="teachers"
 					class="dropdown-toggle"><i class="fa fa-list-ul bg-color-3"
@@ -103,70 +101,6 @@
 						aria-hidden="true"></i> <span>Teacher</span></a>
 		</div>
 
-		<!-- 			<div class="cart-dropdown"> -->
-		<!-- 				<a href="#" class="bg-color-6 shop-cart"> <i -->
-		<!-- 					class="fa fa-shopping-basket " aria-hidden="true"></i> <span -->
-		<!-- 					class="badge bg-color-1">3</span> -->
-		<!-- 				</a> -->
-		<!-- 				<ul class="dropdown-menu dropdown-menu-right"> -->
-		<!-- 					<li><i class="fa fa-shopping-basket " aria-hidden="true"></i>3 -->
-		<!-- 						items in your cart</li> -->
-		<!-- 					<li><a href="single-product.html"> -->
-		<!-- 							<div class="media"> -->
-		<!-- 								<div class="media-left"> -->
-		<!-- 									<img src="./resources/img/home/cart/cart-img.png" -->
-		<!-- 										alt="cart-Image"> -->
-		<!-- 								</div> -->
-		<!-- 								<div class="media-body"> -->
-		<!-- 									<h4>Barbie Racing Car</h4> -->
-		<!-- 									<div class="price"> -->
-		<!-- 										<span class="color-1">$50</span> -->
-		<!-- 									</div> -->
-		<!-- 									<span class="amount">Qnt: 1</span> -->
-		<!-- 								</div> -->
-		<!-- 							</div> -->
-		<!-- 					</a> <span class="cancel"><i class="fa fa-close" -->
-		<!-- 							aria-hidden="true"></i></span></li> -->
-		<!-- 					<li><a href="single-product.html"> -->
-		<!-- 							<div class="media"> -->
-		<!-- 								<div class="media-left"> -->
-		<!-- 									<img src="./resources/img/home/cart/cart-img.png" -->
-		<!-- 										alt="cart-Image"> -->
-		<!-- 								</div> -->
-		<!-- 								<div class="media-body"> -->
-		<!-- 									<h4>Barbie Racing Car</h4> -->
-		<!-- 									<div class="price"> -->
-		<!-- 										<span class="color-1">$50</span> -->
-		<!-- 									</div> -->
-		<!-- 									<span class="amount">Qnt: 1</span> -->
-		<!-- 								</div> -->
-		<!-- 							</div> -->
-		<!-- 					</a> <span class="cancel"><i class="fa fa-close" -->
-		<!-- 							aria-hidden="true"></i></span></li> -->
-		<!-- 					<li><a href="single-product.html"> -->
-		<!-- 							<div class="media"> -->
-		<!-- 								<div class="media-left"> -->
-		<!-- 									<img src="./resources/img/home/cart/cart-img.png" -->
-		<!-- 										alt="cart-Image"> -->
-		<!-- 								</div> -->
-		<!-- 								<div class="media-body"> -->
-		<!-- 									<h4>Barbie Racing Car</h4> -->
-		<!-- 									<div class="price"> -->
-		<!-- 										<span class="color-1">$50</span> -->
-		<!-- 									</div> -->
-		<!-- 									<span class="amount">Qnt: 1</span> -->
-		<!-- 								</div> -->
-		<!-- 							</div> -->
-		<!-- 					</a> <span class="cancel"><i class="fa fa-close" -->
-		<!-- 							aria-hidden="true"></i></span></li> -->
-		<!-- 					<li><span class="cart-total">Subtotal</span> <span -->
-		<!-- 						class="cart-price">$150</span> -->
-		<!-- 						<div class="cart-button"> -->
-		<!-- 							<button type="button" class="btn btn-primary" -->
-		<!-- 								onclick="location.href='checkout-step-1.html';">Checkout</button> -->
-		<!-- 							<button type="button" class="btn btn-primary" -->
-		<!-- 								onclick="location.href='cart-page.html';">View Cart</button> -->
-		<!-- 						</div></li> -->
 		</ul>
 	</div>
 	</div>
@@ -179,12 +113,12 @@
 					<div class="panel-heading bg-color-1 border-color-1">
 						<h3 class="panel-title">Create an account</h3>
 					</div>
-					<form action="#" method="POST" role="form">
+					<form action="join" method="POST" id="createSubmit" role="form">
 						<div class="panel-body">
 							<div class="tabCommon">
-								<ul class="nav nav-tabs" >
-									<li class="active"><a data-toggle="tab"id = "test"
-										href="#create_teacher" aria-expanded="false">Teacher</a></li>
+								<ul class="nav nav-tabs">
+									<li class="active"><a data-toggle="tab" id="SelectTeacher"
+										href="#create_teacher" aria-expanded="true">Teacher</a></li>
 									<li class=""><a data-toggle="tab" href="#create_parent"
 										aria-expanded="false">Parent</a></li>
 								</ul>
@@ -192,59 +126,70 @@
 									<div id="create_teacher" class="tab-pane fade in active">
 									</div>
 									<div id="create_parent" class="tab-pane fade">
-										<div class="form-group formField" id="studentName">
-											<input type="text" class="form-control"
+										<div class="form-group formField" id="stduentNameCheck">
+											<input type="text" class="form-control" id="studentName"
 												placeholder="StudentName">
 										</div>
-										<div class="">
+										<div style="text-align: center;">
 											<div class="col-sm-4 col-xs-8" id="SelectStudent">
 												<select name="guiest_id3" id="guiest_id3"
 													class="select-drop" sb="26706380"
 													style="top: 34px; max-height: 460.4px;">
-													<option value="0">A</option>
-													<option value="1">B</option>
-													<option value="2">C</option>
-													<option value="3">D</option>
+													<option value="c1">A</option>
+													<option value="c2">B</option>
+													<option value="c3">C</option>
+													<option value="c4">D</option>
 												</select>
 											</div>
-										</div>
-										<div id="studentSelectButton">
-											<button type="button" class="btn btn-xs btn-primary "
-												onclick="javascript:studentCheck()">학생확인</button>
+											<div id="studentSelectButton">
+												<button type="button" class="btn btn-xs btn-primary"
+													onclick="javascript:studentCheck()">학생확인</button>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+
 						</div>
+
 						<div class="form-group formField">
 							<input type="text" class="form-control" id="id" name="id"
-								placeholder="UserId">
+								placeholder="UserID">
+							<div class="form-group formField">
+								<input type="hidden" id="idCheck" value="false">
+								<div style="text-align: center;">
+									<span class="label label-default" id="idCheckText"
+										style="vertical-align: top; height: 30px;">중복을 확인해 주세요</span>
+									<button type="button" class="btn btn-xs btn-primary"
+										onclick="javascript:idOverlap()">중복확인</button>
+								</div>
+							</div>
 						</div>
 						<div class="form-group formField">
-							<input type="text" class="form-control" id="name" name = "name"
+							<input type="text" class="form-control" id="name" name="name"
 								placeholder="UserName">
 						</div>
 						<div class="form-group formField">
-							<input type="password" class="form-control" id = "pw" name ="pw"
+							<input type="password" class="form-control" id="pw" name="pw"
 								placeholder="Password">
 						</div>
 						<div class="form-group formField">
-							<input type="password" class="form-control" id = "pwCk"
+							<input type="password" class="form-control" id="pwCk"
 								placeholder="Re-Password">
 						</div>
 						<div class="form-group formField">
-							<input type="text" class="form-control" id="email" name = "email"
+							<input type="text" class="form-control" id="email" name="email"
 								placeholder="Emanil">
 						</div>
 						<div class="form-group formField">
-							<input type="text" class="form-control" id="email"
+							<input type="text" class="form-control" name="phone" id="phone"
 								placeholder="Phone">
 						</div>
-						<input type="hidden" id ="type" name="type" value="t" >
+						<input type="hidden" id="type" name="type" value="t">
 						<div class="form-group formField">
-							<input type="submit"
+							<input type="button"
 								class="btn btn-primary btn-block bg-color-3 border-color-3"
-								value="Register">
+								value="Register" onclick="javascript:join()">
 						</div>
 					</form>
 				</div>
@@ -262,30 +207,30 @@
 						<h3 class="panel-title">Login</h3>
 					</div>
 					<div class="panel-body">
-						<form action="#" method="POST" role="form">
+						<form action="login" method="POST" role="form" id="joinSubmit">
 							<div class="form-group formField">
-								<input type="text" class="form-control" placeholder="User name">
+								<input type="text" class="form-control" id="loginId" name="id"
+									placeholder="User name">
 							</div>
 							<div class="form-group formField">
-								<input type="password" class="form-control"
+								<input type="password" class="form-control" id="loginPw" name=pw
 									placeholder="Password">
 							</div>
 							<div class="form-group formField">
-								<input type="submit"
+								<input type="button"
 									class="btn btn-primary btn-block bg-color-3 border-color-3"
-									value="Log in">
+									onclick="javascript:login()" value="Login">
 							</div>
-							<div class="form-group formField">
-								<p class="help-block">
-									<a href="#">Forgot password?</a>
-								</p>
-							</div>
+							<!-- 							<div class="form-group formField"> -->
+							<!-- 								<p class="help-block"> -->
+							<!-- 									<a href="#">Forgot password?</a> -->
+							<!-- 								</p> -->
+							<!-- 							</div> -->
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

@@ -1,7 +1,7 @@
 package xyz.btpink.www.vo;
 
 public class Student {
-	private String stdno;
+	private String stdNo;
 	private String name;
 	private String age;
 	private String height;
@@ -17,7 +17,7 @@ public class Student {
 
 	public Student(String stdno, String name, String age, String height, String classno, String birth, String address,
 			String image, String gender, String parentno, String glass) {
-		this.stdno = stdno;
+		this.stdNo = stdno;
 		this.name = name;
 		this.age = age;
 		this.height = height;
@@ -30,12 +30,14 @@ public class Student {
 		this.glass = glass;
 	}
 
-	public String getStdno() {
-		return stdno;
+
+
+	public String getStdNo() {
+		return stdNo;
 	}
 
-	public void setStdno(String stdno) {
-		this.stdno = stdno;
+	public void setStdNo(String stdno) {
+		this.stdNo = stdno;
 	}
 
 	public String getName() {
@@ -52,14 +54,6 @@ public class Student {
 
 	public void setAge(String age) {
 		this.age = age;
-	}
-
-	public String getHeight() {
-		return height;
-	}
-
-	public void setHeight(String height) {
-		this.height = height;
 	}
 
 	public String getClassno() {
@@ -120,7 +114,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [stdno=" + stdno + ", name=" + name + ", age=" + age + ", height=" + height + ", classno="
+		return "Student [stdno=" + stdNo + ", name=" + name + ", age=" + age + ", height=" + height + ", classno="
 				+ classno + ", birth=" + birth + ", address=" + address + ", image=" + image + ", gender=" + gender
 				+ ", parentno=" + parentno + ", glass=" + glass + "]";
 	}

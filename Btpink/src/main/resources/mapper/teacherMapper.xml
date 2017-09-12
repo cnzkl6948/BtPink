@@ -5,6 +5,16 @@
 
 <!-- 회원정보 처리 SQL -->
 <mapper namespace="xyz.btpink.www.dao.TeacherMapper">
-
-
+	<insert id="insertTeacher" parameterType="Teacher">
+			insert into account values(
+		#{memNo}
+		,#{name}
+		,#{type}
+		,#{id}
+		,#{pw}
+		,#{email}
+		,#{phone}
+		,0
+		)
+	</insert>
 </mapper>

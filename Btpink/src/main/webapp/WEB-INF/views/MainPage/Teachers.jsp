@@ -45,7 +45,7 @@
 
 
   <div class="main-wrapper">
-      <%@ include file="MainHeader.html" %>
+      <%@ include file="MainHeader.jsp" %>
     <!-- PAGE TITLE SECTION-->
     <section class="pageTitleSection">
       <div class="container">
