@@ -7,10 +7,16 @@
 		<typeAlias type="xyz.btpink.www.vo.Teacher" alias="Teacher" />
 		<typeAlias type="xyz.btpink.www.vo.Student" alias="Student" />
 		<typeAlias type="xyz.btpink.www.vo.Parent" alias="Parent" />
+		<typeAlias type="xyz.btpink.www.vo.Board" alias="Board" />
+		<typeAlias type="xyz.btpink.www.vo.Reply" alias="Reply" />
+		<typeAlias type="xyz.btpink.www.vo.Demand" alias="Demand" />
+		
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/studentMapper.xml" />
 		<mapper resource="mapper/parentMapper.xml" />
 		<mapper resource="mapper/teacherMapper.xml" />
+		<mapper resource="mapper/boardMapper.xml" />	
 	</mappers>
+	   
 </configuration>

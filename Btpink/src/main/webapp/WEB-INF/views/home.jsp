@@ -172,7 +172,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home"><img src="./resources/img/logo-school.png" alt="Kidz School"></a>
+            <a class="navbar-brand" href="/www"><img src="./resources/img/logo-school.png" alt="Kidz School"></a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -184,9 +184,9 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-left">
                   <li class=" active "><a href="home">Kidz School</a></li>
-                  <li class=""><a href="index-v2.html">Kidz Store</a></li>
-                  <li class=""><a href="index-v3.html">Kidz Daycare</a></li>
-                  <li class=""><a href="index-v4.html">Kidz Fashion</a></li>
+                  <li class=""><a href="writeNotice">WriteNotice</a></li>
+                  <li class=""><a href="listNotice">ListNotice</a></li>
+                  <li class=""><a href="writeDemand">writeDemand</a></li>
                 </ul>
               </li>
               <li class="dropdown singleDrop color-3 ">

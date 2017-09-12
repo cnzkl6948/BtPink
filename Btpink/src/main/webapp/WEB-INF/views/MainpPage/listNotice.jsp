@@ -1,33 +1,37 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <!-- SITE TITTLE -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FORMS - KIDZ SCHOOL</title>
+  <title>Course Grid - KIDZ SCHOOL</title>
+
 
   <!-- PLUGINS CSS STYLE -->
-  <link href="plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
-  <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="plugins/rs-plugin/css/settings.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="plugins/selectbox/select_option1.css">
-  <link rel="stylesheet" type="text/css" href="plugins/owl-carousel/owl.carousel.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="plugins/isotope/jquery.fancybox.css">
-  <link rel="stylesheet" type="text/css" href="plugins/isotope/isotope.css">
+  <link href="./resources/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
+  <link href="./resources/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./resources/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/rs-plugin/css/settings.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/selectbox/select_option1.css">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/owl-carousel/owl.carousel.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/isotope/jquery.fancybox.css">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/isotope/isotope.css">
 
   <!-- GOOGLE FONT -->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Dosis:400,300,600,700' rel='stylesheet' type='text/css'>
 
   <!-- CUSTOM CSS -->
-  <link href="css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/default.css" id="option_color">
+  <link href="./resources/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="./resources/css/default.css" id="option_color">
 
   <!-- Icons -->
-  <link rel="shortcut icon" href="img/favicon.png">
+  <link rel="shortcut icon" href="./resources/img/favicon.png">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,7 +41,14 @@
   <![endif]-->
 
 </head>
-
+<script type="text/javascript">
+function pagingFormSubmit(currentPage) {
+	var form = document.getElementById('pagingForm');
+	var page = document.getElementById('page');
+	page.value = currentPage;
+	form.submit();
+}
+</script>
 <body class="body-wrapper">
 
 
@@ -224,7 +235,7 @@
                   <li><a href="coming-soon.html">Coming Soon</a></li>
                 </ul>
               </li>
-              <li class=" dropdown megaDropMenu color-2 ">
+              <li class=" dropdown megaDropMenu color-2  active ">
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="300" data-close-others="true" aria-expanded="false">
                   <i class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i>
                   <span>Courses</span>
@@ -233,7 +244,7 @@
                   <li class="col-sm-3 col-xs-12">
                     <ul class="list-unstyled">
                       <li>Courses Grid</li>
-                      <li class=""><a href="course-grid-full.html">Courses Grid Fullwidth</a></li>
+                      <li class=" active "><a href="course-grid-full.html">Courses Grid Fullwidth</a></li>
                       <li class="">
                         <a href="course-grid-left-sidebar.html">Courses Grid Left Sidebar</a></li>
                       <li class="">
@@ -343,7 +354,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="dropdown singleDrop color-6  active ">
+              <li class="dropdown singleDrop color-6 ">
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gg bg-color-6" aria-hidden="true"></i> <span>Components</span></a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li class=" "><a href="accordion-toggles.html">Accordions &amp; Toggles</a></li>
@@ -351,7 +362,7 @@
                   <li class=" "><a href="alert-label-badges.html">Alert-Label-badges</a></li>
                   <li class=" "><a href="progress-bar.html">Progress Bar</a></li>
                   <li class=" "><a href="buttons.html">Buttons</a></li>
-                  <li class=" active  "><a href="forms.html">Forms</a></li>
+                  <li class=" "><a href="forms.html">Forms</a></li>
                   <li class=" "><a href="list-panel.html">Listgroups Panel</a></li>
                   <li class=" "><a href="tooltip-pagination.html">Tooltip Pagination</a></li>
                   <li class=" "><a href="typography.html">Typography</a></li>
@@ -438,78 +449,88 @@
     <section class="pageTitleSection">
       <div class="container">
         <div class="pageTitleInfo">
-          <h2>Forms</h2>
+          <h2>All Courses</h2>
           <ol class="breadcrumb">
             <li><a href="index.html">Home</a></li>
-            <li class="active">Forms</li>
+            <li class="active">Notices</li>
           </ol>
         </div>
       </div>
     </section>
 
     <!-- MAIN SECTION -->
-    <section class="mainContent full-width clearfix">
+    <section class="mainContent full-width clearfix coursesSection">
       <div class="container">
-        <div class="sectionTitle text-center">
-          <h2>
-            <span class="shape shape-left bg-color-4"></span>
-            <span>Forms</span>
-            <span class="shape shape-right bg-color-4"></span>
-          </h2>
-        </div>
-
-        <h4 class="text-center">Contact form</h4>
-      
-        <div class="space-50">&nbsp;</div>
-        <!-- Start contact form 2 -->
         <div class="row">
-          <div class="col-xs-12">
-            <div class="homeContactContent">
-              <form action="#" method="POST" role="form">
-                <div class="row">
-                  <div class="col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-user"></i>
-                      <input type="text" class="form-control border-color-1" id="exampleInputEmail1" placeholder="First name">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-envelope" aria-hidden="true"></i>
-                      <input type="text" class="form-control border-color-2" id="exampleInputEmail2" placeholder="Email address">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-phone" aria-hidden="true"></i>
-                      <input type="text" class="form-control border-color-5" id="exampleInputEmail3" placeholder="Phone">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-book" aria-hidden="true"></i>
-                      <input type="text" class="form-control border-color-6" id="exampleInputEmail4" placeholder="Subject">
-                    </div>
-                  </div>
-                  <div class="col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-comments" aria-hidden="true"></i>
-                      <textarea class="form-control border-color-4" placeholder="Write message"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-xs-12">
-                    <div class="formBtnArea">
-                      <button type="submit" class="btn btn-primary">Send Message</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+        <c:forEach var="board" items="${boardlist}">
+          <div class="col-md-3 col-sm-6 col-xs-12 block">
+            <div class="thumbnail thumbnailContent">
+              
+              <a href="readNotice?boardnum=${board.boardnum}"><img src="./resources/img/home/courses/course-${board.boardnum%6 + 1}.jpg" alt="image" class="img-responsive"></a>            
+	            <c:if test="${latestnum1==board.boardnum}">
+	         	   <div class="sticker bg-color-${board.boardnum%6 + 1}">new</div>
+	            </c:if>
+	            <c:if test="${latestnum2==board.boardnum}">
+	         	   <div class="sticker bg-color-${board.boardnum%6 + 1}">new</div>
+	            </c:if>
+	            <c:if test="${latestnum3==board.boardnum}">
+	         	   <div class="sticker bg-color-${board.boardnum%6 + 1}">new</div>
+	            </c:if>
+	            
+	         
+              <div class="caption border-color-${board.boardnum%6 + 1}">
+                <h3><a href="readNotice?boardnum=${board.boardnum}" class="color-${board.boardnum%6 + 1}">${board.title}</a></h3>
+                <ul class="list-unstyled">
+                  <li><i class="fa fa-clock-o" aria-hidden="true"></i>${board.inputdate}</li>
+                </ul>
+               		 <p>
+                        <c:choose>
+				           <c:when test="${fn:length(board.content) > 50}">
+            				<c:out value="${fn:substring(board.content,0,49)}"/>....
+           				</c:when>
+           				<c:otherwise>
+            			<c:out value="${board.content}"/>
+           				</c:otherwise> 
+          				</c:choose>
+            		</p>
+                <ul class="list-inline btn-yellow">
+                  <li><a href="readNotice?boardnum=${board.boardnum}" class="btn btn-link"><i class="fa fa-angle-double-right" aria-hidden="true"></i> More</a></li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div><!-- Ends contact form 2-->
-      
-   
+          
+          </c:forEach>  
+        </div>
+
+		<!-- 페이지 이동 부분 -->                             
+          <div id="navigator" class="pagerArea text-center">
+			<ul class="pager">
+			<li class="prev"><a href="javascript:pagingFormSubmit(${navi.currentPage - navi.pagePerGroup})">Prev<i class="fa fa-arrow-left" aria-hidden="true"></i></a></li>
+						
+			<c:forEach var="counter" begin="${navi.startPageGroup}" end="${navi.endPageGroup}"> 
+				<c:if test="${counter == navi.currentPage}"><b></c:if>
+					<li><a href="javascript:pagingFormSubmit(${counter})">${counter}</a></li>
+					<c:if test="${counter == navi.currentPage}"></b></c:if>
+				</c:forEach>
+				
+			<li class="next"><a href="javascript:pagingFormSubmit(${navi.currentPage + navi.pagePerGroup})">Next<i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
+          </ul>
+       	 </div>
+
+
+			<!-- list 재귀 -->
+			<form id="pagingForm" method="get" action="listNotice">
+				<input type="hidden" name="page" id="page" />
+			</form>
+			<!-- /list 재귀-->
+			<!-- /페이지 이동 끝 --> 
+      </div>
     </section>
+
+
+
+
 
 <!-- FOOTER -->
 <footer>
@@ -731,21 +752,21 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="plugins/jquery-ui/jquery-ui.js"></script>
-<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-<script src="plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-<script src="plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
-<script src="plugins/owl-carousel/owl.carousel.js"></script>
+<script src="./resources/plugins/jquery-ui/jquery-ui.js"></script>
+<script src="./resources/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script src="./resources/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+<script src="./resources/plugins/owl-carousel/owl.carousel.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="plugins/counter-up/jquery.counterup.min.js"></script>
-<script src="plugins/isotope/isotope.min.js"></script>
-<script src="plugins/isotope/jquery.fancybox.pack.js"></script>
-<script src="plugins/isotope/isotope-triger.js"></script>
-<script src="plugins/countdown/jquery.syotimer.js"></script>
-<script src="plugins/velocity/velocity.min.js"></script>
-<script src="plugins/smoothscroll/SmoothScroll.js"></script>
-<script src="js/custom.js"></script>
+<script src="./resources/plugins/counter-up/jquery.counterup.min.js"></script>
+<script src="./resources/plugins/isotope/isotope.min.js"></script>
+<script src="./resources/plugins/isotope/jquery.fancybox.pack.js"></script>
+<script src="./resources/plugins/isotope/isotope-triger.js"></script>
+<script src="./resources/plugins/countdown/jquery.syotimer.js"></script>
+<script src="./resources/plugins/velocity/velocity.min.js"></script>
+<script src="./resources/plugins/smoothscroll/SmoothScroll.js"></script>
+<script src="./resources/js/custom.js"></script>
 </body>
 </html>
 

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,25 +11,25 @@
   <title>FORMS - KIDZ SCHOOL</title>
 
   <!-- PLUGINS CSS STYLE -->
-  <link href="plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
-  <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="plugins/rs-plugin/css/settings.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="plugins/selectbox/select_option1.css">
-  <link rel="stylesheet" type="text/css" href="plugins/owl-carousel/owl.carousel.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="plugins/isotope/jquery.fancybox.css">
-  <link rel="stylesheet" type="text/css" href="plugins/isotope/isotope.css">
+  <link href="./resources/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
+  <link href="./resources/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./resources/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/rs-plugin/css/settings.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/selectbox/select_option1.css">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/owl-carousel/owl.carousel.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/isotope/jquery.fancybox.css">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/isotope/isotope.css">
 
   <!-- GOOGLE FONT -->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Dosis:400,300,600,700' rel='stylesheet' type='text/css'>
 
   <!-- CUSTOM CSS -->
-  <link href="css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/default.css" id="option_color">
+  <link href="./resources/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="./resources/css/default.css" id="option_color">
 
   <!-- Icons -->
-  <link rel="shortcut icon" href="img/favicon.png">
+  <link rel="shortcut icon" href="./resources/img/favicon.png">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,6 +37,28 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+
+<script>
+//글쓰기폼 확인
+function formCheck() {
+	var title = document.getElementById('title');
+	var content = document.getElementById('content');
+	
+	if (title.value.length < 5) {
+		alert("제목을 입력하세요.");
+		title.focus();
+		title.select();
+		return false;
+	}
+	if (content.value.length < 5) {
+		alert("내용을 입력하세요.");
+		title.focus();
+		title.select();
+		return false;
+	}
+	return true;
+}
+</script>	
 
 </head>
 
@@ -438,10 +462,10 @@
     <section class="pageTitleSection">
       <div class="container">
         <div class="pageTitleInfo">
-          <h2>Forms</h2>
+          <h2>Edit Forms</h2>
           <ol class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li class="active">Forms</li>
+            <li><a href="index.html">Notice</a></li>
+            <li class="active">Edit Form</li>
           </ol>
         </div>
       </div>
@@ -453,53 +477,60 @@
         <div class="sectionTitle text-center">
           <h2>
             <span class="shape shape-left bg-color-4"></span>
-            <span>Forms</span>
+            <span>글쓰기</span>
             <span class="shape shape-right bg-color-4"></span>
           </h2>
         </div>
 
-        <h4 class="text-center">Contact form</h4>
+        <h4 class="text-center">Edit form</h4>
+      <form id="writeform" action="edit"  method="post" 
+			enctype="multipart/form-data" onsubmit="return formCheck();">
+			<!-- 폼 전송 시 글번호도 전달 -->
+			
+		</tr>
+		<tr>
+			<td colspan="2" class="white center">
+				<input type="submit" value="수정">
+			</td> 
+		</tr>
+		</table>
+		</form>
+		      
+      
+      
+      
+      
       
         <div class="space-50">&nbsp;</div>
         <!-- Start contact form 2 -->
         <div class="row">
           <div class="col-xs-12">
             <div class="homeContactContent">
-              <form action="#" method="POST" role="form">
+              <form action="editNotice" method="post" role="form" id="writeform" enctype="multipart/form-data" onsubmit="return formCheck();">
                 <div class="row">
+            	 <input type="hidden" name="boardnum" value="${board.boardnum }">
+			
                   <div class="col-sm-6 col-xs-12">
                     <div class="form-group">
                       <i class="fa fa-user"></i>
-                      <input type="text" class="form-control border-color-1" id="exampleInputEmail1" placeholder="First name">
+                      <input type="text" class="form-control border-color-1"  placeholder="title"  name="title" id="title" value="${board.title}">
                     </div>
                   </div>
                   <div class="col-sm-6 col-xs-12">
                     <div class="form-group">
                       <i class="fa fa-envelope" aria-hidden="true"></i>
-                      <input type="text" class="form-control border-color-2" id="exampleInputEmail2" placeholder="Email address">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-phone" aria-hidden="true"></i>
-                      <input type="text" class="form-control border-color-5" id="exampleInputEmail3" placeholder="Phone">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-book" aria-hidden="true"></i>
-                      <input type="text" class="form-control border-color-6" id="exampleInputEmail4" placeholder="Subject">
+                      <input type="text" class="form-control border-color-2" id="exampleInputEmail2" name="id" placeholder="writer=id">
                     </div>
                   </div>
                   <div class="col-xs-12">
                     <div class="form-group">
                       <i class="fa fa-comments" aria-hidden="true"></i>
-                      <textarea class="form-control border-color-4" placeholder="Write message"></textarea>
+                      <textarea class="form-control border-color-4" name="content" id="content" >${board.content}</textarea>
                     </div>
                   </div>
                   <div class="col-xs-12">
                     <div class="formBtnArea">
-                      <button type="submit" class="btn btn-primary">Send Message</button>
+                      <button type="submit" class="btn btn-primary">등록</button>
                     </div>
                   </div>
                 </div>
@@ -731,21 +762,21 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="plugins/jquery-ui/jquery-ui.js"></script>
-<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-<script src="plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-<script src="plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
-<script src="plugins/owl-carousel/owl.carousel.js"></script>
+<script src="./resources/plugins/jquery-ui/jquery-ui.js"></script>
+<script src="./resources/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script src="./resources/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+<script src="./resources/plugins/owl-carousel/owl.carousel.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="plugins/counter-up/jquery.counterup.min.js"></script>
-<script src="plugins/isotope/isotope.min.js"></script>
-<script src="plugins/isotope/jquery.fancybox.pack.js"></script>
-<script src="plugins/isotope/isotope-triger.js"></script>
-<script src="plugins/countdown/jquery.syotimer.js"></script>
-<script src="plugins/velocity/velocity.min.js"></script>
-<script src="plugins/smoothscroll/SmoothScroll.js"></script>
-<script src="js/custom.js"></script>
+<script src="./resources/plugins/counter-up/jquery.counterup.min.js"></script>
+<script src="./resources/plugins/isotope/isotope.min.js"></script>
+<script src="./resources/plugins/isotope/jquery.fancybox.pack.js"></script>
+<script src="./resources/plugins/isotope/isotope-triger.js"></script>
+<script src="./resources/plugins/countdown/jquery.syotimer.js"></script>
+<script src="./resources/plugins/velocity/velocity.min.js"></script>
+<script src="./resources/plugins/smoothscroll/SmoothScroll.js"></script>
+<script src="./resources/js/custom.js"></script>
 </body>
 </html>
 

@@ -1,3 +1,8 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,25 +11,25 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FORMS - KIDZ SCHOOL</title>
+  <title>Single Blog - KIDZ</title>
 
   <!-- PLUGINS CSS STYLE -->
-  <link href="plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
-  <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="plugins/rs-plugin/css/settings.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="plugins/selectbox/select_option1.css">
-  <link rel="stylesheet" type="text/css" href="plugins/owl-carousel/owl.carousel.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="plugins/isotope/jquery.fancybox.css">
-  <link rel="stylesheet" type="text/css" href="plugins/isotope/isotope.css">
+  <link href="./resources/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
+  <link href="./resources/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./resources/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/rs-plugin/css/settings.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/selectbox/select_option1.css">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/owl-carousel/owl.carousel.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/isotope/jquery.fancybox.css">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/isotope/isotope.css">
 
   <!-- GOOGLE FONT -->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Dosis:400,300,600,700' rel='stylesheet' type='text/css'>
 
   <!-- CUSTOM CSS -->
-  <link href="css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/default.css" id="option_color">
+  <link href="./resources/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="./resources/css/default.css" id="option_color">
 
   <!-- Icons -->
   <link rel="shortcut icon" href="img/favicon.png">
@@ -37,7 +42,64 @@
   <![endif]-->
 
 </head>
+<script type="text/javascript">
+//글삭제시 확인 스크립트
+function deleteCheck(boardnum){
+	if(confirm("정말 삭제하시겠습니까?")){
+		location.href = 'deleteNotice?boardnum=' + boardnum;
+	}
+}
 
+//리플 쓰기 폼 체크
+function replyFormCheck() {
+	var retext = document.getElementById('retext');
+	if (retext.value.length < 5) {
+		alert('리플 내용을 입력하세요.');
+		retext.focus();
+		retext.select();
+		return false;
+	}
+	return true;			
+}
+
+//리플 수정
+function replyEditForm(replynum, boardnum, retext) {
+	//해당 리플번호를 붙여 생성한 <div>태그에 접근
+	var div = document.getElementById("div"+replynum);
+	
+	var str = '<form name="editForm' + replynum + '" action="replyEdit" method="post">';
+	str += '<input type="hidden" name="replynum" value="'+replynum+'">';
+	str += '<input type="hidden" name="boardnum" value="'+boardnum+'">';
+	str += '&nbsp;';
+	str += '<input type="text" name="text" value="' + retext + '" style="width:530px;">';
+	str += '&nbsp;';
+	str += '<a href="javascript:replyEdit(document.editForm' + replynum + ')">[저장]</a>';
+	str += '&nbsp;';
+	str += '<a href="javascript:replyEditCancle(document.getElementById(\'div' + replynum + '\'))">[취소]</a>';
+	str += '</form>';
+	div.innerHTML = str;
+}
+
+//리플 수정 취소
+function replyEditCancle(div) {
+	div.innerHTML = '';
+}
+
+//리플 수정 정보 저장
+function replyEdit(form) {
+	if (confirm('수정된 내용을 저장하시겠습니까?')) {
+		form.submit();
+	}
+}
+
+//리플 삭제
+function replyDelete(replynum, boardnum) {
+	if (confirm('리플을 삭제하시겠습니까?')) {
+		location.href='replyDelete?replynum=' + replynum + '&boardnum=' + boardnum;
+	}
+}
+</script>
+	
 <body class="body-wrapper">
 
 
@@ -96,7 +158,7 @@
                       <a href="single-product.html">
                         <div class="media">
                           <div class="media-left">
-                            <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                            <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                           </div>
                           <div class="media-body">
                             <h4>Barbie Racing Car</h4>
@@ -113,7 +175,7 @@
                       <a href="single-product.html">
                         <div class="media">
                           <div class="media-left">
-                            <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                            <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                           </div>
                           <div class="media-body">
                             <h4>Barbie Racing Car</h4>
@@ -130,7 +192,7 @@
                       <a href="single-product.html">
                         <div class="media">
                           <div class="media-left">
-                            <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                            <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                           </div>
                           <div class="media-body">
                             <h4>Barbie Racing Car</h4>
@@ -170,7 +232,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><img src="img/logo-school.png" alt="Kidz School"></a>
+            <a class="navbar-brand" href="index.html"><img src="./resources/img/logo-school.png" alt="Kidz School"></a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -298,7 +360,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="dropdown singleDrop color-5  ">
+              <li class="dropdown singleDrop color-5  active  ">
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-calendar bg-color-5" aria-hidden="true"></i>
                   <span>Blog</span>
@@ -330,20 +392,20 @@
                     </ul>
                   </li>
                   <li class="dropdown dropdown-submenu
-                     ||
+                     active  ||
                      ||
                      ">
                     <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Single Blog
                     </a>
                     <ul class="dropdown-menu">
-                      <li class=""><a href="single-blog.html">Single Blog Fullwidth</a></li>
+                      <li class=" active "><a href="single-blog.html">Single Blog Fullwidth</a></li>
                       <li class=""><a href="single-blog-left-sidebar.html">Single Blog Left Sidebar</a></li>
                       <li class=""><a href="single-blog-right-sidebar.html">Single Blog Right Sidebar</a></li>
                     </ul>
                   </li>
                 </ul>
               </li>
-              <li class="dropdown singleDrop color-6  active ">
+              <li class="dropdown singleDrop color-6 ">
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gg bg-color-6" aria-hidden="true"></i> <span>Components</span></a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li class=" "><a href="accordion-toggles.html">Accordions &amp; Toggles</a></li>
@@ -351,7 +413,7 @@
                   <li class=" "><a href="alert-label-badges.html">Alert-Label-badges</a></li>
                   <li class=" "><a href="progress-bar.html">Progress Bar</a></li>
                   <li class=" "><a href="buttons.html">Buttons</a></li>
-                  <li class=" active  "><a href="forms.html">Forms</a></li>
+                  <li class=" "><a href="forms.html">Forms</a></li>
                   <li class=" "><a href="list-panel.html">Listgroups Panel</a></li>
                   <li class=" "><a href="tooltip-pagination.html">Tooltip Pagination</a></li>
                   <li class=" "><a href="typography.html">Typography</a></li>
@@ -372,7 +434,7 @@
                 <a href="single-product.html">
                   <div class="media">
                     <div class="media-left">
-                      <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                      <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                     </div>
                     <div class="media-body">
                       <h4>Barbie Racing Car</h4>
@@ -389,7 +451,7 @@
                 <a href="single-product.html">
                   <div class="media">
                     <div class="media-left">
-                      <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                      <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                     </div>
                     <div class="media-body">
                       <h4>Barbie Racing Car</h4>
@@ -406,7 +468,7 @@
                 <a href="single-product.html">
                   <div class="media">
                     <div class="media-left">
-                      <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                      <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                     </div>
                     <div class="media-body">
                       <h4>Barbie Racing Car</h4>
@@ -438,77 +500,121 @@
     <section class="pageTitleSection">
       <div class="container">
         <div class="pageTitleInfo">
-          <h2>Forms</h2>
+          <h2>Read Notice</h2>
           <ol class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li class="active">Forms</li>
+            <li><a href="index.html">Hello Notice</a></li>
+            <li class="active">Read Notice</li>
           </ol>
         </div>
       </div>
     </section>
-
     <!-- MAIN SECTION -->
     <section class="mainContent full-width clearfix">
       <div class="container">
-        <div class="sectionTitle text-center">
-          <h2>
-            <span class="shape shape-left bg-color-4"></span>
-            <span>Forms</span>
-            <span class="shape shape-right bg-color-4"></span>
-          </h2>
-        </div>
-
-        <h4 class="text-center">Contact form</h4>
-      
-        <div class="space-50">&nbsp;</div>
-        <!-- Start contact form 2 -->
         <div class="row">
-          <div class="col-xs-12">
-            <div class="homeContactContent">
-              <form action="#" method="POST" role="form">
-                <div class="row">
-                  <div class="col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-user"></i>
-                      <input type="text" class="form-control border-color-1" id="exampleInputEmail1" placeholder="First name">
+          <div class="col-xs-12 block">
+            <div class="thumbnail thumbnailContent">
+              <img src="./resources/img/home/courses/course-${board.boardnum%6 + 1}.jpg" alt="image" class="img-responsive">
+              <div class="sticker-round bg-color-${board.boardnum%6 + 1}">
+             	<fmt:parseDate value="${board.inputdate}" var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
+				<fmt:formatDate value="${dateFmt}" type="date" pattern="MMMMMM"/>
+					<br>
+				<fmt:parseDate value="${board.inputdate}" var="dateFmt" pattern="yyyy-MM-dd HH:mm:ss"/>
+				<fmt:formatDate value="${dateFmt}" type="date" pattern="dd"/></div>
+              <div class="caption border-color-${board.boardnum%6 + 1} singleBlog">
+                <h3 class="color-${(board.boardnum+1)%6 + 1}">${board.title}</h3>
+                <ul class="list-inline blogInfo">
+                  <li><i class="fa fa-user" aria-hidden="true"></i>${board.id}</li>
+                  <li><i class="fa fa-comments-o" aria-hidden="true"></i>${replyCount} Comments </li>
+                </ul>
+				<p>${board.content}</p>
+                
+                <ul class="list-inline socailLink">
+                  <li><a href="#" class="bg-color-1"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                  <li><a href="#" class="bg-color-2"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                  <li><a href="#" class="bg-color-3"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                  <li><a href="#" class="bg-color-4"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                  <li><a href="#" class="bg-color-5"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                </ul>
+              
+				<!-- 본인 글인 경우에만 보이기 -->
+				<c:if test="${loginId == board.id}">
+					<br>
+						
+					<!-- 현재글 수정하기-->
+				<button type="button" class="btn btn-xl btn-success" onclick="location.href='editNotice?boardnum=${board.boardnum}'">edit</button>
+					
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<!-- 현재글 삭제하기-->
+					<button type="button" class="btn btn-xl btn-primary " onclick="location.href='javascript:deleteCheck(${board.boardnum})'">delete</button>					
+								</c:if>
+				</div>
+            </div>
+            
+            
+            <!-- 리플 목록 출력 시작 --> 
+            <div class="blogComments">
+              <h3>${replyCount} Comments</h3>
+              <ul class="media-list commentsList">
+                <c:forEach var="reply" items="${replylist}">
+                <li class="media">
+                  <div class="media-left">
+                    <img src="./resources/img/blog/blog-${reply.replynum%4 + 1}.jpg" alt="image" class="img-circle">
+                  </div>
+                  <div class="media-body">
+                    <h4 class="media-heading">${reply.id}</h4>
+                    <p>${reply.inputdate}</p>
+                    <p>${reply.text}</p>
+                   	
+					<c:if test="${loginId == reply.id}">
+                    <a href="javascript:replyEditForm(${reply.replynum}, ${reply.boardnum}, '${reply.text}')" class="btn btn-primary"><i class="fa fa-reply-all" aria-hidden="true"></i>Edit</a>
+                    </c:if>
+					<c:if test="${loginId == reply.id}">
+                    <a href="javascript:replyDelete(${reply.replynum}, ${reply.boardnum })" class="btn btn-primary"><i class="fa fa-reply-all" aria-hidden="true"></i>Delete</a>					
+					</c:if>
+                  
+					<div id="div${reply.replynum}"></div>
+                  </div>
+                </li>
+                </c:forEach>
+              </ul>
+            </div>
+       	<!-- /리플 목록 출력 끝 -->
+            
+        <!-- 리플 작성 폼 시작 -->
+            <div class="blogComments">
+              <h3>Leave A Reply</h3>
+              <div class="homeContactContent">
+              
+                <form id="replyform" action="replyWrite" method="post" onSubmit="return replyFormCheck();"role="form">
+                  <div class="row">
+                    <input type="hidden" name="boardnum" value="${board.boardnum}" />
+                    <div class="col-sm-4 col-xs-12">
+                      <div class="form-group">
+                        <i class="fa fa-user"></i>
+                        <input type="text" class="form-control border-color-6"  readonly="readonly" value="${loginId}">
+                      </div>
+                    </div>
+               
+                    <div class="col-xs-12">
+                      <div class="form-group">
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                        <textarea class="form-control border-color-5" placeholder="Write message" name="text" id="retext"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-xs-12">
+                      <div class="formBtnArea pull-left">
+              		   <button type="submit" class="btn btn-warning btn-pill">Submit</button>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-envelope" aria-hidden="true"></i>
-                      <input type="text" class="form-control border-color-2" id="exampleInputEmail2" placeholder="Email address">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-phone" aria-hidden="true"></i>
-                      <input type="text" class="form-control border-color-5" id="exampleInputEmail3" placeholder="Phone">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-book" aria-hidden="true"></i>
-                      <input type="text" class="form-control border-color-6" id="exampleInputEmail4" placeholder="Subject">
-                    </div>
-                  </div>
-                  <div class="col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-comments" aria-hidden="true"></i>
-                      <textarea class="form-control border-color-4" placeholder="Write message"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-xs-12">
-                    <div class="formBtnArea">
-                      <button type="submit" class="btn btn-primary">Send Message</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+                </form>
+                <!-- /리플 작성 폼 끝 --> 
+              </div>
             </div>
           </div>
-        </div><!-- Ends contact form 2-->
-      
-   
+        </div>
+      </div>
     </section>
 
 <!-- FOOTER -->
@@ -536,7 +642,7 @@
       <div class="row">
         <div class="col-sm-3 col-xs-12">
           <div class="footerTitle">
-            <a href="index.html"><img src="img/logo-footer.png"></a>
+            <a href="index.html"><img src="./resources/img/logo-footer.png"></a>
           </div>
           <div class="footerInfo">
             <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa officia.Lorem ipsum dolor sit amet.</p>
@@ -587,7 +693,7 @@
               <li>
                 <div class="media">
                   <a class="media-left" href="single-blog.html">
-                    <img class="media-object img-rounded border-color-1" src="img/footer/footer-img-1.png" alt="Image">
+                    <img class="media-object img-rounded border-color-1" src="./resources/img/footer/footer-img-1.png" alt="Image">
                   </a>
                   <div class="media-body">
                     <h5 class="media-heading"><a href="single-blog.html">A Clean Website Gives More Experience To The Visitors</a></h5>
@@ -598,7 +704,7 @@
               <li>
                 <div class="media">
                   <a class="media-left" href="single-blog-left-sidebar.html">
-                    <img class="media-object img-rounded border-color-2" src="img/footer/footer-img-2.png" alt="Image">
+                    <img class="media-object img-rounded border-color-2" src="./resources/img/footer/footer-img-2.png" alt="Image">
                   </a>
                   <div class="media-body">
                     <h5 class="media-heading"><a href="single-blog-left-sidebar.html">A Clean Website Gives More Experience To The Visitors</a></h5>
@@ -609,7 +715,7 @@
               <li>
                 <div class="media">
                   <a class="media-left" href="single-blog-left-sidebar.html">
-                    <img class="media-object img-rounded border-color-4" src="img/footer/footer-img-3.png" alt="Image">
+                    <img class="media-object img-rounded border-color-4" src="./resources/img/footer/footer-img-3.png" alt="Image">
                   </a>
                   <div class="media-body">
                     <h5 class="media-heading"><a href="single-blog-left-sidebar.html">A Clean Website Gives More Experience To The Visitors</a></h5>
@@ -731,21 +837,20 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="plugins/jquery-ui/jquery-ui.js"></script>
-<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-<script src="plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-<script src="plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
-<script src="plugins/owl-carousel/owl.carousel.js"></script>
+<script src="./resources/plugins/jquery-ui/jquery-ui.js"></script>
+<script src="./resources/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script src="./resources/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+<script src="./resources/plugins/owl-carousel/owl.carousel.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="plugins/counter-up/jquery.counterup.min.js"></script>
-<script src="plugins/isotope/isotope.min.js"></script>
-<script src="plugins/isotope/jquery.fancybox.pack.js"></script>
-<script src="plugins/isotope/isotope-triger.js"></script>
-<script src="plugins/countdown/jquery.syotimer.js"></script>
-<script src="plugins/velocity/velocity.min.js"></script>
-<script src="plugins/smoothscroll/SmoothScroll.js"></script>
-<script src="js/custom.js"></script>
+<script src="./resources/plugins/counter-up/jquery.counterup.min.js"></script>
+<script src="./resources/plugins/isotope/isotope.min.js"></script>
+<script src="./resources/plugins/isotope/jquery.fancybox.pack.js"></script>
+<script src="./resources/plugins/isotope/isotope-triger.js"></script>
+<script src="./resources/plugins/countdown/jquery.syotimer.js"></script>
+<script src="./resources/plugins/velocity/velocity.min.js"></script>
+<script src="./resources/plugins/smoothscroll/SmoothScroll.js"></script>
+<script src="./resources/js/custom.js"></script>
 </body>
 </html>
-
