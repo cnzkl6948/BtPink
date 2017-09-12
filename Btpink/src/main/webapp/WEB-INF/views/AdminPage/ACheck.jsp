@@ -24,14 +24,17 @@
       <div class="row">
       <!-- left col -->
         <section class="col-lg-6 col-md-12 connectedSortable">
-          	<div>
-				<video autoplay="autoplay" id="myVideo" width="100%"></video>
+          	<div style="position:relative">
+       	 		<div style="position:relative">
+        		<form id="formId" style="font-size:0">
+					<p id="img_here" >
+					</p>
+					<input type="hidden" id="image" name="image"> <br>
+					<canvas id="store" style="display: none;"></canvas>
+				</form>
+	          	<video autoplay="autoplay" id="myVideo" width="100%"></video><!-- width:100% 추가 -->
+        		</div>
 			</div>
-			<form id="formId">
-				<p id="img_here"></p>
-				<input type="hidden" id="image" name="image" > <br>
-				<canvas id="store" style="display: none;" ></canvas>
-			</form>
         </section>
         <!-- /.left col -->
         <!-- right col -->
@@ -127,6 +130,6 @@
 
 <%@ include file="split/Footer.jsp"%> 
 <!-- Face API 자바스크립트 -->
-<script src="./resources/AdminLTE/js/acheck.js"></script>
+<script src="./resources/js/acheck.js"></script>
 </body>
 </html>

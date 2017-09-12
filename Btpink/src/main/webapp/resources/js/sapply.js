@@ -120,4 +120,6 @@ function submit(){
 }
 function cancel(){
 	$('#formId')[0].reset();
+	$('#imgSelect').val("notyet");
+	$('#imagePreview').attr("src", "#");
 }

@@ -88,13 +88,13 @@
                 <div class="form-group">
 					<input type="file" class="col-sm-12" id="uploadImage" name="file" />
 					<div class="col-sm-12" id="preview">
-						<img id="imagePreview" src="#" alt="" width="450" height="337.5"/>
+						<img id="imagePreview" src="#" alt="" width="100%"/>
 						<input type="hidden" id="imgSelect" value="notyet">
 					</div>
 				</div>
 			</div>
 			<div class="box-footer">
-                <button type="reset" class="btn btn-default">취소</button>
+                <button type="button" class="btn btn-default" onclick="cancel()">취소</button>
                 <button type="submit" class="btn btn-danger pull-right">등록</button>
               </div>
               <!-- /.box-footer -->
@@ -194,7 +194,6 @@
 <!-- /.content-wrapper -->
 
 <%@ include file="split/Footer.jsp"%> 
-<script src="./resources/AdminLTE/js/sapply.js"></script>
-<script type="text/javascript" src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+<script src="./resources/js/sapply.js"></script>
 </body>
 </html>

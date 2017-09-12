@@ -78,7 +78,7 @@ function snapshot() {
 							alert('누구??? 첨보는 얼굴인데');
 						}
 					}).fail(function() {
-					alert("error");
+					alert("identify error");
 				});
 		}
 	});

@@ -25,14 +25,17 @@
       <div class="col-lg-12">
         <!-- Left col -->
         <section class="col-lg-6 col-md-12 connectedSortable">
-	          	<div>
-					<video autoplay="autoplay" id="myVideo" width="100%"></video>
-					<p id="img_here"></p>
-				</div>
-				<form id="formId">
-					<input type="hidden" id="image" name="image" > <br>
-					<canvas id="store" style="display: none;" ></canvas>
+       	 	<div style="position:relative">
+       	 		<div style="position:relative"><!-- style 추가 -->
+        		<form id="formId" style="font-size:0"><!-- style 추가/구조변경 -->
+					<p id="img_here" ><!-- style 추가 -->
+					</p>
+					<input type="hidden" id="image" name="image"> <br>
+					<canvas id="store" style="display: none;"></canvas>
 				</form>
+	          	<video autoplay="autoplay" id="myVideo" width="100%"></video><!-- width:100% 추가 -->
+        		</div>
+			</div>
         </section>
         <!-- /.Left col -->
         
@@ -128,6 +131,6 @@
   
 <%@ include file="split/Footer.jsp"%> 
 <!-- Tensorflow API 자바스크립트 -->
-<script src="./resources/object_detection/js/pcheck.js"></script>
+<script src="./resources/js/pcheck.js"></script>
 </body>
 </html>

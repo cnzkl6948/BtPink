@@ -22,36 +22,4 @@ public class HomeController {
 		logger.info("Welcome home!");
 		return "home";
 	}
-	
-	
-	@RequestMapping(value = "maptest", method = RequestMethod.GET)
-	public String maptest(Locale locale, Model model) {
-		logger.info("maptest");
-		model.addAttribute("lat", lat);
-		model.addAttribute("lon", lon);
-		return "/getMap/maptest";
-	}
-	
-	@RequestMapping(value = "getMap", method = RequestMethod.POST)
-	public @ResponseBody String sendLocation(Locale locale, Model model) {
-		logger.info("getMap");
-		String info = lat+","+lon;
-		System.out.println(info);
-		return info;
-	}
-	
-	@RequestMapping(value = "locationSend", method = RequestMethod.GET)
-	public String locationSend2(Locale locale, Model model) {
-		logger.info("locationSend get");
-		return "/getMap/locationSend";
-	}
-	
-	@RequestMapping(value = "locationSend", method = RequestMethod.POST)
-	public String locationSend(String latt, String lont) {
-		logger.info("locationSend");
-		lat = latt;
-		lon = lont;
-		System.out.println(lat+" : "+ lon);
-		return "/getMap/locationSend";
-	}
 }
