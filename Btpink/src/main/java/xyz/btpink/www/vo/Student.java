@@ -1,22 +1,23 @@
 package xyz.btpink.www.vo;
 
 public class Student {
+
 	private String stdno;
 	private String name;
-	private String age;
-	private String height;
+	private int age;
+	private int height;
 	private String classno;
 	private String birth;
 	private String address;
 	private String image;
 	private String gender;
 	private String parentno;
-	private String glass;
+	private int glass;
 	
 	public Student() {}
 
-	public Student(String stdno, String name, String age, String height, String classno, String birth, String address,
-			String image, String gender, String parentno, String glass) {
+	public Student(String stdno, String name, int age, int height, String classno, String birth, String address,
+			String image, String gender, String parentno, int glass) {
 		this.stdno = stdno;
 		this.name = name;
 		this.age = age;
@@ -46,19 +47,19 @@ public class Student {
 		this.name = name;
 	}
 
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
-	public String getHeight() {
+	public int getHeight() {
 		return height;
 	}
 
-	public void setHeight(String height) {
+	public void setHeight(int height) {
 		this.height = height;
 	}
 
@@ -110,18 +111,18 @@ public class Student {
 		this.parentno = parentno;
 	}
 
-	public String getGlass() {
+	public int getGlass() {
 		return glass;
 	}
 
-	public void setGlass(String glass) {
+	public void setGlass(int glass) {
 		this.glass = glass;
 	}
 
 	@Override
 	public String toString() {
 		return "Student [stdno=" + stdno + ", name=" + name + ", age=" + age + ", height=" + height + ", classno="
-				+ classno + ", birth=" + birth + ", address=" + address + ", image=" + image + ", gender=" + gender
+				+ classno + ", birth=" + birth + ", adress=" + address + ", image=" + image + ", gender=" + gender
 				+ ", parentno=" + parentno + ", glass=" + glass + "]";
 	}
 }

@@ -5,5 +5,21 @@
 
 <mapper namespace="xyz.btpink.www.dao.StudentMapper">
 
+<!--  학생 등록 -->
+<insert id="insertStudent" parameterType="Student">
+	insert into student	values (
+	seq_stdno.nextval, 
+	#{name}, 
+	#{age}, 
+	#{height}, 
+	#{classno}, 
+	TO_DATE(#{birth},'MM-DD-YYYY HH24:MI:SS'),
+	#{address},
+	#{image},
+	#{gender},
+	#{parentno},
+	#{glass}
+	)
+</insert>
 
 </mapper>

@@ -22,8 +22,8 @@ def load_image_into_numpy_array(image):
 # 모델종류 선택.
 #MODEL_NAME = 'ssd_mobilenet_v1_coco_11_06_2017'
 #MODEL_NAME = 'ssd_inception_v2_coco_11_06_2017'
-MODEL_NAME = 'rfcn_resnet101_coco_11_06_2017'
-#MODEL_NAME = 'faster_rcnn_resnet101_coco_11_06_2017'
+#MODEL_NAME = 'rfcn_resnet101_coco_11_06_2017'
+MODEL_NAME = 'faster_rcnn_resnet101_coco_11_06_2017'
 #MODEL_NAME = 'faster_rcnn_inception_resnet_v2_atrous_coco_11_06_2017'
 
 # frozen detection graph. 경로 설정
@@ -96,13 +96,13 @@ while(True):
               
           num = len(np.squeeze(scores))
           for i in range(num):
-              if (np.squeeze(scores)[i] >= 0.7 and np.squeeze(classes).astype(np.int32)[i] == 1):
+              if (np.squeeze(scores)[i] >= 0.75 and np.squeeze(classes).astype(np.int32)[i] == 1):
                   cnt = cnt + 1
           # 검색결과를 사진에 표시.
           vis_util.visualize_boxes_and_labels_on_image_array(image_np,np.squeeze(boxes), np.squeeze(classes).astype(np.int32),np.squeeze(scores),category_index,use_normalized_coordinates=True,line_thickness=3)
           fig = plt.figure(figsize=IMAGE_SIZE)
           plt.imshow(image_np)      
-          plt.show()
+          #plt.show()
           fig.savefig('test.jpg')
     print(cnt)
     result = str(cnt)

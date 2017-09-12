@@ -58,7 +58,7 @@ function snapshot() {
 				type : "POST",
 				// Request body
 				data : JSON.stringify({
-							"personGroupId" : "example-group-00",
+							"personGroupId" : "btpink-1",
 							"faceIds" : detectFaceId,
 							"maxNumOfCandidatesReturned" : 2,
 							"confidenceThreshold" : 0.5
@@ -81,7 +81,7 @@ function snapshot() {
 function getName(personId) {
 	var params = {};
 	$.ajax({
-			url : "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/example-group-00/persons/"
+			url : "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/btpink-1/persons/"
 					+ personId + "?" + $.param(params),
 			beforeSend : function(xhrObj) {
 				// Request headers
@@ -94,7 +94,7 @@ function getName(personId) {
 			type : "GET",
 			// Request body
 			data : JSON.stringify({
-				"personGroupId" : "example-group-00",
+				"personGroupId" : "btpink-1",
 				"personIds" : [ personId ]
 			})
 

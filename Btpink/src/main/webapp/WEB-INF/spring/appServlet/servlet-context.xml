@@ -23,6 +23,17 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="1000000"></beans:property>
+	</beans:bean>
+	
+	<beans:bean id="path" class="java.lang.String">
+		<beans:constructor-arg value="C:/BtPink/Btpink/src/main/webapp/resources/Sapply">
+		</beans:constructor-arg>
+	</beans:bean>
+	
+	
+	
 	<context:component-scan base-package="xyz.btpink.www" />
 
 	
