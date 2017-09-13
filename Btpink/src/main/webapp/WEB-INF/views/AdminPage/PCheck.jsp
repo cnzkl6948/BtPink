@@ -28,8 +28,7 @@
        	 	<div style="position:relative">
        	 		<div style="position:relative"><!-- style 추가 -->
         		<form id="formId" style="font-size:0"><!-- style 추가/구조변경 -->
-					<p id="img_here" ><!-- style 추가 -->
-					</p>
+					<p id="img_here" ></p>
 					<input type="hidden" id="image" name="image"> <br>
 					<canvas id="store" style="display: none;"></canvas>
 				</form>
@@ -113,7 +112,9 @@
 								<h4 class="modal-title">인원 확인</h4>
 							</div>
 							<div class="modal-body">
-								<p id="img"></p>
+								<div id="imgg">
+									<p id="img"></p>
+								</div>
 								<p id="hitocheck">인원 확인 중&hellip; <br>30초 이상 시간이 필요합니다. <br>기다려주세요.</p>
 							</div>
 						</div>
