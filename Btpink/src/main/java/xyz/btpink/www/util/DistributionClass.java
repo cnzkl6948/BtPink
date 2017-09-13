@@ -12,7 +12,6 @@ public class DistributionClass {
 		Random ran = new Random();
 		
 		Student student = new Student();
-		student.setAge(ran.nextInt(3)+3+""); // age: number로 변경
 		int gen = ran.nextInt(2);
 		if (gen==0) {
 			student.setGender("girl");			
