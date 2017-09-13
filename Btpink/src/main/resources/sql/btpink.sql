@@ -38,7 +38,7 @@ CREATE TABLE student(
 	height		NUMBER		NOT NULL,
 	classno		VARCHAR2(50)	NOT NULL,
 	birth		DATE		NOT NULL,
-	adress		VARCHAR2(200)	NOT NULL,
+	address		VARCHAR2(200)	NOT NULL,
 	image		VARCHAR2(50)	NOT NULL,
 	gender		VARCHAR2(50)	NOT NULL,
 	parentno	VARCHAR2(50),

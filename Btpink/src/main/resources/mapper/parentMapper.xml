@@ -4,23 +4,46 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="xyz.btpink.www.dao.ParentMapper">
-<!-- 	<insert id="Insert" parameterType="Parent"> -->
-<!-- 		insert into account values( -->
-<!-- 		#{memNo} -->
-<!-- 		,#{name} -->
-<!-- 		,#{type} -->
-<!-- 		,#{id} -->
-<!-- 		,#{pw} -->
-<!-- 		,#{email} -->
-<!-- 		,#{phone} -->
-<!-- 		,0 -->
-<!-- 		) -->
-<!-- 	</insert> -->
-	
+
 	<insert id="parentInsert" parameterType="Parent">
 		insert into parent values(
 		#{memNo}
 		,#{stdNo}
 		)
 	</insert>
+
+
+<!-- parent Demand(요구사항) 저장 -->
+	<insert id="insertDemand" parameterType="Demand">
+		insert into demand(
+			demandnum
+			, stdno
+			, demandsubject
+			, attend
+			, startdate
+			, enddate
+			, demandcontent
+			, classno
+		)
+		values(
+			demand_seq.nextval
+			, #{stdNo}
+			, #{demandsubject}
+			, #{attend}
+			, to_date(#{startdate}, 'MM/DD/YYYY')
+			, to_date(#{enddate}, 'MM/DD/YYYY')
+			, #{demandcontent}
+			, #{classno}
+		)
+	</insert>
+	
+<!-- parentId로 stduentno, classno불러오기 /parent Demand(요구사항)에 필요함/ -->
+	<select id="getStdInfo" parameterType="Account" resultType="Demand">
+		select s.STDNO, s.CLASSNO 
+		from student s, parent p
+		where s.stdno = p.stdno
+		and p.MEMNO = #{memNo}
+	</select>
+	
+
 </mapper>

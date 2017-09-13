@@ -31,16 +31,31 @@ function snapshot(){
 	var snap = takePhoto();
 	// 이미지의 소스와 다운로드 링크 주소를 캔버스에서 그린 그림의 주소 값으로 한다.
 	set.setAttribute('value', snap);
+	$('#img_here').html('<img id="selfieimage" src="'+snap+'" width="100%">');
 	$.ajax({
 		url : "getCount",
 		type : "POST",
 		data : $('#formId').serialize(),
 		success : function(count){
+<<<<<<< HEAD:Btpink/src/main/webapp/resources/object_detection/js/pcheck.js
 			var url = '<img src="https://geonho.btpink.xyz/www/resources/object_detection/test.jpg" width="800" height="450"/>';
+=======
+			var url = '<img src="https://www.btpink.xyz/www/resources/object_detection/test.jpg" width="100%"/>';
+//<img src="https://www.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
+//<img src="https://geonho.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
+//<img src="https://dahuin.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
+//<img src="https://suenghan.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
+
+>>>>>>> LTE3:Btpink/src/main/webapp/resources/js/pcheck.js
 			var cnt = count + '명';
 			$('#img').html(url);
-			$('#cnt').html(cnt);
+			$('#hitocheck').html(cnt);
 		}
 	});
 	
+}
+function closeModal() {
+	$('#img').html('');
+	$('#img_here').html('');
+	$("#hitocheck").html('인원 확인 중&hellip; <br>30초 이상 시간이 필요합니다. <br>기다려주세요.');
 }

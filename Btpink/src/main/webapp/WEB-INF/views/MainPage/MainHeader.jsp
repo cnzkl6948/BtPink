@@ -1,6 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<header id="pageTop" class="header-wrapper"> <!-- COLOR BAR -->
 	<div class="container-fluid color-bar top-fixed clearfix">
 		<div class="row">
@@ -42,11 +44,17 @@
 				</div>
 				<div class="col-sm-5">
 					<ul class="list-inline functionList">
+
 						<li><i class="fa fa-globe bg-color-4" aria-hidden="true"></i></li>
-						<li><i class="fa fa-unlock-alt bg-color-5" aria-hidden="true"></i>
-							<a href='#loginModal' data-toggle="modal">Login</a><span>or</span>
-							<a href='#createAccount' data-toggle="modal">Create an
-								account</a></li>
+						<li><c:if test="${User==null }">
+								<i class="fa fa-unlock-alt bg-color-5" aria-hidden="true"></i>
+								<a href='#loginModal' data-toggle="modal">Login</a>
+								<span>or</span>
+								<a href='#createAccount' data-toggle="modal">Create an
+									account</a>
+							</c:if> <c:if test="${User!=null }">
+								<a href='logout'>Logout</a>
+							</c:if></li>
 					</ul>
 				</div>
 			</div>
@@ -71,10 +79,9 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown singleDrop color-1"><a
-					href="MySon" class="dropdown-toggle""> <i
-						class="fa fa-home bg-color-1" aria-hidden="true"></i> <span
-						class="active">MY SoN</span>
+				<li class="dropdown singleDrop color-1"><a href="MySon"
+					class="dropdown-toggle""> <i class="fa fa-home bg-color-1"
+						aria-hidden="true"></i> <span class="active">MY SoN</span>
 				</a>
 				<li class="dropdown singleDrop color-3 "><a href="teachers"
 					class="dropdown-toggle"><i class="fa fa-list-ul bg-color-3"
@@ -84,10 +91,8 @@
 
 						<i class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i> <span>Courses</span>
 				</a>
-				<li class="dropdown singleDrop color-4 "><a
-					href="javascript:void(0)" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false"> <i
+				<li class="dropdown singleDrop color-4 "><a href="listNotice"
+					class="dropdown-toggle"> <i
 						class="fa fa-pencil-square-o bg-color-4" aria-hidden="true"></i> <span>Notice</span>
 				</a>
 				<li class="dropdown singleDrop color-5  "><a
@@ -221,16 +226,12 @@
 									class="btn btn-primary btn-block bg-color-3 border-color-3"
 									onclick="javascript:login()" value="Login">
 							</div>
-							<!-- 							<div class="form-group formField"> -->
-							<!-- 								<p class="help-block"> -->
-							<!-- 									<a href="#">Forgot password?</a> -->
-							<!-- 								</p> -->
-							<!-- 							</div> -->
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src="./resources/js/createJoin.js"></script>
 </body>
 </html>

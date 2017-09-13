@@ -50,7 +50,7 @@ public class UsersController {
 	public String logout(Locale locale, Model model, HttpSession session) {
 		logger.info("logout");
 		session.invalidate();
-		return "redirect:/www";
+		return "redirect:/";
 	}
 	//회원가입
 	@RequestMapping(value = "join", method = RequestMethod.POST)

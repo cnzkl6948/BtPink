@@ -10,6 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import xyz.btpink.www.vo.Parent;
+import xyz.btpink.www.vo.Account;
+import xyz.btpink.www.vo.Board;
+import xyz.btpink.www.vo.Demand;
+
 
 /**
  * 게시판 관련 DAO
@@ -33,6 +37,32 @@ public class ParentDAO {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	public int insertDemand(Demand demand) {
+		ParentMapper mapper = sqlSession.getMapper(ParentMapper.class);
+		
+		int result = 0;
+		try {
+			result = mapper.insertDemand(demand);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	
+	public Demand getStdInfo(Account account) {
+		ParentMapper mapper = sqlSession.getMapper(ParentMapper.class);
+		System.out.println(account);
+		Demand demandResult = null;
+		try {
+			demandResult = mapper.getStdInfo(account);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return demandResult;
 	}
 
 }

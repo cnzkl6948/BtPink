@@ -96,6 +96,7 @@ function join() {
 	}
 }
 function login() {
+	alert("??");
 	$('#id').val('');
 	$('#pw').val('');
 	loginPw
