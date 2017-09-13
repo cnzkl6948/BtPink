@@ -1,8 +1,11 @@
 package xyz.btpink.www.vo;
 
-public class Parent extends Account{
+public class Parent extends Account {
 	private String stdNo;
-	
+
+	public Parent() {
+	}
+
 	public Parent(String memNo, String name, String type, String id, String pw, String email, String phone,
 			String status) {
 		super(memNo, name, type, id, pw, email, phone, status);
@@ -24,9 +27,9 @@ public class Parent extends Account{
 
 	@Override
 	public String toString() {
-		return "Parent [stdNo=" + stdNo + "]";
+		// TODO Auto-generated method stub
+		return super.toString()+"Parent [stdNo=" + stdNo + "]";
 	}
-	
 	
 
 }

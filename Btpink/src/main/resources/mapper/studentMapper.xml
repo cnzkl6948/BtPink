@@ -4,6 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="xyz.btpink.www.dao.StudentMapper">
+	<select id="joinCheck" parameterType="Student" resultType="Student">
+		select * from student where name = #{name} and classno = #{classno}
+	</select>
+	<update id="parentUpdate" parameterType="Student">
+		UPDATE student SET 
+			parentno = #{parentno}
+		WHERE 
+		stdno = #{stdNo}	
+	</update>
 
 <!--  학생 등록 -->
 <insert id="insertStudent" parameterType="Student">

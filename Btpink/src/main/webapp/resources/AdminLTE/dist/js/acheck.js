@@ -44,37 +44,38 @@ function snapshot() {
 		data : $("#formTest").serialize(), // serializes the form's elements.
 		success : function(detectFaceId) {
 			// show response from the php script.
-			$.ajax({
-				url : "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify",
-				beforeSend : function(xhrObj) {
-					// Request headers
-					xhrObj.setRequestHeader(
-							"Content-Type",
-							"application/json");
-					xhrObj.setRequestHeader(
-									"Ocp-Apim-Subscription-Key",
-									"d98e1b55a315483ea2658fbc75ef68b3");
-				},
-				type : "POST",
-				// Request body
-				data : JSON.stringify({
-							"personGroupId" : "btpink-1",
-							"faceIds" : detectFaceId,
-							"maxNumOfCandidatesReturned" : 2,
-							"confidenceThreshold" : 0.5
-						})
-				}).done(
-					function(data) {
-						$("#responseTextArea").val(JSON.stringify(data, null, 2));
-						try {
-							var personId = data[0].candidates[0].personId;
-							getName(personId);
-						} catch (exception) {
-							alert('누구??? 첨보는 얼굴인데');
-						}
-					}).fail(function() {
-					alert("error");
-				});
+			alert(detectFaceId)
+//			$.ajax({
+//				url : "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify",
+//				beforeSend : function(xhrObj) {
+//					// Request headers
+//					xhrObj.setRequestHeader(
+//							"Content-Type",
+//							"application/json");
+//					xhrObj.setRequestHeader(
+//									"Ocp-Apim-Subscription-Key",
+//									"d98e1b55a315483ea2658fbc75ef68b3");
+//				},
+//				type : "POST",
+//				// Request body
+//				data : JSON.stringify({
+//							"personGroupId" : "example-group-00",
+//							"faceIds" : detectFaceId,
+//							"maxNumOfCandidatesReturned" : 2,
+//							"confidenceThreshold" : 0.5
+//						})
+//				}).done(
+//					function(data) {
+//						$("#responseTextArea").val(JSON.stringify(data, null, 2));
+//						try {
+//							var personId = data[0].candidates[0].personId;
+//							getName(personId);
+//						} catch (exception) {
+//							alert('누구??? 첨보는 얼굴인데');
+//						}
+//					}).fail(function() {
+//					alert("error");
+//				});
 		}
 	});
 }
@@ -94,7 +95,7 @@ function getName(personId) {
 			type : "GET",
 			// Request body
 			data : JSON.stringify({
-				"personGroupId" : "btpink-1",
+				"personGroupId" : "example-group-00",
 				"personIds" : [ personId ]
 			})
 

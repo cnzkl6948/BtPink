@@ -40,6 +40,7 @@
         <!-- /.Left col -->
         
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
+
         <section class="col-lg-6 col-md-12 connectedSortable">    
 	        <div class="box box-solid">
 	            <div class="box-header with-border">

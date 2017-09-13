@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import xyz.btpink.www.vo.Student;
+import xyz.btpink.www.vo.Teacher;
 
 /**
  * 게시판 관련 DAO
@@ -15,18 +17,15 @@ import org.springframework.stereotype.Repository;
 public class TeacherDAO {
 	@Autowired
 	SqlSession sqlSession;
-	
-	public int insert( ) {
-		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
-		
+
+	public int insert(Teacher teacher) {
 		int result = 0;
+		TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
+		result = mapper.insertTeacher(teacher);
 		try {
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
-
 }

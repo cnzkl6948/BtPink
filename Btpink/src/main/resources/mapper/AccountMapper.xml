@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xyz.btpink.www.dao.AccountMapper">
+	<!--회원가입 -->
+	<insert id="parentInsert" parameterType="Account">
+		insert into account
+		values(
+		#{memNo}
+		,#{name}
+		,#{type}
+		,#{id}
+		,#{pw}
+		,#{email}
+		,#{phone}
+		,0
+		)
+	</insert>
+	<!-- 중복확인 -->
+	<select id="idOverlap" parameterType="Account" resultType="Account">
+		select * from account where
+		id= #{id}
+	</select>
+	<!--로그인 -->
+	<select id="login" parameterType="Account" resultType="Account">
+		select * from account where
+		id= #{id} and pw = #{pw}
+	</select>
+</mapper>

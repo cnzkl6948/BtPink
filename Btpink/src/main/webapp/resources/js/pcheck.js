@@ -1,17 +1,22 @@
-$(function () {
-   	var video = document.getElementById('myVideo');
-    if (navigator.webkitGetUserMedia) {
-		navigator.webkitGetUserMedia({audio:false, video:true},
-            function(stream) { video.src = webkitURL.createObjectURL(stream); },
-            function(error) { alert('ERROR: ' + error.toString()); } );
-    } else {
-        alert('webkitGetUserMedia not supported');
-    }
+$(function() {
+	var video = document.getElementById('myVideo');
+	if (navigator.webkitGetUserMedia) {
+		navigator.webkitGetUserMedia({
+			audio : false,
+			video : true
+		}, function(stream) {
+			video.src = webkitURL.createObjectURL(stream);
+		}, function(error) {
+			alert('ERROR: ' + error.toString());
+		});
+	} else {
+		alert('webkitGetUserMedia not supported');
+	}
 });
 
 function takePhoto() {
 	var store = document.getElementById('store');
-   	var video = document.getElementById('myVideo');
+	var video = document.getElementById('myVideo');
 	// 캔버스에 그림을 그리기 위해, Canvas RenderingContext2D 값을 가져온다.
 	var context = store.getContext('2d');
 	// 그림의 크기는 video 의 크기와 같다.
@@ -25,30 +30,40 @@ function takePhoto() {
 		return store.toDataURL('image/png');
 	}
 }
-function snapshot(){
+function snapshot() {
 	var set = document.getElementById('image');
 	// 찍은 사진을 저장한다.
 	var snap = takePhoto();
 	// 이미지의 소스와 다운로드 링크 주소를 캔버스에서 그린 그림의 주소 값으로 한다.
 	set.setAttribute('value', snap);
-	$('#img_here').html('<img id="selfieimage" src="'+snap+'" width="100%">');
-	$.ajax({
-		url : "getCount",
-		type : "POST",
-		data : $('#formId').serialize(),
-		success : function(count){
-			var url = '<img src="https://www.btpink.xyz/www/resources/object_detection/test.jpg" width="100%"/>';
-//<img src="https://www.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
-//<img src="https://geonho.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
-//<img src="https://dahuin.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
-//<img src="https://suenghan.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
+	$('#img_here').html(
+			'<img id="selfieimage" src="' + snap + '" width="100%">');
+	$
+			.ajax({
+				url : "getCount",
+				type : "POST",
+				data : $('#formId').serialize(),
+				success : function(count) {
+					var url = '<img src="https://geonho.btpink.xyz/www/resources/object_detection/test.jpg" width="800" height="450"/>';
+					// <img
+					// src="https://www.btpink.xyz/www/resources/object_detection/test.jpg"
+					// width="400" height="300"/>
+					// <img
+					// src="https://geonho.btpink.xyz/www/resources/object_detection/test.jpg"
+					// width="400" height="300"/>
+					// <img
+					// src="https://dahuin.btpink.xyz/www/resources/object_detection/test.jpg"
+					// width="400" height="300"/>
+					// <img
+					// src="https://suenghan.btpink.xyz/www/resources/object_detection/test.jpg"
+					// width="400" height="300"/>
 
-			var cnt = count + '명';
-			$('#img').html(url);
-			$('#hitocheck').html(cnt);
-		}
-	});
-	
+					var cnt = count + '명';
+					$('#img').html(url);
+					$('#hitocheck').html(cnt);
+				}
+			});
+
 }
 function closeModal() {
 	$('#img').html('');
