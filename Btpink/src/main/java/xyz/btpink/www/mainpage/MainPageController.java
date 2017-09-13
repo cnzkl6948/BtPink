@@ -30,8 +30,8 @@ public class MainPageController {
 		return "MainPage/Teachers";
 	}
 
-	@RequestMapping(value = "MySun", method = RequestMethod.GET)
+	@RequestMapping(value = "MySon", method = RequestMethod.GET)
 	public String kindergarten() {
-		return "MainPage/MySun";
+		return "MainPage/MySon";
 	}
 }

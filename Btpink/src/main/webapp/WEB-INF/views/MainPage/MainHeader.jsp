@@ -72,9 +72,9 @@
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown singleDrop color-1"><a
-					href="MySun" class="dropdown-toggle""> <i
+					href="MySon" class="dropdown-toggle""> <i
 						class="fa fa-home bg-color-1" aria-hidden="true"></i> <span
-						class="active">MY SUN</span>
+						class="active">MY SoN</span>
 				</a>
 				<li class="dropdown singleDrop color-3 "><a href="teachers"
 					class="dropdown-toggle"><i class="fa fa-list-ul bg-color-3"

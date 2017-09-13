@@ -99,5 +99,10 @@ public class UsersController {
 		System.out.println(ckList);
 		return ckList;
 	}
-	
+	@RequestMapping(value = "myson", method = RequestMethod.GET)
+	public String MySon(Student st, Locale locale, Model model) {
+		ArrayList<Student> ckList = studentDao.joinCheck(st);
+		System.out.println(ckList);
+		return "MySon";
+	}
 }
