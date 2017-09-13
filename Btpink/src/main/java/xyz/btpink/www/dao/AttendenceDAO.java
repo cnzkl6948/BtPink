@@ -30,5 +30,14 @@ public class AttendenceDAO {
 		
 	}
 	
+	public ArrayList<Attendence> getEmotionList(String stdNo){
+		
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		ArrayList<Attendence> result = new ArrayList<>();
+		result = mapper.getEmotionList(stdNo);
+		
+		return result;
+		
+	}
 
 }

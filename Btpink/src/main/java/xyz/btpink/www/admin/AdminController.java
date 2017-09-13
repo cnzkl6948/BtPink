@@ -2,9 +2,9 @@ package xyz.btpink.www.admin;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Locale;
 
-import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -101,10 +102,84 @@ public class AdminController {
 		return "AdminPage/PCheck";
 	}
 	
-	//인원확인
+	//감정달력
 	@RequestMapping(value = "emotionCal", method = RequestMethod.GET)
 	public String emotionCal(Locale locale, Model model) {
 		logger.info("Go! emotionCal");
+		return "AdminPage/emotionCal";
+	}
+	//감정달력
+	@RequestMapping(value = "getEmotionList", method = RequestMethod.POST)
+	public String getEmotionList(String stdNo, Model model) {
+		logger.info("Go! getEmotionList");
+		ArrayList<Attendence> result = adao.getEmotionList(stdNo);
+		int cnt = result.size();
+		int count = 0;
+		String emotion = "";
+		for(Attendence a : result){
+			count++;
+			//DB에 저장되어 있던 감정
+			String emo = a.getEmotion();
+			//DB날짜를 년 월 일로 나눔
+			int gYear = Integer.parseInt(a.getToday().split(" ")[0].split("-")[0]);
+			int gMonth = Integer.parseInt(a.getToday().split(" ")[0].split("-")[1]);
+			String gDay = a.getToday().split(" ")[0].split("-")[2];
+			
+			Calendar cal = Calendar.getInstance();
+			//현재 년도, 월, 일
+			int year = cal.get ( cal.YEAR );
+			int month = cal.get ( cal.MONTH ) + 1 ;
+			
+			int eMonth = gMonth - month;
+			int eYear = gYear - year;
+			
+			//감정 별 색상 지정
+			String color = "";
+			switch (emo) {
+			case "anger":
+				color+="#f56954"; //red
+				break;
+			case "fear":
+				color+="#f39c12";	//yellow
+				break;
+			case "sadness":
+				color+="#0073b7";	//blue
+				break;
+			case "surprise":
+				color+="#00c0ef";	//aqua
+				break;
+			case "neutral":
+				color+="#00a65a";	//green
+				break;
+			case "happiness":
+				color+="#3c8dbc";	//light-blue
+				break;
+			case "contempt":
+				color+="#DF01A5";	//hotpink
+				break;
+			case "disgust":
+				color+="#61210B";	//brown
+				break;
+			default:
+				color+="#FFFFFF";	//white
+				break;
+			}
+			
+			emotion += "{";
+			emotion += "title          : '"+emo+"',";
+			emotion += "start          : new Date(y+"+eYear+", "+"m+"+eMonth+", "+gDay+"),";
+			emotion += "backgroundColor: '"+color+"',";
+			emotion += "borderColor    : '"+color+"'";
+			
+			if(count == cnt){
+				emotion += "}";
+			}else{
+				emotion += "},";
+			}
+			
+		}
+		System.out.println(emotion);
+		model.addAttribute("emotionEvent", emotion);
 		return "AdminPage/emotionCal";
 	}
 }

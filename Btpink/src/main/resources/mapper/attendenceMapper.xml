@@ -9,6 +9,10 @@
 	select * from attendence
 
 </select>
-
+<select id="getEmotionList" parameterType="string" resultType="Attendence">
+	select today, emotion
+	from attendence
+	where stdno = #{stdNo}
+</select>
 
 </mapper>
