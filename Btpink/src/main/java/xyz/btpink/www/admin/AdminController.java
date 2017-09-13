@@ -140,7 +140,7 @@ public class AdminController {
 				color+="#f56954"; //red
 				break;
 			case "fear":
-				color+="#f39c12";	//yellow
+				color+="#000000";	//yellow
 				break;
 			case "sadness":
 				color+="#0073b7";	//blue
@@ -152,13 +152,13 @@ public class AdminController {
 				color+="#00a65a";	//green
 				break;
 			case "happiness":
-				color+="#3c8dbc";	//light-blue
+				color+="#f39c12";	//yellow
 				break;
 			case "contempt":
 				color+="#DF01A5";	//hotpink
 				break;
 			case "disgust":
-				color+="#61210B";	//brown
+				color+="#8A2908";	//brown
 				break;
 			default:
 				color+="#FFFFFF";	//white
