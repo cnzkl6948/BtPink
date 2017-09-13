@@ -49,9 +49,9 @@ public class Base64ToImgDecoder {
 
 		// 폴더 내부 파일 삭제
 		files = new File(target).listFiles();
-		for (int i = 0; i < files.length; i++) {
-			files[i].delete();
-		}
+//		for (int i = 0; i < files.length; i++) {
+//			files[i].delete();
+//		}
 
 		// 파일 이름 생성
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");

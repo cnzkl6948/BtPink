@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xyz.btpink.www.dao.BoardMapper">
+<!-- 게시글 저장 -->
+	<insert id="insertBoard" parameterType="Board">
+		insert into board(
+			boardnum
+			, id
+			, title
+			, content
+		)
+		values(
+			board_seq.nextval
+			, #{id}
+			, #{title}
+			, #{content}
+		)
+	</insert>
+	
+	<!-- 게시글 읽기 -->
+	<select id="getBoard" parameterType="int" resultType="Board">
+		select 
+			boardnum
+			, id
+			, title
+			, content
+			, to_char(inputdate, 'YYYY-MM-DD HH24:MI:SS') inputdate
+		from 
+			board 
+		where 
+			boardnum = #{boardnum}
+	</select>
+	
+	
+	<!-- 전체 글 개수 (검색 필터링 후) -->
+	<select id="getTotal" parameterType="string" resultType="int">
+		select 
+			count(*)
+		from 
+			board
+		<if test="_parameter != null">
+		where 
+			title like '%' || #{searchText} || '%'
+		</if>
+	</select>
+	
+	<!-- 현재 페이지 목록 (검색 필터링 후) -->
+	<select id="listBoard" parameterType="string" resultType="Board">
+		select 
+			boardnum
+			, id
+			, title
+			, content
+			, to_char(inputdate, 'YYYY-MM-DD') inputdate
+		from 
+			board 
+		<if test="_parameter != null">
+		where 
+			title like '%' || #{searchText} || '%'
+		</if>
+		order by boardnum desc
+	</select>
+
+
+	<!-- 글 삭제 -->
+	<delete id="deleteBoard" parameterType="Board">
+		delete
+		from
+			board
+		where
+			boardnum = #{boardnum}
+			and id = #{id}
+	</delete>
+
+	<!-- 글 수정 -->
+	<update id="updateBoard" parameterType="Board">
+		update
+			board
+		set
+			title = #{title}
+			, content = #{content}
+		where
+			boardnum = #{boardnum}
+			and id = #{id}
+	</update>
+
+	<!-- 리플 저장 -->
+	<insert id="insertReply" parameterType="Reply">
+		insert into reply (
+			replynum
+			, boardnum
+			, id
+			, text
+		)
+		values (
+			reply_seq.nextval
+			, #{boardnum}
+			, #{id}
+			, #{text}
+		)
+	</insert>
+	
+	<!-- 리플 삭제 -->
+	<delete id="deleteReply" parameterType="Reply">
+		delete
+		from
+			reply
+		where
+			replynum = #{replynum}
+			and id = #{id}
+	</delete>
+	
+	<!-- 현재 글의 리플 목록 -->
+	<select id="listReply" parameterType="int" resultType="Reply">
+		select 
+			replynum
+			, boardnum
+			, id
+			, text
+			, to_char(inputdate, 'YYYY-MM-DD') inputdate
+		from 
+			reply 
+		where
+			boardnum = #{boardnum}
+		order by replynum desc
+	</select>
+
+	<!-- 리플 수정 -->
+	<update id="updateReply" parameterType="Reply">
+		update
+			reply
+		set
+			text = #{text}
+		where
+			replynum = #{replynum}
+			and id = #{id}
+	</update>
+
+</mapper>

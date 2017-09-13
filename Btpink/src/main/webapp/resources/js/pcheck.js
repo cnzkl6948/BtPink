@@ -37,12 +37,16 @@ function snapshot(){
 		type : "POST",
 		data : $('#formId').serialize(),
 		success : function(count){
+<<<<<<< HEAD:Btpink/src/main/webapp/resources/object_detection/js/pcheck.js
+			var url = '<img src="https://geonho.btpink.xyz/www/resources/object_detection/test.jpg" width="800" height="450"/>';
+=======
 			var url = '<img src="https://www.btpink.xyz/www/resources/object_detection/test.jpg" width="100%"/>';
 //<img src="https://www.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
 //<img src="https://geonho.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
 //<img src="https://dahuin.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
 //<img src="https://suenghan.btpink.xyz/www/resources/object_detection/test.jpg" width="400" height="300"/>
 
+>>>>>>> LTE3:Btpink/src/main/webapp/resources/js/pcheck.js
 			var cnt = count + '명';
 			$('#img').html(url);
 			$('#hitocheck').html(cnt);

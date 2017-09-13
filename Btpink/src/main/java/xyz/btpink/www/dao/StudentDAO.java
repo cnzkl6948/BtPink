@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import xyz.btpink.www.vo.Student;
 import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.Student;
 
@@ -22,7 +23,7 @@ public class StudentDAO {
 	public int insert(Student student) {
 		System.out.println("다오 진입");
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
-		
+
 		int result = 0;
 		try {
 			result = mapper.insertStudent(student);
@@ -32,7 +33,24 @@ public class StudentDAO {
 		}
 		return result;
 	}
-	
 
+	public ArrayList<Student> joinCheck(Student student) {
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		System.out.println(student);
+		ArrayList<Student> ckList = mapper.joinCheck(student);
+		int result = 0;
+		try {
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ckList;
+	}
 
+	public int parentUpdate(Student student) {
+		
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		mapper.parentUpdate(student);
+		return 0;
+		// TODO Auto-generated method stub
+	}
 }
