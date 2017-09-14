@@ -168,6 +168,7 @@ public class AdminController {
 			emotion += "{";
 			emotion += "title          : '"+emo+"',";
 			emotion += "start          : new Date(y+"+eYear+", "+"m+"+eMonth+", "+gDay+"),";
+			emotion += "allDay          : true,";
 			emotion += "backgroundColor: '"+color+"',";
 			emotion += "borderColor    : '"+color+"'";
 			
