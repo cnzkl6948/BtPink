@@ -183,4 +183,11 @@ public class AdminController {
 		model.addAttribute("emotionEvent", emotion);
 		return "AdminPage/emotionCal";
 	}
+	
+	//반 배정
+	@RequestMapping(value = "autoSplit", method = RequestMethod.GET)
+	public String autoSplit(Locale locale, Model model) {
+		logger.info("Go! autoSplit");
+		return "AdminPage/autoSplit";
+	}
 }

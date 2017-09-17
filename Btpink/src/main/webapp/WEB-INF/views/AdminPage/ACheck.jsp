@@ -22,6 +22,7 @@
 	<br>
 	<!-- Main row -->
       <div class="row">
+      <div class="col-lg-12">
       <!-- left col -->
         <section class="col-lg-6 col-md-12 connectedSortable">
           	<div style="position:relative">
@@ -123,7 +124,7 @@
         <!-- /.right col -->
       </div>
       <!-- /.row (main row) -->
-      
+      </div>
   </div>
   <!-- /.content-wrapper -->
   

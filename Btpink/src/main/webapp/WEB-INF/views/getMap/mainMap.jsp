@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,25 +11,25 @@
   <title>ACCRODION &amp; TOGGLES - KIDZ SCHOOL</title>
 
   <!-- PLUGINS CSS STYLE -->
-  <link href="plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
-  <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="plugins/rs-plugin/css/settings.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="plugins/selectbox/select_option1.css">
-  <link rel="stylesheet" type="text/css" href="plugins/owl-carousel/owl.carousel.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="plugins/isotope/jquery.fancybox.css">
-  <link rel="stylesheet" type="text/css" href="plugins/isotope/isotope.css">
+  <link href="./resources/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
+  <link href="./resources/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./resources/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/rs-plugin/css/settings.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/selectbox/select_option1.css">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/owl-carousel/owl.carousel.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/isotope/jquery.fancybox.css">
+  <link rel="stylesheet" type="text/css" href="./resources/plugins/isotope/isotope.css">
 
   <!-- GOOGLE FONT -->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Dosis:400,300,600,700' rel='stylesheet' type='text/css'>
 
   <!-- CUSTOM CSS -->
-  <link href="css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/default.css" id="option_color">
+  <link href="./resources/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="./resources/css/default.css" id="option_color">
 
   <!-- Icons -->
-  <link rel="shortcut icon" href="img/favicon.png">
+  <link rel="shortcut icon" href="./resources/img/favicon.png">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -96,7 +98,7 @@
                       <a href="single-product.html">
                         <div class="media">
                           <div class="media-left">
-                            <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                            <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                           </div>
                           <div class="media-body">
                             <h4>Barbie Racing Car</h4>
@@ -113,7 +115,7 @@
                       <a href="single-product.html">
                         <div class="media">
                           <div class="media-left">
-                            <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                            <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                           </div>
                           <div class="media-body">
                             <h4>Barbie Racing Car</h4>
@@ -130,7 +132,7 @@
                       <a href="single-product.html">
                         <div class="media">
                           <div class="media-left">
-                            <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                            <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                           </div>
                           <div class="media-body">
                             <h4>Barbie Racing Car</h4>
@@ -170,7 +172,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><img src="img/logo-school.png" alt="Kidz School"></a>
+            <a class="navbar-brand" href="index.html"><img src="./resources/img/logo-school.png" alt="Kidz School"></a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -372,7 +374,7 @@
                 <a href="single-product.html">
                   <div class="media">
                     <div class="media-left">
-                      <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                      <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                     </div>
                     <div class="media-body">
                       <h4>Barbie Racing Car</h4>
@@ -389,7 +391,7 @@
                 <a href="single-product.html">
                   <div class="media">
                     <div class="media-left">
-                      <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                      <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                     </div>
                     <div class="media-body">
                       <h4>Barbie Racing Car</h4>
@@ -406,7 +408,7 @@
                 <a href="single-product.html">
                   <div class="media">
                     <div class="media-left">
-                      <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                      <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                     </div>
                     <div class="media-body">
                       <h4>Barbie Racing Car</h4>
@@ -559,12 +561,12 @@
     </div>
   </div>
   <!-- FOOTER INFO AREA -->
-  <div class="footerInfoArea full-width clearfix" style="background-image: url(img/footer/footer-bg-1.png);">
+  <div class="footerInfoArea full-width clearfix" style="background-image: url(/www/resources/img/footer/footer-bg-1.png);">
     <div class="container">
       <div class="row">
         <div class="col-sm-3 col-xs-12">
           <div class="footerTitle">
-            <a href="index.html"><img src="img/logo-footer.png"></a>
+            <a href="index.html"><img src="./resources/img/logo-footer.png"></a>
           </div>
           <div class="footerInfo">
             <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa officia.Lorem ipsum dolor sit amet.</p>
@@ -615,7 +617,7 @@
               <li>
                 <div class="media">
                   <a class="media-left" href="single-blog.html">
-                    <img class="media-object img-rounded border-color-1" src="img/footer/footer-img-1.png" alt="Image">
+                    <img class="media-object img-rounded border-color-1" src="./resources/img/footer/footer-img-1.png" alt="Image">
                   </a>
                   <div class="media-body">
                     <h5 class="media-heading"><a href="single-blog.html">A Clean Website Gives More Experience To The Visitors</a></h5>
@@ -626,7 +628,7 @@
               <li>
                 <div class="media">
                   <a class="media-left" href="single-blog-left-sidebar.html">
-                    <img class="media-object img-rounded border-color-2" src="img/footer/footer-img-2.png" alt="Image">
+                    <img class="media-object img-rounded border-color-2" src="./resources/img/footer/footer-img-2.png" alt="Image">
                   </a>
                   <div class="media-body">
                     <h5 class="media-heading"><a href="single-blog-left-sidebar.html">A Clean Website Gives More Experience To The Visitors</a></h5>
@@ -637,7 +639,7 @@
               <li>
                 <div class="media">
                   <a class="media-left" href="single-blog-left-sidebar.html">
-                    <img class="media-object img-rounded border-color-4" src="img/footer/footer-img-3.png" alt="Image">
+                    <img class="media-object img-rounded border-color-4" src="./resources/img/footer/footer-img-3.png" alt="Image">
                   </a>
                   <div class="media-body">
                     <h5 class="media-heading"><a href="single-blog-left-sidebar.html">A Clean Website Gives More Experience To The Visitors</a></h5>
@@ -759,21 +761,21 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="plugins/jquery-ui/jquery-ui.js"></script>
-<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-<script src="plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-<script src="plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
-<script src="plugins/owl-carousel/owl.carousel.js"></script>
+<script src="./resources/plugins/jquery-ui/jquery-ui.js"></script>
+<script src="./resources/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script src="./resources/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+<script src="./resources/plugins/owl-carousel/owl.carousel.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="plugins/counter-up/jquery.counterup.min.js"></script>
-<script src="plugins/isotope/isotope.min.js"></script>
-<script src="plugins/isotope/jquery.fancybox.pack.js"></script>
-<script src="plugins/isotope/isotope-triger.js"></script>
-<script src="plugins/countdown/jquery.syotimer.js"></script>
-<script src="plugins/velocity/velocity.min.js"></script>
-<script src="plugins/smoothscroll/SmoothScroll.js"></script>
-<script src="js/custom.js"></script>
+<script src="./resources/plugins/counter-up/jquery.counterup.min.js"></script>
+<script src="./resources/plugins/isotope/isotope.min.js"></script>
+<script src="./resources/plugins/isotope/jquery.fancybox.pack.js"></script>
+<script src="./resources/plugins/isotope/isotope-triger.js"></script>
+<script src="./resources/plugins/countdown/jquery.syotimer.js"></script>
+<script src="./resources/plugins/velocity/velocity.min.js"></script>
+<script src="./resources/plugins/smoothscroll/SmoothScroll.js"></script>
+<script src="./resources/js/custom.js"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0612d5a0dcb8c7608772061cd533bfa6"></script>
 <script>
