@@ -41,9 +41,16 @@ public class UsersController {
 	public String login(Account account, Locale locale, Model model,HttpSession session) {
 		Account ac=accountDao.login(account);
 		if(ac.getId()!=null){
+			System.out.println(ac);
 			session.setAttribute("User", ac);
 		}
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "loginCheck", method = RequestMethod.POST)
+	public @ResponseBody Account loginCheck(Account account, Locale locale, Model model,HttpSession session) {
+		Account ac=accountDao.login(account);
+		return ac;
 	}
 	
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
@@ -55,18 +62,21 @@ public class UsersController {
 	//회원가입
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String join(Account account, Parent parent, Teacher teacher, Student student, Locale locale, Model model) {
-		parent.setMemNno(num());
-		String num = num();
+		String num = num(); 
 		//if일경우 부모님(p)  else일결우 선생님(t)
+		account.setStatus("0");
 		if (account.getType().equalsIgnoreCase("p")) {
 			account.setMemNno("p"+num);
+			parent.setMemNno(account.getMemNo());
 			student.setParentno(parent.getMemNo());
-			accountDao.insert(account);
+			System.out.println("Parent"+parent);
+			accountDao.AccountInsert(account);
 			parentDao.insert(parent);
 			studentDao.parentUpdate(student);
 		}else{
 			account.setMemNno("t"+num);
-			teacherDao.insert(teacher);
+			System.out.println(account);
+			accountDao.AccountInsert(account);
 		}
 		return "redirect:/";
 	}

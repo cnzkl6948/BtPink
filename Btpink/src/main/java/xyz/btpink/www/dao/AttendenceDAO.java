@@ -39,5 +39,11 @@ public class AttendenceDAO {
 		return result;
 		
 	}
+	
+	public ArrayList<Attendence> selectToday(String date){
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		
+		return mapper.selectToday(date); 
+	}
 
 }

@@ -9,11 +9,11 @@ import xyz.btpink.www.vo.Account;
 public class AccountDAO implements AccountMapper {
 	@Autowired
 	SqlSession sqlSession;
-	@Override
-	public int insert(Account account) {
+	public int AccountInsert(Account account) {
 		// TODO Auto-generated method stub
 		AccountMapper mapper = sqlSession.getMapper(AccountMapper.class);
-		mapper.insert(account);
+		System.out.println("Dao : "+account);
+		mapper.AccountInsert(account);
 		return 0;
 	}
 

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +20,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import xyz.btpink.www.dao.AttendenceDAO;
 import xyz.btpink.www.dao.StudentDAO;
+import xyz.btpink.www.dao.TeacherDAO;
+import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.Student;
+import xyz.btpink.www.vo.Teacher;
 
 @Controller
 public class AdminController {
@@ -31,13 +36,20 @@ public class AdminController {
 	AttendenceDAO adao;
 
 	@Autowired
+	TeacherDAO tdao;
+	
+	@Autowired
 	private String path;
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	//선생님 페이지
 	@RequestMapping(value = "adminPage", method = RequestMethod.GET)
-	public String adminPage(Locale locale, Model model) {
+	public String adminPage(HttpSession session,Locale locale, Model model) {
 		logger.info("Go! adminPage");
+		Account account = (Account) session.getAttribute("User");
+		System.out.println(account.getId());
+		System.out.println(tdao.selectDemand(account.getId()));
+		
 		return "adminPage";
 	}
 	

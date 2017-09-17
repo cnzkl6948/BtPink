@@ -4,7 +4,7 @@ import xyz.btpink.www.vo.Account;
 
 public interface AccountMapper {
 
-	public int insert(Account account);
+	public int AccountInsert(Account account);
 
 	public Account idOverlap(Account account);
 

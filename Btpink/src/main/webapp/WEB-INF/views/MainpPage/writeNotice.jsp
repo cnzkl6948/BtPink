@@ -500,7 +500,7 @@ function formCheck() {
                   <div class="col-sm-6 col-xs-12">
                     <div class="form-group">
                       <i class="fa fa-user" aria-hidden="true"></i>
-                      <input type="text" class="form-control border-color-2" id="exampleInputEmail2" name="id" placeholder="writer=id">
+                      <input type="text" class="form-control border-color-2" id="exampleInputEmail2" name="id" placeholder="${User.id }" disabled="disabled">
                     </div>
                   </div>
                  
@@ -677,89 +677,4 @@ function formCheck() {
 <a href="#pageTop" class="backToTop hidden-xs" id="backToTop"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 </div>
 
-<!-- LOGIN MODAL -->
-<div class="modal fade customModal" id="loginModal" tabindex="-1" role="dialog">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="panel panel-default formPanel">
-      <div class="panel-heading bg-color-1 border-color-1">
-        <h3 class="panel-title">Login</h3>
-      </div>
-      <div class="panel-body">
-        <form action="#" method="POST" role="form">
-          <div class="form-group formField">
-            <input type="text" class="form-control" placeholder="User name">
-          </div>
-          <div class="form-group formField">
-            <input type="password" class="form-control" placeholder="Password">
-          </div>
-          <div class="form-group formField">
-            <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" value="Log in">
-          </div>
-          <div class="form-group formField">
-            <p class="help-block"><a href="#">Forgot password?</a></p>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- CREATE ACCOUNT MODAL -->
-<div class="modal fade customModal" id="createAccount" tabindex="-1" role="dialog">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="panel panel-default formPanel">
-      <div class="panel-heading bg-color-1 border-color-1">
-        <h3 class="panel-title">Create  an account</h3>
-      </div>
-      <div class="panel-body">
-        <form action="#" method="POST" role="form">
-          <div class="form-group formField">
-            <input type="text" class="form-control" placeholder="Name">
-          </div>
-          <div class="form-group formField">
-            <input type="text" class="form-control" placeholder="User name">
-          </div>
-          <div class="form-group formField">
-            <input type="text" class="form-control" placeholder="Phone">
-          </div>
-          <div class="form-group formField">
-            <input type="password" class="form-control" placeholder="Password">
-          </div>
-          <div class="form-group formField">
-            <input type="password" class="form-control" placeholder="Re-Password">
-          </div>
-          <div class="form-group formField">
-            <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" value="Register">
-          </div>
-          <div class="form-group formField">
-            <p class="help-block">Allready have an account? <a href="#">Log in</a></p>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="./resources/plugins/jquery-ui/jquery-ui.js"></script>
-<script src="./resources/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-<script src="./resources/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
-<script src="./resources/plugins/owl-carousel/owl.carousel.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="./resources/plugins/counter-up/jquery.counterup.min.js"></script>
-<script src="./resources/plugins/isotope/isotope.min.js"></script>
-<script src="./resources/plugins/isotope/jquery.fancybox.pack.js"></script>
-<script src="./resources/plugins/isotope/isotope-triger.js"></script>
-<script src="./resources/plugins/countdown/jquery.syotimer.js"></script>
-<script src="./resources/plugins/velocity/velocity.min.js"></script>
-<script src="./resources/plugins/smoothscroll/SmoothScroll.js"></script>
-<script src="./resources/js/custom.js"></script>
-</body>
-</html>
 

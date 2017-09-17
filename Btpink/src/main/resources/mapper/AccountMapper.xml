@@ -5,7 +5,7 @@
 
 <mapper namespace="xyz.btpink.www.dao.AccountMapper">
 	<!--회원가입 -->
-	<insert id="parentInsert" parameterType="Account">
+	<insert id="AccountInsert" parameterType="Account">
 		insert into account
 		values(
 		#{memNo}
@@ -15,8 +15,10 @@
 		,#{pw}
 		,#{email}
 		,#{phone}
-		,0
+		,#{status}
 		)
+	
+		 
 	</insert>
 	<!-- 중복확인 -->
 	<select id="idOverlap" parameterType="Account" resultType="Account">

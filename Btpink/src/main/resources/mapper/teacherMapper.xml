@@ -17,4 +17,7 @@
 		,0
 		)
 	</insert>
+	<select id="selectDemand" parameterType="string" resultType="Demand">
+	select * from demand where classno = (select classno from class where memno = (select memno from account where id = #{id}))
+	</select>
 </mapper>

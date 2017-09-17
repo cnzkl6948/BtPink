@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import xyz.btpink.www.dao.BoardDAO;
 import xyz.btpink.www.util.PageNavigator;
+import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Board;
 import xyz.btpink.www.vo.Reply;
 
@@ -44,7 +45,7 @@ public class BoardController {
 	@RequestMapping (value="writeNotice", method=RequestMethod.GET)
 	public String writeForm() {
 		
-		return "MainpPage/writeNotice";
+		return "MainPage/writeNotice";
 	}
 
 	/**
@@ -56,7 +57,9 @@ public class BoardController {
 
 		//세션에서 로그인한 사용자의 아이디를 읽어서 Board객체의 작성자 정보에 세팅
 		//String id = (String) session.getAttribute("loginId");
-		board.setId("kkk");
+		Account user=(Account) session.getAttribute("User");
+		System.out.println(user.getId());
+		board.setId(user.getId());
 		
 		//첨부파일없음
 		System.out.println(board);
@@ -99,7 +102,7 @@ public class BoardController {
 		model.addAttribute("latestnum3",boardlist.get(2).getBoardnum());
 		}
 		
-		return "MainpPage/listNotice";
+		return "MainPage/listNotice";
 	}
 	
 	/**
@@ -125,12 +128,9 @@ public class BoardController {
 		model.addAttribute("replylist", replylist);
 		model.addAttribute("replyCount",replylist.size());
 		
-		//session id-test-나중에 로그인 기능만들고 삭제
-		session.setAttribute("loginId", "kkk");
 		
 		
-		
-		return "MainpPage/readNotice";
+		return "MainPage/readNotice";
 	}
 	
 	/**
@@ -145,7 +145,9 @@ public class BoardController {
 	 */
 	@RequestMapping (value="deleteNotice", method=RequestMethod.GET)
 	public String delete(int boardnum, HttpSession session) {
-		String id = (String) session.getAttribute("loginId");
+		Account user=  (Account) session.getAttribute("User");
+		String id =user.getId();
+		
 		
 		//삭제할 글 번호와 본인 글인지 확인할 로그인아이디
 		Board board = new Board();
@@ -173,7 +175,7 @@ public class BoardController {
 		
 		Board board = dao.get(boardnum);
 		model.addAttribute("board", board);
-		return "MainpPage/editNotice";
+		return "MainPage/editNotice";
 	}
 	
 	/**
@@ -187,7 +189,9 @@ public class BoardController {
 			HttpSession session) {
 		
 		//수정할 글이 로그인한 본인 글인지 확인
-		String id = (String) session.getAttribute("loginId");
+		Account user=  (Account) session.getAttribute("User");
+		String id =user.getId();
+		
 		Board oldBoard = dao.get(board.getBoardnum());
 		if (oldBoard == null || !oldBoard.getId().equals(id)) {
 			return "redirect:listNotice";
@@ -216,9 +220,9 @@ public class BoardController {
 			Model model) {
 		
 		//세션에서 로그인한 사용자의 아이디를 읽어서 Reply객체의 작성자 정보에 세팅
-		String id = (String) session.getAttribute("loginId");
+		Account user=  (Account) session.getAttribute("User");
+		String id =user.getId();
 		reply.setId(id);
-		
 		//리플 정보를 DB에 저장
 		dao.insertReply(reply);
 		
@@ -232,7 +236,8 @@ public class BoardController {
 	 */
 	@RequestMapping (value="replyDelete", method=RequestMethod.GET)
 	public String deleteReply(Reply reply, HttpSession session) {
-		String id = (String) session.getAttribute("loginId");
+		Account user=  (Account) session.getAttribute("User");
+		String id =user.getId();
 		
 		//삭제할 글 번호와 본인 글인지 확인할 로그인아이디
 		reply.setId(id);
@@ -251,7 +256,9 @@ public class BoardController {
 			HttpSession session) {
 		
 		//삭제할 리플 정보와 본인 글인지 확인할 로그인아이디
-		String id = (String) session.getAttribute("loginId");
+		Account user=  (Account) session.getAttribute("User");
+		String id =user.getId();
+		
 		reply.setId(id);
 		
 		//리플  수정 처리

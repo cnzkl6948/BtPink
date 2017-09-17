@@ -9,7 +9,7 @@ function studentCheck() {
 				type : "get",
 				data : {
 					name : $('#studentName').val(),
-					classno : $('#guiest_id3').val()
+					classno : $('#StdNo').val()
 				},
 				success : function(result) {
 					// SelectStudent
@@ -17,18 +17,18 @@ function studentCheck() {
 						alert($('#studentName').val() + "학생이 없습니다");
 					} else {
 
-						var SelectStudent = $('#studentName').val()
-								+ '<select  id="stdNo" name = "stdNo" class="select-drop" sb="26706380" style="top: 34px; max-height: 460.4px;">';
-						$.each(result, function(index, result) {
-							SelectStudent += '<option value="' + result.stdNo
-									+ '">' + ' 주소  : ' + result.address
-									+ '생일 : ' + result.birth + '</option>';
+						var SelectStudent = '<div class="col-sm-12 col-xs-12"><select  id="stdNo" name = "stdNo" class="form-control" >';
+						$.each(result, function(index, student) {
+							SelectStudent += '<option '
+									+ '" value="' + student.stdNo + '">'
+									+ ' 주소  : ' + student.address + ' 생일 : '
+									+ student.birth + '</option>';
 						})
-						SelectStudent += '</select>';
+						SelectStudent += '</select></div>';
+
 						$('#SelectStudent').html(SelectStudent);
 						$('#studentSelectButton').html('');
 						$('#stduentNameCheck').html('');
-						$('#type').val('p');
 					}
 				}
 			});
@@ -36,32 +36,33 @@ function studentCheck() {
 
 function idOverlap() {
 	var id = $("#id").val();
-	alert("아이디 : " + id);
-	$.ajax({
-		url : "idOverlap",
-		type : "get",
-		data : "id="+id,
-		success : function(result) {
-			// SelectStudent
-			alert(result);
-			var text = '';
-			if (result == '1') {
-
-				text += id + '는 사용 하실 수 있습니다.';
-				$('#idCheck').val('true');
-				$('#idCheckText').html(text);
-			} else {
-				text += id + '는 사용 할 수 없습니다';
-				$('#idCheck').val('false');
-				$('#idCheckText').html(text);
+	if (id.length> 6 && id.length<13) {
+		$.ajax({
+			url : "idOverlap",
+			type : "get",
+			data : "id=" + id,
+			success : function(result) {
+				// SelectStudent background-color: #337ab7
+				var text = '';
+				if (result == '1') {
+					$("#basic-addon21").attr("style",
+							"background-color: #337ab7");
+					$("#id").attr("style", "background-color:#ffffff; ");
+					$("#id").disbled =true;
+					$('#idCheck').val('true');
+				} else {
+					alert("중복된 아이디가 있습니다.");
+				}
 			}
-		}
-	});
+		});
+
+	}else{
+		alert("6~12자리수를 입력 해 주세요")
+	}
 }
 function join() {
 	var result = true;
 	var SelectTeacher = $("#SelectTeacher").attr("aria-expanded");
-	var id = $('#id').val();
 	var name = $('#name').val();
 	var pw = $('#pw').val();
 	var pwCk = $('#pwCk').val();
@@ -72,8 +73,9 @@ function join() {
 	if (SelectTeacher == "false") {
 		if (stdNo === undefined) {
 			alert("학생을 입력하시오.");
-			$('#type').val('p')
 			result = false;
+		}else{
+			$('#type').val('p')
 		}
 	} else {
 		$('#type').val('t')
@@ -82,15 +84,17 @@ function join() {
 	if (result) {
 		if (idCheck == "false") {
 			alert("중복을 확인해 주세요");
-		} else if (id == "") {
-			alert("아이디를 입력 하시오");
+		} else if(name == 0){
+			alert('이릅을 입력하시오');
+		} else if(pw.length<4||pw.length>13){
+			alert("비밀번호 3~12");
 		} else if (pw != pwCk) {
 			alert("비밀번호 불일치");
 		} else if (email == "") {
 			alert("email 입력");
 		} else if (phone == "") {
 			alert("휴대폰번호를 입력해 주세요")
-		} else { // $("#createSubmit").submit();
+		} else { 
 			document.getElementById('createSubmit').submit();
 		}
 	}

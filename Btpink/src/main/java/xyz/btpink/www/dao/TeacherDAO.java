@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import xyz.btpink.www.vo.Demand;
 import xyz.btpink.www.vo.Student;
 import xyz.btpink.www.vo.Teacher;
 
@@ -28,4 +29,10 @@ public class TeacherDAO {
 		}
 		return result;
 	}
+	public ArrayList<Demand> selectDemand(String id){
+	
+		TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
+		return mapper.selectDemand(id);
+	}
+
 }

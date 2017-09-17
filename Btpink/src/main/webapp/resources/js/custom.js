@@ -300,3 +300,7 @@ $( "#price-amount-2" ).val( "$" + $( "#price-range" ).slider( "values", 1 ));
 
   $("[data-toggle=tooltip]").tooltip();
 });
+
+//login
+
+
