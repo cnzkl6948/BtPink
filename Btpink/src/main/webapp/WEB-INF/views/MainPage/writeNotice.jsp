@@ -92,3 +92,5 @@ function formCheck() {
 </script>	
 
 <%@include file="MainFooter.jsp"%>
+</body>
+</html>

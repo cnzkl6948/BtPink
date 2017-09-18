@@ -2,5 +2,18 @@
 #selfieimage{
 	position : absolute;
 	top : 0px;
-/* 	width: 100%; */
+	width: 100%;
+}
+#imgg {
+	width:603px;
+	height:454px;
+	overflow: hidden;
+}
+#resultImg{
+	width:900px;
+	margin-top: -72px;
+	margin-left: -160px;
+}
+.modal-content{
+	width:632px;
 }

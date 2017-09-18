@@ -2,73 +2,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="split/Head.jsp"%>
-<!-- fullCalendar -->
-<link rel="stylesheet"
-	href="./resources/AdminLTE/bower_components/fullcalendar/dist/fullcalendar.min.css">
-<link rel="stylesheet"
-	href="./resources/AdminLTE/bower_components/fullcalendar/dist/fullcalendar.print.min.css"
-	media="print">
-<style>
-.bg-brown {
-	background-color: #8A2908 !important;
-	border: 1px solid white;
-	color: white;
-}
 
-.bg-hotpink {
-	background-color: #DF01A5 !important;
-	border: 1px solid white;
-	color: white;
-}
-
-.bg-mimm {
-	background-color: #f56954 !important;
-	border: 1px solid white;
-	color: white;
-}
-
-.bg-green {
-	border: 1px solid white;
-}
-
-.bg-yellow {
-	border: 1px solid white;
-}
-
-.bg-blue {
-	border: 1px solid white;
-}
-
-.bg-aqua {
-	border: 1px solid white;
-}
-
-.bg-red {
-	border: 1px solid white;
-}
-
-.bg-black {
-	border: 1px solid white;
-}
-
-.external-event {
-	cursor: pointer;
-}
-
-.box.box-primary {
-	border-top-color: red;
-}
-
-a:link {
-	color: white;
-	text-decoration: none;
-}
-
-a:visited {
-	color: white;
-	text-decoration: none;
-}
-</style>
+  <!-- fullCalendar -->
+  <link rel="stylesheet" href="./resources/AdminLTE/bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="./resources/AdminLTE/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+<style>.bg-brown {background-color: #8A2908 !important;border: 1px solid white;color:white;}.bg-hotpink {background-color: #DF01A5 !important;border: 1px solid white;color:white;}.bg-mimm {background-color: #f56954 !important;border: 1px solid white;color:white;}.bg-green  {border: 1px solid white;}.bg-yellow {border: 1px solid white;}.bg-blue  {border: 1px solid white;}.bg-aqua  {border: 1px solid white;}.bg-red  {border: 1px solid white;}.bg-black { border: 1px solid white;}.external-event{cursor : pointer;} .box.box-primary { border-top-color: red;}a:link { color: white; text-decoration: none; display:block;} a:visited { color: white; text-decoration: none;}</style>
 <%@ include file="split/Header.jsp"%>
 <%@ include file="split/Sidebar.jsp"%>
 

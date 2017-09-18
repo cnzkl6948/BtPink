@@ -180,6 +180,7 @@ public class AdminController {
 			emotion += "{";
 			emotion += "title          : '"+emo+"',";
 			emotion += "start          : new Date(y+"+eYear+", "+"m+"+eMonth+", "+gDay+"),";
+			emotion += "allDay          : true,";
 			emotion += "backgroundColor: '"+color+"',";
 			emotion += "borderColor    : '"+color+"'";
 			
@@ -193,5 +194,12 @@ public class AdminController {
 		System.out.println(emotion);
 		model.addAttribute("emotionEvent", emotion);
 		return "AdminPage/emotionCal";
+	}
+	
+	//반 배정
+	@RequestMapping(value = "autoSplit", method = RequestMethod.GET)
+	public String autoSplit(Locale locale, Model model) {
+		logger.info("Go! autoSplit");
+		return "AdminPage/autoSplit";
 	}
 }

@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FORMS - KIDZ SCHOOL</title>
+  <title>ACCRODION &amp; TOGGLES - KIDZ SCHOOL</title>
 
   <!-- PLUGINS CSS STYLE -->
   <link href="./resources/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
@@ -37,29 +37,6 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
-<script>
-//글쓰기폼 확인
-function formCheck() {
-	var title = document.getElementById('title');
-	var content = document.getElementById('content');
-	
-	if (title.value.length < 5) {
-		alert("제목을 입력하세요.");
-		title.focus();
-		title.select();
-		return false;
-	}
-	if (content.value.length < 5) {
-		alert("내용을 입력하세요.");
-		title.focus();
-		title.select();
-		return false;
-	}
-	return true;
-}
-</script>	
-
 
 </head>
 
@@ -121,7 +98,7 @@ function formCheck() {
                       <a href="single-product.html">
                         <div class="media">
                           <div class="media-left">
-                            <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                            <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                           </div>
                           <div class="media-body">
                             <h4>Barbie Racing Car</h4>
@@ -138,7 +115,7 @@ function formCheck() {
                       <a href="single-product.html">
                         <div class="media">
                           <div class="media-left">
-                            <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                            <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                           </div>
                           <div class="media-body">
                             <h4>Barbie Racing Car</h4>
@@ -155,7 +132,7 @@ function formCheck() {
                       <a href="single-product.html">
                         <div class="media">
                           <div class="media-left">
-                            <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                            <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                           </div>
                           <div class="media-body">
                             <h4>Barbie Racing Car</h4>
@@ -195,7 +172,7 @@ function formCheck() {
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html"><img src="img/logo-school.png" alt="Kidz School"></a>
+            <a class="navbar-brand" href="index.html"><img src="./resources/img/logo-school.png" alt="Kidz School"></a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -371,12 +348,12 @@ function formCheck() {
               <li class="dropdown singleDrop color-6  active ">
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gg bg-color-6" aria-hidden="true"></i> <span>Components</span></a>
                 <ul class="dropdown-menu dropdown-menu-right">
-                  <li class=" "><a href="accordion-toggles.html">Accordions &amp; Toggles</a></li>
+                  <li class=" active  "><a href="accordion-toggles.html">Accordions &amp; Toggles</a></li>
                   <li class=""><a href="tabs-dropdown.html">Tabs &amp; Dropdowns</a></li>
                   <li class=" "><a href="alert-label-badges.html">Alert-Label-badges</a></li>
                   <li class=" "><a href="progress-bar.html">Progress Bar</a></li>
                   <li class=" "><a href="buttons.html">Buttons</a></li>
-                  <li class=" active  "><a href="forms.html">Forms</a></li>
+                  <li class=" "><a href="forms.html">Forms</a></li>
                   <li class=" "><a href="list-panel.html">Listgroups Panel</a></li>
                   <li class=" "><a href="tooltip-pagination.html">Tooltip Pagination</a></li>
                   <li class=" "><a href="typography.html">Typography</a></li>
@@ -397,7 +374,7 @@ function formCheck() {
                 <a href="single-product.html">
                   <div class="media">
                     <div class="media-left">
-                      <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                      <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                     </div>
                     <div class="media-body">
                       <h4>Barbie Racing Car</h4>
@@ -414,7 +391,7 @@ function formCheck() {
                 <a href="single-product.html">
                   <div class="media">
                     <div class="media-left">
-                      <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                      <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                     </div>
                     <div class="media-body">
                       <h4>Barbie Racing Car</h4>
@@ -431,7 +408,7 @@ function formCheck() {
                 <a href="single-product.html">
                   <div class="media">
                     <div class="media-left">
-                      <img src="img/home/cart/cart-img.png" alt="cart-Image">
+                      <img src="./resources/img/home/cart/cart-img.png" alt="cart-Image">
                     </div>
                     <div class="media-body">
                       <h4>Barbie Racing Car</h4>
@@ -463,10 +440,10 @@ function formCheck() {
     <section class="pageTitleSection">
       <div class="container">
         <div class="pageTitleInfo">
-          <h2>Forms</h2>
+          <h2>Accordion &amp; Toggles</h2>
           <ol class="breadcrumb">
-            <li><a href="index.html">Board</a></li>
-            <li class="active">Write Form</li>
+            <li><a href="index.html">Home</a></li>
+            <li class="active">Accordion &amp; Toggles</li>
           </ol>
         </div>
       </div>
@@ -478,56 +455,91 @@ function formCheck() {
         <div class="sectionTitle text-center">
           <h2>
             <span class="shape shape-left bg-color-4"></span>
-            <span>글쓰기</span>
+            <span>Accordion</span>
             <span class="shape shape-right bg-color-4"></span>
           </h2>
         </div>
 
-        <h4 class="text-center">Write form</h4>
-        <div class="space-50">&nbsp;</div>
-        <!-- Start contact form 2 -->
         <div class="row">
-          <div class="col-xs-12">
-            <div class="homeContactContent">
-              <form action="writeNotice" method="post" role="form" id="writeform" enctype="multipart/form-data" onsubmit="return formCheck();">
-                <div class="row">
-                  <div class="col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-envelope"></i>
-                      <input type="text" class="form-control border-color-1"  placeholder="title"  name="title" id="title" >
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-user" aria-hidden="true"></i>
-<<<<<<< HEAD
-                      <input type="text" class="form-control border-color-2" id="exampleInputEmail2" name="id" placeholder="${User.id }" disabled="disabled">
-=======
-                      <input type="text" class="form-control border-color-2" id="exampleInputEmail2" name="id" placeholder="writer=id">
->>>>>>> 2b5a2f5dfb1fe0ea7f9d56ea0c8d45b54594cc49
-                    </div>
-                  </div>
-                 
-                 
-                  <div class="col-xs-12">
-                    <div class="form-group">
-                      <i class="fa fa-comments" aria-hidden="true"></i>
-                      <textarea class="form-control border-color-4" placeholder="Write message" name="content" id="content" ></textarea>
-                    </div>
-                  </div>
-                  <div class="col-xs-12">
-                    <div class="formBtnArea">
-                      <button type="submit" class="btn btn-primary">등록</button>
+          <div class="col-sm-6 col-xs-12">
+          	<div id="map" style="width:100%;height:500px;"></div>
+          
+          </div>
+          <div class="col-sm-6 col-xs-12">
+            <div class="accordionCommon" id="accordionTwo">
+              <div class="panel-group" id="accordionSecond">
+                <div class="panel panel-default">
+                  <a class="panel-heading accordion-toggle bg-color-1" data-toggle="collapse" data-parent="#accordionSecond" href="#collapse-s-1">
+                    <span>Where does it come from?</span>
+                    <span class="iconBlock iconTransparent"><i class="fa fa-chevron-down"></i></span>
+                    <span class="separator"></span>
+                  </a>
+                  <div id="collapse-s-1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem </p>
                     </div>
                   </div>
                 </div>
-              </form>
+                <div class="panel panel-default">
+                  <a class="panel-heading accordion-toggle bg-color-2" data-toggle="collapse" data-parent="#accordionSecond" href="#collapse-s-2">
+                    <span>How do I list multiple rooms?</span>
+                    <span class="iconBlock iconTransparent"><i class="fa fa-chevron-up"></i></span>
+                    <span class="separator"></span>
+                  </a>
+                  <div id="collapse-s-2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <a class="panel-heading accordion-toggle bg-color-3" data-toggle="collapse" data-parent="#accordionSecond" href="#collapse-s-3">
+                    <span>How do I list multiple rooms?</span>
+                    <span class="iconBlock iconTransparent"><i class="fa fa-chevron-up"></i></span>
+                    <span class="separator"></span>
+                  </a>
+                  <div id="collapse-s-3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <a class="panel-heading accordion-toggle bg-color-4" data-toggle="collapse" data-parent="#accordionSecond" href="#collapse-s-4">
+                    <span>How do I list multiple rooms?</span>
+                    <span class="iconBlock iconTransparent"><i class="fa fa-chevron-up"></i></span>
+                    <span class="separator"></span>
+                  </a>
+                  <div id="collapse-s-4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <a class="panel-heading accordion-toggle bg-color-5" data-toggle="collapse" data-parent="#accordionSecond" href="#collapse-s-5">
+                    <span>How do I list multiple rooms?</span>
+                    <span class="iconBlock iconTransparent"><i class="fa fa-chevron-up"></i></span>
+                    <span class="separator"></span>
+                  </a>
+                  <div id="collapse-s-5" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+                      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div><!-- Ends contact form 2-->
-      
-	   </div>
+        </div>
+      </div>
     </section>
+
 
 <!-- FOOTER -->
 <footer>
@@ -549,12 +561,12 @@ function formCheck() {
     </div>
   </div>
   <!-- FOOTER INFO AREA -->
-  <div class="footerInfoArea full-width clearfix" style="background-image: url(img/footer/footer-bg-1.png);">
+  <div class="footerInfoArea full-width clearfix" style="background-image: url(/www/resources/img/footer/footer-bg-1.png);">
     <div class="container">
       <div class="row">
         <div class="col-sm-3 col-xs-12">
           <div class="footerTitle">
-            <a href="index.html"><img src="img/logo-footer.png"></a>
+            <a href="index.html"><img src="./resources/img/logo-footer.png"></a>
           </div>
           <div class="footerInfo">
             <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa officia.Lorem ipsum dolor sit amet.</p>
@@ -605,7 +617,7 @@ function formCheck() {
               <li>
                 <div class="media">
                   <a class="media-left" href="single-blog.html">
-                    <img class="media-object img-rounded border-color-1" src="img/footer/footer-img-1.png" alt="Image">
+                    <img class="media-object img-rounded border-color-1" src="./resources/img/footer/footer-img-1.png" alt="Image">
                   </a>
                   <div class="media-body">
                     <h5 class="media-heading"><a href="single-blog.html">A Clean Website Gives More Experience To The Visitors</a></h5>
@@ -616,7 +628,7 @@ function formCheck() {
               <li>
                 <div class="media">
                   <a class="media-left" href="single-blog-left-sidebar.html">
-                    <img class="media-object img-rounded border-color-2" src="img/footer/footer-img-2.png" alt="Image">
+                    <img class="media-object img-rounded border-color-2" src="./resources/img/footer/footer-img-2.png" alt="Image">
                   </a>
                   <div class="media-body">
                     <h5 class="media-heading"><a href="single-blog-left-sidebar.html">A Clean Website Gives More Experience To The Visitors</a></h5>
@@ -627,7 +639,7 @@ function formCheck() {
               <li>
                 <div class="media">
                   <a class="media-left" href="single-blog-left-sidebar.html">
-                    <img class="media-object img-rounded border-color-4" src="img/footer/footer-img-3.png" alt="Image">
+                    <img class="media-object img-rounded border-color-4" src="./resources/img/footer/footer-img-3.png" alt="Image">
                   </a>
                   <div class="media-body">
                     <h5 class="media-heading"><a href="single-blog-left-sidebar.html">A Clean Website Gives More Experience To The Visitors</a></h5>
@@ -681,8 +693,6 @@ function formCheck() {
 <a href="#pageTop" class="backToTop hidden-xs" id="backToTop"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 </div>
 
-<<<<<<< HEAD
-=======
 <!-- LOGIN MODAL -->
 <div class="modal fade customModal" id="loginModal" tabindex="-1" role="dialog">
 <div class="modal-dialog">
@@ -766,7 +776,66 @@ function formCheck() {
 <script src="./resources/plugins/velocity/velocity.min.js"></script>
 <script src="./resources/plugins/smoothscroll/SmoothScroll.js"></script>
 <script src="./resources/js/custom.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0612d5a0dcb8c7608772061cd533bfa6"></script>
+<script>
+
+var lat = ${lat};  // 위도
+var lon = ${lon}; // 경도
+
+$(document).ready(function(){
+	setInterval(function(){
+		$.ajax({
+			url:"getMap",
+			type:"POST",
+			success : function(info){
+				lat = parseFloat(info.split(',')[0]);
+				lon = parseFloat(info.split(',')[1]);
+			}
+		});
+		getMap();
+	}, 8000);
+});
+
+var mapContainer = mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+mapOption = { 
+    center: new daum.maps.LatLng(lat, lon), // 지도의 중심좌표
+    level: 5 // 지도의 확대 레벨 
+};
+var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+var markers = [];
+getMap();
+
+
+function getMap(){
+	// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+	var locPosition = new daum.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+
+	// 마커와 인포윈도우를 표시합니다
+	displayMarker(locPosition);
+}
+//배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수입니다
+function setMarkers(map) {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }            
+}
+// 지도에 마커와 인포윈도우를 표시하는 함수입니다
+function displayMarker(locPosition) {
+    setMarkers(null);
+
+    // 마커를 생성합니다
+    var marker = new daum.maps.Marker({  
+        position: locPosition
+    }); 
+    marker.setMap(map);
+    markers.push(marker);
+    // 지도 중심좌표를 접속위치로 변경합니다
+    map.setCenter(locPosition);      
+}    
+
+
+</script>
 </body>
 </html>
->>>>>>> 2b5a2f5dfb1fe0ea7f9d56ea0c8d45b54594cc49
 

@@ -42,7 +42,9 @@ CREATE TABLE student(
 	image		VARCHAR2(50)	NOT NULL,
 	gender		VARCHAR2(50)	NOT NULL,
 	parentno	VARCHAR2(50),
-	glass		NUMBER		 DEFAULT 0 NOT NULL
+	personalid	varchar2(200),
+	likeid		varchar2(100),
+	hateid		varchar2(100)
 );
 
 

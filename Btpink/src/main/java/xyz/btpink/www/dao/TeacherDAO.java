@@ -34,5 +34,4 @@ public class TeacherDAO {
 		TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
 		return mapper.selectDemand(id);
 	}
-
 }

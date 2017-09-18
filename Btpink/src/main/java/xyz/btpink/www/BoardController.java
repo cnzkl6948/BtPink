@@ -128,8 +128,6 @@ public class BoardController {
 		model.addAttribute("replylist", replylist);
 		model.addAttribute("replyCount",replylist.size());
 		
-		
-		
 		return "MainPage/readNotice";
 	}
 	

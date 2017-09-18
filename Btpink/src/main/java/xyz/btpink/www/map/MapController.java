@@ -23,7 +23,7 @@ public class MapController {
 		
 		model.addAttribute("lat", lat);
 		model.addAttribute("lon", lon);
-		return "/getMap/getBus";
+		return "/MainPage/busFinder";
 	}
 	
 	@RequestMapping(value = "getMap", method = RequestMethod.POST)

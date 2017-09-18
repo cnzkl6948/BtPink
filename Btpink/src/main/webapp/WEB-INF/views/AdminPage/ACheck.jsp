@@ -20,19 +20,20 @@
 	</section>
 	<br>
 	<!-- Main row -->
-	<div class="row">
-		<!-- left col -->
-		<section class="col-lg-6 col-md-12 connectedSortable">
-			<div style="position: relative">
-				<div style="position: relative">
-					<form id="formId" style="font-size: 0">
-						<p id="img_here"></p>
-						<input type="hidden" id="image" name="image"> <br>
-						<canvas id="store" style="display: none;"></canvas>
-					</form>
-					<video autoplay="autoplay" id="myVideo" width="100%"></video>
-					<!-- width:100% 추가 -->
-				</div>
+      <div class="row">
+      <div class="col-lg-12">
+      <!-- left col -->
+        <section class="col-lg-6 col-md-12 connectedSortable">
+          	<div style="position:relative">
+       	 		<div style="position:relative">
+        		<form id="formId" style="font-size:0">
+					<p id="img_here" >
+					</p>
+					<input type="hidden" id="image" name="image"> <br>
+					<canvas id="store" style="display: none;"></canvas>
+				</form>
+	          	<video autoplay="autoplay" id="myVideo" width="100%"></video><!-- width:100% 추가 -->
+        		</div>
 			</div>
 		</section>
 		<!-- /.left col -->
@@ -87,6 +88,7 @@
 						</div>
 					</div>
 				</div>
+<<<<<<< HEAD
 				<!-- /.box-body -->
 			</div>
 			<!-- /.box -->
@@ -179,6 +181,17 @@
 	    }) 
   })
 </script>
+=======
+				<!-- /.modal -->
+        </section>
+        <!-- /.right col -->
+      </div>
+      <!-- /.row (main row) -->
+      </div>
+  </div>
+  <!-- /.content-wrapper -->
+  
+>>>>>>> 2b5a2f5dfb1fe0ea7f9d56ea0c8d45b54594cc49
 
 <%@ include file="split/Footer.jsp"%>
 <!-- Face API 자바스크립트 -->

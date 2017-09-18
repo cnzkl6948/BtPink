@@ -157,3 +157,5 @@
 		</div>
 	</section>
 	<%@ include file="MainFooter.jsp"%>
+</body>
+</html>

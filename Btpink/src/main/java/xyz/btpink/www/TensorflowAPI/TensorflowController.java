@@ -25,7 +25,7 @@ public class TensorflowController {
 		PythonSocket ps = new PythonSocket();
 		String count = ps.SocketTest(fileName);
 		
-		Thread.sleep(7000);
+		Thread.sleep(10000);
 		System.out.println(count);
 		return count;
 	}

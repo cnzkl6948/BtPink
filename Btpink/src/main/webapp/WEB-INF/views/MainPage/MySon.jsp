@@ -176,3 +176,5 @@
 <script src="./resources/js/mySon.js"></script>
 <script src="./resources/js/calender.js"></script>
 <%-- <%@ include file="../MainPage/MainFooter.jsp"%> --%>
+</body>
+</html>

@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="MainPage/MainHead.jsp"%>
-<link rel="stylesheet"
-	href="./resources/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" -->
+<!-- 	href="./resources/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
 <%@ include file="MainPage/MainHeader.jsp"%>
 <!-- BANNER -->
 <section class="bannercontainer bannercontainerV1">
@@ -974,3 +974,5 @@
 </section>
 
 <%@ include file="MainPage/MainFooter.jsp"%>
+</body>
+</html>

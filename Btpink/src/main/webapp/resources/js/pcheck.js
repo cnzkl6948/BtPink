@@ -37,33 +37,32 @@ function snapshot() {
 	// 이미지의 소스와 다운로드 링크 주소를 캔버스에서 그린 그림의 주소 값으로 한다.
 	set.setAttribute('value', snap);
 	$('#img_here').html(
-			'<img id="selfieimage" src="' + snap + '" width="100%">');
-	$
-			.ajax({
-				url : "getCount",
-				type : "POST",
-				data : $('#formId').serialize(),
-				success : function(count) {
-					var url = '<img src="https://geonho.btpink.xyz/www/resources/object_detection/test.jpg" width="800" height="450"/>';
-					// <img
-					// src="https://www.btpink.xyz/www/resources/object_detection/test.jpg"
-					// width="400" height="300"/>
-					// <img
-					// src="https://geonho.btpink.xyz/www/resources/object_detection/test.jpg"
-					// width="400" height="300"/>
-					// <img
-					// src="https://dahuin.btpink.xyz/www/resources/object_detection/test.jpg"
-					// width="400" height="300"/>
-					// <img
-					// src="https://suenghan.btpink.xyz/www/resources/object_detection/test.jpg"
-					// width="400" height="300"/>
 
-					var cnt = count + '명';
-					$('#img').html(url);
-					$('#hitocheck').html(cnt);
-				}
-			});
+			'<img id="selfieimage" src="' + snap + '">');
+	$.ajax({
+		url : "getCount",
+		type : "POST",
+		data : $('#formId').serialize(),
+		success : function(count) {
+			var url = '<img id="resultImg" src="https://www.btpink.xyz/www/resources/object_detection/test.jpg" />';
+			// <img
+			// src="https://www.btpink.xyz/www/resources/object_detection/test.jpg"
+			// width="400" height="300"/>
+			// <img
+			// src="https://geonho.btpink.xyz/www/resources/object_detection/test.jpg"
+			// width="400" height="300"/>
+			// <img
+			// src="https://dahuin.btpink.xyz/www/resources/object_detection/test.jpg"
+			// width="400" height="300"/>
+			// <img
+			// src="https://suenghan.btpink.xyz/www/resources/object_detection/test.jpg"
+			// width="400" height="300"/>
 
+			var cnt = count + '명';
+			$('#img').html(url);
+			$('#hitocheck').html(cnt);
+		}
+	});
 }
 function closeModal() {
 	$('#img').html('');
