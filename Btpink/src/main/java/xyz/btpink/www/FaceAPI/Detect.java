@@ -92,7 +92,9 @@ public class Detect {
 					System.out.println(identfy);
 					System.err.println("detect Map : "+detectMap);
 					//faceId Identfy클래스로 보냄
+					System.out.println("Detection 초기");
 					identifyMap = identy.identfy(list);
+					System.out.println("Detection 말기");
 					for (String merge : identifyMap.keySet()) {
 						if(detectMap.containsKey(identifyMap.get(merge).getFaceId())){
 							identifyMap.put(merge, new xyz.btpink.www.vo.IdentfyVO(merge, detectMap.get(identifyMap.get(merge).getFaceId()).getEmotion()));

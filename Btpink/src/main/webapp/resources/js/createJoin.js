@@ -48,7 +48,7 @@ function idOverlap() {
 					$("#basic-addon21").attr("style",
 							"background-color: #337ab7");
 					$("#id").attr("style", "background-color:#ffffff; ");
-					$("#id").disabled = disabled;
+//					$("#id").disabled = disabled;
 					$('#idCheck').val('true');
 				} else {
 					alert("중복된 아이디가 있습니다.");
