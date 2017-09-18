@@ -23,7 +23,7 @@ public class MapController {
 		
 		model.addAttribute("lat", lat);
 		model.addAttribute("lon", lon);
-		return "/getMap/mainMap";
+		return "/getMap/busFinder";
 //		return "/getMap/getBus";
 	}
 	
