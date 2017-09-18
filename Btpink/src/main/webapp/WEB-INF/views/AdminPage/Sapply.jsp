@@ -99,13 +99,14 @@
 							</div>
 							
  							<input type="hidden" id="personalid" name="personalid"/>
+  							<input type="hidden" id="stdno" name="stdno"/>
 											
 						</div>
 						<div class="box-footer">
 							<button type="reset" class="btn btn-default">취소</button>
-							<button type="button" class="btn btn-danger pull-right" onclick="formcheck()">애퍼</button>
-							<button type="submit" class="btn btn-danger pull-right">등록</button>
-							<button type="button" class="btn btn-danger pull-right" onclick="addFace()">테스트</button>
+							<button type="button" class="btn btn-danger pull-right" onclick="formcheck()">등록</button>
+<!-- 							<button type="submit" class="btn btn-danger pull-right">등록</button> -->
+<!-- 							<button type="button" class="btn btn-danger pull-right" onclick="addFace()">테스트</button> -->
 							
 						</div>
 						<!-- /.box-footer -->
