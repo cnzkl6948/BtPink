@@ -39,7 +39,6 @@ CREATE TABLE student(
 	classno		VARCHAR2(50)	NOT NULL,
 	birth		DATE		NOT NULL,
 	address		VARCHAR2(200)	NOT NULL,
-	image		VARCHAR2(50)	NOT NULL,
 	gender		VARCHAR2(50)	NOT NULL,
 	parentno	VARCHAR2(50),
 	personalid	varchar2(200),
@@ -107,22 +106,22 @@ INSERT INTO account
 VALUES ('P201709071658', '엄마1', 'p', 'p1', 'p1', 'p1@admin.com', '010-9299-0044', 1);
 INSERT INTO parent
 VALUES ('P201709071658','S201709071658');
-INSERT INTO student
-VALUES ('S201709071658', 'stu1', 5, 120, 'c1', TO_DATE('20120907','YYYYMMDD'), 'address1','S201709071658.jpg', 'M','P201709071658',0);
+INSERT INTO student (stdno, name, age, height, classno, birth, address, gender, parentno, personalid)
+VALUES ('S201709071658', 'stu1', 5, 120, 'c1', TO_DATE('20120907','YYYYMMDD'), 'address1', 'M','P201709071658','personalid');
 
 INSERT INTO account
 VALUES ('P201709071659', '엄마2', 'p', 'p2', 'p2', 'p2@admin.com', '010-9299-0044', 1);
 INSERT INTO parent
 VALUES ('P201709071659','S201709071659');
-INSERT INTO student
-VALUES ('S201709071659', 'stu2', 5, 121, 'c1', TO_DATE('20120908','YYYYMMDD'), 'address2','S201709071659.jpg', 'M','P201709071659',0);
+INSERT INTO student (stdno, name, age, height, classno, birth, address, gender, parentno, personalid)
+VALUES ('S201709071659', 'stu2', 5, 121, 'c1', TO_DATE('20120908','YYYYMMDD'), 'address2', 'M','P201709071659','personalid');
 
 INSERT INTO account
 VALUES ('P201709071600', '엄마3', 'p', 'p3', 'p3', 'p3@admin.com', '010-9299-0044', 1);
 INSERT INTO parent
 VALUES ('P201709071600','S201709071600');
-INSERT INTO student
-VALUES ('S201709071600', 'stu3', 5, 122, 'c1', TO_DATE('20120909','YYYYMMDD'), 'address3','S201709071600.jpg', 'M','P201709071600',0);
+INSERT INTO student (stdno, name, age, height, classno, birth, address, gender, parentno, personalid)
+VALUES ('S201709071600', 'stu3', 5, 122, 'c1', TO_DATE('20120909','YYYYMMDD'), 'address3', 'M','P201709071600','personalid');
 
 
 
@@ -131,22 +130,22 @@ INSERT INTO account
 VALUES ('P201709071601', '엄마4', 'p', 'p4', 'p4', 'p4@admin.com', '010-9299-0044', 1);
 INSERT INTO parent
 VALUES ('P201709071601','S201709071601');
-INSERT INTO student
-VALUES ('S201709071601', 'stu4', 5, 123, 'c2', TO_DATE('20120910','YYYYMMDD'), 'address4','S201709071601.jpg', 'W','P201709071601',0);
+INSERT INTO student (stdno, name, age, height, classno, birth, address, gender, parentno, personalid)
+VALUES ('S201709071601', 'stu4', 5, 123, 'c2', TO_DATE('20120910','YYYYMMDD'), 'address4', 'W','P201709071601','personalid');
 
 INSERT INTO account
 VALUES ('P201709071602', '엄마5', 'p', 'p5', 'p5', 'p5@admin.com', '010-9299-0044', 1);
 INSERT INTO parent
 VALUES ('P201709071602','S201709071602');
-INSERT INTO student
-VALUES ('S201709071602', 'stu5', 5, 127, 'c2', TO_DATE('20120911','YYYYMMDD'), 'address5','S201709071602.jpg', 'M','P201709071602',1);
+INSERT INTO student (stdno, name, age, height, classno, birth, address, gender, parentno, personalid)
+VALUES ('S201709071602', 'stu5', 5, 127, 'c2', TO_DATE('20120911','YYYYMMDD'), 'address5', 'M','P201709071602','personalid');
 
 INSERT INTO account
 VALUES ('P201709071603', '엄마6', 'p', 'p6', 'p6', 'p6@admin.com', '010-9299-0044', 1);
 INSERT INTO parent
 VALUES ('P201709071603','S201709071603');
-INSERT INTO student
-VALUES ('S201709071603', 'stu6', 5, 121, 'c2', TO_DATE('20120912','YYYYMMDD'), 'address6','S201709071603.jpg', 'W','P201709071603',1);
+INSERT INTO student (stdno, name, age, height, classno, birth, address, gender, parentno, personalid)
+VALUES ('S201709071603', 'stu6', 5, 121, 'c2', TO_DATE('20120912','YYYYMMDD'), 'address6', 'W','P201709071603','personalid');
 
 
 
@@ -155,22 +154,22 @@ INSERT INTO account
 VALUES ('P201709071604', '엄마7', 'p', 'p7', 'p7', 'p7@admin.com', '010-9299-0044', 1);
 INSERT INTO parent
 VALUES ('P201709071604','S201709071604');
-INSERT INTO student
-VALUES ('S201709071604', 'stu7', 5, 123, 'c3', TO_DATE('20120909','YYYYMMDD'), 'address7','S201709071604.jpg', 'M','P201709071604',0);
+INSERT INTO student (stdno, name, age, height, classno, birth, address, gender, parentno, personalid)
+VALUES ('S201709071604', 'stu7', 5, 123, 'c3', TO_DATE('20120909','YYYYMMDD'), 'address7', 'M','P201709071604','personalid');
 
 INSERT INTO account
 VALUES ('P201709071605', '엄마8', 'p', 'p8', 'p8', 'p8@admin.com', '010-9299-0044', 1);
 INSERT INTO parent
 VALUES ('P201709071605','S201709071605');
-INSERT INTO student
-VALUES ('S201709071605', 'stu8', 5, 127, 'c3', TO_DATE('20120911','YYYYMMDD'), 'address8','S201709071605.jpg', 'W','P201709071605',1);
+INSERT INTO student (stdno, name, age, height, classno, birth, address, gender, parentno, personalid)
+VALUES ('S201709071605', 'stu8', 5, 127, 'c3', TO_DATE('20120911','YYYYMMDD'), 'address8', 'W','P201709071605','personalid');
 
 INSERT INTO account
 VALUES ('P201709071606', '엄마9', 'p', 'p9', 'p9', 'p9@admin.com', '010-9299-0044', 1);
 INSERT INTO parent
 VALUES ('P201709071606','S201709071606');
-INSERT INTO student
-VALUES ('S201709071606', 'stu9', 5, 121, 'c3', TO_DATE('20120912','YYYYMMDD'), 'address9','S201709071606.jpg', 'M','P201709071606',0);
+INSERT INTO student (stdno, name, age, height, classno, birth, address, gender, parentno, personalid)
+VALUES ('S201709071606', 'stu9', 5, 121, 'c3', TO_DATE('20120912','YYYYMMDD'), 'address9', 'M','P201709071606','personalid');
 
 
 commit;
