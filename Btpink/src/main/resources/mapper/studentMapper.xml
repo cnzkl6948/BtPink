@@ -27,8 +27,14 @@
 	#{image},
 	#{gender},
 	#{parentno},
-	#{glass}
+	#{personalid},
+	#{likeid},
+	#{hateid}
 	)
 </insert>
+
+<update id="updateStdno" parameterType="String">
+	update student set stdno = #{personID} where rownum = 1
+</update>
 
 </mapper>

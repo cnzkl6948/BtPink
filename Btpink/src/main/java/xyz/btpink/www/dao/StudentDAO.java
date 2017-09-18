@@ -23,7 +23,7 @@ public class StudentDAO {
 	public int insert(Student student) {
 		System.out.println("다오 진입");
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
-
+		
 		int result = 0;
 		try {
 			result = mapper.insertStudent(student);
@@ -52,5 +52,11 @@ public class StudentDAO {
 		mapper.parentUpdate(student);
 		return 0;
 		// TODO Auto-generated method stub
+	}
+	
+	public int update(String stdno){
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		int result = mapper.updateStdno(stdno);
+		return result;
 	}
 }

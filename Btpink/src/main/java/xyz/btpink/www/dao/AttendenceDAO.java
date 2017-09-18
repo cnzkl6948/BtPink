@@ -18,7 +18,7 @@ public class AttendenceDAO {
 	SqlSession sqlSession;
 	
 		
-	public ArrayList<Attendence> selectStd(){
+public ArrayList<Attendence> selectStd(){
 		
 		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
 		ArrayList<Attendence> result = new ArrayList<>();
