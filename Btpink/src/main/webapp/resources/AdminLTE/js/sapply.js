@@ -1,4 +1,5 @@
 var url = ''; //ajaxsubmit에서 받은 url값을 addface로 전달해주기 위한 전역변수
+var stdno='';
 
 function readUploadImage(inputObject) {
 
@@ -98,7 +99,8 @@ function firstform(){
         success: function(result)
         {	
         	alert('이미지 전달 성공 리턴');  	
-        	url=result; //전달받은 result값 = 이미지의 url
+        	url=result[0]; //전달받은 result값 = 이미지의 url
+        	stdno=result[1];// 
            	addPerson();
         }
     });
@@ -184,6 +186,7 @@ function addPerson() {
 //        $('#formId').submit();
         var personID = data.personId;
         $('#personalid').val(personID); //추출한 personID 폼에 입력
+        $('#stdno').val(stdno);
         secondform(); //DB입력을 위한 2차 폼 전송
 
 //         $("#responseTextArea").val(personID);

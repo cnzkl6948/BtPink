@@ -73,15 +73,20 @@ public class AdminController {
 	
 	//url 생성
 			@RequestMapping(value = "Sapply", method = RequestMethod.POST)
-			public @ResponseBody String Sapply(HttpSession session, Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) throws Exception {
+			public @ResponseBody String[] Sapply(HttpSession session, Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) throws Exception {
 				logger.info("Save Sapply");
 				System.out.println(student);
 				System.out.println("파일테스트 : "+file);
+				
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+				String savedFilename = sdf.format(new Date());
+				savedFilename = savedFilename + new Date().getTime();
+				String filename = "S"+savedFilename;
 			
-				String filename = file.getOriginalFilename();
+//				String filename = file.getOriginalFilename();
 				
 				try {
-					File out = new File(path + File.separator + filename);
+					File out = new File(path + File.separator + filename +".jpg");
 					file.transferTo(out);
 				} catch (Exception e) {
 					// TODO: handle exception
@@ -89,9 +94,12 @@ public class AdminController {
 				rttr.addAttribute("filename", filename);
 
 				Thread.sleep(3000); //서버에 이미지 파일이 저장되기 까지의 딜레이
+							
+				String url = "https://suenghan.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
 				
-				String url = "https://suenghan.btpink.xyz/www/resources/Sapply/"+filename;		
-				return url;
+				String [] array = {url, filename};
+				 
+				return array;
 			}
 			
 			
@@ -100,6 +108,7 @@ public class AdminController {
 			public @ResponseBody String secondform(String personID, Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) throws Exception {
 				logger.info("Update Sapply");
 				
+				System.out.println(student.getStdno());
 				
 				int age = ageCal(student); //나이계산 메소드 호출
 				student.setAge(age);
