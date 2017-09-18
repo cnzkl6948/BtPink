@@ -3,6 +3,7 @@ package xyz.btpink.www.vo;
 public class Attendence {
 	
 	private String stdno;
+	private String name;
 	private String classno;
 	private String today;
 	private String absent;
@@ -15,10 +16,11 @@ public class Attendence {
 		
 	}
 	
-	public Attendence(String stdno, String classno, String today, String absent, String early, String sick, String late,
+	public Attendence(String stdno, String name, String classno, String today, String absent, String early, String sick, String late,
 			String emotion) {
 		
 		this.stdno = stdno;
+		this.name = name;
 		this.classno = classno;
 		this.today = today;
 		this.absent = absent;
@@ -29,12 +31,22 @@ public class Attendence {
 	}
 				
 
+	
+
 	public String getStdno() {
 		return stdno;
 	}
 
 	public void setStdno(String stdno) {
 		this.stdno = stdno;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getClassno() {
@@ -95,8 +107,9 @@ public class Attendence {
 
 	@Override
 	public String toString() {
-		return "Attendence [stdno=" + stdno + ", classno=" + classno + ", today=" + today + ", absent=" + absent
-				+ ", early=" + early + ", sick=" + sick + ", late=" + late + ", emotion=" + emotion + "]";
+		return "Attendence [stdno=" + stdno + ", name=" + name + ", classno=" + classno + ", today=" + today
+				+ ", absent=" + absent + ", early=" + early + ", sick=" + sick + ", late=" + late + ", emotion="
+				+ emotion + "]";
 	}
 	
 

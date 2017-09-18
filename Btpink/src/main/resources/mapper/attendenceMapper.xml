@@ -6,7 +6,7 @@
 <mapper namespace="xyz.btpink.www.dao.AttendenceMapper">
 
 <select id="selectAtd" resultType="Attendence">
-	select * from attendence
+	select s.stdno, s.name, a.absent, a.early, a.sick, a.late from student s inner join attendence a on s.stdno=a.stdno
 
 </select>
 <select id="getEmotionList" parameterType="string" resultType="Attendence">
