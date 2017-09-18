@@ -29,7 +29,7 @@
 		<div class="top-info-bar bg-color-7 hidden-xs">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-7">
+					<div class="col-sm-9">
 						<ul class="list-inline topList">
 							<li><i class="fa fa-envelope bg-color-1" aria-hidden="true"></i>
 								<a href="mailto:info@yourdomain.com">info@yourdomain.com</a></li>
@@ -39,7 +39,7 @@
 								Open: 9am - 6pm</li>
 						</ul>
 					</div>
-					<div class="col-sm-5">
+					<div class="col-sm-3">
 						<ul class="list-inline functionList">
 							<c:choose>
 								<c:when test="${User != null }">
