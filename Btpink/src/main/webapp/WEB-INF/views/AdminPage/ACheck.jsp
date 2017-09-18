@@ -115,7 +115,7 @@
 		<!-- /.right col -->
 	</div>
 	<!-- /.row (main row) -->
-
+	</div>
 </div>
 <!-- /.content-wrapper -->
 <%@ include file="split/Footer.jsp"%>

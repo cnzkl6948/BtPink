@@ -86,7 +86,7 @@
                   <a href="#" class="btn btn-default btn-flat">개인 정보 수정</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">로그 아웃</a>
+                  <a href="logout" class="btn btn-default btn-flat">로그 아웃</a>
                 </div>
               </li>
             </ul>
