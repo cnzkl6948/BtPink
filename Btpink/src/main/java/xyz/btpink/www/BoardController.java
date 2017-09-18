@@ -27,7 +27,6 @@ import xyz.btpink.www.vo.Reply;
  * 글쓰기, 읽기, 목록, 삭제, 수정
  */
 @Controller
-//@RequestMapping("board")
 public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	

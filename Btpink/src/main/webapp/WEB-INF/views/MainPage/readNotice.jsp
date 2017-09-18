@@ -10,11 +10,7 @@
 <section class="pageTitleSection">
 	<div class="container">
 		<div class="pageTitleInfo">
-			<h2>Read Notice</h2>
-			<ol class="breadcrumb">
-				<li><a href="index.html">Hello Notice</a></li>
-				<li class="active">Read Notice</li>
-			</ol>
+			<h2>상세 공지 사항</h2>
 		</div>
 	</div>
 </section>
@@ -26,7 +22,7 @@
 				<div class="thumbnail thumbnailContent">
 					<img
 						src="./resources/img/home/courses/course-${board.boardnum%4 + 1}.jpg"
-						alt="image" class="img-responsive">
+						alt="image" class="img-responsive" width="500px">
 					<div class="sticker-round bg-color-${board.boardnum%6 + 1}">
 						<fmt:parseDate value="${board.inputdate}" var="dateFmt"
 							pattern="yyyy-MM-dd HH:mm:ss" />

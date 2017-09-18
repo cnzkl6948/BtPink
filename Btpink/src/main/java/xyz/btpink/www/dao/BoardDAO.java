@@ -151,5 +151,10 @@ public class BoardDAO {
 		int result = mapper.updateReply(reply);
 		return result;
 	}
-
+	
+	public ArrayList<Board> getHome() {
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		ArrayList<Board> result = mapper.getHome();
+		return result;
+	}
 }

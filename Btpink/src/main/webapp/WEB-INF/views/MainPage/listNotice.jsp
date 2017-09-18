@@ -57,11 +57,7 @@
 	<section class="pageTitleSection">
 		<div class="container">
 			<div class="pageTitleInfo">
-				<h2>All Courses</h2>
-				<ol class="breadcrumb">
-					<li><a href="index.html">Home</a></li>
-					<li class="active">Notices</li>
-				</ol>
+				<h2>공지 사항</h2>
 			</div>
 		</div>
 	</section>

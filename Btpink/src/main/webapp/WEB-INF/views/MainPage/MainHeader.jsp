@@ -82,15 +82,15 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown singleDrop color-3 "><a href="teachers"
 							class="dropdown-toggle"><i class="fa fa-list-ul bg-color-3"
-								aria-hidden="true"></i> <span>TEAM</span></a>
+								aria-hidden="true"></i> <span>선생님 소개</span></a>
 						<li class=" dropdown megaDropMenu color-2 "><a
 							href="course-single" class="dropdown-toggle"> <i
-								class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i> <span>Courses</span>
+								class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i> <span>교육 과정 소개</span>
 						</a></li>
 						<li class="dropdown singleDrop color-4 "><a href="listNotice"
 							class="dropdown-toggle"> <i
 								class="fa fa-pencil-square-o bg-color-4" aria-hidden="true"></i>
-								<span>Notice</span>
+								<span>공지사항</span>
 						</a></li>
 
 						<c:choose>
