@@ -36,64 +36,68 @@ public class UsersController {
 	@Autowired
 	AccountDAO accountDao;
 	private static final Logger logger = LoggerFactory.getLogger(UsersController.class);
-	//로그인
+
+	// 로그인
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(Account account, Locale locale, Model model,HttpSession session) {
-		Account ac=accountDao.login(account);
-		if(ac.getId()!=null){
-			System.out.println(ac);
-			session.setAttribute("User", ac);
-		}
+	public String login(Account account, Locale locale, Model model, HttpSession session) {
+		System.out.println(account);
+		Account ac = accountDao.login(account);
+			if (ac.getId() != null) {
+				session.setAttribute("User", ac);
+			}
+			System.err.println("회원 정보가 없음");
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping(value = "loginCheck", method = RequestMethod.POST)
-	public @ResponseBody Account loginCheck(Account account, Locale locale, Model model,HttpSession session) {
-		Account ac=accountDao.login(account);
+	public @ResponseBody Account loginCheck(Account account, Locale locale, Model model, HttpSession session) {
+		Account ac = accountDao.login(account);
 		return ac;
 	}
-	
+
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(Locale locale, Model model, HttpSession session) {
 		logger.info("logout");
 		session.invalidate();
 		return "redirect:/";
 	}
-	//회원가입
+
+	// 회원가입
 	@RequestMapping(value = "join", method = RequestMethod.POST)
 	public String join(Account account, Parent parent, Teacher teacher, Student student, Locale locale, Model model) {
-		String num = num(); 
-		//if일경우 부모님(p)  else일결우 선생님(t)
+		String num = num();
+		// if일경우 부모님(p) else일결우 선생님(t)
 		account.setStatus("0");
 		if (account.getType().equalsIgnoreCase("p")) {
-			account.setMemNno("p"+num);
+			account.setMemNno("p" + num);
 			parent.setMemNno(account.getMemNo());
 			student.setParentno(parent.getMemNo());
-			System.out.println("Parent"+parent);
+			System.out.println("Parent" + parent);
 			accountDao.AccountInsert(account);
 			parentDao.insert(parent);
 			studentDao.parentUpdate(student);
-		}else{
-			account.setMemNno("t"+num);
+		} else {
+			account.setMemNno("t" + num);
 			System.out.println(account);
 			accountDao.AccountInsert(account);
 		}
 		return "redirect:/";
 	}
 
-	//중복 검사
+	// 중복 검사
 	@RequestMapping(value = "idOverlap", method = RequestMethod.GET)
 	public @ResponseBody String idOverlap(Account account, Locale locale, Model model) {
 		System.out.println(account);
-		Account ac=accountDao.idOverlap(account);
+		Account ac = accountDao.idOverlap(account);
 		System.out.println(ac);
-		try{
-		return ac.getId();
-		}catch(Exception e){
+		try {
+			return ac.getId();
+		} catch (Exception e) {
 			return "1";
 		}
 	}
-	//num 생성
+
+	// num 생성
 	public String num() {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
@@ -102,13 +106,15 @@ public class UsersController {
 
 		return savedFilename;
 	}
-	//학생이 있는지 체크
+
+	// 학생이 있는지 체크
 	@RequestMapping(value = "joinCheck", method = RequestMethod.GET)
 	public @ResponseBody ArrayList<Student> home(Student st, Locale locale, Model model) {
 		ArrayList<Student> ckList = studentDao.joinCheck(st);
 		System.out.println(ckList);
 		return ckList;
 	}
+
 	@RequestMapping(value = "myson", method = RequestMethod.GET)
 	public String MySon(Student st, Locale locale, Model model) {
 		ArrayList<Student> ckList = studentDao.joinCheck(st);

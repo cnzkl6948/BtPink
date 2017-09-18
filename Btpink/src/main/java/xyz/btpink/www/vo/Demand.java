@@ -3,6 +3,7 @@ package xyz.btpink.www.vo;
 
 public class Demand {
 	int demandnum;
+	String name;
 	String stdNo;
 	String demandsubject;
 	String attend;
@@ -16,6 +17,26 @@ public class Demand {
 	}
 	
 	
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+ 
+	public String getStdNo() {
+		return stdNo;
+	}
+
+
+	public void setStdNo(String stdNo) {
+		this.stdNo = stdNo;
+	}
+
+
 	public Demand(int demandnum, String stdno, String demandsubject, String attend,
 			String startdate, String enddate, String demandcontent, String classno) {
 		super();

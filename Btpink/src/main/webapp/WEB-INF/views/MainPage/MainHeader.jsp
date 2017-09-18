@@ -152,10 +152,11 @@
 												<div class="col-sm-8 col-xs-12">
 													<div class="dropGeneral border-color-3">
 														<select id="StdNo" class="select-drop">
-															<option value="c1">A_Class</option>
-															<option value="c2">B_Class</option>
-															<option value="c3">C_Class</option>
-															<option value="c4">D_Class</option>
+															
+<!-- 															<option value="c1">A_Class</option> -->
+<!-- 															<option value="c2">B_Class</option> -->
+<!-- 															<option value="c3">C_Class</option> -->
+<!-- 															<option value="c4">D_Class</option> -->
 														</select>
 													</div>
 												</div>
@@ -176,7 +177,7 @@
 									<div class="input-group col-sm-12 col-xs-12 ">
 										<input type="text" class="form-control" id="id" name="id"
 											form="createSubmit" placeholder="UserId(중복을 확인해 주세요)"
-											aria-describedby="basic-addon21">
+											aria-describedby="basic-addon21" >
 										<button type="button" class="input-group-addon"
 											onclick="javascript:idOverlap()" id="basic-addon21">
 											<i class="fa fa-check" aria-hidden="true"></i>

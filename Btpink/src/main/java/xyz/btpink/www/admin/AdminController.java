@@ -48,8 +48,8 @@ public class AdminController {
 		logger.info("Go! adminPage");
 		Account account = (Account) session.getAttribute("User");
 		System.out.println(account.getId());
+		model.addAttribute("TeacherNotice", tdao.selectDemand(account.getId()));
 		System.out.println(tdao.selectDemand(account.getId()));
-		
 		return "adminPage";
 	}
 	

@@ -6,7 +6,7 @@
 <!-- 회원정보 처리 SQL -->
 <mapper namespace="xyz.btpink.www.dao.TeacherMapper">
 	<insert id="insertTeacher" parameterType="Teacher">
-			insert into account values(
+		insert into account values(
 		#{memNo}
 		,#{name}
 		,#{type}
@@ -17,7 +17,63 @@
 		,0
 		)
 	</insert>
+<!-- 	선생님 공지사항 -->
 	<select id="selectDemand" parameterType="string" resultType="Demand">
-	select * from demand where classno = (select classno from class where memno = (select memno from account where id = #{id}))
+
+		select 
+			distinct demand.* , 
+			parent.name as name 
+		from
+			(select 
+				std.stdno as stdno, 
+				par.name as name 
+			from 
+				account par,
+				(select 
+					p.* 
+				from 
+					parent p,
+					(select 
+						stdno 
+					from 
+						demand 
+					where 
+						classno = (
+							select 
+								classno 
+							from 
+								class 
+							where memno = (
+								select 
+									memno 
+								from 
+									account 
+								where id = #{id}))
+								) s 
+					where 
+						p.stdno = s.stdno) std 
+				where 
+					par.memno = std.memno) parent,
+				(select 
+					* 
+				from 
+					demand 
+				where 
+					classno = ( 
+					select 
+						classno 
+					from 
+						class 
+					where memno = (
+					select 
+						memno 
+					from 
+						account 
+					where 
+						id = #{id}))) demand 
+				where 
+					demand.stdno = parent.stdno
+
+
 	</select>
 </mapper>

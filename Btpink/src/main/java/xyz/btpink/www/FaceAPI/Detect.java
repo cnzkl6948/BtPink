@@ -8,20 +8,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import xyz.btpink.www.vo.IdentfyVO;
 
 
 public class Detect {
@@ -54,6 +53,7 @@ public class Detect {
 			request.setHeader("Content-Type", "application/json");
 			request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 			// Request body.201708271503837703388.jpg
+			// 마이크로 소프트로 이미지 주소 전달
 //			String url = "{\"url\":\"https://www.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 			String url = "{\"url\":\"https://geonho.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 //			String url = "{\"url\":\"https://daheen.btpink.xyz/www/resources/face_detection/" + image + "\"}";
@@ -76,20 +76,23 @@ public class Detect {
 					len = jsonArray.length();
 					ArrayList<String> list = new ArrayList<>();
 					String[][] faceId = new String[len][2];
+					
+					//사람수만큼 for문으로 돌림
 					for (int i = 0; i < len; i++) {
+						//identfy 할 faeceid 저장 
 						list.add("\"" + (String) jsonArray.getJSONObject(i).get("faceId") + "\"");
-						System.out.println(jsonArray.getJSONObject(i));
-						System.out.println(jsonArray.getJSONObject(i).getJSONObject("faceAttributes").getJSONObject("emotion").toString());
+						//json 얼굴 데이터를 맵으로 넘김 
 						map = new ObjectMapper().readValue(jsonArray.getJSONObject(0).getJSONObject("faceAttributes").getJSONObject("emotion").toString(), TreeMap.class);
 						identfy.setFaceId((String) jsonArray.getJSONObject(i).get("faceId"));
-						System.out.println("1");
+						//크기별로 정렬 후 저장
 						identfy.setEmotion(sortByValue(map));
-						System.out.println("2");
+						//faceId와 identfy 이모션 저장
 						detectMap.put(identfy.getFaceId(), identfy);
-						System.out.println(3);
 					}
+					
 					System.out.println(identfy);
 					System.err.println("detect Map : "+detectMap);
+					//faceId Identfy클래스로 보냄
 					identifyMap = identy.identfy(list);
 					for (String merge : identifyMap.keySet()) {
 						if(detectMap.containsKey(identifyMap.get(merge).getFaceId())){
@@ -111,7 +114,7 @@ public class Detect {
 		}
 		 return identifyMap;
 	}
-
+//이모션 정렬 메서드
 	public String sortByValue(final Map<String, Double> map) {
 		String temp = "";
 		double d = 0.0;

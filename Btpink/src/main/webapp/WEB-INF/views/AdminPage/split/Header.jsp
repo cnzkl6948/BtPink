@@ -76,8 +76,8 @@
                 <img src="./resources/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  	사람이름 - 계급
-                  <small>회원 가입일</small>
+                  	${User.name }
+                  <small><a href="logout">logout</a> </small>
                 </p>
               </li>
               <!-- Menu Footer-->

@@ -54,24 +54,31 @@ public class Identfy {
 						try{
 						System.out.println(i + "번쨰identfy : " + jsonArray.getJSONObject(i).getJSONArray("candidates")
 								.getJSONObject(0).get("confidence"));
+						//faceid 와 현재 저장된 사람이미지와 일치도
 						confidence = (double) jsonArray.getJSONObject(i).getJSONArray("candidates").getJSONObject(0)
 								.get("confidence");
+						
 						faceId = (String) jsonArray.getJSONObject(i).get("faceId");
+						//결과값의 persoinId 저장 없을시 애러와함께 다시 포문으로 돌아감
 						personId = (String) jsonArray.getJSONObject(i).getJSONArray("candidates").getJSONObject(0)
 								.get("personId");
+						
 						identfy = new xyz.btpink.www.vo.IdentfyVO(faceId, confidence);
 
 						if (map.size() == 0) {
+							//초기값 저장
 							map.put(personId, identfy);
 							System.out.println(map.get(personId));
 						}
 						for (int j = 0; j < map.size(); j++) {
+							//같은 펄슨아이디가 있을시 진입
 							if (map.containsKey(personId)) {
+								// 더 높은 것을 저장
 								if (map.get(personId).getConfidence() < confidence) {
 									map.put(personId, identfy);
 								}
 							} else if (confidence > 0.7) {
-
+								//없을시 0.7이상 저장
 								map.put(personId, identfy);
 							}
 						}
