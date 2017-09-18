@@ -28,7 +28,9 @@ public class FaceAPIController {
 		System.out.println(fileName);
 		Thread.sleep(3000);
 		Detect detect = new Detect();
+		System.out.println("Controller 초기");
 		Map<String, IdentfyVO> identfy = detect.getFaceId(fileName);
+		System.out.println("Controller 마지막");
 		return identfy.toString();
 	}
 	
