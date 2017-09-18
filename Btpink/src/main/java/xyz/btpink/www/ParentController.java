@@ -43,9 +43,8 @@ public class ParentController {
 	 */
 	@RequestMapping (value="writeDemand", method=RequestMethod.GET)
 	public String writeForm(HttpSession session) {
-		session.setAttribute("loginId", "kkk");
 		//parentId 처리 어떻게 할건지 고민해볼것, 지금은 loginId에 걸어놓음,,임시
-		return "MainpPage/writeDemand";
+		return "MainPage/writeDemand";
 	}
 
 	/**
@@ -60,7 +59,7 @@ public class ParentController {
 		//임시데이터 생성
 		
 		Account account =  (Account) session.getAttribute("User");
-		System.out.println(account);
+		System.out.println("Demand : "+account);
 		//예외처리 해야하나?? 
 		Demand stdDemand = dao.getStdInfo(account);
 		System.out.println(stdDemand);
