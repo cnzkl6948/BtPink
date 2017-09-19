@@ -1,10 +1,16 @@
 package xyz.btpink.www;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpSession;
 
 import org.apache.jasper.tagplugins.jstl.core.ForEach;
@@ -30,10 +36,11 @@ import xyz.btpink.www.vo.Reply;
 @Controller
 // @RequestMapping("board")
 public class BoardController {
-//	private final String path = "/BtPink/Btpink/src/main/webapp/resources/NoticeImage";
+	// private final String path =
+	// "/BtPink/Btpink/src/main/webapp/resources/NoticeImage";
 
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
-
+	private final String path = "/BtPink/Btpink/src/main/webapp/resources/NoticeImage/";
 	@Autowired
 	BoardDAO dao; // 회원 관련 데이터 처리 객체
 
@@ -58,30 +65,39 @@ public class BoardController {
 	 *            사용자가 입력한 글 내용
 	 */
 	@RequestMapping(value = "writeNotice", method = RequestMethod.POST)
-	public String write(Board board, HttpSession session, MultipartFile file) {
-
+	public String write(Board board, HttpSession session, MultipartFile file, String boardImageCheck) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 		String savedFilename = sdf.format(new Date());
 		savedFilename = savedFilename + new Date().getTime();
-		System.out.println(file);
 		String filename = savedFilename;
-		System.out.println(filename);
+		
+		
+		// 파일 저장
 		File out = null;
 		try {
-			out = new File("/BtPink/Btpink/src/main/webapp/resources/NoticeImage/" + filename + ".jpg");
+			out = new File(path + filename + ".jpg");
 			file.transferTo(out);
+			Thread.sleep(3000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		// 세션에서 로그인한 사용자의 아이디를 읽어서 Board객체의 작성자 정보에 세팅
-		// String id = (String) session.getAttribute("loginId");
-//		Account user = (Account) session.getAttribute("User");
-//		System.out.println(user.getId());
-//		board.setId(user.getId());
+		imgUpdate(filename);
+		Account user = (Account) session.getAttribute("User");
+		System.out.println(user.getId());
+		board.setId(user.getId());
 
 		// 첨부파일없음
-//		System.out.println(board);
-//		dao.insert(board);
+		System.out.println(boardImageCheck);
+		if (boardImageCheck.equalsIgnoreCase("true")) {
+			System.out.println(filename);
+			board.setBoardImage(filename);
+		} else {
+			board.setBoardImage("");
+		}
+		System.out.println(board);
+		dao.insertBoard(board);
+
 		return "redirect:listNotice";
 	}
 
@@ -285,5 +301,22 @@ public class BoardController {
 		dao.updateReply(reply);
 		// 원래의 글읽기 화면으로 이동
 		return "redirect:readNotice?boardnum=" + reply.getBoardnum();
+	}
+
+	public String imgUpdate(String fileName) {
+		try {
+			Image originalImage = ImageIO.read(new File(path + fileName + ".jpg"));
+			Image resizeImage = originalImage.getScaledInstance(270, 230, Image.SCALE_SMOOTH);
+			BufferedImage newImage = new BufferedImage(270, 230, BufferedImage.TYPE_INT_RGB);
+			Graphics g = newImage.getGraphics();
+			g.drawImage(resizeImage, 0, 0, (ImageObserver) this);
+			g.dispose();
+			ImageIO.write(newImage, "jpg", new File(path + fileName + ".jpg"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return fileName;
 	}
 }

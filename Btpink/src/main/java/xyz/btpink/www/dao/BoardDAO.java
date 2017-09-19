@@ -25,7 +25,7 @@ public class BoardDAO {
 	 * 게시글 저장
 	 * @param board 저장할 게시글 정보
 	 */
-	public int insert(Board board) {
+	public int insertBoard(Board board) {
 		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
 		
 		int result = 0;
@@ -151,5 +151,10 @@ public class BoardDAO {
 		int result = mapper.updateReply(reply);
 		return result;
 	}
-
+	
+	public ArrayList<Board> getHome() {
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		ArrayList<Board> result = mapper.getHome();
+		return result;
+	}
 }

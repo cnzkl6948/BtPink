@@ -23,36 +23,58 @@
 				<div class="container">
 					<h1>출석부</h1>
 
-					<table style="text-align: center;" class="table">
-						<thead>
-							<tr class="warning">
-								<th style="text-align: center;">학생번호</th>
-								<th style="text-align: center;">반번호</th>
-								<th style="text-align: center;">오늘날짜</th>
-								<th style="text-align: center;">결석</th>
-								<th style="text-align: center;">조퇴</th>
-								<th style="text-align: center;">병결</th>
-								<th style="text-align: center;">지각</th>
-								<th style="text-align: center;">감정</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="rrs" items="${list}">
+					<table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead>
+                   
+                   <th><input type="checkbox" id="checkall" /></th>
+                   <th>학생번호</th>
+                    <th>이름</th>
+                     <th>출결</th>
+                     <th>조회</th>
+                     <th>병결</th>
+                      <th>지각</th>
+                      
+                       <th>확인</th>
+                   </thead>
+    <tbody>
+    	<c:forEach var="rrs" items="${list}">
 								<%--<c:if test="${rm.num == rrs.roomNum}"> --%>
-								<tr class="success">
-									<td class="stdno">${rrs.stdno}</td>
-									<td class="classno">${rrs.classno}</td>
-									<td class="today">${rrs.today}</td>
-									<td class="absent">${rrs.absent }</td>
-									<td class="early">${rrs.early }</td>
-									<td class="sick">${rrs.sick }</td>
-									<td class="late">${rrs.late }</td>
-									<td class="emotion">${rrs.emotion }</td>
+								<tr>
+									<td><input type="checkbox" class="checkthis" /></td>
+									<td>${rrs.stdno}</td>
+									<td>${rrs.name}</td>
+									<c:if test="${rrs.absent == 1}">
+									<td><input type="checkbox" checked="checked"></td>
+									</c:if>
+									<c:if test="${rrs.absent == 0}">
+									<td><input type="checkbox"></td>
+									</c:if>
+									<c:if test="${rrs.early == 1}">
+									<td><input type="checkbox" checked="checked"></td>
+									</c:if>
+									<c:if test="${rrs.early == 0}">
+									<td><input type="checkbox"></td>
+									</c:if>
+									<c:if test="${rrs.sick == 1}">
+									<td><input type="checkbox" checked="checked"></td>
+									</c:if>
+									<c:if test="${rrs.sick == 0}">
+									<td><input type="checkbox"></td>
+									</c:if>
+									<c:if test="${rrs.late == 1}">
+									<td><input type="checkbox" checked="checked"></td>
+									</c:if>
+									<c:if test="${rrs.late == 0}">
+									<td><input type="checkbox"></td>
+									</c:if>
+									<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
 								</tr>
 								<%--</c:if> --%>
-							</c:forEach>
-						</tbody>
-					</table>
+		</c:forEach>
+     </tbody>
+ 
+</table>
 				</div>
 			</article>
 			<!-- /.row -->

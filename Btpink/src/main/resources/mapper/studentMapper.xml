@@ -11,13 +11,13 @@
 		UPDATE student SET 
 			parentno = #{parentno}
 		WHERE 
-		stdno = #{stdNo}	
+		stdno = #{stdno}	
 	</update>
 
 <!--  학생 등록 -->
 <insert id="insertStudent" parameterType="Student">
 	insert into student	values (
-	seq_stdno.nextval, 
+	#{stdno}, 
 	#{name}, 
 	#{age}, 
 	#{height}, 
@@ -27,8 +27,14 @@
 	#{image},
 	#{gender},
 	#{parentno},
-	#{glass}
+	#{personalid},
+	#{likeid},
+	#{hateid}
 	)
 </insert>
+
+<update id="updateStdno" parameterType="String">
+	update student set stdno = #{personID} where rownum = 1
+</update>
 
 </mapper>

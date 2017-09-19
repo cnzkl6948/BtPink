@@ -50,11 +50,7 @@
     <section class="pageTitleSection">
       <div class="container">
         <div class="pageTitleInfo">
-          <h2>Teachers</h2>
-          <ol class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li class="active">Teachers</li>
-          </ol>
+          <h2>선생님 소개</h2>
         </div>
       </div>
     </section>
@@ -67,7 +63,7 @@
             <div class="sectionTitle text-center">
               <h2>
                 <span class="shape shape-left bg-color-4"></span>
-                <span>Our Teacher 1</span>
+                <span>우리 선생님</span>
                 <span class="shape shape-right bg-color-4"></span>
               </h2>
             </div>

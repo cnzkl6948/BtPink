@@ -19,5 +19,7 @@ public interface StudentMapper {
 	public void parentUpdate(Student student);
 	
 	public int insertStudent(Student student);
+	
+	public int updateStdno(String personID);
 
 }

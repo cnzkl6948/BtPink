@@ -15,6 +15,8 @@ public interface BoardMapper {
 	public int insertBoard(Board board);
 	//글번호로 해당 게시글 검색
 	public Board getBoard(int boardnum);
+	//첫화면 최신 3개
+	public ArrayList<Board> getHome();
 	
 	//없음 ; 조회수 1 증가따위 
 

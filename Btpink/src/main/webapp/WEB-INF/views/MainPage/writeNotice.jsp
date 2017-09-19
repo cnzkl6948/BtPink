@@ -73,10 +73,11 @@
 										<div class="box-info">
 											<div class="filebox" style="padding: 3px">
 												<h4 style="text-align: center;">
-													<input type="file" name="file" id="file"
-														accept="image/*" capture="camera"
+													<input type="file" name="file" id="file" accept="image/*"
+														capture="camera"
 														onchange="getThumbnailPrivew(this,$('#cma_image'))" /> <label
-														for="cma_file">Img Upload</label>
+														for="file">Img Upload</label>
+														<input type="hidden" id="boardImageCheck" name="boardImageCheck" value="false">
 												</h4>
 											</div>
 										</div>
@@ -110,27 +111,35 @@
 	function formCheck() {
 		var title = document.getElementById('title');
 		var content = document.getElementById('content');
-
-		if (title.value.length < 5) {
-			alert("제목을 입력하세요.");
+		var img = $('#target').attr('src');
+		//이미지 첨부 여부
+		if(img !='#'){
+			alert("이미지가 있음");
+			$('#boardImageCheck').val('true');
+		}else{
+			alert('이미지가 없음');
+		}
+		//제목 유효성 검사
+		if (title.value.length < 5 || title.value.length > 20 ) {  
+			alert("제목은 5~20 자만 입력하시오");
 			title.focus();
 			title.select();
 			return false;
 		}
+		//내용 유효성 검사
 		if (content.value.length < 5) {
-			alert("내용을 입력하세요.");
+			alert("내용은 5글자 이상 쓰시오.");
 			title.focus();
 			title.select();
 			return false;
 		}
 		return true;
 	}
+	//이미지 미리보기 함수
 	function getThumbnailPrivew(html, $target) {
 		if (html.files && html.files[0]) {
 			var reader = new FileReader();
 			reader.onload = function(e) {
-				//$target.css('background-image', 'url(\"' + e.target.result + '\")'); // 배경으로 지정시  <img src="#" alt="image" class="img-responsive"> + e.target.result +
-				// 				$('#target').html('<img src="'+ e.target.result +'" alt="image" class="img-responsive">');
 				$('#target').attr('src', e.target.result);
 			}
 			reader.readAsDataURL(html.files[0]);

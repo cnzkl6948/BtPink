@@ -45,7 +45,6 @@ public class UsersController {
 			if (ac.getId() != null) {
 				session.setAttribute("User", ac);
 			}
-			System.err.println("회원 정보가 없음");
 		return "redirect:/";
 	}
 

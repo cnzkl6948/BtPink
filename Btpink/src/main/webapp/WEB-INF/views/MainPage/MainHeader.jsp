@@ -29,7 +29,7 @@
 		<div class="top-info-bar bg-color-7 hidden-xs">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-7">
+					<div class="col-sm-9">
 						<ul class="list-inline topList">
 							<li><i class="fa fa-envelope bg-color-1" aria-hidden="true"></i>
 								<a href="mailto:info@yourdomain.com">info@yourdomain.com</a></li>
@@ -39,7 +39,7 @@
 								Open: 9am - 6pm</li>
 						</ul>
 					</div>
-					<div class="col-sm-5">
+					<div class="col-sm-3">
 						<ul class="list-inline functionList">
 							<c:choose>
 								<c:when test="${User != null }">
@@ -82,15 +82,15 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown singleDrop color-3 "><a href="teachers"
 							class="dropdown-toggle"><i class="fa fa-list-ul bg-color-3"
-								aria-hidden="true"></i> <span>TEAM</span></a>
+								aria-hidden="true"></i> <span>선생님 소개</span></a>
 						<li class=" dropdown megaDropMenu color-2 "><a
 							href="course-single" class="dropdown-toggle"> <i
-								class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i> <span>Courses</span>
+								class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i> <span>교육 과정 소개</span>
 						</a></li>
 						<li class="dropdown singleDrop color-4 "><a href="listNotice"
 							class="dropdown-toggle"> <i
 								class="fa fa-pencil-square-o bg-color-4" aria-hidden="true"></i>
-								<span>Notice</span>
+								<span>공지사항</span>
 						</a></li>
 
 						<c:choose>
