@@ -67,3 +67,4 @@ function replyDelete(replynum, boardnum) {
 				+ boardnum;
 	}
 }
+

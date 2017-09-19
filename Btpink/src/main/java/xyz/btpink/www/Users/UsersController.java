@@ -69,7 +69,7 @@ public class UsersController {
 		// if일경우 부모님(p) else일결우 선생님(t)
 		account.setStatus("0");
 		if (account.getType().equalsIgnoreCase("p")) {
-			account.setMemNno("p" + num);
+			account.setMemNno("P" + num);
 			parent.setMemNno(account.getMemNo());
 			student.setParentno(parent.getMemNo());
 			System.out.println("Parent" + parent);
@@ -77,7 +77,7 @@ public class UsersController {
 			parentDao.insert(parent);
 			studentDao.parentUpdate(student);
 		} else {
-			account.setMemNno("t" + num);
+			account.setMemNno("T" + num);
 			System.out.println(account);
 			accountDao.AccountInsert(account);
 		}
