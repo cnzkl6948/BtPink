@@ -24,7 +24,6 @@
 	#{classno}, 
 	TO_DATE(#{birth},'MM-DD-YYYY HH24:MI:SS'),
 	#{address},
-	#{image},
 	#{gender},
 	#{parentno},
 	#{personalid},

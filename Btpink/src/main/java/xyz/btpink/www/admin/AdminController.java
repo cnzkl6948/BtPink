@@ -22,10 +22,12 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import xyz.btpink.www.dao.AttendenceDAO;
+import xyz.btpink.www.dao.ClassDAO;
 import xyz.btpink.www.dao.StudentDAO;
 import xyz.btpink.www.dao.TeacherDAO;
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
+import xyz.btpink.www.vo.ClassVO;
 import xyz.btpink.www.vo.Student;
 import xyz.btpink.www.vo.Teacher;
 
@@ -43,6 +45,9 @@ public class AdminController {
 	
 	@Autowired
 	private String path;
+	
+	@Autowired
+	ClassDAO cdao;
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	//선생님 페이지
@@ -95,8 +100,8 @@ public class AdminController {
 
 				Thread.sleep(3000); //서버에 이미지 파일이 저장되기 까지의 딜레이
 							
-				String url = "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
-//				String url = "https://suenghan.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
+//				String url = "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
+				String url = "https://suenghan.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
 				
 				String [] array = {url, filename};
 				 
@@ -106,7 +111,7 @@ public class AdminController {
 			
 			//학생넘버 등록	
 			@RequestMapping(value = "secondform", method = RequestMethod.POST)
-			public @ResponseBody String secondform(String personID, Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) throws Exception {
+			public @ResponseBody String secondform(HttpSession session, String personID, Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) throws Exception {
 				logger.info("Update Sapply");
 				
 				System.out.println(student.getStdno());
@@ -118,6 +123,12 @@ public class AdminController {
 				student.setImage(filename);
 				student.setLikeid("");
 				student.setHateid("");
+				
+				Account loginuser = (Account)session.getAttribute("User");
+				System.out.println(loginuser);
+				String memno = loginuser.getMemNo();
+				ClassVO selClass = cdao.selectClass(memno);
+				student.setClassno(selClass.getClassNo());
 				
 				System.out.println(student);
 
