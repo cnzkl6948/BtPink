@@ -11,7 +11,7 @@
         </div>
         <div class="pull-left info">
           <p>선생이름(사이드바)</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="/www"><i class="fa fa-circle text-success"></i> 메인화면 이동</a>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -23,6 +23,18 @@
       <li><a href="Sapply"><i class="fa fa-plus-square"></i> <span>학생등록</span></a></li>
       <li><a href="emotionCal"><i class="fa fa-calendar"></i> <span>감정달력</span></a></li>
       <li><a href="autoSplit"><i class="fa fa-plus-square"></i>자동 반 배정</a></li>
+      <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>관리자 메뉴</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="Aapply"><i class="fa fa-circle-o"></i> 회원 가입 승인</a></li>
+            <li><a href="classManagement"><i class="fa fa-circle-o"></i> 반 관리</a></li>
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -4,8 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ include file="MainPage/MainHead.jsp"%>
-<!-- <link rel="stylesheet" -->
-<!-- 	href="./resources/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css"> -->
 <%@ include file="MainPage/MainHeader.jsp"%>
 <!-- BANNER -->
 <section class="bannercontainer bannercontainerV1">

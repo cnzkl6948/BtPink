@@ -94,7 +94,13 @@ INSERT INTO account
 VALUES ('T201709071603', 't3', 't', 't3', 't3', 't3@admin.com', '010-9299-0044', 1);
 INSERT INTO teacher
 VALUES ('T201709071603','E');
+INSERT INTO account
+VALUES ('T201709071604', 't4', 't', 't4', 't4', 't4@admin.com', '010-9299-0044', 1);
+INSERT INTO teacher
+VALUES ('T201709071604','E');
 
+INSERT INTO class
+VALUES ('c4', '요괴', 17, 'T201709071604');
 INSERT INTO class
 VALUES ('c1', '햇살', 16, 'T201709071601');
 INSERT INTO class

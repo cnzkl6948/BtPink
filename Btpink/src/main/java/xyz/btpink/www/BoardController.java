@@ -41,7 +41,7 @@ public class BoardController {
 	/**
 	 * 글쓰기 폼 보기
 	 */
-	@RequestMapping (value="writeNotice", method=RequestMethod.GET)
+	@RequestMapping (value="/writeNotice", method=RequestMethod.GET)
 	public String writeForm() {
 		
 		return "MainPage/writeNotice";
@@ -51,7 +51,7 @@ public class BoardController {
 	 * 글 저장 처리
 	 * @param board 사용자가 입력한 글 내용
 	 */
-	@RequestMapping (value="writeNotice", method=RequestMethod.POST)
+	@RequestMapping (value="/writeNotice", method=RequestMethod.POST)
 	public String write( Board board, HttpSession session) {
 
 		//세션에서 로그인한 사용자의 아이디를 읽어서 Board객체의 작성자 정보에 세팅
@@ -71,7 +71,7 @@ public class BoardController {
 	 * @param page 현재 페이지. 없으면 1로 처리
 	 * @param searchText 검색어. 없으면 ""로 처리
 	 */
-	@RequestMapping (value="listNotice", method=RequestMethod.GET)
+	@RequestMapping (value="/listNotice", method=RequestMethod.GET)
 	public String list(
 			@RequestParam(value="page", defaultValue="1") int page,
 			@RequestParam(value="searchText", defaultValue="") String searchText,
@@ -109,7 +109,7 @@ public class BoardController {
 	 * @param boardnum 읽을 글번호
 	 * @return 해당 글 정보
 	 */
-	@RequestMapping (value="readNotice", method=RequestMethod.GET)
+	@RequestMapping (value="/readNotice", method=RequestMethod.GET)
 	public String read(int boardnum, Model model, HttpSession session) {
 		//전달된 글 번호로 해당 글정보 읽기
 		System.out.println("readNotice");
@@ -140,7 +140,7 @@ public class BoardController {
 	 * 글 삭제
 	 * @param boardnum 삭제할 글번호
 	 */
-	@RequestMapping (value="deleteNotice", method=RequestMethod.GET)
+	@RequestMapping (value="/deleteNotice", method=RequestMethod.GET)
 	public String delete(int boardnum, HttpSession session) {
 		Account user=  (Account) session.getAttribute("User");
 		String id =user.getId();
@@ -167,7 +167,7 @@ public class BoardController {
 	 * @param boardnum 수정할 글번호
 	 * @return 해당 번호의 글 정보
 	 */
-	@RequestMapping (value="editNotice", method=RequestMethod.GET)
+	@RequestMapping (value="/editNotice", method=RequestMethod.GET)
 	public String editForm(int boardnum, HttpSession session, Model model) {
 		
 		Board board = dao.get(boardnum);
@@ -179,7 +179,7 @@ public class BoardController {
 	 * 글 수정 처리
 	 * @param board 수정할 글 정보
 	 */
-	@RequestMapping (value="editNotice", method=RequestMethod.POST)
+	@RequestMapping (value="/editNotice", method=RequestMethod.POST)
 	public String edit(
 			Board board, 
 			MultipartFile upload,
@@ -210,7 +210,7 @@ public class BoardController {
 	 * 리플 저장 처리
 	 * @param reply 사용자가 입력한 글 내용
 	 */
-	@RequestMapping (value="replyWrite", method=RequestMethod.POST)
+	@RequestMapping (value="/replyWrite", method=RequestMethod.POST)
 	public String replyWrite(
 			Reply reply, 
 			HttpSession session, 
@@ -231,7 +231,7 @@ public class BoardController {
 	 * 리플 삭제
 	 * @param reply 삭제할 리플 번호와 본문 글번호가 전달
 	 */
-	@RequestMapping (value="replyDelete", method=RequestMethod.GET)
+	@RequestMapping (value="/replyDelete", method=RequestMethod.GET)
 	public String deleteReply(Reply reply, HttpSession session) {
 		Account user=  (Account) session.getAttribute("User");
 		String id =user.getId();
@@ -247,7 +247,7 @@ public class BoardController {
 	 * 리플 수정 처리
 	 * @param reply 수정할 리플 정보
 	 */
-	@RequestMapping (value="replyEdit", method=RequestMethod.POST)
+	@RequestMapping (value="/replyEdit", method=RequestMethod.POST)
 	public String replyEdit(
 			Reply reply, 
 			HttpSession session) {

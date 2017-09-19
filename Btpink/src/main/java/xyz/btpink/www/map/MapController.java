@@ -17,7 +17,7 @@ public class MapController {
 	private static String lat = "37.565826";
 	private static String lon = "126.975170";
 	
-	@RequestMapping(value = "getBus", method = RequestMethod.GET)
+	@RequestMapping(value = "/getBus", method = RequestMethod.GET)
 	public String maptest(Locale locale, Model model) {
 		logger.info("getBus");
 		
@@ -26,7 +26,7 @@ public class MapController {
 		return "/MainPage/busFinder";
 	}
 	
-	@RequestMapping(value = "getMap", method = RequestMethod.POST)
+	@RequestMapping(value = "/getMap", method = RequestMethod.POST)
 	public @ResponseBody String sendLocation(Locale locale, Model model) {
 		logger.info("getMap");
 		String info = lat+","+lon;
@@ -34,13 +34,13 @@ public class MapController {
 		return info;
 	}
 	
-	@RequestMapping(value = "locationSend", method = RequestMethod.GET)
+	@RequestMapping(value = "/locationSend", method = RequestMethod.GET)
 	public String locationSend2(Locale locale, Model model) {
 		logger.info("locationSend get");
 		return "/getMap/locationSend";
 	}
 	
-	@RequestMapping(value = "locationSend", method = RequestMethod.POST)
+	@RequestMapping(value = "/locationSend", method = RequestMethod.POST)
 	public String locationSend(String latt, String lont) {
 		logger.info("locationSend");
 		lat = latt;

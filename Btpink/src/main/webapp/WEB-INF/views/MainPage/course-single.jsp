@@ -2,6 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="MainHead.jsp"%>
 <%@ include file="MainHeader.jsp"%>
+<!-- PAGE TITLE SECTION-->
+	<section class="pageTitleSection">
+		<div class="container">
+			<div class="pageTitleInfo">
+				<h2>교육 과정 소개</h2>
+			</div>
+		</div>
+	</section>
 <!-- WHITE SECTION -->
 <div class="row"style="margin-top: 5%;">
 <div class="col-md-9 col-sm-12 col-xs-12 block pull-right">
@@ -14,6 +22,7 @@
 	</div>
 </div>
 </div>
+
 		<div class="row" >
 			<!-- 공백 -->
 			<div class="col-lg-2"></div>

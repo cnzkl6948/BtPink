@@ -7,10 +7,42 @@
 <link rel="stylesheet" href="./resources/AdminLTE/bower_components/fullcalendar/dist/fullcalendar.min.css">
 <link rel="stylesheet" href="./resources/AdminLTE/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
 <%@include file="../MainPage/MainHeader.jsp"%>
-
+<!-- PAGE TITLE SECTION-->
+<div class="row">
+	<section class="pageTitleSection">
+		<div class="container">
+			<div class="pageTitleInfo">
+				<h2>내 아이 정보</h2>
+			</div>
+		</div>
+	</section>
+</div>
+<!-- 학생정보 -->
+<div class="row">
+	<!-- 공백 -->
+	<div class="col-lg-2"></div>
+	<!-- 공백 -->
+	
+	<div class="col-lg-8 media eventContent bg-color-1">
+       <div class="media-left">
+         <img class="media-object" src="./resources/img/home/event/event-2.jpg" alt="Image">
+       </div>
+       <div class="media-body">
+         <h3 class="media-heading"><a href="single-event-left-sidebar.html">학생이름</a></h3>
+         <ul class="list-unstyled">
+           <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Age 2 to 4 Years</li>
+           <li><i class="fa fa-clock-o" aria-hidden="true"></i> 정보정보</li>
+         </ul>
+         <p>블라블라 잡정보 </p>
+       </div>
+     </div>
+	<!-- 공백 -->
+	<div class="col-lg-2"></div>
+	<!-- 공백 -->
+</div>
 <!-- WHITE SECTION -->
 <section class="whiteSection full-width clearfix p-t-n">
-	<div class="row" style="margin-top: 5%;">
+	<div class="row">
 		<div class="col-lg-12">
 			<!-- 공백 -->
 			<div class="col-lg-2"></div>
@@ -30,22 +62,6 @@
 				<div class="tab-content">
 				<!-- 아이정보 -->
 					<div id="Calender" class="tab-pane fade in active">
-						<!-- 학생정보 -->
-						<div class="row">
-							<div class="media eventContent bg-color-1">
-				              <div class="media-left">
-				                <img class="media-object" src="./resources/img/home/event/event-2.jpg" alt="Image">
-				              </div>
-				              <div class="media-body">
-				                <h3 class="media-heading"><a href="single-event-left-sidebar.html">학생이름</a></h3>
-				                <ul class="list-unstyled">
-				                  <li><i class="fa fa-calendar-o" aria-hidden="true"></i> Age 2 to 4 Years</li>
-				                  <li><i class="fa fa-clock-o" aria-hidden="true"></i> 정보정보</li>
-				                </ul>
-				                <p>블라블라 잡정보 </p>
-				              </div>
-				            </div>
-						</div>
 						<!-- 감정달력 -->
 						<div class="row">
 							<div class="sectionTitle text-center">
@@ -153,24 +169,7 @@
 	
 </section>
 
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="./resources/plugins/jquery-ui/jquery-ui.js"></script>
-<script src="./resources/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-<script src="./resources/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
-<script src="./resources/plugins/owl-carousel/owl.carousel.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="./resources/plugins/counter-up/jquery.counterup.min.js"></script>
-<script src="./resources/plugins/isotope/isotope.min.js"></script>
-<script src="./resources/plugins/isotope/jquery.fancybox.pack.js"></script>
-<script src="./resources/plugins/isotope/isotope-triger.js"></script>
-<script src="./resources/plugins/countdown/jquery.syotimer.js"></script>
-<script src="./resources/plugins/velocity/velocity.min.js"></script>
-<script src="./resources/plugins/smoothscroll/SmoothScroll.js"></script>
-<script src="./resources/js/custom.js"></script>
+  <%@ include file="MainFooter.jsp"%>
 <script src="./resources/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="./resources/AdminLTE/bower_components/moment/min/moment.min.js"></script>
 <script src="./resources/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>

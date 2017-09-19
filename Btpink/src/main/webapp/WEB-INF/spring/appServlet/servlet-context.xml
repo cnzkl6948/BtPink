@@ -34,6 +34,27 @@
 	
 	<context:component-scan base-package="xyz.btpink.www" />
 	
+	<beans:bean id="loginInterceptor" class="xyz.btpink.www.interceptor.LoginInterceptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/getBus" />
+			<mapping path="/MySon" />
+			<beans:ref bean="loginInterceptor" />
+		</interceptor>
+	</interceptors>
 	
-	
+	<beans:bean id="AdminInterceptor" class="xyz.btpink.www.interceptor.AdminInterceptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/adminPage" />
+			<mapping path="/Slist" />
+			<mapping path="/ACheck" />
+			<mapping path="/PCheck" />
+			<mapping path="/emotionCal" />
+			<mapping path="/Sapply" />
+			<mapping path="/autoSplit" />
+			<mapping path="/writeNotice" />
+			<beans:ref bean="AdminInterceptor" />
+		</interceptor>
+	</interceptors>
 </beans:beans>
