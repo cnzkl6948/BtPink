@@ -22,10 +22,10 @@ def load_image_into_numpy_array(image):
 # 모델종류 선택.
 #MODEL_NAME = 'ssd_mobilenet_v1_coco_11_06_2017'
 #MODEL_NAME = 'ssd_inception_v2_coco_11_06_2017'
-#MODEL_NAME = 'rfcn_resnet101_coco_11_06_2017'
+MODEL_NAME = 'rfcn_resnet101_coco_11_06_2017'
 #MODEL_NAME = 'faster_rcnn_resnet101_coco_11_06_2017'
 
-MODEL_NAME = 'faster_rcnn_inception_resnet_v2_atrous_coco_11_06_2017'
+#MODEL_NAME = 'faster_rcnn_inception_resnet_v2_atrous_coco_11_06_2017'
 
 # frozen detection graph. 경로 설정
 PATH_TO_CKPT = 'models/' + MODEL_NAME + '/frozen_inference_graph.pb'

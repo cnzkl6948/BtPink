@@ -9,7 +9,7 @@ function studentCheck() {
 				type : "get",
 				data : {
 					name : $('#studentName').val(),
-					classno : $('#StdNo').val()
+					classno : $('#classno').val()
 				},
 				success : function(result) {
 					// SelectStudent
@@ -17,10 +17,10 @@ function studentCheck() {
 						alert($('#studentName').val() + "학생이 없습니다");
 					} else {
 
-						var SelectStudent = '<div class="col-sm-12 col-xs-12"><select  id="stdNo" name = "stdNo" class="form-control" >';
+						var SelectStudent = '<div class="col-sm-12 col-xs-12"><select  id="stdno" name = "stdno" class="form-control" >';
 						$.each(result, function(index, student) {
 							SelectStudent += '<option ' + '" value="'
-									+ student.stdNo + '">' + ' 주소  : '
+									+ student.stdno + '">' + ' 주소  : '
 									+ student.address + ' 생일 : '
 									+ student.birth + '</option>';
 						})
@@ -48,7 +48,7 @@ function idOverlap() {
 					$("#basic-addon21").attr("style",
 							"background-color: #337ab7");
 					$("#id").attr("style", "background-color:#ffffff; ");
-//					$("#id").disabled = disabled;
+					// $("#id").disabled = disabled;
 					$('#idCheck').val('true');
 				} else {
 					alert("중복된 아이디가 있습니다.");
@@ -68,10 +68,10 @@ function join() {
 	var pwCk = $('#pwCk').val();
 	var email = $('#email').val();
 	var idCheck = $('#idCheck').val();
-	var stdNo = $('#stdNo').val();
+	var stdno = $('#stdno').val();
 	var phone = $('#phone').val();
 	if (SelectTeacher == "false") {
-		if (stdNo === undefined) {
+		if (stdno === undefined) {
 			alert("학생을 입력하시오.");
 			result = false;
 		} else {
@@ -122,7 +122,7 @@ function login() {
 				} else {
 					alert("회원정보가 없습니다.")
 				}
-			}	
+			}
 		});
 	}
 }

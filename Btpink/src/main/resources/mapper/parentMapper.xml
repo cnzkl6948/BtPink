@@ -8,7 +8,7 @@
 	<insert id="parentInsert" parameterType="Parent">
 		insert into parent values(
 		#{memNo}
-		,#{stdNo}
+		,#{stdno}
 		)
 	</insert>
 

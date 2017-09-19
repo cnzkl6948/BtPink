@@ -2,57 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<!-- SITE TITTLE -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Course Grid - KIDZ SCHOOL</title>
-
-
-<!-- PLUGINS CSS STYLE -->
-<link href="./resources/plugins/jquery-ui/jquery-ui.css"
-	rel="stylesheet">
-<link href="./resources/plugins/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="./resources/plugins/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="./resources/plugins/rs-plugin/css/settings.css" media="screen">
-<link rel="stylesheet" type="text/css"
-	href="./resources/plugins/selectbox/select_option1.css">
-<link rel="stylesheet" type="text/css"
-	href="./resources/plugins/owl-carousel/owl.carousel.css" media="screen">
-<link rel="stylesheet" type="text/css"
-	href="./resources/plugins/isotope/jquery.fancybox.css">
-<link rel="stylesheet" type="text/css"
-	href="./resources/plugins/isotope/isotope.css">
-
-<!-- GOOGLE FONT -->
-<link
-	href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700'
-	rel='stylesheet' type='text/css'>
-<link
-	href='https://fonts.googleapis.com/css?family=Dosis:400,300,600,700'
-	rel='stylesheet' type='text/css'>
-
-<!-- CUSTOM CSS -->
-<link href="./resources/css/style.css" rel="stylesheet">
-<link rel="stylesheet" href="./resources/css/default.css"
-	id="option_color">
-
-<!-- Icons -->
-<link rel="shortcut icon" href="./resources/img/favicon.png">
-
-
-</head>
-
+<%@include file="MainHead.jsp"%>
+<%@include file="MainHeader.jsp"%>
 <body class="body-wrapper">
 
 	<!-- HEADER -->
-	<%@ include file="MainHeader.jsp"%>
 	<!-- PAGE TITLE SECTION-->
 	<section class="pageTitleSection">
 		<div class="container">

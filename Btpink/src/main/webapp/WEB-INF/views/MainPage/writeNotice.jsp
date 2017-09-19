@@ -16,7 +16,14 @@
 </style>
 <%@include file="MainHeader.jsp"%>
 
-
+    <!-- PAGE TITLE SECTION-->
+    <section class="pageTitleSection">
+      <div class="container">
+        <div class="pageTitleInfo">
+          <h2>공지사항 글쓰기</h2>
+        </div>
+      </div>
+    </section>
 
 <!-- PAGE TITLE SECTION-->
 <section class="pageTitleSection">
@@ -120,9 +127,9 @@
 			alert('이미지가 없음');
 		}
 		//제목 유효성 검사
-		if (title.value.length < 5 || title.value.length > 20 ) {  
+		if (title.value.length < 5 || title.value.length > 20 ) { 
 			alert("제목은 5~20 자만 입력하시오");
-			title.focus();
+			title.focus(); 
 			title.select();
 			return false;
 		}

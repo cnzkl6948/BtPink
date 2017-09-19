@@ -4,7 +4,7 @@ package xyz.btpink.www.vo;
 public class Demand {
 	int demandnum;
 	String name;
-	String stdNo;
+	String stdno;
 	String demandsubject;
 	String attend;
 	String startdate;
@@ -12,36 +12,16 @@ public class Demand {
 	String demandcontent;
 	String classno;
 	
-	public Demand() {
-		// TODO Auto-generated constructor stub
-	}
 	
-	
-	public String getName() {
-		return name;
-	}
+	public Demand() {}
 
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
- 
-	public String getStdNo() {
-		return stdNo;
-	}
-
-
-	public void setStdNo(String stdNo) {
-		this.stdNo = stdNo;
-	}
-
-
-	public Demand(int demandnum, String stdno, String demandsubject, String attend,
-			String startdate, String enddate, String demandcontent, String classno) {
+	public Demand(int demandnum, String name, String stdno, String demandsubject, String attend, String startdate,
+			String enddate, String demandcontent, String classno) {
 		super();
 		this.demandnum = demandnum;
-		this.stdNo = stdno;
+		this.name = name;
+		this.stdno = stdno;
 		this.demandsubject = demandsubject;
 		this.attend = attend;
 		this.startdate = startdate;
@@ -61,17 +41,24 @@ public class Demand {
 	}
 
 
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
 	public String getStdno() {
-		return stdNo;
+		return stdno;
 	}
 
 
 	public void setStdno(String stdno) {
-		this.stdNo = stdno;
+		this.stdno = stdno;
 	}
-
-
-
 
 
 	public String getDemandsubject() {
@@ -124,8 +111,6 @@ public class Demand {
 	}
 
 
-
-
 	public String getClassno() {
 		return classno;
 	}
@@ -138,11 +123,8 @@ public class Demand {
 
 	@Override
 	public String toString() {
-		return "Demand [demandnum=" + demandnum + ", stdno=" + stdNo + ", demandsubject=" + demandsubject 
-				+ ", attend=" + attend + ", startdate=" + startdate + ", enddate="
-				+ enddate + ", demandcontent=" + demandcontent + ", classno=" + classno + "]";
+		return "Demand [demandnum=" + demandnum + ", name=" + name + ", stdno=" + stdno + ", demandsubject="
+				+ demandsubject + ", attend=" + attend + ", startdate=" + startdate + ", enddate=" + enddate
+				+ ", demandcontent=" + demandcontent + ", classno=" + classno + "]";
 	}
-	
-	
-	
 }

@@ -12,6 +12,7 @@
 		<typeAlias type="xyz.btpink.www.vo.Reply" alias="Reply" />
 		<typeAlias type="xyz.btpink.www.vo.Demand" alias="Demand" />
 		<typeAlias type="xyz.btpink.www.vo.Attendence" alias="Attendence"/>
+		<typeAlias type="xyz.btpink.www.vo.ClassVO" alias="ClassVO"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/AccountMapper.xml" />
@@ -20,6 +21,7 @@
 		<mapper resource="mapper/teacherMapper.xml" />
 		<mapper resource="mapper/boardMapper.xml" />	
 		<mapper resource="mapper/attendenceMapper.xml" />
+		<mapper resource="mapper/ClassMapper.xml" />
 	</mappers>
 	   
 </configuration>

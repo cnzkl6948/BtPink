@@ -7,11 +7,7 @@
 <section class="pageTitleSection">
 	<div class="container">
 		<div class="pageTitleInfo">
-			<h2>Bus Finder</h2>
-			<ol class="breadcrumb">
-				<li><a href="index.html">Home</a></li>
-				<li class="active">Contact Us</li>
-			</ol>
+			<h2>버스 위치 찾기</h2>
 		</div>
 	</div>
 </section>

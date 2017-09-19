@@ -40,7 +40,7 @@ public class UsersController {
 	// 로그인
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(Account account, Locale locale, Model model, HttpSession session) {
-		System.out.println(account);
+		System.out.println("로그인 접속시 : "+account);
 		Account ac = accountDao.login(account);
 			if (ac.getId() != null) {
 				session.setAttribute("User", ac);

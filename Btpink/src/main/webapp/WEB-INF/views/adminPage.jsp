@@ -13,7 +13,7 @@
 			선생님 메인 화면 <small>컨트롤 패널</small>
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li><i class="fa fa-dashboard"></i> Home</li>
 			<li class="active">Dashboard</li>
 		</ol>
 	</section>
@@ -34,8 +34,6 @@
 						<div class="icon">
 							<i class="ion ion-bag"></i>
 						</div>
-						<a href="#" class="small-box-footer">More info <i
-							class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
 				<!-- ./col -->
@@ -54,8 +52,6 @@
 						<div class="icon">
 							<i class="ion ion-stats-bars"></i>
 						</div>
-						<a href="#" class="small-box-footer">More info <i
-							class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
 				<!-- ./col -->
@@ -72,8 +68,6 @@
 						<div class="icon">
 							<i class="ion ion-person-add"></i>
 						</div>
-						<a href="#" class="small-box-footer">More info <i
-							class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
 				<!-- ./col -->
@@ -90,8 +84,6 @@
 						<div class="icon">
 							<i class="ion ion-pie-graph"></i>
 						</div>
-						<a href="#" class="small-box-footer">More info <i
-							class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				<!-- ./col -->
 			</div>
