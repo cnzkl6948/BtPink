@@ -97,18 +97,19 @@
 							<c:when test="${User.type == 'p' }">
 								<li class="dropdown singleDrop color-5  "><a
 									href="getBus" class="dropdown-toggle">
-										<i class="fa fa-calendar bg-color-5" aria-hidden="true"></i> <span>Bus</span>
+										<i class="fa fa-calendar bg-color-5" aria-hidden="true"></i> <span>버스 위치</span>
 								</a></li>
-								<li class="dropdown singleDrop color-1   active "><a
-									href="MySon" class="dropdown-toggle"> <i
-										class="fa fa-home bg-color-1" aria-hidden="true"></i> <span
-										class="active">MySon</span>
-								</a></li>
+								<li class="dropdown singleDrop color-1   active ">
+									<a href="MySon" class="dropdown-toggle"> 
+										<i class="fa fa-home bg-color-1" aria-hidden="true"></i> 
+										<span>내 아이 정보</span>
+									</a>
+								</li>
 							</c:when>
 							<c:when test="${User.type == 't' }">
 								<li class="dropdown singleDrop color-6 "><a
 									href="adminPage" class="dropdown-toggle"> <i
-										class="fa fa-gg bg-color-6" aria-hidden="true"></i> <span>Teacher</span></a></li>
+										class="fa fa-gg bg-color-6" aria-hidden="true"></i> <span>선생님 페이지</span></a></li>
 							</c:when>
 						</c:choose>
 					</ul>
@@ -243,7 +244,7 @@
 							<div class="form-group formField">
 								<input type="button"
 									class="btn btn-primary btn-block bg-color-3 border-color-3"
-									onclick="javascript:login()" value="Login">
+									onclick="javascript:login()" id="btnLogin" value="Login">
 							</div>
 						</form>
 					</div>

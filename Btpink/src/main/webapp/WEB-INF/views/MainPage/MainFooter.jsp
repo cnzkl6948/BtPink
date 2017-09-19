@@ -29,4 +29,3 @@
 <script src="./resources/js/custom.js"></script>
 <script src="./resources/js/notice.js"></script>
 <script src="./resources/js/createJoin.js"></script>
-

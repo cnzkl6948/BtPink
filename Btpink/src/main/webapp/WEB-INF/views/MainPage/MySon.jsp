@@ -7,7 +7,14 @@
 <link rel="stylesheet" href="./resources/AdminLTE/bower_components/fullcalendar/dist/fullcalendar.min.css">
 <link rel="stylesheet" href="./resources/AdminLTE/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
 <%@include file="../MainPage/MainHeader.jsp"%>
-
+<!-- PAGE TITLE SECTION-->
+	<section class="pageTitleSection">
+		<div class="container">
+			<div class="pageTitleInfo">
+				<h2>내 아이 정보</h2>
+			</div>
+		</div>
+	</section>
 <!-- WHITE SECTION -->
 <section class="whiteSection full-width clearfix p-t-n">
 	<div class="row" style="margin-top: 5%;">
@@ -153,24 +160,7 @@
 	
 </section>
 
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="./resources/plugins/jquery-ui/jquery-ui.js"></script>
-<script src="./resources/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-<script src="./resources/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-<script src="./resources/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
-<script src="./resources/plugins/owl-carousel/owl.carousel.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="./resources/plugins/counter-up/jquery.counterup.min.js"></script>
-<script src="./resources/plugins/isotope/isotope.min.js"></script>
-<script src="./resources/plugins/isotope/jquery.fancybox.pack.js"></script>
-<script src="./resources/plugins/isotope/isotope-triger.js"></script>
-<script src="./resources/plugins/countdown/jquery.syotimer.js"></script>
-<script src="./resources/plugins/velocity/velocity.min.js"></script>
-<script src="./resources/plugins/smoothscroll/SmoothScroll.js"></script>
-<script src="./resources/js/custom.js"></script>
+  <%@ include file="MainFooter.jsp"%>
 <script src="./resources/AdminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="./resources/AdminLTE/bower_components/moment/min/moment.min.js"></script>
 <script src="./resources/AdminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>

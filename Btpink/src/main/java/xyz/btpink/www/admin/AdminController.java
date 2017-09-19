@@ -46,7 +46,7 @@ public class AdminController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	//선생님 페이지
-	@RequestMapping(value = "adminPage", method = RequestMethod.GET)
+	@RequestMapping(value = "/adminPage", method = RequestMethod.GET)
 	public String adminPage(HttpSession session,Locale locale, Model model) {
 		logger.info("Go! adminPage");
 		Account account = (Account) session.getAttribute("User");
@@ -57,107 +57,118 @@ public class AdminController {
 	}
 	
 	//출석체크
-	@RequestMapping(value = "ACheck", method = RequestMethod.GET)
+	@RequestMapping(value = "/ACheck", method = RequestMethod.GET)
 	public String ACheck(Locale locale, Model model) {
 		logger.info("Go! ACheck");
 		return "AdminPage/ACheck";
 	}
 	
-
+	//회원가입 승인
+	@RequestMapping(value = "/Aapply", method = RequestMethod.GET)
+	public String Aapply(Locale locale, Model model) {
+		logger.info("Go! Aapply");
+		return "AdminPage/Aapply";
+	}
+	//반 관리 메뉴
+	@RequestMapping(value = "/classManagement", method = RequestMethod.GET)
+	public String classManagement(Locale locale, Model model) {
+		logger.info("Go! classManagement");
+		return "AdminPage/classManagement";
+	}	
 	//학생등록
-	@RequestMapping(value = "Sapply", method = RequestMethod.GET)
+	@RequestMapping(value = "/Sapply", method = RequestMethod.GET)
 	public String Sapply(Locale locale, Model model) {
 		logger.info("Go! Sapply");
 		return "AdminPage/Sapply";
 	}
 	
 	//url 생성
-			@RequestMapping(value = "Sapply", method = RequestMethod.POST)
-			public @ResponseBody String[] Sapply(HttpSession session, Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) throws Exception {
-				logger.info("Save Sapply");
-				System.out.println(student);
-				System.out.println("파일테스트 : "+file);
-				
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-				String savedFilename = sdf.format(new Date());
-				savedFilename = savedFilename + new Date().getTime();
-				String filename = "S"+savedFilename;
-			
+	@RequestMapping(value = "/Sapply", method = RequestMethod.POST)
+	public @ResponseBody String[] Sapply(HttpSession session, Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) throws Exception {
+		logger.info("Save Sapply");
+		System.out.println(student);
+		System.out.println("파일테스트 : "+file);
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		String savedFilename = sdf.format(new Date());
+		savedFilename = savedFilename + new Date().getTime();
+		String filename = "S"+savedFilename;
+	
 //				String filename = file.getOriginalFilename();
-				
-				try {
-					File out = new File(path + File.separator + filename +".jpg");
-					file.transferTo(out);
-				} catch (Exception e) {
-					// TODO: handle exception
-				}
-				rttr.addAttribute("filename", filename);
+		
+		try {
+			File out = new File(path + File.separator + filename +".jpg");
+			file.transferTo(out);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		rttr.addAttribute("filename", filename);
 
-				Thread.sleep(3000); //서버에 이미지 파일이 저장되기 까지의 딜레이
-							
-				String url = "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
+		Thread.sleep(3000); //서버에 이미지 파일이 저장되기 까지의 딜레이
+					
+		String url = "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
 //				String url = "https://suenghan.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
-				
-				String [] array = {url, filename};
-				 
-				return array;
-			}
-			
-			
-			//학생넘버 등록	
-			@RequestMapping(value = "secondform", method = RequestMethod.POST)
-			public @ResponseBody String secondform(String personID, Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) throws Exception {
-				logger.info("Update Sapply");
-				
-				System.out.println(student.getStdno());
-				
-				int age = ageCal(student); //나이계산 메소드 호출
-				student.setAge(age);
-				String filename = file.getOriginalFilename();
-				student.setParentno("dummy");// 학부모 번호를 불러오는 과정 정해질때까지 더미로...
-				student.setImage(filename);
-				student.setLikeid("");
-				student.setHateid("");
-				
-				System.out.println(student);
+		
+		String [] array = {url, filename};
+		 
+		return array;
+	}
+	
+	
+	//학생넘버 등록	
+	@RequestMapping(value = "/secondform", method = RequestMethod.POST)
+	public @ResponseBody String secondform(String personID, Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) throws Exception {
+		logger.info("Update Sapply");
+		
+		System.out.println(student.getStdno());
+		
+		int age = ageCal(student); //나이계산 메소드 호출
+		student.setAge(age);
+		String filename = file.getOriginalFilename();
+		student.setParentno("dummy");// 학부모 번호를 불러오는 과정 정해질때까지 더미로...
+		student.setImage(filename);
+		student.setLikeid("");
+		student.setHateid("");
+		
+		System.out.println(student);
 
-				int result = sdao.insert(student);
-				if(result==1){
-					System.out.println("DB입력성공");
-				}
+		int result = sdao.insert(student);
+		if(result==1){
+			System.out.println("DB입력성공");
+		}
 
-				return "success";
-			}
+		return "success";
+	}
 
-			
-		//나이계산 메소드	
-			public int ageCal(Student student){
-				SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-				Date currenttime = new Date();
-				Date birthday=null;
-				try {
-					birthday = formatter.parse(student.getBirth());
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					//e.printStackTrace();
-				}
+	
+//나이계산 메소드	
+	public int ageCal(Student student){
+		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+		Date currenttime = new Date();
+		Date birthday=null;
+		try {
+			birthday = formatter.parse(student.getBirth());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+		}
 //				System.out.println("현재시간" + currenttime);
 //				System.out.println("생일" + birthday);
-				
-				long diff = currenttime.getTime()-birthday.getTime();
-				long diffdays = diff / (24 * 60 * 60 * 1000);
-				int age = (int)diffdays/365;
-				System.out.println("나이 : "+age);
-				
-				return age;
-				
-			}		
+		
+		long diff = currenttime.getTime()-birthday.getTime();
+		long diffdays = diff / (24 * 60 * 60 * 1000);
+		int age = (int)diffdays/365;
+		System.out.println("나이 : "+age);
+		
+		return age;
+		
+	}		
 	
 			
 			
 		
 	//출석부
-	@RequestMapping(value = "Slist", method = RequestMethod.GET)
+	@RequestMapping(value = "/Slist", method = RequestMethod.GET)
 	public String Slist(Locale locale, Model model) {
 		logger.info("Go! Slist");
 	
@@ -170,20 +181,20 @@ public class AdminController {
 		
 
 	//인원확인
-	@RequestMapping(value = "PCheck", method = RequestMethod.GET)
+	@RequestMapping(value = "/PCheck", method = RequestMethod.GET)
 	public String PCheck(Locale locale, Model model) {
 		logger.info("Go! PCheck");
 		return "AdminPage/PCheck";
 	}
 	
 	//감정달력
-	@RequestMapping(value = "emotionCal", method = RequestMethod.GET)
+	@RequestMapping(value = "/emotionCal", method = RequestMethod.GET)
 	public String emotionCal(Locale locale, Model model) {
 		logger.info("Go! emotionCal");
 		return "AdminPage/emotionCal";
 	}
 	//감정달력
-	@RequestMapping(value = "getEmotionList", method = RequestMethod.POST)
+	@RequestMapping(value = "/getEmotionList", method = RequestMethod.POST)
 	public String getEmotionList(String stdNo, Model model) {
 		logger.info("Go! getEmotionList");
 		ArrayList<Attendence> result = adao.getEmotionList(stdNo);
@@ -259,7 +270,7 @@ public class AdminController {
 	}
 	
 	//반 배정
-	@RequestMapping(value = "autoSplit", method = RequestMethod.GET)
+	@RequestMapping(value = "/autoSplit", method = RequestMethod.GET)
 	public String autoSplit(Locale locale, Model model) {
 		logger.info("Go! autoSplit");
 		return "AdminPage/autoSplit";

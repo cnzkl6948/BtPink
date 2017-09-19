@@ -26,17 +26,17 @@ public class MainPageController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "course-single", method = RequestMethod.GET)
+	@RequestMapping(value = "/course-single", method = RequestMethod.GET)
 	public String course() {
 		return "MainPage/course-single";
 	}
 
-	@RequestMapping(value = "teachers", method = RequestMethod.GET)
+	@RequestMapping(value = "/teachers", method = RequestMethod.GET)
 	public String teachers() {
 		return "MainPage/Teachers";
 	}
 
-	@RequestMapping(value = "MySon", method = RequestMethod.GET)
+	@RequestMapping(value = "/MySon", method = RequestMethod.GET)
 	public String kindergarten(Model model) {
 			
 //		SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ( "yy-MM", Locale.KOREA );

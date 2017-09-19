@@ -7,11 +7,7 @@
     <section class="pageTitleSection">
       <div class="container">
         <div class="pageTitleInfo">
-          <h2>Forms</h2>
-          <ol class="breadcrumb">
-            <li><a href="index.html">Board</a></li>
-            <li class="active">Write Form</li>
-          </ol>
+          <h2>공지사항 글쓰기</h2>
         </div>
       </div>
     </section>
