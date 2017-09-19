@@ -27,7 +27,7 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session = request.getSession();
 		Account account = (Account) session.getAttribute("User");
 		//로그인되지 않은 경우 로그인 페이지로 이동
-		if (account == null || !account.getMemNo().substring(0, 1).equals("T")) {
+		if (account == null || account.getMemNo().substring(0, 1).equals("P")) {
 			//request.getContextPath()로 루트 경로를 구하여 절대 경로로 처리
 			response.sendRedirect(request.getContextPath());
 			return false;

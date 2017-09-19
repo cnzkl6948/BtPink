@@ -38,7 +38,6 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/getBus" />
-			<mapping path="/writeNotice" />
 			<mapping path="/MySon" />
 			<beans:ref bean="loginInterceptor" />
 		</interceptor>
@@ -54,6 +53,7 @@
 			<mapping path="/emotionCal" />
 			<mapping path="/Sapply" />
 			<mapping path="/autoSplit" />
+			<mapping path="/writeNotice" />
 			<beans:ref bean="AdminInterceptor" />
 		</interceptor>
 	</interceptors>
