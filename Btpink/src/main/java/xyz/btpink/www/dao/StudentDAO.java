@@ -1,14 +1,12 @@
 package xyz.btpink.www.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import xyz.btpink.www.vo.Student;
-import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.Student;
 
 
@@ -57,6 +55,18 @@ public class StudentDAO {
 	public int update(String stdno){
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
 		int result = mapper.updateStdno(stdno);
+		return result;
+	}
+	
+	public ArrayList<Student> allStuList(){
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		ArrayList<Student> result = mapper.allStuList();
+		return result;
+	}
+	
+	public int changeStuHogam(Student stu){
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		int result = mapper.changeStuHogam(stu);
 		return result;
 	}
 }
