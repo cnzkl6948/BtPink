@@ -24,20 +24,6 @@
         </div>
       </div>
     </section>
-
-<!-- PAGE TITLE SECTION-->
-<section class="pageTitleSection">
-	<div class="container">
-		<div class="pageTitleInfo">
-			<h2>Forms</h2>
-			<ol class="breadcrumb">
-				<li><a href="index.html">Board</a></li>
-				<li class="active">Write Form</li>
-			</ol>
-		</div>
-	</div>
-</section>
-
 <!-- MAIN SECTION -->
 <section class="mainContent full-width clearfix">
 	<div class="container">

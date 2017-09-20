@@ -18,15 +18,14 @@
 					<div class="slider-caption container">
 						<div class="tp-caption rs-caption-1 sft start" data-hoffset="0"
 							data-y="200" data-speed="800" data-start="1000"
-							data-easing="Back.easeInOut" data-endspeed="300">
-							요괴유치원에 어서오세요</div>
+							data-easing="Back.easeInOut" data-endspeed="300">요괴유치원에
+							어서오세요</div>
 
 						<div class="tp-caption rs-caption-2 sft" data-hoffset="0"
 							data-y="265" data-speed="1000" data-start="1500"
 							data-easing="Power4.easeOut" data-endspeed="300"
-							data-endeasing="Power1.easeIn" data-captionhidden="off">
-							우리 아이들을 위한 완벽한 유치원 
-						</div>
+							data-endeasing="Power1.easeIn" data-captionhidden="off">우리
+							아이들을 위한 완벽한 유치원</div>
 					</div></li>
 				<li data-transition="fade" data-slotamount="5"
 					data-masterspeed="1000" data-title="Slide 2"><img
@@ -43,8 +42,7 @@
 							data-hoffset="0" data-x="center" data-y="265" data-speed="1000"
 							data-start="1500" data-easing="Power4.easeOut"
 							data-endspeed="300" data-endeasing="Power1.easeIn"
-							data-captionhidden="off">
-						</div>
+							data-captionhidden="off"></div>
 					</div></li>
 				<li data-transition="fade" data-slotamount="5"
 					data-masterspeed="700" data-title="Slide 3"><img
@@ -105,9 +103,8 @@
 	<div class="container">
 		<div class="sectionTitle text-center">
 			<h2>
-				<span class="shape shape-left bg-color-4"></span> 
-				<span>우리 유치원은</span> 
-				<span class="shape shape-right bg-color-4"></span>
+				<span class="shape shape-left bg-color-4"></span> <span>우리
+					유치원은</span> <span class="shape shape-right bg-color-4"></span>
 			</h2>
 		</div>
 
@@ -153,10 +150,7 @@
 <section class="promotionWrapper"
 	style="background-image: url(/www/resources/img/home/promotion-1.jpg);">
 	<div class="container">
-		<div class="promotionInfo">
-			
-			
-		</div>
+		<div class="promotionInfo"></div>
 	</div>
 </section>
 
@@ -166,34 +160,45 @@
 	<div class="container">
 		<div class="sectionTitle text-center">
 			<h2>
-				<span class="shape shape-left bg-color-4"></span> <span>공지사항</span> <span class="shape shape-right bg-color-4"></span>
+				<span class="shape shape-left bg-color-4"></span> <span>공지사항</span>
+				<span class="shape shape-right bg-color-4"></span>
 			</h2>
 		</div>
 
 		<div class="row">
-		<c:forEach var="board" items="${boardlist}">
-			<div class="col-sm-4 col-xs-12 block">
-				<div class="thumbnail thumbnailContent">
-					<a href="readNotice?boardnum=${board.boardnum}"><img
-						src="./resources/img/home/news/news-1.jpg" alt="image"
-						class="img-responsive"></a>
-					<div class="caption border-color-1">
-						<h3>
-							<a href="readNotice?boardnum=${board.boardnum}" class="color-1">${board.title}</a>
-						</h3>
-						<ul class="list-inline">
-							<li><a href="single-blog-left-sidebar.html"><i
-									class="fa fa-user" aria-hidden="true"></i>${board.id}</a></li>
-						</ul>
-						<p>${board.content}</p>
-						<ul class="list-inline btn-yellow">
-							<li><a href="listNotice" class="btn btn-link"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Read More</a>
-							</li>
-						</ul>
+			<c:forEach var="board" items="${boardlist}">
+				<div class="col-sm-4 col-xs-12 block">
+					<div class="thumbnail thumbnailContent">
+						<a href="readNotice?boardnum=${board.boardnum}"> <c:choose>
+								<c:when test="${board.boardImage == null }">
+									<img src="./resources/img/home/news/news-1.jpg" alt="image"
+										class="img-responsive">
+								</c:when>
+								<c:otherwise>
+									<img src="./resources/NoticeImage/${board.boardImage}.jpg"
+										alt="image" class="img-responsive">
+								</c:otherwise>
+							</c:choose>
+
+						</a>
+						<div class="caption border-color-1">
+							<h3>
+								<a href="readNotice?boardnum=${board.boardnum}" class="color-1">${board.title}</a>
+							</h3>
+							<ul class="list-inline">
+								<li><a href="single-blog-left-sidebar.html"><i
+										class="fa fa-user" aria-hidden="true"></i>${board.id}</a></li>
+							</ul>
+							<p>${board.content}</p>
+							<ul class="list-inline btn-yellow">
+								<li><a href="listNotice" class="btn btn-link"><i
+										class="fa fa-angle-double-right" aria-hidden="true"></i> Read
+										More</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
-		</c:forEach>
+			</c:forEach>
 		</div>
 
 		<div class="btnArea">
@@ -209,7 +214,8 @@
 	<div class="container">
 		<div class="sectionTitle text-center alt">
 			<h2>
-				<span class="shape shape-left bg-color-3"></span> <span>우리 선생님을 소개합니다</span> <span class="shape shape-right bg-color-3"></span>
+				<span class="shape shape-left bg-color-3"></span> <span>우리
+					선생님을 소개합니다</span> <span class="shape shape-right bg-color-3"></span>
 			</h2>
 		</div>
 
@@ -435,9 +441,8 @@
 	<div class="container">
 		<div class="sectionTitle text-center">
 			<h2>
-				<span class="shape shape-left bg-color-4"></span> 
-				<span>교육 과정 소개</span> 
-				<span class="shape shape-right bg-color-4"></span>
+				<span class="shape shape-left bg-color-4"></span> <span>교육 과정
+					소개</span> <span class="shape shape-right bg-color-4"></span>
 			</h2>
 		</div>
 
@@ -452,7 +457,8 @@
 							<div class="color-1">오전반</div>
 						</h3>
 						<ul class="list-unstyled">
-							<li><i class="fa fa-calendar-o" aria-hidden="true"></i>나이 : 만 4 ~ 6 세</li>
+							<li><i class="fa fa-calendar-o" aria-hidden="true"></i>나이 :
+								만 4 ~ 6 세</li>
 							<li><i class="fa fa-clock-o" aria-hidden="true"></i>9.00AM-12.30PM</li>
 						</ul>
 						<p>오전 수업만 진행합니다.</p>
@@ -461,13 +467,16 @@
 			</div>
 			<div class="col-sm-4 col-xs-12 block">
 				<div class="thumbnail thumbnailContent">
-					<a href="course-single"><img src="./resources/img/home/courses/course-2.jpg" alt="image" class="img-responsive"></a>
+					<a href="course-single"><img
+						src="./resources/img/home/courses/course-2.jpg" alt="image"
+						class="img-responsive"></a>
 					<div class="caption border-color-2">
 						<h3>
 							<div class="color-2">오후반</div>
 						</h3>
 						<ul class="list-unstyled">
-							<li><i class="fa fa-calendar-o" aria-hidden="true"></i>나이 : 만 4 ~ 6 세</li>
+							<li><i class="fa fa-calendar-o" aria-hidden="true"></i>나이 :
+								만 4 ~ 6 세</li>
 							<li><i class="fa fa-clock-o" aria-hidden="true"></i>12.30PM-05.30PM</li>
 						</ul>
 						<p>오후 수업 및 방화 후 학습활동을 진행합니다.</p>
@@ -484,10 +493,11 @@
 							<div class="color-3">종일반</div>
 						</h3>
 						<ul class="list-unstyled">
-							<li><i class="fa fa-calendar-o" aria-hidden="true"></i>나이 : 만 4 ~ 6 세</li>
+							<li><i class="fa fa-calendar-o" aria-hidden="true"></i>나이 :
+								만 4 ~ 6 세</li>
 							<li><i class="fa fa-clock-o" aria-hidden="true"></i>9.00AM-05.30PM</li>
 						</ul>
-						<p>오전부터 방과후 수업까지 모든 과정을 학습합니다. </p>
+						<p>오전부터 방과후 수업까지 모든 과정을 학습합니다.</p>
 					</div>
 				</div>
 			</div>

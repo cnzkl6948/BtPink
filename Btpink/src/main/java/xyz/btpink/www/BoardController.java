@@ -82,7 +82,7 @@ public class BoardController {
 			e.printStackTrace();
 		}
 		// 세션에서 로그인한 사용자의 아이디를 읽어서 Board객체의 작성자 정보에 세팅
-		imgUpdate(filename);
+//		imgUpdate(filename);
 		Account user = (Account) session.getAttribute("User");
 		System.out.println(user.getId());
 		board.setId(user.getId());
@@ -315,7 +315,7 @@ public class BoardController {
 
 	public String imgUpdate(String fileName) {
 		try {
-			Image originalImage = ImageIO.read(new File(path + fileName + ".jpg"));
+			Image originalImage = ImageIO.read(new File(path+fileName + ".jpg"));
 			Image resizeImage = originalImage.getScaledInstance(270, 230, Image.SCALE_SMOOTH);
 			BufferedImage newImage = new BufferedImage(270, 230, BufferedImage.TYPE_INT_RGB);
 			Graphics g = newImage.getGraphics();

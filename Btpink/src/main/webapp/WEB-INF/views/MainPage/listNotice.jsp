@@ -33,11 +33,11 @@
 									<c:when test="${board.boardImage == null }">
 										<img
 											src="./resources/img/home/courses/course-${board.boardnum%4 + 1}.jpg"
-											alt="image" class="img-responsive">
+											alt="image" class="img-responsive" >
 									</c:when>
 									<c:otherwise>
 										<img src="./resources/NoticeImage/${board.boardImage}.jpg"
-											alt="image" class="img-responsive">
+											alt="image" class="img-responsive" >
 									</c:otherwise>
 								</c:choose>
 							</a> 
