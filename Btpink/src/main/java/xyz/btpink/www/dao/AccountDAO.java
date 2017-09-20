@@ -1,9 +1,12 @@
 package xyz.btpink.www.dao;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import xyz.btpink.www.vo.Aapply;
 import xyz.btpink.www.vo.Account;
 @Repository
 public class AccountDAO implements AccountMapper {
@@ -30,6 +33,21 @@ public class AccountDAO implements AccountMapper {
 		AccountMapper mapper = sqlSession.getMapper(AccountMapper.class);
 		return mapper.login(account);
 	}
-	
+
+	@Override
+	public ArrayList<Aapply> accountCheck() {
+		// TODO Auto-generated method stub
+		AccountMapper mapper = sqlSession.getMapper(AccountMapper.class);
+		
+		return mapper.accountCheck();
+	}
+
+	public int signUpdate(Account account) {
+		AccountMapper mapper = sqlSession.getMapper(AccountMapper.class);
+		mapper.signUpdate(account);
+		return 0;
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

@@ -25,7 +25,6 @@
 <script src="./resources/plugins/isotope/isotope-triger.js"></script>
 <script src="./resources/plugins/countdown/jquery.syotimer.js"></script>
 <script src="./resources/plugins/velocity/velocity.min.js"></script>
-<script src="./resources/plugins/smoothscroll/SmoothScroll.js"></script>
 <script src="./resources/js/custom.js"></script>
 <script src="./resources/js/notice.js"></script>
 <script src="./resources/js/createJoin.js"></script>
