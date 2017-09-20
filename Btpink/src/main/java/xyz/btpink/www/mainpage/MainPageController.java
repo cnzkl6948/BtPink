@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import xyz.btpink.www.HomeController;
 import xyz.btpink.www.dao.AttendenceDAO;
+import xyz.btpink.www.dao.ParentDAO;
+import xyz.btpink.www.vo.Account;
 
 @Controller
 public class MainPageController {
@@ -22,6 +26,10 @@ public class MainPageController {
 
 	@Autowired
 	AttendenceDAO attendenceDAO;
+	
+	@Autowired
+	ParentDAO parentDAO;		//부모 관련 데이터 처리 객체
+	
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -37,7 +45,7 @@ public class MainPageController {
 	}
 
 	@RequestMapping(value = "/MySon", method = RequestMethod.GET)
-	public String kindergarten(Model model) {
+	public String kindergarten(Model model, HttpSession session) {
 			
 //		SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat ( "yy-MM", Locale.KOREA );
 //		Date currentTime = new Date ();
@@ -45,6 +53,11 @@ public class MainPageController {
 //		System.out.println ( "현재 데이트"+date );
 //		attendenceDAO.selectToday(date);
 //		
+		
+		System.out.println("My Son In");
+		Account account =  (Account) session.getAttribute("User");
+		String className = parentDAO.getClassName(account.getId());
+		model.addAttribute("className", className);
 		return "MainPage/MySon";
 	}
 }

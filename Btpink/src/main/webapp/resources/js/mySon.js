@@ -43,4 +43,31 @@ function subjectCheck() {
 	}
 }
 
+function formDemandCheck() {
+	  var demandsubject =  document.getElementById('demandsubject');
+	  var attend = document.getElementById('attend');
+	  var content = document.getElementById('demandcontent');
+	//출석일때 분류선택 유효성검사
+	  if (demandsubject.value == 'attendence') {
+		if(attend.value == ""){
+			alert("출석의 세부분류를 지정해 주세요");
+			return false;
+		}
+	}
+	  //제목 유효성검사
+	  if (demandsubject.value.length < 1) {
+			alert("주제를 선택해주세요.");
+			return false;
+		}
+		return true;
+		//내용 유효성 검사
+		if (content.value.length < 5) {
+			alert("내용은 5글자 이상 쓰시오.");
+			content.focus();
+			content.select();
+			return false;
+		}
+		return true;
+	}
+
 

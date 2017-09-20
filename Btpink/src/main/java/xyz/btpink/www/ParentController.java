@@ -41,12 +41,15 @@ public class ParentController {
 	/**
 	 * 글쓰기 폼 보기
 	 */
-	@RequestMapping (value="writeDemand", method=RequestMethod.GET)
+/*	@RequestMapping (value="writeDemand", method=RequestMethod.GET)
 	public String writeForm(HttpSession session) {
 		//parentId 처리 어떻게 할건지 고민해볼것, 지금은 loginId에 걸어놓음,,임시
+		System.out.println("Write Demand IN");
+		Account account =  (Account) session.getAttribute("User");
+		System.out.println(account.getId());
 		return "MainPage/writeDemand";
 	}
-
+*/
 	/**
 	 * 글 저장 처리
 	 * @param board 사용자가 입력한 글 내용
