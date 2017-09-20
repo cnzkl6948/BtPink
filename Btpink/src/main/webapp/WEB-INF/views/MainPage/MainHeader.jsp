@@ -151,8 +151,7 @@
 											<div id="SelectStudent">
 												<div class="col-sm-8 col-xs-12">
 													<div class="dropGeneral border-color-3">
-														<select id="StdNo" class="select-drop">
-
+														<select id="classno" class="select-drop">
 															<option value="c1">A_Class</option>
 															<option value="c2">B_Class</option>
 															<option value="c3">C_Class</option>

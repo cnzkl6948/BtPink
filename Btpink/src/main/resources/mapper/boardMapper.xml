@@ -11,12 +11,14 @@
 			, id
 			, title
 			, content
+			, boardimage
 		)
 		values(
 			board_seq.nextval
 			, #{id}
 			, #{title}
 			, #{content}
+			, #{boardImage}
 		)
 	</insert>
 	
@@ -28,6 +30,7 @@
 			, title
 			, content
 			, to_char(inputdate, 'YYYY-MM-DD HH24:MI:SS') inputdate
+			, boardImage
 		from 
 			board 
 		where 
@@ -36,16 +39,20 @@
 	
 	<!-- 첫페이지 최신글 3개 불러오기 -->
 	<select id="getHome" resultType="Board">
+	
+	select a.* from(
 		select 
 			boardnum
 			, id
 			, title
 			, content
 			, to_char(inputdate, 'YYYY-MM-DD HH24:MI:SS') inputdate
+			, boardImage
 		from 
 			board 
-<![CDATA[	    where rownum <= 3 ]]>
 	    order by boardnum desc
+      ) a
+      <![CDATA[    where rownum <= 3 ]]>
 	</select>
 	
 	<!-- 전체 글 개수 (검색 필터링 후) -->
@@ -68,6 +75,7 @@
 			, title
 			, content
 			, to_char(inputdate, 'YYYY-MM-DD') inputdate
+			, boardImage
 		from 
 			board 
 		<if test="_parameter != null">

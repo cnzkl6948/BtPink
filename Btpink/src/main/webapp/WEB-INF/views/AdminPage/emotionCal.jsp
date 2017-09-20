@@ -35,7 +35,7 @@
 					<div class="box-body">
 						<!-- the events -->
 						<form id="formId" action="getEmotionList" method="post">
-							<input type="hidden" id="stdNo" name="stdNo">
+							<input type="hidden" id="stdno" name="stdno">
 						</form>
 						<div id="external-events">
 							<div class="col-xs-6 external-event bg-green">일반</div>
@@ -56,7 +56,7 @@
 					<div class="box-body">
 						<!-- the events -->
 						<form id="formId" action="getEmotionList" method="post">
-							<input type="hidden" id="stdNo" name="stdNo">
+							<input type="hidden" id="stdno" name="stdno">
 						</form>
 						<div id="external-events">
 							<div class="col-xs-6 external-event bg-mimm">
@@ -107,9 +107,9 @@
 <!-- Page specific script -->
 <script>
 
-	function getEmotionList(stdNo){
+	function getEmotionList(stdno){
 		var form = document.getElementById('formId');
-		$('#stdNo').val(stdNo);
+		$('#stdno').val(stdno);
 		form.submit();
 	}
 	

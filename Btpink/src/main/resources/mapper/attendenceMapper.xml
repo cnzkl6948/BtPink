@@ -12,7 +12,7 @@
 <select id="getEmotionList" parameterType="string" resultType="Attendence">
 	select today, emotion
 	from attendence
-	where stdno = #{stdNo}
+	where stdno = #{stdno}
 </select>
 
 </mapper>

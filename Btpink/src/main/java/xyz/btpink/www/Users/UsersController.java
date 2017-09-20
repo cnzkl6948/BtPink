@@ -40,12 +40,11 @@ public class UsersController {
 	// 로그인
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(Account account, Locale locale, Model model, HttpSession session) {
-		System.out.println(account);
+		System.out.println("로그인 접속시 : "+account);
 		Account ac = accountDao.login(account);
 			if (ac.getId() != null) {
 				session.setAttribute("User", ac);
 			}
-			System.err.println("회원 정보가 없음");
 		return "redirect:/";
 	}
 
@@ -69,7 +68,7 @@ public class UsersController {
 		// if일경우 부모님(p) else일결우 선생님(t)
 		account.setStatus("0");
 		if (account.getType().equalsIgnoreCase("p")) {
-			account.setMemNno("p" + num);
+			account.setMemNno("P" + num);
 			parent.setMemNno(account.getMemNo());
 			student.setParentno(parent.getMemNo());
 			System.out.println("Parent" + parent);
@@ -77,7 +76,7 @@ public class UsersController {
 			parentDao.insert(parent);
 			studentDao.parentUpdate(student);
 		} else {
-			account.setMemNno("t" + num);
+			account.setMemNno("T" + num);
 			System.out.println(account);
 			accountDao.AccountInsert(account);
 		}

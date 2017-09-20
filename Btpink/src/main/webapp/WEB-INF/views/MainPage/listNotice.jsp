@@ -25,14 +25,22 @@
 	<!-- MAIN SECTION -->
 	<section class="mainContent full-width clearfix coursesSection">
 		<div class="container">
-			<div class="row col-sm-12 "  >
+			<div class="row col-sm-12 ">
 				<c:forEach var="board" items="${boardlist}">
 					<div class="col-md-3 col-sm-6 col-xs-12 block">
 						<div class="thumbnail thumbnailContent">
-
-							<a href="readNotice?boardnum=${board.boardnum}"><img
-								src="./resources/img/home/courses/course-${board.boardnum%4 + 1}.jpg"
-								alt="image" class="img-responsive"></a>
+							<a href="readNotice?boardnum=${board.boardnum}"> <c:choose>
+									<c:when test="${board.boardImage == null }">
+										<img
+											src="./resources/img/home/courses/course-${board.boardnum%4 + 1}.jpg"
+											alt="image" class="img-responsive" >
+									</c:when>
+									<c:otherwise>
+										<img src="./resources/NoticeImage/${board.boardImage}.jpg"
+											alt="image" class="img-responsive" >
+									</c:otherwise>
+								</c:choose>
+							</a> 
 							<c:if test="${latestnum1==board.boardnum}">
 								<div class="sticker bg-color-${board.boardnum%6 + 1}">new</div>
 							</c:if>
@@ -52,14 +60,15 @@
 								<ul class="list-unstyled">
 									<li><i class="fa fa-clock-o" aria-hidden="true"></i>${board.inputdate}</li>
 								</ul>
-								<p >
+								<p>
 									<c:choose>
-										<c:when test="${fn:length(board.content) > 50}">
-											<c:out value="${fn:substring(board.content,0,50)}" />....
+										<c:when test="${fn:length(board.content) > 10}">
+											<c:out value="${fn:substring(board.content,0,10)}" />....
            							</c:when>
 										<c:otherwise>
-											<c:out value="${board.content}" /><br>
-											　
+											<c:out value="${board.content}" />
+											<br>
+
 										</c:otherwise>
 									</c:choose>
 								</p>

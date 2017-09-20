@@ -88,7 +88,6 @@
         </div>
       </div>
     </section>
-
     <!-- COLOR SECTION -->
     <section class="colorSection full-width clearfix bg-color-5 teamSection">
       <div class="container">
@@ -182,25 +181,6 @@
                   </div>
                 </div>
               </div>
-<!--               <div class="slide"> -->
-<!--                 <div class="teamContent"> -->
-<!--                   <div class="teamImage"> -->
-<!--                     <img src="./resources/img/home/team/team-1.jpg" alt="img" class="img-circle"> -->
-<!--                     <div class="maskingContent"> -->
-<!--                       <ul class="list-inline"> -->
-<!--                         <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> -->
-<!--                         <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> -->
-<!--                         <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
-<!--                         <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li> -->
-<!--                       </ul> -->
-<!--                     </div> -->
-<!--                   </div> -->
-<!--                   <div class="teamInfo"> -->
-<!--                     <h3><a href="teachers-details.html">Amanda Stone</a></h3> -->
-<!--                     <p>English Teacher</p> -->
-<!--                   </div> -->
-<!--                 </div> -->
-<!--               </div> -->
               <div class="slide">
                 <div class="teamContent">
                   <div class="teamImage">

@@ -181,9 +181,9 @@
 <!-- Page specific script -->
 <script>
 
-	function getEmotionList(stdNo){
+	function getEmotionList(stdno){
 		var form = document.getElementById('formId');
-		$('#stdNo').val(stdNo);
+		$('#stdno').val(stdno);
 		form.submit();
 	}
 	

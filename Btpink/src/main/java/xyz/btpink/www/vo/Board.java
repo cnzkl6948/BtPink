@@ -9,25 +9,24 @@ public class Board {
 	String title; // 글제목
 	String content; // 글내용
 	String inputdate; // 작성날짜,시간
+	String boardImage;// 보드 이미지, null값 가능
 
 	public Board() {
 	}
 
-
-	public Board(int boardnum, String id, String title, String content, String inputdate) {
+	public Board(int boardnum, String id, String title, String content, String inputdate, String boardImage) {
 		super();
 		this.boardnum = boardnum;
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.inputdate = inputdate;
+		this.boardImage = boardImage;
 	}
-
 
 	public int getBoardnum() {
 		return boardnum;
 	}
-
 
 	public void setBoardnum(int boardnum) {
 		this.boardnum = boardnum;
@@ -65,10 +64,19 @@ public class Board {
 		this.inputdate = inputdate;
 	}
 
+	public String getBoardImage() {
+		return boardImage;
+	}
+
+	public void setBoardImage(String boardImage) {
+		this.boardImage = boardImage;
+	}
+
 	@Override
 	public String toString() {
 		return "Board [boardnum=" + boardnum + ", id=" + id + ", title=" + title + ", content=" + content
-				+ ", inputdate=" + inputdate + "]";
+				+ ", inputdate=" + inputdate + ", boardImage=" + boardImage + "]";
 	}
 
+	
 }

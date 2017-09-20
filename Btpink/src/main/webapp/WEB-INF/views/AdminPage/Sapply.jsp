@@ -57,30 +57,35 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="classno" class="col-sm-2 control-label">반 이름</label>
+								<label for="birth" class="col-sm-2 control-label">생일</label>
 								<div class="col-sm-5">
-									<input type="text" class="form-control" id="classno"
-										name="classno" placeholder="반 이름">
+									<input type="text" class="form-control pull-right" name="birth"
+										id="datepicker">
 								</div>
+<!-- 								<label for="classno" class="col-sm-2 control-label">반 이름</label> -->
+<!-- 								<div class="col-sm-5"> -->
+<!-- 									<input type="text" class="form-control" id="classno" -->
+<!-- 										name="classno" placeholder="반 이름"> -->
+<!-- 								</div> -->
 								<label for="height" class="col-sm-2 control-label">키</label>
 								<div class="col-sm-3">
 									<input type="text" class="form-control" id="height"
 										name="height" placeholder="키(cm)">
 								</div>
 							</div>
-							<div class="form-group">
-								<label for="birth" class="col-sm-2 control-label">생일</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control pull-right" name="birth"
-										id="datepicker">
-								</div>
+<!-- 							<div class="form-group"> -->
+<!-- 								<label for="birth" class="col-sm-2 control-label">생일</label> -->
+<!-- 								<div class="col-sm-5"> -->
+<!-- 									<input type="text" class="form-control pull-right" name="birth" -->
+<!-- 										id="datepicker"> -->
+<!-- 								</div> -->
 <!-- 								<label for="glass" class="col-sm-2 control-label">안경</label> -->
 <!-- 								<div class="col-sm-3"> -->
 <!-- 									<div class="checkbox"> -->
 <!-- 										<label><input type="checkbox" name="glass" value=1>O X</label> -->
 <!-- 									</div> -->
 <!-- 								</div> -->
-							</div>
+<!-- 							</div> -->
 							<div class="form-group">
 								<label for="address" class="col-sm-2 control-label">주소</label>
 								<div class="col-sm-10">

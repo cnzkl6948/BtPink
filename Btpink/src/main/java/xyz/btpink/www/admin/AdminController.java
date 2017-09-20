@@ -22,10 +22,12 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import xyz.btpink.www.dao.AttendenceDAO;
+import xyz.btpink.www.dao.ClassDAO;
 import xyz.btpink.www.dao.StudentDAO;
 import xyz.btpink.www.dao.TeacherDAO;
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
+import xyz.btpink.www.vo.ClassVO;
 import xyz.btpink.www.vo.Student;
 import xyz.btpink.www.vo.Teacher;
 
@@ -43,6 +45,9 @@ public class AdminController {
 	
 	@Autowired
 	private String path;
+	
+	@Autowired
+	ClassDAO cdao;
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	//선생님 페이지
@@ -104,33 +109,39 @@ public class AdminController {
 		}
 		rttr.addAttribute("filename", filename);
 
-		Thread.sleep(3000); //서버에 이미지 파일이 저장되기 까지의 딜레이
-					
-		String url = "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
-//				String url = "https://suenghan.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
-		
-		String [] array = {url, filename};
-		 
-		return array;
-	}
-	
-	
-	//학생넘버 등록	
-	@RequestMapping(value = "/secondform", method = RequestMethod.POST)
-	public @ResponseBody String secondform(String personID, Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) throws Exception {
-		logger.info("Update Sapply");
-		
-		System.out.println(student.getStdno());
-		
-		int age = ageCal(student); //나이계산 메소드 호출
-		student.setAge(age);
-		String filename = file.getOriginalFilename();
-		student.setParentno("dummy");// 학부모 번호를 불러오는 과정 정해질때까지 더미로...
-		student.setImage(filename);
-		student.setLikeid("");
-		student.setHateid("");
-		
-		System.out.println(student);
+				Thread.sleep(3000); //서버에 이미지 파일이 저장되기 까지의 딜레이
+							
+//				String url = "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
+				String url = "https://suenghan.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
+				
+				String [] array = {url, filename};
+				 
+				return array;
+			}
+			
+			
+			//학생넘버 등록	
+			@RequestMapping(value = "/secondform", method = RequestMethod.POST)
+			public @ResponseBody String secondform(HttpSession session, String personID, Locale locale, Model model, Student student, MultipartFile file, RedirectAttributes rttr) throws Exception {
+				logger.info("Update Sapply");
+				
+				System.out.println(student.getStdno());
+				
+				int age = ageCal(student); //나이계산 메소드 호출
+				student.setAge(age);
+				String filename = file.getOriginalFilename();
+				student.setParentno("dummy");// 학부모 번호를 불러오는 과정 정해질때까지 더미로...
+				student.setImage(filename);
+				student.setLikeid("");
+				student.setHateid("");
+				
+				Account loginuser = (Account)session.getAttribute("User");
+				System.out.println(loginuser);
+				String memno = loginuser.getMemNo();
+				ClassVO selClass = cdao.selectClass(memno);
+				student.setClassno(selClass.getClassNo());
+				
+				System.out.println(student);
 
 		int result = sdao.insert(student);
 		if(result==1){
@@ -195,9 +206,9 @@ public class AdminController {
 	}
 	//감정달력
 	@RequestMapping(value = "/getEmotionList", method = RequestMethod.POST)
-	public String getEmotionList(String stdNo, Model model) {
+	public String getEmotionList(String stdno, Model model) {
 		logger.info("Go! getEmotionList");
-		ArrayList<Attendence> result = adao.getEmotionList(stdNo);
+		ArrayList<Attendence> result = adao.getEmotionList(stdno);
 		int cnt = result.size();
 		int count = 0;
 		String emotion = "";

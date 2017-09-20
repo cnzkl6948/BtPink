@@ -63,6 +63,4 @@ public class IdentfyVO {
 		return "Identfy [faceId=" + faceId + ", confidence=" + confidence + ", personId=" + personId + ", emotion="
 				+ emotion + "]";
 	}
-
-
 }

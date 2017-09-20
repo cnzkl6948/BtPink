@@ -28,11 +28,11 @@ public ArrayList<Attendence> selectStd(){
 		
 	}
 	
-	public ArrayList<Attendence> getEmotionList(String stdNo){
+	public ArrayList<Attendence> getEmotionList(String stdno){
 		
 		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
 		ArrayList<Attendence> result = new ArrayList<>();
-		result = mapper.getEmotionList(stdNo);
+		result = mapper.getEmotionList(stdno);
 		
 		return result;
 		
