@@ -55,6 +55,21 @@ public class AdminController {
 	public String adminPage(HttpSession session,Locale locale, Model model) {
 		logger.info("Go! adminPage");
 		Account account = (Account) session.getAttribute("User");
+		
+		System.out.println("초기확인작업 시작");
+		
+		String memno = account.getMemNo(); // 멤버 넘버 가져옴
+		ClassVO selClass = cdao.selectClass(memno); //멤버 넘버에 할당된 클래스 VO 가져옴
+		String classno = selClass.getClassNo(); //클래스 VO에 포함된 클래스 넘버 가져옴.
+		
+		System.out.println("클래스 넘버 : " + classno);
+	
+		adao.initAtd(classno); // 출석부 표시전 초기 확인작업
+		
+		System.out.println("초기작업 종료");
+				
+		
+		
 		System.out.println(account.getId());
 		model.addAttribute("TeacherNotice", tdao.selectDemand(account.getId()));
 		System.out.println(tdao.selectDemand(account.getId()));
@@ -180,10 +195,20 @@ public class AdminController {
 		
 	//출석부
 	@RequestMapping(value = "/Slist", method = RequestMethod.GET)
-	public String Slist(Locale locale, Model model) {
+	public String Slist(HttpSession session, Locale locale, Model model) {
 		logger.info("Go! Slist");
+		
+		
+		Account loginuser = (Account)session.getAttribute("User"); //세션에서 로그인유저 계정정보를 가져옴
+		
+		String memno = loginuser.getMemNo(); // 멤버 넘버 가져옴
+		ClassVO selClass = cdao.selectClass(memno); //멤버 넘버에 할당된 클래스 VO 가져옴
+		String classno = selClass.getClassNo(); //클래스 VO에 포함된 클래스 넘버 가져옴.
 	
-		ArrayList<Attendence> result = adao.selectStd();
+//		adao.initAtd(classno); // 출석부 표시전 초기 확인작업
+		
+		
+		ArrayList<Attendence> result = adao.selectAtd(classno); //해당 클래스 넘버에 해당된 출석 목록을 가져옴
 		System.out.println(result);
 		model.addAttribute("list", result);
 		

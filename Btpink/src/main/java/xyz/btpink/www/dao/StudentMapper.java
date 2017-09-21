@@ -21,5 +21,7 @@ public interface StudentMapper {
 	public int insertStudent(Student student);
 	
 	public int updateStdno(String personID);
+	
+	public ArrayList<String> getStdno(String classno);
 
 }

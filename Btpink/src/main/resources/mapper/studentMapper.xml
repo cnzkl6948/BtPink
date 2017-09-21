@@ -34,6 +34,11 @@
 	)
 </insert>
 
+<!-- 학생 번호 가져오기 -->
+<select id ="getStdno" parameterType="String" resultType="String">
+select stdno from student where classno = #{classno}
+</select>
+
 <update id="updateStdno" parameterType="String">
 	update student set stdno = #{personID} where rownum = 1
 </update>
