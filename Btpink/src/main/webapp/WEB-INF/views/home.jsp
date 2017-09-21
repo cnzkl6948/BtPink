@@ -12,7 +12,7 @@
 			<ul>
 				<li data-transition="fade" data-slotamount="5"
 					data-masterspeed="700" data-title="Slide 1"><img
-					src="./resources/img/home/slider/slider-1.jpg" alt="slidebg1"
+					src="./resources/img/kindergarten_pic/main_pc2.png" alt="slidebg1"
 					data-bgfit="cover" data-bgposition="center center"
 					data-bgrepeat="no-repeat">
 					<div class="slider-caption container">
@@ -29,7 +29,8 @@
 					</div></li>
 				<li data-transition="fade" data-slotamount="5"
 					data-masterspeed="1000" data-title="Slide 2"><img
-					src="./resources/img/home/slider/slider-2.jpg" alt="slidebg1"
+					
+					src="./resources/img/kindergarten_pic/girl.png" alt="slidebg1"
 					data-bgfit="cover" data-bgposition="center center"
 					data-bgrepeat="no-repeat">
 					<div class="slider-caption container">
@@ -46,7 +47,7 @@
 					</div></li>
 				<li data-transition="fade" data-slotamount="5"
 					data-masterspeed="700" data-title="Slide 3"><img
-					src="./resources/img/home/slider/slider-3.jpg" alt="slidebg1"
+					src="./resources/img/kindergarten_pic/picnic3.png" alt="slidebg1"
 					data-bgfit="cover" data-bgposition="center center"
 					data-bgrepeat="no-repeat">
 					<div class="slider-caption container">
