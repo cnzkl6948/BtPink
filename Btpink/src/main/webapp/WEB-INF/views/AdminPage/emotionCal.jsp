@@ -59,23 +59,11 @@
 							<input type="hidden" id="stdno" name="stdno">
 						</form>
 						<div id="external-events">
-							<div class="col-xs-6 external-event bg-mimm">
-								<a href="javascript:getEmotionList('21');">학생1</a>
-							</div>
-							<div class="col-xs-6 external-event bg-mimm">학생2</div>
-							<div class="col-xs-6 external-event bg-mimm">학생3</div>
-							<div class="col-xs-6 external-event bg-mimm">학생4</div>
-							<div class="col-xs-6 external-event bg-mimm">학생5</div>
-							<div class="col-xs-6 external-event bg-mimm">학생6</div>
-							<div class="col-xs-6 external-event bg-mimm">학생7</div>
-							<div class="col-xs-6 external-event bg-mimm">학생8</div>
-							<div class="col-xs-6 external-event bg-mimm">학생9</div>
-							<div class="col-xs-6 external-event bg-mimm">학생10</div>
-							<div class="col-xs-6 external-event bg-mimm">학생11</div>
-							<div class="col-xs-6 external-event bg-mimm">학생12</div>
-							<div class="col-xs-6 external-event bg-mimm">학생13</div>
-							<div class="col-xs-6 external-event bg-mimm">학생14</div>
-							<div class="col-xs-6 external-event bg-mimm">학생15</div>
+							<c:forEach var="stu" items="${stuList}">
+								<div class="col-xs-6 external-event bg-mimm">
+									<a href="javascript:getEmotionList('${ stu.stdno }');">${ stu.name }</a>
+								</div>
+							</c:forEach>
 						</div>
 					</div>
 					<!-- /.box-body -->

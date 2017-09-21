@@ -33,15 +33,22 @@
 	)
 </insert>
 
-<update id="update" parameterType="Student">
+<update id="update">
+	<foreach collection="stu" item="item" >
+	update student 
+	set classno = #{item.classno} 
+	where stdno = #{item.stdno}
+	</foreach>
+</update>
+
+<update id="updateA" parameterType="Student">
 	update student 
 	set classno = #{classno} 
 	where stdno = #{stdno}
 </update>
-
 <!-- 학생 번호 가져오기 -->
 <select id ="getStdno" parameterType="String" resultType="String">
-select stdno from student where classno = #{classno}
+	select stdno from student where classno = #{classno}
 </select>
 
 
@@ -63,4 +70,10 @@ select stdno from student where classno = #{classno}
 	update student 
 	set hateid = null
 </update>
+
+<select id="selectStu" parameterType="string" resultType="Student">
+	select * 
+	from student
+	where classno = #{classno}
+</select>
 </mapper>

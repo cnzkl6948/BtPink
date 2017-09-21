@@ -159,6 +159,23 @@
 	          <button type="button" class="btn btn-block btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="location.href='calculate'">
                 	자동 반 배정
               </button>
+				<div class="modal modal-danger fade" id="modal-danger">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="btn btn-outline pull-right"
+									data-dismiss="modal" onclick="closeModal()">닫기</button>
+								<h4 class="modal-title">자동 반 배정</h4>
+							</div>
+							<div class="modal-body">
+								<p id="chulcheck">자동 반 배정 중&hellip;</p>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /.modal -->
         </section>
         <!-- /.right col -->
       </div>
@@ -186,7 +203,6 @@
 <script>
 var hateA = ${hateApply};
 $(function(){
-	alert(hateA);
 	if(hateA == 0){
 		$('input[type=text]').attr("readonly",true).attr("disabled",false);
 	}else{

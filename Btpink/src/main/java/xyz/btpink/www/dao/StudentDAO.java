@@ -59,15 +59,26 @@ public class StudentDAO {
 		// TODO Auto-generated method stub
 	}
 	
-	public int update(Student stu){
+	public int update(ArrayList<Student> stu){
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
 		int result = mapper.update(stu);
+		return result;
+	}
+	
+	public int updateA(Student stu){
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		int result = mapper.updateA(stu);
 		return result;
 	}
 	
 	public ArrayList<Student> allStuList(){
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
 		ArrayList<Student> result = mapper.allStuList();
+		return result;
+	}
+	public ArrayList<Student> selectStu(String classno){
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		ArrayList<Student> result = mapper.selectStu(classno);
 		return result;
 	}
 	

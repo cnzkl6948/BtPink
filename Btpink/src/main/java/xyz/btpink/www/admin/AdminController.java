@@ -243,8 +243,17 @@ public class AdminController {
 
 	// 감정달력
 	@RequestMapping(value = "/emotionCal", method = RequestMethod.GET)
-	public String emotionCal(Locale locale, Model model) {
+	public String emotionCal(Locale locale, Model model, HttpSession session) {
 		logger.info("Go! emotionCal");
+		Account ac = (Account) session.getAttribute("User");
+		System.out.println(ac);
+		//선생의 클래스 가져오기
+		ClassVO cla = cdao.selectClass(ac.getMemNo());
+		
+		//학생 목록 가져오기
+		ArrayList<Student> stuList = sdao.selectStu(cla.getClassNo());
+		
+		model.addAttribute("stuList", stuList);
 		return "AdminPage/emotionCal";
 	}
 
@@ -429,8 +438,8 @@ public class AdminController {
 								s3.setClassno(stu.getClassno());
 								stu.setClassno(cno);
 								System.out.println("교체선수 : " + s3);
-								sdao.update(s3);
-								sdao.update(stu);
+								sdao.updateA(s3);
+								sdao.updateA(stu);
 								result="성공";
 								System.out.println(result);
 								break;
@@ -468,7 +477,7 @@ public class AdminController {
 		}
 		
 		//5세 블랙리스트 없이 평등분배
-		int index = 0;
+		int index = (int) (Math.random()*class5.size());
 		for(Student s : stuList){
 			if(s.getAge()==5 && s.getGender().equals("M")){
 				s.setClassno(class5.get(index).getClassNo());
@@ -476,7 +485,7 @@ public class AdminController {
 				else index++;
 			}
 		}
-		index = 0;
+		index = (int) (Math.random()*class5.size());
 		for(Student s : stuList){
 			if(s.getAge()==5 && s.getGender().equals("W")){
 				s.setClassno(class5.get(index).getClassNo());
@@ -485,7 +494,7 @@ public class AdminController {
 			}
 		}
 		//6세 블랙리스트 없이 평등분배
-		index = 0;
+		index = (int) (Math.random()*class6.size());
 		for(Student s : stuList){
 			if(s.getAge()==6 && s.getGender().equals("M")){
 				s.setClassno(class6.get(index).getClassNo());
@@ -493,7 +502,7 @@ public class AdminController {
 				else index++;
 			}
 		}
-		index = 0;
+		index = (int) (Math.random()*class6.size());
 		for(Student s : stuList){
 			if(s.getAge()==6 && s.getGender().equals("W")){
 				s.setClassno(class6.get(index).getClassNo());
@@ -502,7 +511,7 @@ public class AdminController {
 			}
 		}
 		//7세 블랙리스트 없이 평등분배
-		index = 0;
+		index = (int) (Math.random()*class7.size());
 		for(Student s : stuList){
 			if(s.getAge()==7 && s.getGender().equals("M")){
 				s.setClassno(class7.get(index).getClassNo());
@@ -510,7 +519,7 @@ public class AdminController {
 				else index++;
 			}
 		}
-		index = 0;
+		index = (int) (Math.random()*class7.size());
 		for(Student s : stuList){
 			if(s.getAge()==7 && s.getGender().equals("W")){
 				s.setClassno(class7.get(index).getClassNo());
@@ -520,10 +529,13 @@ public class AdminController {
 		}
 		
 		//DB에 적용 stuList
+//		sdao.update(stuList);
+		
 		for(Student s : stuList){
-			sdao.update(s);
+			sdao.updateA(s);
 			System.out.println(s.getStdno());
 			Thread.sleep(50);
+			
 		}
 		
 		stuList = sdao.allStuList(); 
