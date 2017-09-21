@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
 
 
@@ -43,5 +44,10 @@ public ArrayList<Attendence> selectStd(){
 		
 		return mapper.selectToday(date); 
 	}
-
+	
+	public ArrayList<Attendence> selectStudent(Account account){
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);		
+		
+		return mapper.selectStudent(account); 
+	}
 }

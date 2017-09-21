@@ -2,6 +2,7 @@ package xyz.btpink.www.dao;
 
 import java.util.ArrayList;
 
+import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
 
 public interface AttendenceMapper {
@@ -10,4 +11,6 @@ public interface AttendenceMapper {
 	public ArrayList<Attendence> getEmotionList(String stdno);
 
 	public ArrayList<Attendence> selectToday(String date);
+	
+	public ArrayList<Attendence> selectStudent(Account account);
 }

@@ -31,17 +31,14 @@
 		id= #{id} and pw = #{pw}
 	</select>
 	<select id="accountCheck" resultType="Aapply">
-		select  a.memno,a.id as id,a.name as parentName, s.name as studentname,a.phone as tell, a.status
+		select
+			a.memno,a.id as id,a.name as parentName, coalesce(s.name ,'선생님')as studentname,a.phone as tell, a.status
 		from
-  			(
-  			select * 
-    		from 
-    			account 
- 		 ) a, student s
-  		where 
-  			a.memno = s.parentno
-      	order by 
-      		status asc
+  			account a LEFT OUTER JOIN student s
+		ON 
+ 			a.memno = s.parentno
+		order by
+			a.status desc
 	</select>
 	<update id="signUpdate" parameterType="Account">
 		update 

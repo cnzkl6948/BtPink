@@ -5,14 +5,29 @@
 
 <mapper namespace="xyz.btpink.www.dao.AttendenceMapper">
 
-<select id="selectAtd" resultType="Attendence">
-	select s.stdno, s.name, a.absent, a.early, a.sick, a.late from student s inner join attendence a on s.stdno=a.stdno
+	<select id="selectAtd" resultType="Attendence">
+		select s.stdno, s.name, a.absent, a.early, a.sick, a.late from student s
+		inner join attendence a on s.stdno=a.stdno
 
-</select>
-<select id="getEmotionList" parameterType="string" resultType="Attendence">
-	select today, emotion
-	from attendence
-	where stdno = #{stdno}
-</select>
-
+	</select>
+	<select id="getEmotionList" parameterType="string" resultType="Attendence">
+		select today, emotion
+		from attendence
+		where stdno = #{stdno}
+	</select>
+	<select id="selectStudent" parameterType="Account" resultType="Attendence">
+		select
+		  a.* 
+		from(
+		  select
+		    *
+		  from 
+		    parent
+		  where
+		    memno = #{memNo}) 
+		  p,
+		  attendence a 
+		where 
+		  p.stdno =a.stdno
+	</select>
 </mapper>

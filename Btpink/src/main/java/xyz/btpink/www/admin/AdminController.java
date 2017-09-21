@@ -235,6 +235,7 @@ public class AdminController {
 			count++;
 			// DB에 저장되어 있던 감정
 			String emo = a.getEmotion();
+			System.out.println(emo);
 			// DB날짜를 년 월 일로 나눔
 			int gYear = Integer.parseInt(a.getToday().split(" ")[0].split("-")[0]);
 			int gMonth = Integer.parseInt(a.getToday().split(" ")[0].split("-")[1]);
@@ -250,47 +251,52 @@ public class AdminController {
 
 			// 감정 별 색상 지정
 			String color = "";
-			switch (emo) {
-			case "anger":
-				color += "#f56954"; // red
-				break;
-			case "fear":
-				color += "#000000"; // yellow
-				break;
-			case "sadness":
-				color += "#0073b7"; // blue
-				break;
-			case "surprise":
-				color += "#00c0ef"; // aqua
-				break;
-			case "neutral":
-				color += "#00a65a"; // green
-				break;
-			case "happiness":
-				color += "#f39c12"; // yellow
-				break;
-			case "contempt":
-				color += "#DF01A5"; // hotpink
-				break;
-			case "disgust":
-				color += "#8A2908"; // brown
-				break;
-			default:
-				color += "#FFFFFF"; // white
-				break;
-			}
+			try {
+				switch (emo) {
+				case "anger":
+					color += "#f56954"; // red
+					break;
+				case "fear":
+					color += "#000000"; // yellow
+					break;
+				case "sadness":
+					color += "#0073b7"; // blue
+					break;
+				case "surprise":
+					color += "#00c0ef"; // aqua
+					break;
+				case "neutral":
+					color += "#00a65a"; // green
+					break;
+				case "happiness":
+					color += "#f39c12"; // yellow
+					break;
+				case "contempt":
+					color += "#DF01A5"; // hotpink
+					break;
+				case "disgust":
+					color += "#8A2908"; // brown
+					break;
+				default:
+					color += "#FFFFFF"; // white
+					break;
+					
+				}
 
-			emotion += "{";
-			emotion += "title          : '" + emo + "',";
-			emotion += "start          : new Date(y+" + eYear + ", " + "m+" + eMonth + ", " + gDay + "),";
-			emotion += "allDay          : true,";
-			emotion += "backgroundColor: '" + color + "',";
-			emotion += "borderColor    : '" + color + "'";
+				emotion += "{";
+				emotion += "title          : '" + emo + "',";
+				emotion += "start          : new Date(y+" + eYear + ", " + "m+" + eMonth + ", " + gDay + "),";
+				emotion += "allDay          : true,";
+				emotion += "backgroundColor: '" + color + "',";
+				emotion += "borderColor    : '" + color + "'";
 
-			if (count == cnt) {
-				emotion += "}";
-			} else {
-				emotion += "},";
+				if (count == cnt) {
+					emotion += "}";
+				} else {
+					emotion += "},";
+				}
+			} catch (Exception e) {
+				System.err.println("결석");
 			}
 
 		}

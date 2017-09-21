@@ -17,10 +17,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import xyz.btpink.www.dao.AccountDAO;
+import xyz.btpink.www.dao.AttendenceDAO;
 import xyz.btpink.www.dao.ParentDAO;
 import xyz.btpink.www.dao.StudentDAO;
 import xyz.btpink.www.dao.TeacherDAO;
 import xyz.btpink.www.vo.Account;
+import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.Parent;
 import xyz.btpink.www.vo.Student;
 import xyz.btpink.www.vo.Teacher;
@@ -35,16 +37,19 @@ public class UsersController {
 	TeacherDAO teacherDao;
 	@Autowired
 	AccountDAO accountDao;
+	@Autowired
+	AttendenceDAO attendenceDao;
+	
 	private static final Logger logger = LoggerFactory.getLogger(UsersController.class);
 
 	// 로그인
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(Account account, Locale locale, Model model, HttpSession session) {
-		System.out.println("로그인 접속시 : "+account);
+		System.out.println("로그인 접속시 : " + account);
 		Account ac = accountDao.login(account);
-			if (ac.getId() != null) {
-				session.setAttribute("User", ac);
-			}
+		if (ac.getId() != null) {
+			session.setAttribute("User", ac);
+		}
 		return "redirect:/";
 	}
 
@@ -113,9 +118,11 @@ public class UsersController {
 		System.out.println(ckList);
 		return ckList;
 	}
+
 	@RequestMapping(value = "myson", method = RequestMethod.GET)
-	public String MySon(Student st, Locale locale, Model model) {
+	public String MySon(Student st, Locale locale, Model model,HttpSession session) {
 		ArrayList<Student> ckList = studentDao.joinCheck(st);
+		
 		System.out.println(ckList);
 		return "MySon";
 	}
