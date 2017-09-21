@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -297,12 +298,114 @@ public class AdminController {
 		model.addAttribute("emotionEvent", emotion);
 		return "AdminPage/emotionCal";
 	}
-
-	// 반 배정
+	
+	//반 배정 초기값 불러오기
 	@RequestMapping(value = "/autoSplit", method = RequestMethod.GET)
-	public String autoSplit(Locale locale, Model model) {
-		logger.info("Go! autoSplit");
+	public String goAutoSplit(Locale locale, Model model) {
+		logger.info("GoGoGo! autoSplit");
+		
+		ArrayList<Student> stuList = sdao.allStuList();
+		int allCount = stuList.size();
+		int count5 = 0;
+		int count6 = 0;
+		int count7 = 0;
+		int mCount5 = 0;
+		int mCount6 = 0;
+		int mCount7 = 0;
+		int wCount5 = 0;
+		int wCount6 = 0;
+		int wCount7 = 0;
+		
+		for(Student s : stuList){
+			if(s.getAge() == 5){
+				count5++;
+				if(s.getGender().equals("M")){
+					mCount5++;
+				}else wCount5++;
+			}else if(s.getAge() == 6){
+				count6++;
+				if(s.getGender().equals("M")){
+					mCount6++;
+				}else wCount6++;
+			}else{
+				count7++;
+				if(s.getGender().equals("M")){
+					mCount7++;
+				}else wCount7++;
+			}
+		}
+		
+		
+		System.out.println("allCount : "+allCount+" , count5 : "+count5+" , count6 : "+count6+" , count7 : "+count7+" , mcount5 : "+mCount5+" , mCount6 : "+mCount6+" , mCount7 : "+mCount7+" , wCount5 : "+wCount5+" , wCount6 : "+wCount6+" , wCount7 : "+wCount7);
+		
+		model.addAttribute("stuList", stuList);
+		model.addAttribute("allCount", allCount);
+		model.addAttribute("count5", count5);
+		model.addAttribute("count6", count6);
+		model.addAttribute("count7", count7);
+		model.addAttribute("mCount5", mCount5);
+		model.addAttribute("mCount6", mCount6);
+		model.addAttribute("mCount7", mCount7);
+		model.addAttribute("wCount5", wCount5);
+		model.addAttribute("wCount6", wCount6);
+		model.addAttribute("wCount7", wCount7);
+		
 		return "AdminPage/autoSplit";
 	}
-
+	
+	@RequestMapping(value = "/autoSplit", method = RequestMethod.POST)
+	public @ResponseBody int autoSplit(Student stu, Model model) {
+		logger.info("autoSplit POST");
+		int result = sdao.changeStuHogam(stu);
+		return result;
+	}
+	
+	//반 배정 알고리즘
+	@RequestMapping(value = "/calculate", method = RequestMethod.GET)
+	public String calculate(Locale locale, Model model) {
+		logger.info("GoGoGo! calculate");
+		ArrayList<Student> stuList = sdao.allStuList();
+		
+		ArrayList<Student> five = new ArrayList<>();
+		ArrayList<Student> fiveM = new ArrayList<>();
+		ArrayList<Student> fiveW = new ArrayList<>();
+		ArrayList<Student> six = new ArrayList<>();
+		ArrayList<Student> sixM = new ArrayList<>();
+		ArrayList<Student> sixW = new ArrayList<>();
+		ArrayList<Student> seven = new ArrayList<>();
+		ArrayList<Student> sevenM = new ArrayList<>();
+		ArrayList<Student> sevenW = new ArrayList<>();
+		
+		//나이별 / 성별 구분
+		for(Student s : stuList){
+			if(s.getAge() == 5){
+				five.add(s);
+				if(s.getGender().equals("M")){
+					fiveM.add(s);
+				}else{
+					fiveW.add(s);
+				}
+			}else if(s.getAge() == 6){
+				six.add(s);
+				if(s.getGender().equals("M")){
+					sixM.add(s);
+				}else{
+					sixW.add(s);
+				}
+			}else {
+				seven.add(s);
+				if(s.getGender().equals("M")){
+					sevenM.add(s);
+				}else{
+					sevenW.add(s);
+				}
+			}
+		}
+		
+		//classList 불러옴
+		ArrayList<ClassVO> classList = cdao.allClass();
+		
+		
+		return "redirect:autoSplit";
+	}
 }
