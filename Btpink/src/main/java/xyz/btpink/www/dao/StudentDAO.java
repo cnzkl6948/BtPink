@@ -76,5 +76,12 @@ public class StudentDAO {
 		int result = mapper.changeStuHogam(stu);
 		return result;
 	}
-	
+	public void allClassnoNull(){
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		mapper.allClassnoNull();
+	}
+	public void allHateNull(){
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		mapper.allHateNull();
+	}
 }

@@ -23,4 +23,6 @@ public interface StudentMapper {
 	public ArrayList<Student> allStuList();
 	
 	public int changeStuHogam(Student stu);
+	public void allClassnoNull();
+	public void allHateNull();
 }

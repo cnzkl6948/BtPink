@@ -55,4 +55,12 @@ select stdno from student where classno = #{classno}
 	set hateid=#{hateid} 
 	where stdno = #{stdno}
 </update>
+<update id="allClassnoNull">
+	update student 
+	set classno = null
+</update>
+<update id="allHateNull">
+	update student 
+	set hateid = null
+</update>
 </mapper>

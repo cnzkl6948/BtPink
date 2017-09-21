@@ -130,9 +130,9 @@
 	                  </div>
 	                  <div id="collapseTwo" class="panel-collapse collapse in">
 	                    <div class="box-body">
-	                      1. 호감 비호감 ID를 입력하고 반드시 적용 버튼을 눌러주세요.<br>
-	                      2. 반 배정 버튼을 누릅니다.<br>
-	                      3. 임의로 변경도 가능합니다. 
+	                      1. 반 배정 버튼을 누릅니다.<br>
+	                      2. 호감 비호감 ID 입력란이 활성화 됩니다.<br>
+	                      3. ID를 입력하고 적용 버튼을 눌러주세요.
 	                    </div>
 	                  </div>
 	                </div>
@@ -147,9 +147,7 @@
 	                  <div id="collapseThree" class="panel-collapse collapse in">
 	                    <div class="box-body">
 	                     	 ◎  남녀 성비율은 자동으로 균등 분배됩니다.<br>
-	                     	 ◎ 특이사항 2<br>
-	                     	 ◎ 특이사항 3<br>
-	                     	 ◎ 특이사항 4
+	                     	 ◎  적용버튼을 누르는 순간 비호감 ID를 가진 학생이 교환됩니다.
 	                    </div>
 	                  </div>
 	                </div>
@@ -160,9 +158,6 @@
 	          <!-- /.box -->
 	          <button type="button" class="btn btn-block btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="location.href='calculate'">
                 	자동 반 배정
-              </button>
-              <button type="button" class="btn btn-block btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="">
-                	수동 반 배정
               </button>
         </section>
         <!-- /.right col -->
@@ -189,8 +184,17 @@
 <script src="./resources/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- page script -->
 <script>
-  
-$('#stulist').DataTable();
+var hateA = ${hateApply};
+$(function(){
+	alert(hateA);
+	if(hateA == 0){
+		$('input[type=text]').attr("readonly",true).attr("disabled",false);
+	}else{
+		$('input[type=text]').attr("readonly",false).attr("disabled",false);
+	}
+	$('#stulist').DataTable();
+});
+
 function send(index){
 	var stdno = '#stdno'+index;
 	var name = '#name'+index;
@@ -198,20 +202,26 @@ function send(index){
 	var classno = '#classno'+index;
 	var gender = '#gender'+index;
 	var hateid = '#hateid'+index;
-	$.ajax({
-        url: "autoSplit",
-        type: "POST",
-        data: {
-        	stdno 	: $(stdno).val(),
-        	name 	: $(name).val(),
-        	age 	: $(age).val(),
-        	classno : $(classno).val(),
-        	gender 	: $(gender).val(),
-        	hateid 	: $(hateid).val()
-        },
-        success: function(result){	
-        }
-    });
+	
+	if(hateA == 0){
+		alert('자동 반 배정을 눌러주세요.');
+	}else{
+		$.ajax({
+	        url: "autoSplit",
+	        type: "POST",
+	        data: {
+	        	stdno 	: $(stdno).val(),
+	        	name 	: $(name).val(),
+	        	age 	: $(age).val(),
+	        	classno : $(classno).val(),
+	        	gender 	: $(gender).val(),
+	        	hateid 	: $(hateid).val()
+	        },
+	        success: function(result){	
+	        	location.href='autoSplit';
+	        }
+	    });
+	}
 }
 </script>
 </body>
