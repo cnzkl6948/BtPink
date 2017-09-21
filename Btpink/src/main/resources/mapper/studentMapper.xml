@@ -33,8 +33,10 @@
 	)
 </insert>
 
-<update id="updateStdno" parameterType="String">
-	update student set stdno = #{personID} where rownum = 1
+<update id="update" parameterType="Student">
+	update student 
+	set classno = #{classno} 
+	where stdno = #{stdno}
 </update>
 
 <select id="allStuList" resultType="Student">

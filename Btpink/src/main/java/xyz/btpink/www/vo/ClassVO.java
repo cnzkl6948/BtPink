@@ -4,7 +4,7 @@ public class ClassVO {
 
 	private String classNo;
 	private String className;
-	private String capa;
+	private int capa;
 	private String memNo;
 	private int age;
 	private int boyCapa;
@@ -16,7 +16,7 @@ public class ClassVO {
 	public ClassVO(){}
 	
 
-	public ClassVO(String classNo, String className, String capa, String memNo, int age) {
+	public ClassVO(String classNo, String className, int capa, String memNo, int age) {
 		super();
 		this.classNo = classNo;
 		this.className = className;
@@ -91,12 +91,12 @@ public class ClassVO {
 	}
 
 
-	public String getCapa() {
+	public int getCapa() {
 		return capa;
 	}
 
 
-	public void setCapa(String capa) {
+	public void setCapa(int capa) {
 		this.capa = capa;
 	}
 

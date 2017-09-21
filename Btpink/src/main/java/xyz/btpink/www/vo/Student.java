@@ -17,7 +17,7 @@ public class Student implements Serializable{
 	private String parentno;
 	private String personalid;
 	private String hateid;
-	private String count;
+	private int count;
 	private List<Student> stuList;
 	
 	public Student() {}
@@ -29,7 +29,7 @@ public class Student implements Serializable{
 	
 	
 	public Student(String stdno, String name, int age, int height, String classno, String birth, String address,
-			String image, String gender, String parentno, String personalid, String hateid, String count,
+			String image, String gender, String parentno, String personalid, String hateid, int count,
 			List<Student> stuList) {
 		super();
 		this.stdno = stdno;
@@ -54,7 +54,7 @@ public class Student implements Serializable{
 
 
 
-	public String getCount() {
+	public int getCount() {
 		return count;
 	}
 
@@ -64,7 +64,7 @@ public class Student implements Serializable{
 
 
 
-	public void setCount(String count) {
+	public void setCount(int count) {
 		this.count = count;
 	}
 

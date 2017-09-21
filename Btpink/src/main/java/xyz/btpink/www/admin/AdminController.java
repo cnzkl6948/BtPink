@@ -26,12 +26,12 @@ import xyz.btpink.www.dao.AttendenceDAO;
 import xyz.btpink.www.dao.ClassDAO;
 import xyz.btpink.www.dao.StudentDAO;
 import xyz.btpink.www.dao.TeacherDAO;
+import xyz.btpink.www.util.Split;
+import xyz.btpink.www.vo.Aapply;
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.ClassVO;
 import xyz.btpink.www.vo.Student;
-import xyz.btpink.www.vo.Teacher;
-import xyz.btpink.www.vo.Aapply;
 
 @Controller
 public class AdminController {
@@ -154,7 +154,6 @@ public class AdminController {
 		String filename = file.getOriginalFilename();
 		student.setParentno("dummy");// 학부모 번호를 불러오는 과정 정해질때까지 더미로...
 		student.setImage(filename);
-		student.setHateid("");
 
 		Account loginuser = (Account) session.getAttribute("User");
 		System.out.println(loginuser);
@@ -360,100 +359,662 @@ public class AdminController {
 	
 	//반 배정 알고리즘
 	@RequestMapping(value = "/calculate", method = RequestMethod.GET)
-	public String calculate(Locale locale, Model model) {
+	public String calculate(Locale locale, Model model) throws Exception {
 		logger.info("GoGoGo! calculate");
 		ArrayList<Student> stuList = sdao.allStuList();
-		
-		ArrayList<Student> five = new ArrayList<>();
-		ArrayList<Student> fiveM = new ArrayList<>();
-		ArrayList<Student> fiveW = new ArrayList<>();
-		ArrayList<Student> six = new ArrayList<>();
-		ArrayList<Student> sixM = new ArrayList<>();
-		ArrayList<Student> sixW = new ArrayList<>();
-		ArrayList<Student> seven = new ArrayList<>();
-		ArrayList<Student> sevenM = new ArrayList<>();
-		ArrayList<Student> sevenW = new ArrayList<>();
-		
-		//나이별 / 성별 구분
-		for(Student s : stuList){
-			if(s.getAge() == 5){
-				five.add(s);
-				if(s.getGender().equals("M")){
-					fiveM.add(s);
-				}else{
-					fiveW.add(s);
-				}
-			}else if(s.getAge() == 6){
-				six.add(s);
-				if(s.getGender().equals("M")){
-					sixM.add(s);
-				}else{
-					sixW.add(s);
-				}
-			}else {
-				seven.add(s);
-				if(s.getGender().equals("M")){
-					sevenM.add(s);
-				}else{
-					sevenW.add(s);
-				}
-			}
-		}
-		
-		//classList 불러옴
 		ArrayList<ClassVO> classList = cdao.allClass();
-		ArrayList<ClassVO> class5 = new ArrayList<>();
-		ArrayList<ClassVO> class6 = new ArrayList<>();
-		ArrayList<ClassVO> class7 = new ArrayList<>();
-		//5/6/7 세 분할함.
-		for(ClassVO c : classList){
-			if(c.getAge() == 5){
-				class5.add(c);
-			}else if(c.getAge() == 6){
-				class6.add(c);
-			}else {
-				class7.add(c);
-			}
-		}
-		
-		// 싫어요 숫자가 해당 학년의 반 숫자 보다 많을 경우
-		ArrayList<Student> blackList5 = new ArrayList<>();
-		ArrayList<Student> blackList6 = new ArrayList<>();
-		ArrayList<Student> blackList7 = new ArrayList<>();
 		
 		
-		//5세 시작
+		Split sp = new Split();
+		ArrayList<Student> result = sp.ASplit(stuList, classList);
 		
-		//각 반에 남자 / 여자 인원 구함
-		int cnt5M = fiveM.size();	//5살 남자 수
-		int cnt5W = fiveW.size();	//5살 여자 수
-		int cnt5C = class5.size();	//5살 반 갯수
-		
-		int girlPerClass5 = cnt5W / cnt5C; 	//각반에 균등분배될 여학생 수
-		int girlPerClass5N = cnt5W % cnt5C; //나머지 값으로 반 갯수보다는 항상 적다. 차례대로 각반에 하나씩 부여해줘야한다.
-		int boyPerClass5 = cnt5M / cnt5C; 	//각반에 균등분배될 남학생 수
-		int boyPerClass5N = cnt5M % cnt5C; //나머지 값으로 반 갯수보다는 항상 적다. 차례대로 각반에 하나씩 부여해줘야한다.
-		
-		for(ClassVO c : class5){
-			c.setGirlCapa(girlPerClass5);	//각 반 여학생 균등분배함 
-			c.setBoyCapa(boyPerClass5);		//각 반 남학생 균등분배함 
-		}
-		for(int i = 0; i < girlPerClass5N; i++){ //나머지 학생을 각 반에 차례로 분배
-			class5.get(i).setGirlCapa(girlPerClass5+1); //순서대로 학생을 1명씩 추가해줌.
-		}
-		for(int i = boyPerClass5N-1; i == 0; i--){ //나머지 학생을 각 반에 차례로 분배
-			class5.get(i).setBoyCapa(boyPerClass5+1); 	//역순으로 학생을 1명씩 추가해줌.
+		//DB에 적용 stuList
+		for(Student s : result){
+			sdao.update(s);
+			System.out.println(s.getStdno());
+			Thread.sleep(10);
 		}
 		
 		
 		
-		//6세 시작
 		
 		
 		
-		//7세 시작
 		
+		//==============================================================
+//		ArrayList<Student> five = new ArrayList<>();
+//		ArrayList<Student> fiveM = new ArrayList<>();
+//		ArrayList<Student> fiveW = new ArrayList<>();
+//		ArrayList<Student> six = new ArrayList<>();
+//		ArrayList<Student> sixM = new ArrayList<>();
+//		ArrayList<Student> sixW = new ArrayList<>();
+//		ArrayList<Student> seven = new ArrayList<>();
+//		ArrayList<Student> sevenM = new ArrayList<>();
+//		ArrayList<Student> sevenW = new ArrayList<>();
+//		
+//		//나이별 / 성별 구분
+//		for(Student s : stuList){
+//			if(s.getAge() == 5){
+//				five.add(s);
+//				if(s.getGender().equals("M")){
+//					fiveM.add(s);
+//				}else{
+//					fiveW.add(s);
+//				}
+//			}else if(s.getAge() == 6){
+//				six.add(s);
+//				if(s.getGender().equals("M")){
+//					sixM.add(s);
+//				}else{
+//					sixW.add(s);
+//				}
+//			}else {
+//				seven.add(s);
+//				if(s.getGender().equals("M")){
+//					sevenM.add(s);
+//				}else{
+//					sevenW.add(s);
+//				}
+//			}
+//		}
+//		
+//		//classList 불러옴
+//		ArrayList<ClassVO> classList = cdao.allClass();
+//		ArrayList<ClassVO> class5 = new ArrayList<>();
+//		ArrayList<ClassVO> class6 = new ArrayList<>();
+//		ArrayList<ClassVO> class7 = new ArrayList<>();
+//		//5/6/7 세 분할함.
+//		for(ClassVO c : classList){
+//			c.setBoy(0);
+//			c.setGirl(0);
+//			if(c.getAge() == 5){
+//				class5.add(c);
+//			}else if(c.getAge() == 6){
+//				class6.add(c);
+//			}else {
+//				class7.add(c);
+//			}
+//		}
+//		
+//		// 싫어요 숫자가 해당 학년의 반 숫자 보다 많을 경우 블랙리스트에 추가함.
+//		ArrayList<Student> blackList5M = new ArrayList<>();
+//		ArrayList<Student> blackList6M = new ArrayList<>();
+//		ArrayList<Student> blackList7M = new ArrayList<>();
+//		
+//		ArrayList<Student> blackList5W = new ArrayList<>();
+//		ArrayList<Student> blackList6W = new ArrayList<>();
+//		ArrayList<Student> blackList7W = new ArrayList<>();
+//		
+//		
+//		//5세 시작★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+//		
+//		//각 반에 남자 / 여자 인원 구함
+//		int cnt5M = fiveM.size();	//5살 남자 수
+//		int cnt5W = fiveW.size();	//5살 여자 수
+//		int cnt5C = class5.size();	//5살 반 갯수
+//		
+//		int girlPerClass5 = cnt5W / cnt5C; 	//각반에 균등분배될 여학생 수
+//		int girlPerClass5N = cnt5W % cnt5C; //나머지 값으로 반 갯수보다는 항상 적다. 차례대로 각반에 하나씩 부여해줘야한다.
+//		int boyPerClass5 = cnt5M / cnt5C; 	//각반에 균등분배될 남학생 수
+//		int boyPerClass5N = cnt5M % cnt5C; //나머지 값으로 반 갯수보다는 항상 적다. 차례대로 각반에 하나씩 부여해줘야한다.
+//		
+//		for(ClassVO c : class5){
+//			c.setGirlCapa(girlPerClass5);	//각 반 여학생 균등분배함 
+//			c.setBoyCapa(boyPerClass5);		//각 반 남학생 균등분배함 
+//		}
+//		for(int i = 0; i < girlPerClass5N; i++){ //나머지 학생을 각 반에 차례로 분배
+//			class5.get(i).setGirlCapa(girlPerClass5+1); //순서대로 학생을 1명씩 추가해줌.
+//		}
+//		for(int i = boyPerClass5N-1; i == 0; i--){ //나머지 학생을 각 반에 차례로 분배 (역순)
+//			class5.get(i).setBoyCapa(boyPerClass5+1); 	//역순으로 학생을 1명씩 추가해줌.
+//		}
+//		
+//		//블랙리스트를 위해 count 계산
+//		for(Student s : five){
+//			if(s.getHateid() != null){	//hateid를 가지고 있다면
+//				String hateId = s.getHateid();
+//				
+//				for(Student hate : five){
+//					if(hate.getStdno().equals(hateId)){
+//						hate.setCount(hate.getCount()+1);	//hateId를 찾아서 count를 +1 시켜준다.
+//						break;
+//					}
+//				}
+//			}
+//		}
+//		
+//		//count가 반 갯수 이상인 학생은 블랙리스트에 추가
+//		for(Student s : five){
+//			if(s.getCount() >= cnt5C){
+//				if(s.getGender().equals("M")){
+//					blackList5M.add(s);
+//				}else{
+//					blackList5W.add(s);
+//				}
+//			}
+//		}
+//		
+//		//=======================남자 반배정==============================
+//		if(blackList5M.size() != 0){	
+//			
+//			//블랙리스트 반배정
+//			for(Student s : blackList5M){
+//				
+//				//남학생이 가장 적은 반을 구함
+//				int index = 0;							//반의 인덱스
+//				int minBoy = class5.get(0).getCapa();	//기본값으로 최대값을 저장한다.
+//				int base = 0;							//학생수 비교를 위해 저장변수
+//				
+//				for(int i = 0; i < class5.size(); i++){	// 최소 남학생을 가진 반의 index를 구한다.
+//					if(class5.get(i).getBoy() == 0){	//boy 수가 0이면 그것이 바로 인덱스다~ 끝냄
+//						index = i;
+//						break;
+//					}else{								//boy가 0인 반이 없다면~~
+//						base = class5.get(i).getBoy();	//현재 클래스의 boy 수를 base에 저장함
+//						if(minBoy > base){				//minboy가 현재 base보다 크면 
+//							minBoy = base;				//minboy에 base값을 저장한다.
+//							index = i;					//index값도 저장한다.
+//						}
+//					}
+//				}
+//				
+//				//stuList에 있는 학생에 반번호를 배정함.(최종적으로 db에 입력하는 것은 stuList임)
+//				String stdno = s.getStdno();
+//				for(Student stu : stuList){
+//					if(stu.getStdno().equals(stdno)){
+//						stu.setClassno(class5.get(index).getClassNo()); 			//학생에게 반번호 배정
+//						class5.get(index).setBoy(class5.get(index).getBoy()+1); //반에 남학생 수 +1 추가
+//					}
+//				}
+//				
+//			}
+//		}
+//			
+//		//남학생 반배정
+//		for(Student s : fiveM){
+//			
+//			//남학생이 가장 적은 반을 구함
+//			int index = 0;							//반의 인덱스
+//			int minBoy = class5.get(0).getCapa();	//기본값으로 최대값을 저장한다.
+//			int base = 0;							//학생수 비교를 위해 저장변수
+//			
+//			for(int i = 0; i < class5.size(); i++){	// 최소 남학생을 가진 반의 index를 구한다.
+//				if(class5.get(i).getBoy() == 0){	//boy 수가 0이면 그것이 바로 인덱스다~ 끝냄
+//					index = i;
+//					break;
+//				}else{								//boy가 0인 반이 없다면~~
+//					base = class5.get(i).getBoy();	//현재 클래스의 boy 수를 base에 저장함
+//					if(minBoy > base){				//minboy가 현재 base보다 크면 
+//						minBoy = base;				//minboy에 base값을 저장한다.
+//						index = i;					//index값도 저장한다.
+//					}
+//				}
+//			}
+//			
+//			//stuList에 있는 학생에 반번호를 배정함.(최종적으로 db에 입력하는 것은 stuList임)
+//			String stdno = s.getStdno();
+//			for(Student stu : stuList){
+//				if(stu.getStdno().equals(stdno)){
+//					stu.setClassno(class5.get(index).getClassNo()); 			//학생에게 반번호 배정
+//					class5.get(index).setBoy(class5.get(index).getBoy()+1); //반에 남학생 수 +1 추가
+//				}
+//			}
+//				
+//		}
+//		//=======================남자 반배정==============================
+//			
+//		
+//		//=======================여자 반배정==============================
+//		if(blackList5W.size() != 0){	
+//			
+//			//블랙리스트 반배정
+//			for(Student s : blackList5W){
+//				
+//				//여학생이 가장 적은 반을 구함
+//				int index = 0;							//반의 인덱스
+//				int minGirl = class5.get(0).getCapa();	//기본값으로 최대값을 저장한다.
+//				int base = 0;							//학생수 비교를 위해 저장변수
+//				
+//				for(int i = 0; i < class5.size(); i++){	// 최소 여학생을 가진 반의 index를 구한다.
+//					if(class5.get(i).getGirl() == 0){	//boy 수가 0이면 그것이 바로 인덱스다~ 끝냄
+//						index = i;
+//						break;
+//					}else{								//boy가 0인 반이 없다면~~
+//						base = class5.get(i).getGirl();	//현재 클래스의 boy 수를 base에 저장함
+//						if(minGirl > base){				//minboy가 현재 base보다 크면 
+//							minGirl = base;				//minboy에 base값을 저장한다.
+//							index = i;					//index값도 저장한다.
+//						}
+//					}
+//				}
+//				
+//				//stuList에 있는 학생에 반번호를 배정함.(최종적으로 db에 입력하는 것은 stuList임)
+//				String stdno = s.getStdno();
+//				for(Student stu : stuList){
+//					if(stu.getStdno().equals(stdno)){
+//						stu.setClassno(class5.get(index).getClassNo()); 			//학생에게 반번호 배정
+//						class5.get(index).setGirl(class5.get(index).getGirl()+1); //반에 여학생 수 +1 추가
+//					}
+//				}
+//				
+//			}
+//		}
+//			
+//		//여학생 반배정
+//		for(Student s : fiveW){
+//			
+//			//여학생이 가장 적은 반을 구함
+//			int index = 0;							//반의 인덱스
+//			int minGirl = class5.get(0).getCapa();	//기본값으로 최대값을 저장한다.
+//			int base = 0;							//학생수 비교를 위해 저장변수
+//			
+//			for(int i = 0; i < class5.size(); i++){	// 최소 여학생을 가진 반의 index를 구한다.
+//				if(class5.get(i).getGirl() == 0){	//boy 수가 0이면 그것이 바로 인덱스다~ 끝냄
+//					index = i;
+//					break;
+//				}else{								//boy가 0인 반이 없다면~~
+//					base = class5.get(i).getGirl();	//현재 클래스의 boy 수를 base에 저장함
+//					if(minGirl > base){				//minboy가 현재 base보다 크면 
+//						minGirl = base;				//minboy에 base값을 저장한다.
+//						index = i;					//index값도 저장한다.
+//					}
+//				}
+//			}
+//			
+//			//stuList에 있는 학생에 반번호를 배정함.(최종적으로 db에 입력하는 것은 stuList임)
+//			String stdno = s.getStdno();
+//			for(Student stu : stuList){
+//				if(stu.getStdno().equals(stdno)){
+//					stu.setClassno(class5.get(index).getClassNo()); 			//학생에게 반번호 배정
+//					class5.get(index).setGirl(class5.get(index).getGirl()+1); //반에 여학생 수 +1 추가
+//				}
+//			}
+//				
+//		}
+//		//=======================여자 반배정==============================
+//			
+//		
+//		
+//		
+//		
+//		
+//		
+//		
+//		//6세 시작★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+//		//각 반에 남자 / 여자 인원 구함
+//		int cnt6M = sixM.size();	//5살 남자 수
+//		int cnt6W = sixW.size();	//5살 여자 수
+//		int cnt6C = class6.size();	//5살 반 갯수
+//		
+//		int girlPerClass6 = cnt6W / cnt6C; 	//각반에 균등분배될 여학생 수
+//		int girlPerClass6N = cnt6W % cnt6C; //나머지 값으로 반 갯수보다는 항상 적다. 차례대로 각반에 하나씩 부여해줘야한다.
+//		int boyPerClass6 = cnt6M / cnt6C; 	//각반에 균등분배될 남학생 수
+//		int boyPerClass6N = cnt6M % cnt6C; //나머지 값으로 반 갯수보다는 항상 적다. 차례대로 각반에 하나씩 부여해줘야한다.
+//		
+//		for(ClassVO c : class6){
+//			c.setGirlCapa(girlPerClass6);	//각 반 여학생 균등분배함 
+//			c.setBoyCapa(boyPerClass6);		//각 반 남학생 균등분배함 
+//		}
+//		for(int i = 0; i < girlPerClass6N; i++){ //나머지 학생을 각 반에 차례로 분배
+//			class6.get(i).setGirlCapa(girlPerClass6+1); //순서대로 학생을 1명씩 추가해줌.
+//		}
+//		for(int i = boyPerClass6N-1; i == 0; i--){ //나머지 학생을 각 반에 차례로 분배 (역순)
+//			class6.get(i).setBoyCapa(boyPerClass6+1); 	//역순으로 학생을 1명씩 추가해줌.
+//		}
+//		
+//		//블랙리스트를 위해 count 계산
+//		for(Student s : six){
+//			if(s.getHateid() != null){	//hateid를 가지고 있다면
+//				String hateId = s.getHateid();
+//				
+//				for(Student hate : six){
+//					if(hate.getStdno().equals(hateId)){
+//						hate.setCount(hate.getCount()+1);	//hateId를 찾아서 count를 +1 시켜준다.
+//						break;
+//					}
+//				}
+//			}
+//		}
+//		
+//		//count가 반 갯수 이상인 학생은 블랙리스트에 추가
+//		for(Student s : six){
+//			if(s.getCount() >= cnt6C){
+//				if(s.getGender().equals("M")){
+//					blackList6M.add(s);
+//				}else{
+//					blackList6W.add(s);
+//				}
+//			}
+//		}
+//		
+//		//=======================남자 반배정==============================
+//		if(blackList6M.size() != 0){	
+//			
+//			//블랙리스트 반배정
+//			for(Student s : blackList6M){
+//				
+//				//남학생이 가장 적은 반을 구함
+//				int index = 0;							//반의 인덱스
+//				int minBoy = class6.get(0).getCapa();	//기본값으로 최대값을 저장한다.
+//				int base = 0;							//학생수 비교를 위해 저장변수
+//				
+//				for(int i = 0; i < class6.size(); i++){	// 최소 남학생을 가진 반의 index를 구한다.
+//					if(class6.get(i).getBoy() == 0){	//boy 수가 0이면 그것이 바로 인덱스다~ 끝냄
+//						index = i;
+//						break;
+//					}else{								//boy가 0인 반이 없다면~~
+//						base = class5.get(i).getBoy();	//현재 클래스의 boy 수를 base에 저장함
+//						if(minBoy > base){				//minboy가 현재 base보다 크면 
+//							minBoy = base;				//minboy에 base값을 저장한다.
+//							index = i;					//index값도 저장한다.
+//						}
+//					}
+//				}
+//				
+//				//stuList에 있는 학생에 반번호를 배정함.(최종적으로 db에 입력하는 것은 stuList임)
+//				String stdno = s.getStdno();
+//				for(Student stu : stuList){
+//					if(stu.getStdno().equals(stdno)){
+//						stu.setClassno(class6.get(index).getClassNo()); 			//학생에게 반번호 배정
+//						class6.get(index).setBoy(class6.get(index).getBoy()+1); //반에 남학생 수 +1 추가
+//					}
+//				}
+//				
+//			}
+//		}
+//			
+//		//남학생 반배정
+//		for(Student s : sixM){
+//			
+//			//남학생이 가장 적은 반을 구함
+//			int index = 0;							//반의 인덱스
+//			int minBoy = class6.get(0).getCapa();	//기본값으로 최대값을 저장한다.
+//			int base = 0;							//학생수 비교를 위해 저장변수
+//			
+//			for(int i = 0; i < class6.size(); i++){	// 최소 남학생을 가진 반의 index를 구한다.
+//				if(class6.get(i).getBoy() == 0){	//boy 수가 0이면 그것이 바로 인덱스다~ 끝냄
+//					index = i;
+//					break;
+//				}else{								//boy가 0인 반이 없다면~~
+//					base = class6.get(i).getBoy();	//현재 클래스의 boy 수를 base에 저장함
+//					if(minBoy > base){				//minboy가 현재 base보다 크면 
+//						minBoy = base;				//minboy에 base값을 저장한다.
+//						index = i;					//index값도 저장한다.
+//					}
+//				}
+//			}
+//			
+//			//stuList에 있는 학생에 반번호를 배정함.(최종적으로 db에 입력하는 것은 stuList임)
+//			String stdno = s.getStdno();
+//			for(Student stu : stuList){
+//				if(stu.getStdno().equals(stdno)){
+//					stu.setClassno(class6.get(index).getClassNo()); 			//학생에게 반번호 배정
+//					class6.get(index).setBoy(class6.get(index).getBoy()+1); //반에 남학생 수 +1 추가
+//				}
+//			}
+//				
+//		}
+//		//=======================남자 반배정==============================
+//			
+//		
+//		//=======================여자 반배정==============================
+//		if(blackList6W.size() != 0){	
+//			
+//			//블랙리스트 반배정
+//			for(Student s : blackList6W){
+//				
+//				//여학생이 가장 적은 반을 구함
+//				int index = 0;							//반의 인덱스
+//				int minGirl = class6.get(0).getCapa();	//기본값으로 최대값을 저장한다.
+//				int base = 0;							//학생수 비교를 위해 저장변수
+//				
+//				for(int i = 0; i < class6.size(); i++){	// 최소 여학생을 가진 반의 index를 구한다.
+//					if(class6.get(i).getGirl() == 0){	//boy 수가 0이면 그것이 바로 인덱스다~ 끝냄
+//						index = i;
+//						break;
+//					}else{								//boy가 0인 반이 없다면~~
+//						base = class6.get(i).getGirl();	//현재 클래스의 boy 수를 base에 저장함
+//						if(minGirl > base){				//minboy가 현재 base보다 크면 
+//							minGirl = base;				//minboy에 base값을 저장한다.
+//							index = i;					//index값도 저장한다.
+//						}
+//					}
+//				}
+//				
+//				//stuList에 있는 학생에 반번호를 배정함.(최종적으로 db에 입력하는 것은 stuList임)
+//				String stdno = s.getStdno();
+//				for(Student stu : stuList){
+//					if(stu.getStdno().equals(stdno)){
+//						stu.setClassno(class6.get(index).getClassNo()); 			//학생에게 반번호 배정
+//						class6.get(index).setGirl(class6.get(index).getGirl()+1); //반에 여학생 수 +1 추가
+//					}
+//				}
+//				
+//			}
+//		}
+//			
+//		//여학생 반배정
+//		for(Student s : sixW){
+//			
+//			//여학생이 가장 적은 반을 구함
+//			int index = 0;							//반의 인덱스
+//			int minGirl = class6.get(0).getCapa();	//기본값으로 최대값을 저장한다.
+//			int base = 0;							//학생수 비교를 위해 저장변수
+//			
+//			for(int i = 0; i < class6.size(); i++){	// 최소 여학생을 가진 반의 index를 구한다.
+//				if(class6.get(i).getGirl() == 0){	//boy 수가 0이면 그것이 바로 인덱스다~ 끝냄
+//					index = i;
+//					break;
+//				}else{								//boy가 0인 반이 없다면~~
+//					base = class6.get(i).getGirl();	//현재 클래스의 boy 수를 base에 저장함
+//					if(minGirl > base){				//minboy가 현재 base보다 크면 
+//						minGirl = base;				//minboy에 base값을 저장한다.
+//						index = i;					//index값도 저장한다.
+//					}
+//				}
+//			}
+//			
+//			//stuList에 있는 학생에 반번호를 배정함.(최종적으로 db에 입력하는 것은 stuList임)
+//			String stdno = s.getStdno();
+//			for(Student stu : stuList){
+//				if(stu.getStdno().equals(stdno)){
+//					stu.setClassno(class6.get(index).getClassNo()); 			//학생에게 반번호 배정
+//					class6.get(index).setGirl(class6.get(index).getGirl()+1); //반에 여학생 수 +1 추가
+//				}
+//			}
+//				
+//		}
+//		//=======================여자 반배정==============================		
+//		
+//		
+//		
+//		//7세 시작★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+//		//각 반에 남자 / 여자 인원 구함
+//		int cnt7M = sevenM.size();	//5살 남자 수
+//		int cnt7W = sevenW.size();	//5살 여자 수
+//		int cnt7C = class7.size();	//5살 반 갯수
+//		
+//		int girlPerClass7 = cnt7W / cnt7C; 	//각반에 균등분배될 여학생 수
+//		int girlPerClass7N = cnt7W % cnt7C; //나머지 값으로 반 갯수보다는 항상 적다. 차례대로 각반에 하나씩 부여해줘야한다.
+//		int boyPerClass7 = cnt7M / cnt7C; 	//각반에 균등분배될 남학생 수
+//		int boyPerClass7N = cnt7M % cnt7C; //나머지 값으로 반 갯수보다는 항상 적다. 차례대로 각반에 하나씩 부여해줘야한다.
+//		
+//		for(ClassVO c : class7){
+//			c.setGirlCapa(girlPerClass7);	//각 반 여학생 균등분배함 
+//			c.setBoyCapa(boyPerClass7);		//각 반 남학생 균등분배함 
+//		}
+//		for(int i = 0; i < girlPerClass7N; i++){ //나머지 학생을 각 반에 차례로 분배
+//			class7.get(i).setGirlCapa(girlPerClass7+1); //순서대로 학생을 1명씩 추가해줌.
+//		}
+//		for(int i = boyPerClass7N-1; i == 0; i--){ //나머지 학생을 각 반에 차례로 분배 (역순)
+//			class7.get(i).setBoyCapa(boyPerClass7+1); 	//역순으로 학생을 1명씩 추가해줌.
+//		}
+//		
+//		//블랙리스트를 위해 count 계산
+//		for(Student s : seven){
+//			if(s.getHateid() != null){	//hateid를 가지고 있다면
+//				String hateId = s.getHateid();
+//				
+//				for(Student hate : seven){
+//					if(hate.getStdno().equals(hateId)){
+//						hate.setCount(hate.getCount()+1);	//hateId를 찾아서 count를 +1 시켜준다.
+//						break;
+//					}
+//				}
+//			}
+//		}
+//		
+//		//count가 반 갯수 이상인 학생은 블랙리스트에 추가
+//		for(Student s : seven){
+//			if(s.getCount() >= cnt7C){
+//				if(s.getGender().equals("M")){
+//					blackList7M.add(s);
+//				}else{
+//					blackList7W.add(s);
+//				}
+//			}
+//		}
+//		
+//		//=======================남자 반배정==============================
+//		if(blackList7M.size() != 0){	
+//			
+//			//블랙리스트 반배정
+//			for(Student s : blackList7M){
+//				
+//				//남학생이 가장 적은 반을 구함
+//				int index = 0;							//반의 인덱스
+//				int minBoy = class7.get(0).getCapa();	//기본값으로 최대값을 저장한다.
+//				int base = 0;							//학생수 비교를 위해 저장변수
+//				
+//				for(int i = 0; i < class7.size(); i++){	// 최소 남학생을 가진 반의 index를 구한다.
+//					if(class7.get(i).getBoy() == 0){	//boy 수가 0이면 그것이 바로 인덱스다~ 끝냄
+//						index = i;
+//						break;
+//					}else{								//boy가 0인 반이 없다면~~
+//						base = class7.get(i).getBoy();	//현재 클래스의 boy 수를 base에 저장함
+//						if(minBoy > base){				//minboy가 현재 base보다 크면 
+//							minBoy = base;				//minboy에 base값을 저장한다.
+//							index = i;					//index값도 저장한다.
+//						}
+//					}
+//				}
+//				
+//				//stuList에 있는 학생에 반번호를 배정함.(최종적으로 db에 입력하는 것은 stuList임)
+//				String stdno = s.getStdno();
+//				for(Student stu : stuList){
+//					if(stu.getStdno().equals(stdno)){
+//						stu.setClassno(class7.get(index).getClassNo()); 			//학생에게 반번호 배정
+//						class7.get(index).setBoy(class7.get(index).getBoy()+1); //반에 남학생 수 +1 추가
+//					}
+//				}
+//				
+//			}
+//		}
+//			
+//		//남학생 반배정
+//		for(Student s : sevenM){
+//			
+//			//남학생이 가장 적은 반을 구함
+//			int index = 0;							//반의 인덱스
+//			int minBoy = class7.get(0).getCapa();	//기본값으로 최대값을 저장한다.
+//			int base = 0;							//학생수 비교를 위해 저장변수
+//			
+//			for(int i = 0; i < class7.size(); i++){	// 최소 남학생을 가진 반의 index를 구한다.
+//				if(class7.get(i).getBoy() == 0){	//boy 수가 0이면 그것이 바로 인덱스다~ 끝냄
+//					index = i;
+//					break;
+//				}else{								//boy가 0인 반이 없다면~~
+//					base = class7.get(i).getBoy();	//현재 클래스의 boy 수를 base에 저장함
+//					if(minBoy > base){				//minboy가 현재 base보다 크면 
+//						minBoy = base;				//minboy에 base값을 저장한다.
+//						index = i;					//index값도 저장한다.
+//					}
+//				}
+//			}
+//			
+//			//stuList에 있는 학생에 반번호를 배정함.(최종적으로 db에 입력하는 것은 stuList임)
+//			String stdno = s.getStdno();
+//			for(Student stu : stuList){
+//				if(stu.getStdno().equals(stdno)){
+//					stu.setClassno(class7.get(index).getClassNo()); 			//학생에게 반번호 배정
+//					class7.get(index).setBoy(class7.get(index).getBoy()+1); //반에 남학생 수 +1 추가
+//				}
+//			}
+//				
+//		}
+//		//=======================남자 반배정==============================
+//			
+//		
+//		//=======================여자 반배정==============================
+//		if(blackList7W.size() != 0){	
+//			
+//			//블랙리스트 반배정
+//			for(Student s : blackList7W){
+//				
+//				//여학생이 가장 적은 반을 구함
+//				int index = 0;							//반의 인덱스
+//				int minGirl = class7.get(0).getCapa();	//기본값으로 최대값을 저장한다.
+//				int base = 0;							//학생수 비교를 위해 저장변수
+//				
+//				for(int i = 0; i < class7.size(); i++){	// 최소 여학생을 가진 반의 index를 구한다.
+//					if(class7.get(i).getGirl() == 0){	//boy 수가 0이면 그것이 바로 인덱스다~ 끝냄
+//						index = i;
+//						break;
+//					}else{								//boy가 0인 반이 없다면~~
+//						base = class7.get(i).getGirl();	//현재 클래스의 boy 수를 base에 저장함
+//						if(minGirl > base){				//minboy가 현재 base보다 크면 
+//							minGirl = base;				//minboy에 base값을 저장한다.
+//							index = i;					//index값도 저장한다.
+//						}
+//					}
+//				}
+//				
+//				//stuList에 있는 학생에 반번호를 배정함.(최종적으로 db에 입력하는 것은 stuList임)
+//				String stdno = s.getStdno();
+//				for(Student stu : stuList){
+//					if(stu.getStdno().equals(stdno)){
+//						stu.setClassno(class7.get(index).getClassNo()); 			//학생에게 반번호 배정
+//						class7.get(index).setGirl(class7.get(index).getGirl()+1); //반에 여학생 수 +1 추가
+//					}
+//				}
+//				
+//			}
+//		}
+//			
+//		//여학생 반배정
+//		for(Student s : sevenW){
+//			
+//			//여학생이 가장 적은 반을 구함
+//			int index = 0;							//반의 인덱스
+//			int minGirl = class7.get(0).getCapa();	//기본값으로 최대값을 저장한다.
+//			int base = 0;							//학생수 비교를 위해 저장변수
+//			
+//			for(int i = 0; i < class7.size(); i++){	// 최소 여학생을 가진 반의 index를 구한다.
+//				if(class7.get(i).getGirl() == 0){	//boy 수가 0이면 그것이 바로 인덱스다~ 끝냄
+//					index = i;
+//					break;
+//				}else{								//boy가 0인 반이 없다면~~
+//					base = class7.get(i).getGirl();	//현재 클래스의 boy 수를 base에 저장함
+//					if(minGirl > base){				//minboy가 현재 base보다 크면 
+//						minGirl = base;				//minboy에 base값을 저장한다.
+//						index = i;					//index값도 저장한다.
+//					}
+//				}
+//			}
+//			
+//			//stuList에 있는 학생에 반번호를 배정함.(최종적으로 db에 입력하는 것은 stuList임)
+//			String stdno = s.getStdno();
+//			for(Student stu : stuList){
+//				if(stu.getStdno().equals(stdno)){
+//					stu.setClassno(class7.get(index).getClassNo()); 			//학생에게 반번호 배정
+//					class7.get(index).setGirl(class7.get(index).getGirl()+1); //반에 여학생 수 +1 추가
+//				}
+//			}
+//				
+//		}
+		//=======================여자 반배정==============================
 		
+
 		
 		return "redirect:autoSplit";
 	}
