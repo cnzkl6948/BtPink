@@ -94,26 +94,23 @@
 								<span>공지사항</span>
 						</a></li>
 
-						<c:choose>
-							<c:when test="${User.type == 'p' }">
-								<li class="dropdown singleDrop color-5  "><a href="getBus"
-									class="dropdown-toggle"> <i
-										class="fa fa-calendar bg-color-5" aria-hidden="true"></i> <span>버스
-											위치</span>
-								</a></li>
-								<li class="dropdown singleDrop color-1   active "><a
-									href="MySon" class="dropdown-toggle"> <i
-										class="fa fa-home bg-color-1" aria-hidden="true"></i> <span>내
-											아이 정보</span>
-								</a></li>
-							</c:when>
-							<c:when test="${User.type == 't' }">
-								<li class="dropdown singleDrop color-6 "><a
-									href="adminPage" class="dropdown-toggle"> <i
-										class="fa fa-gg bg-color-6" aria-hidden="true"></i> <span>선생님
-											페이지</span></a></li>
-							</c:when>
-						</c:choose>
+						<c:if test="${User.type == 'p' or User.type == 'admin' }">
+							<li class="dropdown singleDrop color-5  "><a href="getBus"
+								class="dropdown-toggle"> <i
+									class="fa fa-calendar bg-color-5" aria-hidden="true"></i> <span>버스
+										위치</span>
+							</a></li>
+							<li class="dropdown singleDrop color-1   active "><a
+								href="MySon" class="dropdown-toggle"> <i
+									class="fa fa-home bg-color-1" aria-hidden="true"></i> <span>내
+										아이 정보</span>
+							</a></li>
+						</c:if>
+						<c:if test="${User.type == 't' or User.type == 'admin'}">
+							<li class="dropdown singleDrop color-6 "><a href="adminPage"
+								class="dropdown-toggle"> <i class="fa fa-gg bg-color-6"
+									aria-hidden="true"></i> <span>선생님 페이지</span></a></li>
+						</c:if>
 					</ul>
 				</div>
 			</div>
@@ -121,9 +118,9 @@
 	</header>
 	<!-- CREATE ACCOUNT MODAL -->
 	<div class="modal fade customModal" id="createAccount" tabindex="-1"
-		role="dialog"  onkeypress=" if(event.keyCode==13) {join();}">
+		role="dialog" onkeypress=" if(event.keyCode==13) {join();}">
 		<div class="modal-dialog">
-			<div class="modal-content" >
+			<div class="modal-content">
 				<div class="panel panel-default formPanel">
 					<div class="panel-heading bg-color-1 border-color-1">
 						<h3 class="panel-title">Create an account</h3>
@@ -215,7 +212,7 @@
 							<div class="form-group formField">
 								<input type="button"
 									class="btn btn-primary btn-block bg-color-3 border-color-3"
-									value="Register" onclick="javascript:join()" >
+									value="Register" onclick="javascript:join()">
 							</div>
 						</form>
 					</div>
@@ -224,9 +221,9 @@
 		</div>
 	</div>
 	<!-- LOGIN MODAL -->
-	
+
 	<div class="modal fade customModal" id="loginModal" tabindex="-1"
-		role="dialog"  onkeypress=" if(event.keyCode==13) {login();}">
+		role="dialog" onkeypress=" if(event.keyCode==13) {login();}">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="panel panel-default formPanel">
@@ -246,7 +243,7 @@
 							<div class="form-group formField">
 								<input type="button"
 									class="btn btn-primary btn-block bg-color-3 border-color-3"
-									onclick="javascript:login()" id="btnLogin" value="Login" >
+									onclick="javascript:login()" id="btnLogin" value="Login">
 							</div>
 						</form>
 					</div>
