@@ -48,10 +48,11 @@ public class Split {
 				break;
 			}
 		}
-		int cNum = cAge.size();
-		int gNum = g.size();
+		int cNum = cAge.size(); //학년 반의 갯수
+		int gNum = g.size();	//성별 및 학년 조건에 맞는 학생 수
 		
-		
+		int aaa = gNum / cNum;
+		int sss = gNum % cNum;
 		
 		
 		return result;
