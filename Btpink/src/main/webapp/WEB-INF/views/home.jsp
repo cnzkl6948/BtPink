@@ -10,24 +10,25 @@
 	<div class="fullscreenbanner-container">
 		<div class="fullscreenbanner">
 			<ul>
-				<li data-transition="fade" data-slotamount="5"
+				<li data-transition="fade" data-slotamount="3"
 					data-masterspeed="700" data-title="Slide 1"><img
 					src="./resources/img/kindergarten_pic/main_pc2.png" alt="slidebg1"
 					data-bgfit="cover" data-bgposition="center center"
 					data-bgrepeat="no-repeat">
 					<div class="slider-caption container">
 						<div class="tp-caption rs-caption-1 sft start" data-hoffset="0"
-							data-y="200" data-speed="800" data-start="1000"
+							data-x="0" data-y="200" data-speed="800" data-start="1000"
 							data-easing="Back.easeInOut" data-endspeed="300">요괴유치원에
 							어서오세요</div>
 
 						<div class="tp-caption rs-caption-2 sft" data-hoffset="0"
-							data-y="265" data-speed="1000" data-start="1500"
+							data-x="0" data-y="265" data-speed="1000" data-start="1500"
 							data-easing="Power4.easeOut" data-endspeed="300"
 							data-endeasing="Power1.easeIn" data-captionhidden="off">우리
 							아이들을 위한 완벽한 유치원</div>
-					</div></li>
-				<li data-transition="fade" data-slotamount="5"
+					</div>
+				</li>
+				<li data-transition="fade" data-slotamount="3"
 					data-masterspeed="1000" data-title="Slide 2"><img
 					
 					src="./resources/img/kindergarten_pic/girl.png" alt="slidebg1"
@@ -45,19 +46,19 @@
 							data-endspeed="300" data-endeasing="Power1.easeIn"
 							data-captionhidden="off"></div>
 					</div></li>
-				<li data-transition="fade" data-slotamount="5"
+				<li data-transition="fade" data-slotamount="3"
 					data-masterspeed="700" data-title="Slide 3"><img
 					src="./resources/img/kindergarten_pic/picnic3.png" alt="slidebg1"
 					data-bgfit="cover" data-bgposition="center center"
 					data-bgrepeat="no-repeat">
 					<div class="slider-caption container">
 						<div class="tp-caption rs-caption-1 sft start text-right"
-							data-hoffset="0" data-y="200" data-x="right" data-speed="800"
+							data-x="0" data-hoffset="0" data-y="200" data-x="right" data-speed="800"
 							data-start="1000" data-easing="Back.easeInOut"
 							data-endspeed="300">악동들의 즐거운 배움터</div>
 
 						<div class="tp-caption rs-caption-2 sft text-right"
-							data-hoffset="0" data-y="265" data-x="right" data-speed="1000"
+							data-hoffset="0" data-x="0" data-y="265" data-x="right" data-speed="1000"
 							data-start="1500" data-easing="Power4.easeOut"
 							data-endspeed="300" data-endeasing="Power1.easeIn"
 							data-captionhidden="off">마음 껏 뛰어노는 유치원</div>

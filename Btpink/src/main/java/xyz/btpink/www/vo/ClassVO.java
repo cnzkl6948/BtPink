@@ -6,10 +6,30 @@ public class ClassVO {
 	String className;
 	String capa;
 	String memNo;
-	
+	String age;
 	
 	public ClassVO(){}
 	
+
+	public ClassVO(String classNo, String className, String capa, String memNo, String age) {
+		super();
+		this.classNo = classNo;
+		this.className = className;
+		this.capa = capa;
+		this.memNo = memNo;
+		this.age = age;
+	}
+
+
+	public String getAge() {
+		return age;
+	}
+
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
 
 	public String getClassName() {
 		return className;
