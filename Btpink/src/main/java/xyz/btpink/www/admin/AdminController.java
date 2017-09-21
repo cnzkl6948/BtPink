@@ -154,7 +154,6 @@ public class AdminController {
 		String filename = file.getOriginalFilename();
 		student.setParentno("dummy");// 학부모 번호를 불러오는 과정 정해질때까지 더미로...
 		student.setImage(filename);
-		student.setLikeid("");
 		student.setHateid("");
 
 		Account loginuser = (Account) session.getAttribute("User");
@@ -351,7 +350,7 @@ public class AdminController {
 		
 		return "AdminPage/autoSplit";
 	}
-	
+	//싫어하는 ID DB에 적용
 	@RequestMapping(value = "/autoSplit", method = RequestMethod.POST)
 	public @ResponseBody int autoSplit(Student stu, Model model) {
 		logger.info("autoSplit POST");
@@ -406,12 +405,55 @@ public class AdminController {
 		ArrayList<ClassVO> class5 = new ArrayList<>();
 		ArrayList<ClassVO> class6 = new ArrayList<>();
 		ArrayList<ClassVO> class7 = new ArrayList<>();
-		
+		//5/6/7 세 분할함.
 		for(ClassVO c : classList){
 			if(c.getAge() == 5){
-				
+				class5.add(c);
+			}else if(c.getAge() == 6){
+				class6.add(c);
+			}else {
+				class7.add(c);
 			}
 		}
+		
+		// 싫어요 숫자가 해당 학년의 반 숫자 보다 많을 경우
+		ArrayList<Student> blackList5 = new ArrayList<>();
+		ArrayList<Student> blackList6 = new ArrayList<>();
+		ArrayList<Student> blackList7 = new ArrayList<>();
+		
+		
+		//5세 시작
+		
+		//각 반에 남자 / 여자 인원 구함
+		int cnt5M = fiveM.size();	//5살 남자 수
+		int cnt5W = fiveW.size();	//5살 여자 수
+		int cnt5C = class5.size();	//5살 반 갯수
+		
+		int girlPerClass5 = cnt5W / cnt5C; 	//각반에 균등분배될 여학생 수
+		int girlPerClass5N = cnt5W % cnt5C; //나머지 값으로 반 갯수보다는 항상 적다. 차례대로 각반에 하나씩 부여해줘야한다.
+		int boyPerClass5 = cnt5M / cnt5C; 	//각반에 균등분배될 남학생 수
+		int boyPerClass5N = cnt5M % cnt5C; //나머지 값으로 반 갯수보다는 항상 적다. 차례대로 각반에 하나씩 부여해줘야한다.
+		
+		for(ClassVO c : class5){
+			c.setGirlCapa(girlPerClass5);	//각 반 여학생 균등분배함 
+			c.setBoyCapa(boyPerClass5);		//각 반 남학생 균등분배함 
+		}
+		for(int i = 0; i < girlPerClass5N; i++){ //나머지 학생을 각 반에 차례로 분배
+			class5.get(i).setGirlCapa(girlPerClass5+1); //순서대로 학생을 1명씩 추가해줌.
+		}
+		for(int i = boyPerClass5N-1; i == 0; i--){ //나머지 학생을 각 반에 차례로 분배
+			class5.get(i).setBoyCapa(boyPerClass5+1); 	//역순으로 학생을 1명씩 추가해줌.
+		}
+		
+		
+		
+		//6세 시작
+		
+		
+		
+		//7세 시작
+		
+		
 		
 		return "redirect:autoSplit";
 	}

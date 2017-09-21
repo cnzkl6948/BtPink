@@ -16,7 +16,6 @@ public class Student implements Serializable{
 	private String gender;
 	private String parentno;
 	private String personalid;
-	private String likeid;
 	private String hateid;
 	private String count;
 	private List<Student> stuList;
@@ -30,7 +29,7 @@ public class Student implements Serializable{
 	
 	
 	public Student(String stdno, String name, int age, int height, String classno, String birth, String address,
-			String image, String gender, String parentno, String personalid, String likeid, String hateid, String count,
+			String image, String gender, String parentno, String personalid, String hateid, String count,
 			List<Student> stuList) {
 		super();
 		this.stdno = stdno;
@@ -44,7 +43,6 @@ public class Student implements Serializable{
 		this.gender = gender;
 		this.parentno = parentno;
 		this.personalid = personalid;
-		this.likeid = likeid;
 		this.hateid = hateid;
 		this.count = count;
 		this.stuList = stuList;
@@ -220,18 +218,6 @@ public class Student implements Serializable{
 
 
 
-	public String getLikeid() {
-		return likeid;
-	}
-
-
-
-	public void setLikeid(String likeid) {
-		this.likeid = likeid;
-	}
-
-
-
 	public String getHateid() {
 		return hateid;
 	}
@@ -252,7 +238,7 @@ public class Student implements Serializable{
 	public String toString() {
 		return "Student [stdno=" + stdno + ", name=" + name + ", age=" + age + ", height=" + height + ", classno="
 				+ classno + ", birth=" + birth + ", address=" + address + ", image=" + image + ", gender=" + gender
-				+ ", parentno=" + parentno + ", personalid=" + personalid + ", likeid=" + likeid + ", hateid=" + hateid
+				+ ", parentno=" + parentno + ", personalid=" + personalid  + ", hateid=" + hateid
 				+ ", count=" + count + ", stuList=" + stuList + "]";
 	}
 

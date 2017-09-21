@@ -71,7 +71,6 @@
                   <th>나이</th>
                   <th>반</th>
                   <th>성별</th>
-                  <th>호감 ID</th>
                   <th>비호감 ID</th>
                   <th>적용</th>
                 </tr>
@@ -84,7 +83,6 @@
 	                  <td>${stu.age}<input type="hidden" id="age${status.index}" name="stuList[${status.index}].age" value="${stu.age}" readonly="readonly"></td>
 	                  <td>${stu.classno}<input type="hidden" id="classno${status.index}" name="stuList[${status.index}].classno" value="${stu.classno}"></td>
 	                  <td>${stu.gender}<input type="hidden" id="gender${status.index}" name="stuList[${status.index}].gender" value="${stu.gender}" readonly="readonly"></td>
-	                  <td><input type="text" id="likeid${status.index}" name="stuList[${status.index}].likeid" value="${stu.likeid}" style="width:100%"></td>
 	                  <td><input type="text" id="hateid${status.index}" name="stuList[${status.index}].hateid" value="${stu.hateid}" style="width:100%"></td>
 	                  <td><button type="button" class="btn btn-block btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger" onclick="send('${status.index}');">적용</button></td>
 	                </tr>
@@ -199,7 +197,6 @@ function send(index){
 	var age = '#age'+index;
 	var classno = '#classno'+index;
 	var gender = '#gender'+index;
-	var likeid = '#likeid'+index;
 	var hateid = '#hateid'+index;
 	$.ajax({
         url: "autoSplit",
@@ -210,7 +207,6 @@ function send(index){
         	age 	: $(age).val(),
         	classno : $(classno).val(),
         	gender 	: $(gender).val(),
-        	likeid 	: $(likeid).val(),
         	hateid 	: $(hateid).val()
         },
         success: function(result){	

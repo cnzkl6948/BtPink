@@ -42,7 +42,6 @@ CREATE TABLE student(
 	gender		VARCHAR2(50)	NOT NULL,
 	parentno	VARCHAR2(50),
 	personalid	varchar2(200),
-	likeid		varchar2(100),
 	hateid		varchar2(100)
 );
 

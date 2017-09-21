@@ -29,7 +29,6 @@
 	#{gender},
 	#{parentno},
 	#{personalid},
-	#{likeid},
 	#{hateid}
 	)
 </insert>
@@ -45,7 +44,7 @@
 
 <update id="changeStuHogam" parameterType="Student">
 	update student 
-	set likeid = #{likeid}, hateid=#{hateid} 
+	set hateid=#{hateid} 
 	where stdno = #{stdno}
 </update>
 </mapper>

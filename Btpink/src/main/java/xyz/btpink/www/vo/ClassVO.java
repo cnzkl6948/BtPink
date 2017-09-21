@@ -2,11 +2,16 @@ package xyz.btpink.www.vo;
 
 public class ClassVO {
 
-	String classNo;
-	String className;
-	String capa;
-	String memNo;
-	int age;
+	private String classNo;
+	private String className;
+	private String capa;
+	private String memNo;
+	private int age;
+	private int boyCapa;
+	private int girlCapa;
+	private int boy;
+	private int girl;
+	
 	
 	public ClassVO(){}
 	
@@ -18,6 +23,51 @@ public class ClassVO {
 		this.capa = capa;
 		this.memNo = memNo;
 		this.age = age;
+	}
+
+	
+	
+
+
+
+
+	public int getBoyCapa() {
+		return boyCapa;
+	}
+
+
+	public void setBoyCapa(int boyCapa) {
+		this.boyCapa = boyCapa;
+	}
+
+
+	public int getGirlCapa() {
+		return girlCapa;
+	}
+
+
+	public void setGirlCapa(int girlCapa) {
+		this.girlCapa = girlCapa;
+	}
+
+
+	public int getBoy() {
+		return boy;
+	}
+
+
+	public void setBoy(int boy) {
+		this.boy = boy;
+	}
+
+
+	public int getGirl() {
+		return girl;
+	}
+
+
+	public void setGirl(int girl) {
+		this.girl = girl;
 	}
 
 
