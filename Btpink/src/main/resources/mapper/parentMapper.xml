@@ -45,5 +45,17 @@
 		and p.MEMNO = #{memNo}
 	</select>
 	
+	
+	<select id="getClassName" parameterType="string" resultType="string">
+		select DISTINCT classname
+		from CLASS
+		where CLASSNO in (select s2.CLASSNO 
+					from student s2, parent p
+					where s2.stdno = p.stdno
+					and p.MEMNO in (select DISTINCT a.MEMNO
+		                	    from ACCOUNT a 
+		                	    WHERE a.ID= #{parentId}
+		    ))
+	</select>
 
 </mapper>
