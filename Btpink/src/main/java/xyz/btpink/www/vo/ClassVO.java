@@ -6,12 +6,12 @@ public class ClassVO {
 	String className;
 	String capa;
 	String memNo;
-	String age;
+	int age;
 	
 	public ClassVO(){}
 	
 
-	public ClassVO(String classNo, String className, String capa, String memNo, String age) {
+	public ClassVO(String classNo, String className, String capa, String memNo, int age) {
 		super();
 		this.classNo = classNo;
 		this.className = className;
@@ -21,12 +21,12 @@ public class ClassVO {
 	}
 
 
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
 
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 

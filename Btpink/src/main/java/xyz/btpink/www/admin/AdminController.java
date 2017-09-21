@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -385,7 +384,15 @@ public class AdminController {
 		
 		//classList 불러옴
 		ArrayList<ClassVO> classList = cdao.allClass();
+		ArrayList<ClassVO> class5 = new ArrayList<>();
+		ArrayList<ClassVO> class6 = new ArrayList<>();
+		ArrayList<ClassVO> class7 = new ArrayList<>();
 		
+		for(ClassVO c : classList){
+			if(c.getAge() == 5){
+				
+			}
+		}
 		
 		return "redirect:autoSplit";
 	}
