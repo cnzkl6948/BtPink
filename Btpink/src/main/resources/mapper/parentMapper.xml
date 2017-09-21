@@ -19,7 +19,9 @@
 			demandnum
 			, stdno
 			, demandsubject
+		 <if test="attend != null">
 			, attend
+		</if>
 			, startdate
 			, enddate
 			, demandcontent
@@ -27,9 +29,11 @@
 		)
 		values(
 			demand_seq.nextval
-			, #{stdNo}
+			, #{stdno}
 			, #{demandsubject}
+			<if test="attend != null">
 			, #{attend}
+			</if>
 			, to_date(#{startdate}, 'MM/DD/YYYY')
 			, to_date(#{enddate}, 'MM/DD/YYYY')
 			, #{demandcontent}
