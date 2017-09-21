@@ -32,6 +32,12 @@ public class StudentDAO {
 		}
 		return result;
 	}
+	
+	public ArrayList<String> getStdno(String classno){
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		ArrayList<String> result = mapper.getStdno(classno);
+		return result;
+	}
 
 	public ArrayList<Student> joinCheck(Student student) {
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);

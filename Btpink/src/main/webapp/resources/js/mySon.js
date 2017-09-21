@@ -59,7 +59,7 @@ function formDemandCheck() {
 			alert("주제를 선택해주세요.");
 			return false;
 		}
-		return true;
+		
 		//내용 유효성 검사
 		if (content.value.length < 5) {
 			alert("내용은 5글자 이상 쓰시오.");

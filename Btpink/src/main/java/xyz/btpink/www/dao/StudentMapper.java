@@ -16,7 +16,13 @@ public interface StudentMapper {
 	
 	public int insertStudent(Student student);
 	
+<<<<<<< HEAD
 	public int update(Student stu);
+=======
+	public int updateStdno(String personID);
+	
+	public ArrayList<String> getStdno(String classno);
+>>>>>>> f10e6eec9c8045a9fe40ef569089758dc8406acf
 
 	public ArrayList<Student> allStuList();
 	
