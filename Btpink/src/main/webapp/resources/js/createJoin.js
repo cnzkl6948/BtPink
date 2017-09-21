@@ -118,7 +118,11 @@ function login() {
 			success : function(result) {
 				// SelectStudent background-color: #337ab7
 				if (result != "") {
-					document.getElementById('joinSubmit').submit();
+					if (result.status == "0") {
+						alert("회원승인을 기다리세요..");
+					} else {
+						document.getElementById('joinSubmit').submit();
+					}
 				} else {
 					alert("회원정보가 없습니다.")
 				}
@@ -126,3 +130,18 @@ function login() {
 		});
 	}
 }
+
+//엔터키!!
+//function loginEnter() {
+//	if (event.keyCode == 13) {
+//		// TODO : login
+//		login();
+//	}
+//}
+//function joinEnter() {
+//	if (event.keyCode == 13) {
+//		// TODO : login
+//		join();
+//	}
+//}
+

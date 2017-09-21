@@ -30,4 +30,30 @@
 		select * from account where
 		id= #{id} and pw = #{pw}
 	</select>
+	<select id="accountCheck" resultType="Aapply">
+		select  a.memno,a.id as id,a.name as parentName, s.name as studentname,a.phone as tell, a.status
+		from
+  			(
+  			select * 
+    		from 
+    			account 
+ 		 ) a, student s
+  		where 
+  			a.memno = s.parentno
+      	order by 
+      		status asc
+	</select>
+	<update id="signUpdate" parameterType="Account">
+		update 
+			account 
+		set 
+		<if test="status == 0">
+			status = 1
+		</if>
+		<if test="status == 1">
+			status = 0
+		</if>			
+		where
+			memno = #{memNo}
+	</update>
 </mapper>
