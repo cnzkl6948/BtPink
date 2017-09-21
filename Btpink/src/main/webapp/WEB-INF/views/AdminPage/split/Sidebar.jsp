@@ -22,7 +22,7 @@
       <li><a href="PCheck"><i class="fa fa-qq"></i> <span>인원확인</span></a></li>
       <li><a href="Sapply"><i class="fa fa-plus-square"></i> <span>학생등록</span></a></li>
       <li><a href="emotionCal"><i class="fa fa-calendar"></i> <span>감정달력</span></a></li>
-      <li><a href="autoSplit"><i class="fa fa-plus-square"></i>자동 반 배정</a></li>
+      <c:if test="${User.type == 'admin' }">
       <li class="treeview">
           <a href="#">
             <i class="fa fa-folder"></i> <span>관리자 메뉴</span>
@@ -33,8 +33,10 @@
           <ul class="treeview-menu">
             <li><a href="Aapply"><i class="fa fa-circle-o"></i> 회원 가입 승인</a></li>
             <li><a href="classManagement"><i class="fa fa-circle-o"></i> 반 관리</a></li>
+            <li><a href="autoSplit"><i class="fa fa-plus-square"></i>자동 반 배정</a></li>
           </ul>
         </li>
+        </c:if>
       </ul>
     </section>
     <!-- /.sidebar -->

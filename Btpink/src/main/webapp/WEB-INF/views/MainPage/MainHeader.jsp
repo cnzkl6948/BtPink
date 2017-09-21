@@ -85,7 +85,8 @@
 								aria-hidden="true"></i> <span>선생님 소개</span></a>
 						<li class=" dropdown megaDropMenu color-2 "><a
 							href="course-single" class="dropdown-toggle"> <i
-								class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i> <span>교육 과정 소개</span>
+								class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i> <span>교육
+									과정 소개</span>
 						</a></li>
 						<li class="dropdown singleDrop color-4 "><a href="listNotice"
 							class="dropdown-toggle"> <i
@@ -93,25 +94,23 @@
 								<span>공지사항</span>
 						</a></li>
 
-						<c:choose>
-							<c:when test="${User.type == 'p' }">
-								<li class="dropdown singleDrop color-5  "><a
-									href="getBus" class="dropdown-toggle">
-										<i class="fa fa-calendar bg-color-5" aria-hidden="true"></i> <span>버스 위치</span>
-								</a></li>
-								<li class="dropdown singleDrop color-1   active ">
-									<a href="MySon" class="dropdown-toggle"> 
-										<i class="fa fa-home bg-color-1" aria-hidden="true"></i> 
-										<span>내 아이 정보</span>
-									</a>
-								</li>
-							</c:when>
-							<c:when test="${User.type == 't' }">
-								<li class="dropdown singleDrop color-6 "><a
-									href="adminPage" class="dropdown-toggle"> <i
-										class="fa fa-gg bg-color-6" aria-hidden="true"></i> <span>선생님 페이지</span></a></li>
-							</c:when>
-						</c:choose>
+						<c:if test="${User.type == 'p' or User.type == 'admin' }">
+							<li class="dropdown singleDrop color-5  "><a href="getBus"
+								class="dropdown-toggle"> <i
+									class="fa fa-calendar bg-color-5" aria-hidden="true"></i> <span>버스
+										위치</span>
+							</a></li>
+							<li class="dropdown singleDrop color-1   active "><a
+								href="MySon" class="dropdown-toggle"> <i
+									class="fa fa-home bg-color-1" aria-hidden="true"></i> <span>내
+										아이 정보</span>
+							</a></li>
+						</c:if>
+						<c:if test="${User.type == 't' or User.type == 'admin'}">
+							<li class="dropdown singleDrop color-6 "><a href="adminPage"
+								class="dropdown-toggle"> <i class="fa fa-gg bg-color-6"
+									aria-hidden="true"></i> <span>선생님 페이지</span></a></li>
+						</c:if>
 					</ul>
 				</div>
 			</div>
@@ -119,7 +118,7 @@
 	</header>
 	<!-- CREATE ACCOUNT MODAL -->
 	<div class="modal fade customModal" id="createAccount" tabindex="-1"
-		role="dialog">
+		role="dialog" onkeypress=" if(event.keyCode==13) {join();}">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="panel panel-default formPanel">
@@ -222,8 +221,9 @@
 		</div>
 	</div>
 	<!-- LOGIN MODAL -->
+
 	<div class="modal fade customModal" id="loginModal" tabindex="-1"
-		role="dialog">
+		role="dialog" onkeypress=" if(event.keyCode==13) {login();}">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="panel panel-default formPanel">

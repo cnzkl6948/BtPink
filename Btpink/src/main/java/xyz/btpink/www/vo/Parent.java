@@ -28,10 +28,13 @@ public class Parent extends Account {
 
 
 
+
+
+
 	@Override
-	public void setMemNno(String memNo) {
+	public void setMemNo(String memNo) {
 		// TODO Auto-generated method stub
-		super.setMemNno(memNo);
+		super.setMemNo(memNo);
 	}
 
 

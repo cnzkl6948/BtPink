@@ -10,4 +10,8 @@
 		select * from class where
 		memno= #{memNo}
 	</select>
+	
+	<select id="allClass" resultType="ClassVO">
+		select * from class
+	</select>
 </mapper>

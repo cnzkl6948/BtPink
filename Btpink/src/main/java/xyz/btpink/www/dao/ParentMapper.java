@@ -19,4 +19,6 @@ public interface ParentMapper {
 	public int insertDemand(Demand demand);
 
 	public Demand getStdInfo(Account account);
+	
+	public String getClassName(String parentId);
 }

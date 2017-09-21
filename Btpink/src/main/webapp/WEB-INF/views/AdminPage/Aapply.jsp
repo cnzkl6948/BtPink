@@ -1,13 +1,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ include file="split/Head.jsp"%>
+<link rel="stylesheet"
+	href="./resources/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+
 <style>
 .main-header {
-	z-index: 9; 
+	z-index: 9;
 }
+
 .main-sidebar {
-	z-index: 8; 
+	z-index: 8;
 }
 </style>
 <%@ include file="split/Header.jsp"%>
@@ -30,88 +35,54 @@
 	<div class="row">
 		<section class="col-lg-6 connectedSortable">
 			<div class="col-lg-12">
-				<!-- Horizontal Form -->
-				<div class="box box-danger">
-					<div class="box-header with-border">
-						<h3 class="box-title">학생등록</h3>
-					</div>
-					<!-- /.box-header -->
-					<!-- form start -->
-					<form id="formId">
-<!-- 					<form class="form-horizontal" id="formId" action="Sapply" -->
-<!-- 						method="POST" role="form"> -->
+
+
+				<div class="col-lg-12">
+					<div class="box">
+						<div class="box-header">
+							<h3 class="box-title">Hover Data Table</h3>
+						</div>
+						<!-- /.box-header -->
 						<div class="box-body">
-							<div class="form-group">
-								<label for="name" class="col-sm-2 control-label">이름</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="name" name="name"
-										placeholder="이름">
-								</div>
-								<label class="col-sm-2 control-label">성별</label>
-								<div class="col-sm-3 radio">
-									<label for="optionsRadios1"> <input type="radio"
-										name="gender" id="optionsRadios1" value="M" checked> 남
-									</label> <label for="optionsRadios2"> <input type="radio"
-										name="gender" id="optionsRadios2" value="W"> 여
-									</label>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="classno" class="col-sm-2 control-label">반 이름</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="classno"
-										name="classno" placeholder="반 이름">
-								</div>
-								<label for="height" class="col-sm-2 control-label">키</label>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" id="height"
-										name="height" placeholder="키(cm)">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="birth" class="col-sm-2 control-label">생일</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control pull-right" name="birth"
-										id="datepicker">
-								</div>
-<!-- 								<label for="glass" class="col-sm-2 control-label">안경</label> -->
-<!-- 								<div class="col-sm-3"> -->
-<!-- 									<div class="checkbox"> -->
-<!-- 										<label><input type="checkbox" name="glass" value=1>O X</label> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-							</div>
-							<div class="form-group">
-								<label for="address" class="col-sm-2 control-label">주소</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" id="address"
-										name="address" placeholder="주소">
-								</div>
-							</div>
-							<div class="form-group">
-								<input type="file" class="col-sm-12" id="uploadImage"
-									name="file" />
-								<div class="col-sm-12" id="preview">
-									<img id="imagePreview" src="#" alt="" width="450"
-										height="337.5" /> <input type="hidden" id="imgSelect"
-										value="notyet">
-								</div>
-							</div>
-							
- 							<input type="hidden" id="personalid" name="personalid"/>
-  							<input type="hidden" id="stdno" name="stdno"/>
-											
+							<table id="example2" class="table table-bordered table-hover"
+								style="text-align: center;">
+								<thead>
+									<tr>
+										<th>부모 ID</th>
+										<th>부모 이름</th>
+										<th>학생 이름</th>
+										<th>전화 번호</th>
+										<th>가입 날짜</th>
+										<th>승인 여부</th>
+									</tr>
+								</thead>
+								<tbody id="tableBody">
+									<c:forEach items="${AapplyList}" var="list">
+										<tr>
+											<td>${list.id }</td>
+											<td>${list.parentName }</td>
+											<td>${list.studentName }</td>
+											<td>${list.tell }</td>
+											<td>${fn:substring(list.memNo,1,9)}</td>
+											<td id="${list.memNo}"><c:if
+													test="${list.status =='0' }">
+													<button type="button" class="btn btn-block btn-primary"
+														onclick="javascript:sign('${list.memNo}','${list.status}')">승인</button>
+												</c:if> <c:if test="${list.status =='1' }">
+													<button type="button" class="btn btn-block btn-danger"
+														onclick="javascript:sign('${list.memNo}','${list.status}')">비승인</button>
+												</c:if></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
 						</div>
-						<div class="box-footer">
-							<button type="reset" class="btn btn-default">취소</button>
-							<button type="button" class="btn btn-danger pull-right" onclick="formcheck()">등록</button>
-<!-- 							<button type="submit" class="btn btn-danger pull-right">등록</button> -->
-<!-- 							<button type="button" class="btn btn-danger pull-right" onclick="addFace()">테스트</button> -->
-							
-						</div>
-						<!-- /.box-footer -->
-					</form>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
 				</div>
+
+
 			</div>
 		</section>
 
@@ -170,8 +141,8 @@
 				</div>
 				<!-- /.box -->
 				<button type="button" class="btn btn-block btn-danger"
-					data-toggle="modal" data-target="#modal-danger" onclick="formcheck()">
-					등록</button>
+					data-toggle="modal" data-target="#modal-danger"
+					onclick="formcheck()">등록</button>
 				<button type="button" class="btn btn-block btn-default"
 					onclick="cancel()">취소</button>
 				<div class="modal modal-danger fade" id="modal-danger">
@@ -199,50 +170,38 @@
 <!-- /.content-wrapper -->
 
 <%@ include file="split/Footer.jsp"%>
-<script src="./resources/AdminLTE/js/sapply.js"></script>
-<script type="text/javascript"
-	src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+<!-- ChartJS -->
+<script src="./resources/AdminLTE/bower_components/chart.js/Chart.js"></script>
+<!-- DataTables -->
+<script
+	src="./resources/AdminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script
+	src="./resources/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
-$(function(){
-	//Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    })
-});
-
-function formcheck(){
-	if($('#name').val() === ""){
-		alert('이름을 작성해 주세요');
-// 		return false;
+	$('#example2').DataTable();
+	function sign(memNo, status) {
+		$.ajax({
+			url : "sign",
+			type : "post",
+			data : {
+				'memNo' : memNo,
+				'status' : status
+			},
+			success : function(account) {
+				// SelectStudent background-color: #337ab7
+				var text = '';
+			
+					if(status =='1'){
+						text +='<button type="button" class="btn btn-block btn-primary"'
+							text +='onclick="javascript:sign(\'' +memNo+'\',\''+0+'\')">승인</button>'						
+					}else{
+						text +='<button type="button" class="btn btn-block btn-danger"'
+						text +='onclick="javascript:sign(\'' +memNo+'\',\''+1+'\')">비승인</button>'
+					}
+				$('#'+memNo).html(text);
+			}
+		});
 	}
-	else if($('#classno').val() === ""){
-		alert('반 이름을 작성해 주세요');
-// 		return false;
-	}
-	else if($('#height').val() === ""){
-		alert('키를 작성해 주세요');
-// 		return false;
-	}
-	else if($('#birth').val() === ""){
-		alert('생일을 작성해 주세요');
-// 		return false;
-	}
-	else if($('#address').val() === ""){
-		alert('주소를 작성해 주세요');
-// 		return false;
-	}
-	else if($('#imgSelect').val() === "notyet"){
-		alert('사진을 넣어 주세요');
-// 		return false;
-	}
-	
-	else{
-	apper();
-    }
-
-};
-
-
 </script>
 </body>
 </html>

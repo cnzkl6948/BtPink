@@ -1,12 +1,8 @@
 package xyz.btpink.www.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import org.apache.ibatis.session.RowBounds;
-
-import xyz.btpink.www.vo.Parent;
-import xyz.btpink.www.vo.Student;
-import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.Student;
 /**
  * 게시판 관련 Mybatis 사용 메서드
@@ -24,4 +20,7 @@ public interface StudentMapper {
 	
 	public ArrayList<String> getStdno(String classno);
 
+	public ArrayList<Student> allStuList();
+	
+	public int changeStuHogam(Student stu);
 }

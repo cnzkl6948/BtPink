@@ -51,6 +51,7 @@ CREATE TABLE class(
 	classno 	VARCHAR2(50)	PRIMARY KEY,
 	classname	VARCHAR2(50)	NOT NULL,
 	capa		NUMBER		NOT NULL,
+	age		NUMBER,
 	memno		VARCHAR2(50)	CONSTRAINT CLASS_FK REFERENCES account(memno) -- teacher의 memno
 );
 
@@ -98,15 +99,47 @@ INSERT INTO account
 VALUES ('T201709071604', 't4', 't', 't4', 't4', 't4@admin.com', '010-9299-0044', 1);
 INSERT INTO teacher
 VALUES ('T201709071604','E');
+INSERT INTO account
+VALUES ('T201709071605', 't5', 't', 't5', 't5', 't5@admin.com', '010-9299-0044', 1);
+INSERT INTO teacher
+VALUES ('T201709071605','E');
+INSERT INTO account
+VALUES ('T201709071606', 't6', 't', 't6', 't6', 't6@admin.com', '010-9299-0044', 1);
+INSERT INTO teacher
+VALUES ('T201709071606','E');
+INSERT INTO account
+VALUES ('T201709071607', 't7', 't', 't7', 't7', 't7@admin.com', '010-9299-0044', 1);
+INSERT INTO teacher
+VALUES ('T201709071607','E');
+INSERT INTO account
+VALUES ('T201709071608', 't8', 't', 't8', 't8', 't8@admin.com', '010-9299-0044', 1);
+INSERT INTO teacher
+VALUES ('T201709071608','E');
+INSERT INTO account
+VALUES ('T201709071609', 't9', 't', 't9', 't9', 't9@admin.com', '010-9299-0044', 1);
+INSERT INTO teacher
+VALUES ('T201709071609','E');
+
+INSERT INTO class
+VALUES ('c1', '햇살', 16, 'T201709071601');
+INSERT INTO class
+VALUES ('c2', '바람', 16, 'T201709071602');
+INSERT INTO class
+VALUES ('c3', '토끼', 16, 'T201709071603');
 
 INSERT INTO class
 VALUES ('c4', '요괴', 17, 'T201709071604');
 INSERT INTO class
-VALUES ('c1', '햇살', 16, 'T201709071601');
+VALUES ('c5', '하늘', 17, 'T201709071605');
 INSERT INTO class
-VALUES ('c2', '무늬', 15, 'T201709071602');
+VALUES ('c6', '구름', 17, 'T201709071606');
+
 INSERT INTO class
-VALUES ('c3', '토기', 17, 'T201709071603');
+VALUES ('c7', '나무', 18, 'T201709071607');
+INSERT INTO class
+VALUES ('c8', '풀잎', 18, 'T201709071608');
+INSERT INTO class
+VALUES ('c9', '열매', 18, 'T201709071609');
 
 INSERT INTO account
 VALUES ('P201709071658', '엄마1', 'p', 'p1', 'p1', 'p1@admin.com', '010-9299-0044', 1);

@@ -87,7 +87,7 @@
 							</h2>
 						</div>
 						<div class="homeContactContent">
-						<form action="writeDemand" method="post" role="form" id="writeform" enctype="multipart/form-data" onsubmit="return formCheck();">
+						<form action="writeDemand" method="post" role="form" id="writeform" enctype="multipart/form-data" onsubmit="return formDemandCheck();">
 							<div class="col-sm-6 col-xs-12">
 								<div class="form-group">
 									<i class="fa fa-book" aria-hidden="true"></i> <select
@@ -98,7 +98,7 @@
 										<option value="food">음식</option>
 										<option value="medicine">약</option>
 										<option value="friends">교우관계</option>
-										<option value="attendence" id="attendence">출석</option>
+										<option value="attendence" >출석</option>
 										<option value="etc">기타</option>
 									</select>
 								</div>
@@ -108,8 +108,7 @@
 								<div class="form-group">
 									<i class="fa fa-user" aria-hidden="true"></i> <input
 										type="text" class="form-control border-color-1"
-										id="parentId" name="parentId" readonly="readonly"
-										value="${User.name}">
+										readonly="readonly" value="${className}">
 								</div>
 							</div>
 
@@ -240,6 +239,9 @@
 	      }
 	    }) 
   })  
+  
+  
+  
 </script>
 </body>
 </html>

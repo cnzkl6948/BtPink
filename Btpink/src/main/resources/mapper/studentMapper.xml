@@ -43,4 +43,14 @@ select stdno from student where classno = #{classno}
 	update student set stdno = #{personID} where rownum = 1
 </update>
 
+<select id="allStuList" resultType="Student">
+	select *
+	from student
+</select>
+
+<update id="changeStuHogam" parameterType="Student">
+	update student 
+	set likeid = #{likeid}, hateid=#{hateid} 
+	where stdno = #{stdno}
+</update>
 </mapper>
