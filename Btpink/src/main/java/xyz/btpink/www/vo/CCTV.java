@@ -3,11 +3,11 @@ package xyz.btpink.www.vo;
 public class CCTV {
 	private String time;
 	private String classno;
-	private String count;
+	private int count;
 	public CCTV() {
 		super();
 	}
-	public CCTV(String time, String classno, String count) {
+	public CCTV(String time, String classno, int count) {
 		super();
 		this.time = time;
 		this.classno = classno;
@@ -26,10 +26,10 @@ public class CCTV {
 	public void setClassno(String classno) {
 		this.classno = classno;
 	}
-	public String getCount() {
+	public int getCount() {
 		return count;
 	}
-	public void setCount(String count) {
+	public void setCount(int count) {
 		this.count = count;
 	}
 	@Override
