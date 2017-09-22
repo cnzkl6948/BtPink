@@ -130,18 +130,19 @@ function login() {
 		});
 	}
 }
-
-//엔터키!!
-//function loginEnter() {
-//	if (event.keyCode == 13) {
-//		// TODO : login
-//		login();
-//	}
-//}
-//function joinEnter() {
-//	if (event.keyCode == 13) {
-//		// TODO : login
-//		join();
-//	}
-//}
-
+function className() {
+	
+	$.ajax({
+		url : "classCheck",
+		type : "post",
+		success : function(result) {
+			var text = '';
+			$.each(result, function(index, classData) {
+				text +='<option value="'+classData.classNo +'>'+classData.className +'</option>'
+			})
+		}
+	});
+	
+	$('#classno').html(text);
+	$('#createAccount').modal('toggle');
+}

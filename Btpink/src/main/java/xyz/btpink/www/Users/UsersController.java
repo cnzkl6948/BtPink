@@ -18,11 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import xyz.btpink.www.dao.AccountDAO;
 import xyz.btpink.www.dao.AttendenceDAO;
+import xyz.btpink.www.dao.ClassDAO;
 import xyz.btpink.www.dao.ParentDAO;
 import xyz.btpink.www.dao.StudentDAO;
 import xyz.btpink.www.dao.TeacherDAO;
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
+import xyz.btpink.www.vo.ClassVO;
 import xyz.btpink.www.vo.Parent;
 import xyz.btpink.www.vo.Student;
 import xyz.btpink.www.vo.Teacher;
@@ -39,7 +41,8 @@ public class UsersController {
 	AccountDAO accountDao;
 	@Autowired
 	AttendenceDAO attendenceDao;
-	
+	@Autowired
+	ClassDAO classDao;
 	private static final Logger logger = LoggerFactory.getLogger(UsersController.class);
 
 	// 로그인
@@ -125,4 +128,11 @@ public class UsersController {
 		System.out.println(ckList);
 		return "MySon";
 	}
+	@RequestMapping(value = "classCheck", method = RequestMethod.POST)
+	public @ResponseBody ArrayList<ClassVO>  classChek( Locale locale, Model model,HttpSession session) {
+		ArrayList<ClassVO> list=classDao.allClass();
+		session.setAttribute("cList", list);
+		return list;
+	}
+
 }

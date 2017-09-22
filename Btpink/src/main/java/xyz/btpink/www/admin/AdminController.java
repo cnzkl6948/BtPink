@@ -135,7 +135,9 @@ public class AdminController {
 
 		// String url =
 		// "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
-		String url = "https://suenghan.btpink.xyz/www/resources/Sapply/" + filename + ".jpg";
+//		String url = "https://suenghan.btpink.xyz/www/resources/Sapply/" + filename + ".jpg";
+//		String url = "https://dahuin.btpink.xyz/www/resources/Sapply/" + filename + ".jpg";
+		String url = "https://geonho.btpink.xyz/www/resources/Sapply/" + filename + ".jpg";
 
 		String[] array = { url, filename };
 

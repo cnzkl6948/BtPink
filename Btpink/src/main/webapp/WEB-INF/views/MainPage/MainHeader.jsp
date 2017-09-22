@@ -150,7 +150,10 @@
 											<div id="SelectStudent">
 												<div class="col-sm-8 col-xs-12">
 													<div class="dropGeneral border-color-3">
-														<select id="classno" class="select-drop">
+														<select id="classno">
+<%-- 															<c:forEach items="${cList }"> --%>
+<%-- 																<option value="${cList.classNo }">${ cList.className}</option> --%>
+<%-- 															</c:forEach> --%>
 															<option value="c1">A_Class</option>
 															<option value="c2">B_Class</option>
 															<option value="c3">C_Class</option>
@@ -163,7 +166,7 @@
 												id="studentSelectButton">
 												<button type="button" class="btn btn-xs btn-primary"
 													onclick="javascript:studentCheck()">학생확인</button>
-											</div>
+											</div> 
 										</div>
 									</div>
 								</div>
@@ -251,3 +254,13 @@
 			</div>
 		</div>
 	</div>
+<!-- 	<script type="text/javascript"> -->
+<!-- // 		$(document).ready(function() { -->
+<!-- // 			$.ajax({ -->
+<!-- // 				url : "classCheck", -->
+<!-- // 				type : "post", -->
+<!-- // 				success : function(result) { -->
+<!-- // 				} -->
+<!-- // 			}); -->
+<!-- // 		}); -->
+<!-- 	</script> -->

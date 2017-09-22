@@ -1,0 +1,5 @@
+끝점: https://westcentralus.api.cognitive.microsoft.com/face/v1.0
+
+키 1: 6bfd85c06c0b42b8bc879751a17f71bf //이거 사용
+
+키 2: cdd5461951f84dd58978b3854f5a5a5e
