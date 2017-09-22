@@ -4,12 +4,7 @@
 <%@ include file="split/Head.jsp"%>
 <%@ include file="split/Header.jsp"%>
 <%@ include file="split/Sidebar.jsp"%>
-<script>
-function test(){
-	alert($('input[name="chkbox"]').val());
-	
-}
-</script>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
@@ -52,45 +47,42 @@ function test(){
 									</tr>
 								</thead>
 								<tbody id="tableBody">
-									<c:forEach items="${list}" var="rrs">
-										<form name="atdCheck" method="POST" action="atdCheck" onsubmit="return test()">
+									<c:forEach items="${list}" var="rrs" varStatus="status">
 										<tr>
 											<td><input type="checkbox" class="checkthis" /></td>
-											<td>${rrs.stdno}</td>
-											<td>${rrs.name}</td>
+											<td>${rrs.stdno}<input type="hidden" id="stdno${status.index}" name="list[${status.index}].stdno" value="${rrs.stdno}" readonly="readonly"></td>
+											<td>${rrs.name}<input type="hidden" id="name${status.index}" name="list[${status.index}].name" value="${rrs.name}" readonly="readonly"></td>
 											<c:if test="${rrs.absent == 1}">
-												<td><input type="checkbox" name="chkbox" checked="checked" value="absent"></td>
+												<td><input type="checkbox" id="absent${status.index}" name="list[${status.index}].absent" checked="checked" value="absent"></td>
 											</c:if>
 											<c:if test="${rrs.absent == 0}">
-												<td><input type="checkbox" name="chkbox" value="0"></td>
+												<td><input type="checkbox" id="absent${status.index}" name="list[${status.index}].absent" value="absent"></td>
 											</c:if>
 											<c:if test="${rrs.early == 1}">
-												<td><input type="checkbox" name="chkbox" checked="checked" value="early"></td>
+												<td><input type="checkbox" id="early${status.index}" name="list[${status.index}].early" checked="checked" value="early"></td>
 											</c:if>
 											<c:if test="${rrs.early == 0}">
-												<td><input type="checkbox" name="chkbox" value="0"></td>
+												<td><input type="checkbox" id="early${status.index}" name="list[${status.index}].early" value="early"></td>
 											</c:if>
 											<c:if test="${rrs.sick == 1}">
-												<td><input type="checkbox" name="chkbox" checked="checked" value="sick"></td>
+												<td><input type="checkbox" id="sick${status.index}" name="list[${status.index}].sick" checked="checked" value="sick"></td>
 											</c:if>
 											<c:if test="${rrs.sick == 0}">
-												<td><input type="checkbox" name="chkbox" value="0"></td>
+												<td><input type="checkbox" id="sick${status.index}" name="list[${status.index}].sick" value="sick"></td>
 											</c:if>
 											<c:if test="${rrs.late == 1}">
-												<td><input type="checkbox" name="chkbox" checked="checked" value="1"></td>
+												<td><input type="checkbox" id="late${status.index}" name="list[${status.index}].late" checked="checked" value="late"></td>
 											</c:if>
 											<c:if test="${rrs.late == 0}">
-												<td><input type="checkbox" name="chkbox" value="0"></td>
+												<td><input type="checkbox" id="late${status.index}" name="list[${status.index}].late" value="late"></td>
 											</c:if>
-											<td><p data-placement="top" data-toggle="tooltip"
-													title="Edit">
-													<button class="btn btn-primary btn-xs" data-title="Edit"
-														type="submit">
+											<td><p data-placement="top" data-toggle="tooltip" title="Edit">
+													<button class="btn btn-primary btn-xs" onclick="send('${status.index}');">
 														<span class="glyphicon glyphicon-pencil"></span>
 													</button>
-												</p></td>
+												</p>
+											</td>
 										</tr>
-										</form>
 									</c:forEach>
 								</tbody>
 							</table>
@@ -163,6 +155,12 @@ function test(){
 					onclick="formcheck()">등록</button>
 				<button type="button" class="btn btn-block btn-default"
 					onclick="cancel()">취소</button>
+					
+					<label for="birth" class="col-sm-2 control-label">생일</label>
+								<div class="col-sm-5">
+									<input type="text" class="form-control pull-right" name="birth"
+										id="datepicker">
+								</div>
 				<div class="modal modal-danger fade" id="modal-danger">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -193,5 +191,64 @@ function test(){
 <script src="./resources/AdminLTE/js/sapply.js"></script>
 <script type="text/javascript"
 	src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+	
+	
+<script>
+$(function(){
+	//Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    })
+});
+
+
+function send(index){
+	var stdno = '#stdno'+index;
+	var name = '#name'+index;
+	var absent = '#absent'+index;
+	var early = '#early'+index;
+	var sick = '#sick'+index;
+	var late = '#late'+index;
+	
+	var absentD = 'n';
+	var earlyD = 'n';
+	var sickD = 'n';
+	var lateD = 'n';
+	
+	if($(absent).is(":checked")){
+		absentD = $(absent).val();
+	}
+	if($(early).is(":checked")){
+		earlyD = $(early).val();
+	}	
+	if($(sick).is(":checked")){
+		sickD = $(sick).val();
+	}	
+	if($(late).is(":checked")){
+		lateD = $(late).val();
+	}
+	
+	
+	$.ajax({
+        url: "atdCheck",
+        type: "POST",
+        data: {
+        	stdno 	: $(stdno).val(),
+        	name 	: $(name).val(),
+        	absent : absentD,
+    		early : earlyD,
+    		sick : sickD,
+    		late : lateD
+        },
+        success: function(result){	
+        	alert('얏따');
+        	location.href='Slist';
+        }
+    });
+	
+	
+	
+}
+</script>
 </body>
 </html>
