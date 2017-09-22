@@ -58,7 +58,7 @@ CREATE TABLE class(
 CREATE TABLE cctv(
 	time		TIMESTAMP	PRIMARY KEY,
 	count		NUMBER		NOT NULL,
-	classno 	VARCHAR2(50)	CONSTRAINT CCTV_FK REFERENCES account(memno) 
+	classno 	VARCHAR2(50)	CONSTRAINT CCTV_FK REFERENCES class(classno) 
 );
 
 

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -111,13 +112,47 @@ public class AdminController {
 		return "succes";
 	}
 
-	// 반 관리 메뉴
-	@RequestMapping(value = "/classManagement", method = RequestMethod.GET)
-	public String classManagement(Locale locale, Model model) {
-		logger.info("Go! classManagement");
-		return "AdminPage/classManagement";
-	}
-
+	// 반 등록 후에 admincontroller로 이동시킬것
+		@RequestMapping(value = "classInsert", method = RequestMethod.GET)
+		public String classManagement(Locale locale, Model model,  ClassVO cla) {
+			logger.info("Go! classInsert");
+			int classNo = cdao.selectNextClassNo();
+			cla.setClassNo("c"+classNo);
+			System.out.println(cla);
+			int result = cdao.classInsert(cla);
+			System.out.println(result);
+			return "redirect:/classManagement";
+		}
+		
+		//반이름 중복검사
+		@RequestMapping(value = "classNameCheck", method = RequestMethod.GET)
+		public @ResponseBody String classNameCheck(ClassVO cla, Locale locale, Model model) {
+			System.out.println(cla);
+			ClassVO checkedClass = cdao.duplicateNameCheck(cla);
+			try{
+				return checkedClass.getClassName();
+			}catch(Exception e){
+				return "1";
+			}
+		}
+		
+		//선생님이름으로 정보 불러오기
+		@RequestMapping(value = "teacherNameCheck", method = RequestMethod.GET)
+		public @ResponseBody ArrayList<Account> teacherNameCheck(Account aco, Locale locale, Model model) {
+			System.out.println(aco);
+			ArrayList<Account> checkedTeacher = accdao.duplicateTeacherCheck(aco);
+			return checkedTeacher;
+		}
+		
+		//반 관리 메뉴
+		@RequestMapping(value = "/classManagement", method = RequestMethod.GET)
+		public String classManagement(Locale locale, Model model) {
+			logger.info("Go! classManagement");
+			ArrayList<ClassVO> claList = cdao.allClassList();
+			model.addAttribute("claList", claList);
+			return "AdminPage/classManagement";
+		}
+		
 	// 학생등록
 	@RequestMapping(value = "/Sapply", method = RequestMethod.GET)
 	public String Sapply(Locale locale, Model model) {
@@ -274,8 +309,17 @@ public class AdminController {
 
 	// 감정달력
 	@RequestMapping(value = "/emotionCal", method = RequestMethod.GET)
-	public String emotionCal(Locale locale, Model model) {
+	public String emotionCal(Locale locale, Model model, HttpSession session) {
 		logger.info("Go! emotionCal");
+		Account ac = (Account) session.getAttribute("User");
+		System.out.println(ac);
+		//선생의 클래스 가져오기
+		ClassVO cla = cdao.selectClass(ac.getMemNo());
+		
+		//학생 목록 가져오기
+		ArrayList<Student> stuList = sdao.selectStu(cla.getClassNo());
+		
+		model.addAttribute("stuList", stuList);
 		return "AdminPage/emotionCal";
 	}
 
@@ -353,6 +397,66 @@ public class AdminController {
 		System.out.println(emotion);
 		model.addAttribute("emotionEvent", emotion);
 		return "AdminPage/emotionCal";
+	}
+	//반 배정 초기값 불러오기
+	@RequestMapping(value = "/manualSplit", method = RequestMethod.GET)
+	public String manualSplit(Locale locale, Model model, HttpSession session)  {
+		logger.info("GoGoGo! manualSplit");
+		ArrayList<Student> stuList = sdao.allStuList(); 
+		int allCount = stuList.size();
+		int count5 = 0;
+		int count6 = 0;
+		int count7 = 0;
+		int mCount5 = 0;
+		int mCount6 = 0;
+		int mCount7 = 0;
+		int wCount5 = 0;
+		int wCount6 = 0;
+		int wCount7 = 0;
+		
+		for(Student s : stuList){
+			if(s.getAge() == 5){
+				count5++;
+				if(s.getGender().equals("M")){
+					mCount5++;
+				}else wCount5++;
+			}else if(s.getAge() == 6){
+				count6++;
+				if(s.getGender().equals("M")){
+					mCount6++;
+				}else wCount6++;
+			}else{
+				count7++;
+				if(s.getGender().equals("M")){
+					mCount7++;
+				}else wCount7++;
+			}
+		}
+		
+		System.out.println("allCount : "+allCount+" , count5 : "+count5+" , count6 : "+count6+" , count7 : "+count7+" , mcount5 : "+mCount5+" , mCount6 : "+mCount6+" , mCount7 : "+mCount7+" , wCount5 : "+wCount5+" , wCount6 : "+wCount6+" , wCount7 : "+wCount7);
+		
+		model.addAttribute("stuList", stuList);
+		model.addAttribute("allCount", allCount);
+		model.addAttribute("count5", count5);
+		model.addAttribute("count6", count6);
+		model.addAttribute("count7", count7);
+		model.addAttribute("mCount5", mCount5);
+		model.addAttribute("mCount6", mCount6);
+		model.addAttribute("mCount7", mCount7);
+		model.addAttribute("wCount5", wCount5);
+		model.addAttribute("wCount6", wCount6);
+		model.addAttribute("wCount7", wCount7);
+		
+		return "AdminPage/manualSplit";
+	}
+	
+	@RequestMapping(value = "/manualSplit", method = RequestMethod.POST)
+	public @ResponseBody String manualSplitPost(Student stu, Locale locale, Model model, HttpSession session)  {
+		logger.info("GoGoGo! manualSplit");
+		
+		sdao.updateA(stu);
+		
+		return "AdminPage/manualSplit";
 	}
 	
 	//반 배정 초기값 불러오기
@@ -460,8 +564,8 @@ public class AdminController {
 								s3.setClassno(stu.getClassno());
 								stu.setClassno(cno);
 								System.out.println("교체선수 : " + s3);
-								sdao.update(s3);
-								sdao.update(stu);
+								sdao.updateA(s3);
+								sdao.updateA(stu);
 								result="성공";
 								System.out.println(result);
 								break;
@@ -499,7 +603,7 @@ public class AdminController {
 		}
 		
 		//5세 블랙리스트 없이 평등분배
-		int index = 0;
+		int index = (int) (Math.random()*class5.size());
 		for(Student s : stuList){
 			if(s.getAge()==5 && s.getGender().equals("M")){
 				s.setClassno(class5.get(index).getClassNo());
@@ -507,7 +611,7 @@ public class AdminController {
 				else index++;
 			}
 		}
-		index = 0;
+		index = (int) (Math.random()*class5.size());
 		for(Student s : stuList){
 			if(s.getAge()==5 && s.getGender().equals("W")){
 				s.setClassno(class5.get(index).getClassNo());
@@ -516,7 +620,7 @@ public class AdminController {
 			}
 		}
 		//6세 블랙리스트 없이 평등분배
-		index = 0;
+		index = (int) (Math.random()*class6.size());
 		for(Student s : stuList){
 			if(s.getAge()==6 && s.getGender().equals("M")){
 				s.setClassno(class6.get(index).getClassNo());
@@ -524,7 +628,7 @@ public class AdminController {
 				else index++;
 			}
 		}
-		index = 0;
+		index = (int) (Math.random()*class6.size());
 		for(Student s : stuList){
 			if(s.getAge()==6 && s.getGender().equals("W")){
 				s.setClassno(class6.get(index).getClassNo());
@@ -533,7 +637,7 @@ public class AdminController {
 			}
 		}
 		//7세 블랙리스트 없이 평등분배
-		index = 0;
+		index = (int) (Math.random()*class7.size());
 		for(Student s : stuList){
 			if(s.getAge()==7 && s.getGender().equals("M")){
 				s.setClassno(class7.get(index).getClassNo());
@@ -541,7 +645,7 @@ public class AdminController {
 				else index++;
 			}
 		}
-		index = 0;
+		index = (int) (Math.random()*class7.size());
 		for(Student s : stuList){
 			if(s.getAge()==7 && s.getGender().equals("W")){
 				s.setClassno(class7.get(index).getClassNo());
@@ -550,12 +654,44 @@ public class AdminController {
 			}
 		}
 		
-		//DB에 적용 stuList
-		for(Student s : stuList){
-			sdao.update(s);
-			System.out.println(s.getStdno());
+		
+		//각 반별 리스트가 저장될 student를 생성 
+		Student[] goDB = new Student[classList.size()];
+		//stdnolist가 저장될 list
+		ArrayList<String> list = new ArrayList<>();
+		Student dummy = new Student();
+		//1. 각 반별 목록을 저장한다. classList
+		
+		for(int i=0; i < classList.size(); i++){
+			for(Student s : stuList){
+				if(classList.get(i).getClassNo().equals(s.getClassno())){
+					list.add(s.getStdno());
+				}
+			}
+			dummy.setList(list);
+			dummy.setClassno(classList.get(i).getClassNo());
+			goDB[i] = dummy;
+			
+			list = new ArrayList<>();
+			dummy = new Student();
+		}
+		
+		
+		//2. db에 적용한다.
+		for(int i=0; i<goDB.length; i++){
+			sdao.update(goDB[i]);
 			Thread.sleep(50);
 		}
+		
+		//DB에 적용 stuList
+//		sdao.update(std5);
+		
+//		for(Student s : stuList){
+//			sdao.updateA(s);
+//			System.out.println(s.getStdno());
+//			Thread.sleep(50);
+//			
+//		}
 		
 		stuList = sdao.allStuList(); 
 		int allCount = stuList.size();

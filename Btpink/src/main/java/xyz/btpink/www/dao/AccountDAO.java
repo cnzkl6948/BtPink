@@ -50,4 +50,12 @@ public class AccountDAO implements AccountMapper {
 		
 	}
 	
+	public ArrayList<Account> duplicateTeacherCheck(Account aco) {
+		// TODO Auto-generated method stub
+		AccountMapper mapper = sqlSession.getMapper(AccountMapper.class);
+		ArrayList<Account> checkedTeacher = mapper.duplicateTeacherCheck(aco);
+		return checkedTeacher;
+	}
+	
+	
 }
