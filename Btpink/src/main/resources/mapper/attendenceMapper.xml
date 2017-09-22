@@ -24,4 +24,16 @@
 	insert into attendence values (#{stdno}, #{classno}, to_char(sysdate, 'yy/mm/dd'), 1, 0, 0, 0, '')
 </insert>
 
+
+
+<update id="updateCul" parameterType="Attendence">
+	update attendence
+	set		absent = ${absent}, early= ${early}, sick=${sick}, late=${late}
+	where  stdno = #{stdno}
+</update>
+
+
+
+
+
 </mapper>

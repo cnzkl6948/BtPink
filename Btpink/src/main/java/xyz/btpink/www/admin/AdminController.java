@@ -269,17 +269,33 @@ public class AdminController {
 	
 	//출석 변경
 	@RequestMapping(value="atdCheck", method = RequestMethod.POST)
-	public String atdCheck(String[] chkbox){
+	public @ResponseBody String atdCheck(Attendence attendence){
 		logger.info("Go! atdCheck!");
+		System.out.println(attendence);
 		
-		System.out.println(Arrays.toString(chkbox));
+		if(attendence.getAbsent().equals("n")) attendence.setAbsent("0");
+		else attendence.setAbsent("1");
 		
-		System.out.println(chkbox[0]);
-		System.out.println(chkbox[1]);
-		System.out.println(chkbox[2]);
-		System.out.println(chkbox[3]);
+		if(attendence.getEarly().equals("n")) attendence.setEarly("0");
+		else attendence.setEarly("1");
 		
-		return "AdminPage/Slist";
+		if(attendence.getLate().equals("n")) attendence.setLate("0");
+		else attendence.setLate("1");
+		
+		if(attendence.getSick().equals("n")) attendence.setSick("0");
+		else attendence.setSick("1");
+		
+		adao.updateCul(attendence);
+		
+		
+		
+//		System.out.println(Arrays.toString(ckdSend));
+//		for(int i=0; i < ckdSend.length; i++){
+//			
+//			System.out.println(ckdSend[i]);
+//		}
+//		
+		return "과연 성공할 것인가";
 		
 		
 	}
