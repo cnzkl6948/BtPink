@@ -36,13 +36,12 @@ CREATE TABLE student(
 	name		VARCHAR2(30)	NOT NULL,
 	age		NUMBER		NOT NULL,
 	height		NUMBER		NOT NULL,
-	classno		VARCHAR2(50)	NOT NULL,
+	classno		VARCHAR2(50)	,
 	birth		DATE		NOT NULL,
 	address		VARCHAR2(200)	NOT NULL,
 	gender		VARCHAR2(50)	NOT NULL,
 	parentno	VARCHAR2(50),
 	personalid	varchar2(200),
-	likeid		varchar2(100),
 	hateid		varchar2(100)
 );
 
