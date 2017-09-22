@@ -70,7 +70,13 @@ constraint classno_fk foreign key(classno) references class(classno)
 
 -- demandNum에 사용할 시퀀스
 drop sequence demand_seq;
-create sequence demand_seq start with 1 increment by 1;
+create sequence demand_seq start with 1 
+
+
+
+----classNo에 사용할 시퀀스
+drop sequence seq_classno;
+create sequence seq_classno start with 11; 
 
 
 commit;

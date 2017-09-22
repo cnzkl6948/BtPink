@@ -7,7 +7,7 @@ import xyz.btpink.www.vo.Attendence;
 public interface AttendenceMapper {
 	public ArrayList<Attendence> selectAtd(String classno);
 	
-	public ArrayList<Attendence> checkAtd();
+	public ArrayList<Attendence> checkAtd(String classno);
 	
 	public int insertInitAtd(Attendence atd);
 

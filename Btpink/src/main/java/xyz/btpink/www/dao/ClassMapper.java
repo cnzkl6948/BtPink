@@ -9,5 +9,8 @@ public interface ClassMapper {
 
 	public ClassVO selectClass(String memNo);
 	public ArrayList<ClassVO> allClass();
-
+	public ClassVO duplicateNameCheck(ClassVO cla);
+	public int selectNextClassNo();
+	public int classInsert(ClassVO cla);
+	public ArrayList<ClassVO> allClassList();
 }

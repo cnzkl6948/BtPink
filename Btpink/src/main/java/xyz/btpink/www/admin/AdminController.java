@@ -4,6 +4,7 @@ import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -111,13 +112,47 @@ public class AdminController {
 		return "succes";
 	}
 
-	// 반 관리 메뉴
-	@RequestMapping(value = "/classManagement", method = RequestMethod.GET)
-	public String classManagement(Locale locale, Model model) {
-		logger.info("Go! classManagement");
-		return "AdminPage/classManagement";
-	}
-
+	// 반 등록 후에 admincontroller로 이동시킬것
+		@RequestMapping(value = "classInsert", method = RequestMethod.GET)
+		public String classManagement(Locale locale, Model model,  ClassVO cla) {
+			logger.info("Go! classInsert");
+			int classNo = cdao.selectNextClassNo();
+			cla.setClassNo("c"+classNo);
+			System.out.println(cla);
+			int result = cdao.classInsert(cla);
+			System.out.println(result);
+			return "redirect:/classManagement";
+		}
+		
+		//반이름 중복검사
+		@RequestMapping(value = "classNameCheck", method = RequestMethod.GET)
+		public @ResponseBody String classNameCheck(ClassVO cla, Locale locale, Model model) {
+			System.out.println(cla);
+			ClassVO checkedClass = cdao.duplicateNameCheck(cla);
+			try{
+				return checkedClass.getClassName();
+			}catch(Exception e){
+				return "1";
+			}
+		}
+		
+		//선생님이름으로 정보 불러오기
+		@RequestMapping(value = "teacherNameCheck", method = RequestMethod.GET)
+		public @ResponseBody ArrayList<Account> teacherNameCheck(Account aco, Locale locale, Model model) {
+			System.out.println(aco);
+			ArrayList<Account> checkedTeacher = accdao.duplicateTeacherCheck(aco);
+			return checkedTeacher;
+		}
+		
+		//반 관리 메뉴
+		@RequestMapping(value = "/classManagement", method = RequestMethod.GET)
+		public String classManagement(Locale locale, Model model) {
+			logger.info("Go! classManagement");
+			ArrayList<ClassVO> claList = cdao.allClassList();
+			model.addAttribute("claList", claList);
+			return "AdminPage/classManagement";
+		}
+		
 	// 학생등록
 	@RequestMapping(value = "/Sapply", method = RequestMethod.GET)
 	public String Sapply(Locale locale, Model model) {
@@ -223,9 +258,6 @@ public class AdminController {
 		String memno = loginuser.getMemNo(); // 멤버 넘버 가져옴
 		ClassVO selClass = cdao.selectClass(memno); //멤버 넘버에 할당된 클래스 VO 가져옴
 		String classno = selClass.getClassNo(); //클래스 VO에 포함된 클래스 넘버 가져옴.
-	
-//		adao.initAtd(classno); // 출석부 표시전 초기 확인작업
-		
 		
 		ArrayList<Attendence> result = adao.selectAtd(classno); //해당 클래스 넘버에 해당된 출석 목록을 가져옴
 
@@ -233,6 +265,23 @@ public class AdminController {
 		model.addAttribute("list", result);
 
 		return "AdminPage/Slist";
+	}
+	
+	//출석 변경
+	@RequestMapping(value="atdCheck", method = RequestMethod.POST)
+	public String atdCheck(String[] chkbox){
+		logger.info("Go! atdCheck!");
+		
+		System.out.println(Arrays.toString(chkbox));
+		
+		System.out.println(chkbox[0]);
+		System.out.println(chkbox[1]);
+		System.out.println(chkbox[2]);
+		System.out.println(chkbox[3]);
+		
+		return "AdminPage/Slist";
+		
+		
 	}
 
 	// 인원확인

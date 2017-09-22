@@ -58,8 +58,8 @@
 					where s2.stdno = p.stdno
 					and p.MEMNO in (select DISTINCT a.MEMNO
 		                	    from ACCOUNT a 
-		                	    WHERE a.ID= #{parentId}
-		    ))
+		                	    WHERE a.ID= #{parentId})
+		    )
 	</select>
 
 </mapper>
