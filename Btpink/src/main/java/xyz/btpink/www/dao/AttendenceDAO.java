@@ -35,7 +35,7 @@ public ArrayList<Attendence> selectAtd(String classno){
 	public int initAtd(String classno){
 		AttendenceMapper mapper =sqlSession.getMapper(AttendenceMapper.class);
 		ArrayList<Attendence> result = new ArrayList<>();
-		result = mapper.checkAtd(); // 오늘 생성된 해당 반의 출석부 목록이 있는지 확인
+		result = mapper.checkAtd(classno); // 오늘 생성된 해당 반의 출석부 목록이 있는지 확인
 		System.out.println("출석부 목록 체크 결과 : "+result);
 		
 		int iresult = 0;
