@@ -29,19 +29,21 @@
 	#{gender},
 	#{parentno},
 	#{personalid},
-	#{likeid},
 	#{hateid}
 	)
 </insert>
+
+<update id="update" parameterType="Student">
+	update student 
+	set classno = #{classno} 
+	where stdno = #{stdno}
+</update>
 
 <!-- 학생 번호 가져오기 -->
 <select id ="getStdno" parameterType="String" resultType="String">
 select stdno from student where classno = #{classno}
 </select>
 
-<update id="updateStdno" parameterType="String">
-	update student set stdno = #{personID} where rownum = 1
-</update>
 
 <select id="allStuList" resultType="Student">
 	select *
@@ -50,7 +52,15 @@ select stdno from student where classno = #{classno}
 
 <update id="changeStuHogam" parameterType="Student">
 	update student 
-	set likeid = #{likeid}, hateid=#{hateid} 
+	set hateid=#{hateid} 
 	where stdno = #{stdno}
+</update>
+<update id="allClassnoNull">
+	update student 
+	set classno = null
+</update>
+<update id="allHateNull">
+	update student 
+	set hateid = null
 </update>
 </mapper>

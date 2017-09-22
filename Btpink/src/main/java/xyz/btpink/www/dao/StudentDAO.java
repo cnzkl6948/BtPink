@@ -28,6 +28,7 @@ public class StudentDAO {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("왜 에러일까");
 		}
 		return result;
 	}
@@ -58,9 +59,9 @@ public class StudentDAO {
 		// TODO Auto-generated method stub
 	}
 	
-	public int update(String stdno){
+	public int update(Student stu){
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
-		int result = mapper.updateStdno(stdno);
+		int result = mapper.update(stu);
 		return result;
 	}
 	
@@ -74,5 +75,13 @@ public class StudentDAO {
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
 		int result = mapper.changeStuHogam(stu);
 		return result;
+	}
+	public void allClassnoNull(){
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		mapper.allClassnoNull();
+	}
+	public void allHateNull(){
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		mapper.allHateNull();
 	}
 }

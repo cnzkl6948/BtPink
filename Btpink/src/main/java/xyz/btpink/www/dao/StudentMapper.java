@@ -16,11 +16,13 @@ public interface StudentMapper {
 	
 	public int insertStudent(Student student);
 	
-	public int updateStdno(String personID);
+	public int update(Student stu);
 	
 	public ArrayList<String> getStdno(String classno);
 
 	public ArrayList<Student> allStuList();
 	
 	public int changeStuHogam(Student stu);
+	public void allClassnoNull();
+	public void allHateNull();
 }
