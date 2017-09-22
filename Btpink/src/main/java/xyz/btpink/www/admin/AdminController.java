@@ -94,13 +94,13 @@ public class AdminController {
 		return "succes";
 	}
 
-	// 반 관리 메뉴
+/*	// 반 관리 메뉴
 	@RequestMapping(value = "/classManagement", method = RequestMethod.GET)
 	public String classManagement(Locale locale, Model model) {
 		logger.info("Go! classManagement");
 		return "AdminPage/classManagement";
 	}
-
+*/
 	// 학생등록
 	@RequestMapping(value = "/Sapply", method = RequestMethod.GET)
 	public String Sapply(Locale locale, Model model) {

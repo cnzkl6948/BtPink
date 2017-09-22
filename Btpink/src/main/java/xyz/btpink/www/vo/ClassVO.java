@@ -4,22 +4,35 @@ public class ClassVO {
 
 	String classNo;
 	String className;
-	String capa;
 	String memNo;
 	String age;
+	String teacherName;
 	
 	public ClassVO(){}
 	
-
-	public ClassVO(String classNo, String className, String capa, String memNo, String age) {
+	public ClassVO(String className){	
+		
+		this.className = className;
+		}
+	
+	
+	public ClassVO(String classNo, String className, String memNo, String age) {
 		super();
 		this.classNo = classNo;
 		this.className = className;
-		this.capa = capa;
 		this.memNo = memNo;
 		this.age = age;
 	}
-
+	
+	
+	public ClassVO(String classNo, String className, String memNo, String age, String teacherName) {
+		super();
+		this.classNo = classNo;
+		this.className = className;
+		this.memNo = memNo;
+		this.age = age;
+		this.teacherName = teacherName;
+	}
 
 	public String getAge() {
 		return age;
@@ -41,16 +54,6 @@ public class ClassVO {
 	}
 
 
-	public String getCapa() {
-		return capa;
-	}
-
-
-	public void setCapa(String capa) {
-		this.capa = capa;
-	}
-
-
 	public String getMemNo() {
 		return memNo;
 	}
@@ -69,11 +72,20 @@ public class ClassVO {
 		this.classNo = classNo;
 	}
 
+	
+	public String getTeacherName() {
+		return teacherName;
+	}
+
+	public void setTeacherName(String teacherName) {
+		this.teacherName = teacherName;
+	}
 
 	@Override
 	public String toString() {
-		return "Class [classNo=" + classNo + ", className=" + className + ", capa=" + capa + ", memNo=" + memNo + "]";
+		return "ClassVO [classNo=" + classNo + ", className=" + className + ", memNo=" + memNo
+				+ ", age=" + age + "]";
 	}
 
-	
+
 }
