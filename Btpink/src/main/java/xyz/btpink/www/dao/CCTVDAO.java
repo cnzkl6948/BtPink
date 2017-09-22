@@ -17,9 +17,9 @@ public class CCTVDAO {
 		return result;
 	}
 	
-	public int Check(CCTV cctv) {
+	public CCTV Check(CCTV cctv) {
 		CCTVMapper mapper = sqlSession.getMapper(CCTVMapper.class);
-		int result = mapper.Check(cctv);
+		CCTV result = mapper.Check(cctv);
 		return result;
 	}
 }
