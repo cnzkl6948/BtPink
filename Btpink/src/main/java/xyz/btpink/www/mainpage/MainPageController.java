@@ -21,6 +21,8 @@ import xyz.btpink.www.HomeController;
 import xyz.btpink.www.dao.AttendenceDAO;
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
+import xyz.btpink.www.dao.ParentDAO;
+import xyz.btpink.www.vo.Account;
 
 @Controller
 public class MainPageController {
@@ -28,6 +30,9 @@ public class MainPageController {
 
 	@Autowired
 	AttendenceDAO attendenceDAO;
+
+	@Autowired
+	ParentDAO parentDAO; // 부모 관련 데이터 처리 객체
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -44,7 +49,6 @@ public class MainPageController {
 
 	@RequestMapping(value = "/MySon", method = RequestMethod.GET)
 	public String kindergarten(Model model, HttpSession session) {
-
 		Account account = (Account) session.getAttribute("User");
 		ArrayList<Attendence> result = attendenceDAO.selectStudent(account);
 		System.out.println(result);
@@ -122,7 +126,9 @@ public class MainPageController {
 		}
 		System.out.println(emotion);
 		model.addAttribute("emotionEvent", emotion);
-
+	      String className = parentDAO.getClassName(account.getId());
+	      model.addAttribute("className", className);
 		return "MainPage/MySon";
 	}
+	
 }

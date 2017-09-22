@@ -65,4 +65,18 @@ public class ParentDAO {
 		return demandResult;
 	}
 
+	public String getClassName(String parentId) {
+		ParentMapper mapper = sqlSession.getMapper(ParentMapper.class);
+		System.out.println(parentId);
+		String className = "";
+		try {
+			className = mapper.getClassName(parentId);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return className;
+	}
+
+	
 }
