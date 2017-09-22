@@ -4,9 +4,9 @@ import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -27,12 +27,12 @@ import xyz.btpink.www.dao.AttendenceDAO;
 import xyz.btpink.www.dao.ClassDAO;
 import xyz.btpink.www.dao.StudentDAO;
 import xyz.btpink.www.dao.TeacherDAO;
+import xyz.btpink.www.util.Split;
+import xyz.btpink.www.vo.Aapply;
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.ClassVO;
 import xyz.btpink.www.vo.Student;
-import xyz.btpink.www.vo.Teacher;
-import xyz.btpink.www.vo.Aapply;
 
 @Controller
 public class AdminController {
@@ -62,9 +62,26 @@ public class AdminController {
 	public String adminPage(HttpSession session, Locale locale, Model model) {
 		logger.info("Go! adminPage");
 		Account account = (Account) session.getAttribute("User");
-		System.out.println(account.getId());
-		model.addAttribute("TeacherNotice", tdao.selectDemand(account.getId()));
-		System.out.println(tdao.selectDemand(account.getId()));
+		
+		System.out.println("초기확인작업 시작");
+		
+		String memno = account.getMemNo(); // 멤버 넘버 가져옴
+		ClassVO selClass = cdao.selectClass(memno); //멤버 넘버에 할당된 클래스 VO 가져옴
+		
+		if(selClass != null){
+			String classno = selClass.getClassNo(); //클래스 VO에 포함된 클래스 넘버 가져옴.
+			System.out.println("클래스 넘버 : " + classno);
+			
+			adao.initAtd(classno); // 출석부 표시전 초기 확인작업
+			
+			System.out.println("초기작업 종료");
+			
+			System.out.println(account.getId());
+			model.addAttribute("TeacherNotice", tdao.selectDemand(account.getId()));
+			System.out.println(tdao.selectDemand(account.getId()));
+		}
+		
+		
 		return "adminPage";
 	}
 
@@ -157,8 +174,6 @@ public class AdminController {
 		String filename = file.getOriginalFilename();
 		student.setParentno("dummy");// 학부모 번호를 불러오는 과정 정해질때까지 더미로...
 		student.setImage(filename);
-		student.setLikeid("");
-		student.setHateid("");
 
 		Account loginuser = (Account) session.getAttribute("User");
 		System.out.println(loginuser);
@@ -201,14 +216,39 @@ public class AdminController {
 
 	// 출석부
 	@RequestMapping(value = "/Slist", method = RequestMethod.GET)
-	public String Slist(Locale locale, Model model) {
+	public String Slist(HttpSession session, Locale locale, Model model) {
 		logger.info("Go! Slist");
 
-		ArrayList<Attendence> result = adao.selectStd();
+		
+		Account loginuser = (Account)session.getAttribute("User"); //세션에서 로그인유저 계정정보를 가져옴
+		
+		String memno = loginuser.getMemNo(); // 멤버 넘버 가져옴
+		ClassVO selClass = cdao.selectClass(memno); //멤버 넘버에 할당된 클래스 VO 가져옴
+		String classno = selClass.getClassNo(); //클래스 VO에 포함된 클래스 넘버 가져옴.
+		
+		ArrayList<Attendence> result = adao.selectAtd(classno); //해당 클래스 넘버에 해당된 출석 목록을 가져옴
+
 		System.out.println(result);
 		model.addAttribute("list", result);
 
 		return "AdminPage/Slist";
+	}
+	
+	//출석 변경
+	@RequestMapping(value="atdCheck", method = RequestMethod.POST)
+	public String atdCheck(String[] chkbox){
+		logger.info("Go! atdCheck!");
+		
+		System.out.println(Arrays.toString(chkbox));
+		
+		System.out.println(chkbox[0]);
+		System.out.println(chkbox[1]);
+		System.out.println(chkbox[2]);
+		System.out.println(chkbox[3]);
+		
+		return "AdminPage/Slist";
+		
+		
 	}
 
 	// 인원확인
@@ -309,10 +349,10 @@ public class AdminController {
 	
 	//반 배정 초기값 불러오기
 	@RequestMapping(value = "/autoSplit", method = RequestMethod.GET)
-	public String goAutoSplit(Locale locale, Model model) {
+	public String goAutoSplit(Locale locale, Model model, HttpSession session)  {
 		logger.info("GoGoGo! autoSplit");
 		
-		ArrayList<Student> stuList = sdao.allStuList();
+		ArrayList<Student> stuList = sdao.allStuList(); 
 		int allCount = stuList.size();
 		int count5 = 0;
 		int count6 = 0;
@@ -358,62 +398,200 @@ public class AdminController {
 		model.addAttribute("wCount6", wCount6);
 		model.addAttribute("wCount7", wCount7);
 		
+		if(session.getAttribute("hateApply") == null){
+			session.setAttribute("hateApply", 0);
+		}
 		return "AdminPage/autoSplit";
 	}
-	
+	//싫어하는 ID DB에 적용
 	@RequestMapping(value = "/autoSplit", method = RequestMethod.POST)
-	public @ResponseBody int autoSplit(Student stu, Model model) {
+	public @ResponseBody String autoSplit(Student stu, Model model) {
 		logger.info("autoSplit POST");
-		int result = sdao.changeStuHogam(stu);
+		System.out.println(stu);
+		ArrayList<Student> stuList = sdao.allStuList();
+		ArrayList<ClassVO> classList = cdao.allClass();
+		String result = null;
+		sdao.changeStuHogam(stu);
+		for(Student s : stuList){
+			if(s.getClassno().equals(stu.getClassno()) && s.getStdno().equals(stu.getHateid())){
+				//같은 반에 stu가 싫어하는 학번이 있다면
+				System.out.println("같은 반에 stu가 싫어하는 학번이 있다면");
+				
+				//1. stu를 싫어하는 학생이 없는 클래스
+				ArrayList<String> like = new ArrayList<>(); 
+				for(ClassVO c: classList){
+					if(!c.getClassNo().equals(stu.getClassno()) && c.getAge() == stu.getAge()) like.add(c.getClassNo());
+				}
+				for(String cno : like){
+					for(Student s2 : stuList){
+						if(s2.getClassno().equals(cno) && s2.getHateid() != null){
+							//들어가고자 하는 반에 hateid가 있는 사람 
+							System.out.println("들어가고자 하는 반에 hateid가 있는 사람 ");
+							if(s2.getHateid().equals(stu.getStdno())){
+								//stu를 싫어하는 사람이 있다면 like에 클래스를 삭제하고 반복을 빠져나옴
+								like.remove(cno);
+								break;
+							}
+						}
+					}
+				}
+				if(like.size()==0){
+					result = "다른반에서 모두 받아주지 않음. 그대로 있으셈";
+					System.out.println(result);
+					break;
+				}else{
+				//2. hateid를 싫어하지 않는 같은 성, 다른반의 학생
+					System.out.println("2. hateid를 싫어하지 않는 같은 성, 다른반의 학생");
+					for(String cno : like){
+						for(Student s3 : stuList){
+							
+							if( s3.getGender().equals(stu.getGender()) && s3.getClassno().equals(cno) && (s3.getHateid()==null || !s3.getHateid().equals(stu.getHateid()))  ){
+								//cno와 classno가 동일하고 hateid가 없거나 stu의 hateid를 싫어하지 않는 s3
+								System.out.println("cno와 classno가 동일하고 hateid가 없거나 stu의 hateid를 싫어하지 않는 s3");
+								//3. 교대
+								s3.setClassno(stu.getClassno());
+								stu.setClassno(cno);
+								System.out.println("교체선수 : " + s3);
+								sdao.update(s3);
+								sdao.update(stu);
+								result="성공";
+								System.out.println(result);
+								break;
+							}
+						}
+						break;
+					}
+				}
+				break;
+			}
+		}
+		
+		
 		return result;
 	}
 	
 	//반 배정 알고리즘
 	@RequestMapping(value = "/calculate", method = RequestMethod.GET)
-	public String calculate(Locale locale, Model model) {
+	public String calculate(Locale locale, Model model, HttpSession session) throws Exception {
 		logger.info("GoGoGo! calculate");
+		
+		sdao.allClassnoNull(); //모든 classno 초기화
+		sdao.allHateNull(); //모든 hateid 초기화
 		ArrayList<Student> stuList = sdao.allStuList();
+		ArrayList<ClassVO> classList = cdao.allClass();
 		
-		ArrayList<Student> five = new ArrayList<>();
-		ArrayList<Student> fiveM = new ArrayList<>();
-		ArrayList<Student> fiveW = new ArrayList<>();
-		ArrayList<Student> six = new ArrayList<>();
-		ArrayList<Student> sixM = new ArrayList<>();
-		ArrayList<Student> sixW = new ArrayList<>();
-		ArrayList<Student> seven = new ArrayList<>();
-		ArrayList<Student> sevenM = new ArrayList<>();
-		ArrayList<Student> sevenW = new ArrayList<>();
+		//5/6/7 세 분할함.
+		ArrayList<ClassVO> class5 = new ArrayList<>();
+		ArrayList<ClassVO> class6 = new ArrayList<>();
+		ArrayList<ClassVO> class7 = new ArrayList<>();
+		for(ClassVO c : classList){
+			if(c.getAge() == 5) 		class5.add(c);
+			else if(c.getAge() == 6)	class6.add(c);
+			else 						class7.add(c);
+		}
 		
-		//나이별 / 성별 구분
+		//5세 블랙리스트 없이 평등분배
+		int index = 0;
 		for(Student s : stuList){
-			if(s.getAge() == 5){
-				five.add(s);
-				if(s.getGender().equals("M")){
-					fiveM.add(s);
-				}else{
-					fiveW.add(s);
-				}
-			}else if(s.getAge() == 6){
-				six.add(s);
-				if(s.getGender().equals("M")){
-					sixM.add(s);
-				}else{
-					sixW.add(s);
-				}
-			}else {
-				seven.add(s);
-				if(s.getGender().equals("M")){
-					sevenM.add(s);
-				}else{
-					sevenW.add(s);
-				}
+			if(s.getAge()==5 && s.getGender().equals("M")){
+				s.setClassno(class5.get(index).getClassNo());
+				if(index == class5.size()-1) index = 0;
+				else index++;
+			}
+		}
+		index = 0;
+		for(Student s : stuList){
+			if(s.getAge()==5 && s.getGender().equals("W")){
+				s.setClassno(class5.get(index).getClassNo());
+				if(index == class5.size()-1) index = 0;
+				else index++;
+			}
+		}
+		//6세 블랙리스트 없이 평등분배
+		index = 0;
+		for(Student s : stuList){
+			if(s.getAge()==6 && s.getGender().equals("M")){
+				s.setClassno(class6.get(index).getClassNo());
+				if(index == class6.size()-1) index = 0;
+				else index++;
+			}
+		}
+		index = 0;
+		for(Student s : stuList){
+			if(s.getAge()==6 && s.getGender().equals("W")){
+				s.setClassno(class6.get(index).getClassNo());
+				if(index == class6.size()-1) index = 0;
+				else index++;
+			}
+		}
+		//7세 블랙리스트 없이 평등분배
+		index = 0;
+		for(Student s : stuList){
+			if(s.getAge()==7 && s.getGender().equals("M")){
+				s.setClassno(class7.get(index).getClassNo());
+				if(index == class7.size()-1) index = 0;
+				else index++;
+			}
+		}
+		index = 0;
+		for(Student s : stuList){
+			if(s.getAge()==7 && s.getGender().equals("W")){
+				s.setClassno(class7.get(index).getClassNo());
+				if(index == class7.size()-1) index = 0;
+				else index++;
 			}
 		}
 		
-		//classList 불러옴
-		ArrayList<ClassVO> classList = cdao.allClass();
+		//DB에 적용 stuList
+		for(Student s : stuList){
+			sdao.update(s);
+			System.out.println(s.getStdno());
+			Thread.sleep(50);
+		}
 		
+		stuList = sdao.allStuList(); 
+		int allCount = stuList.size();
+		int count5 = 0;
+		int count6 = 0;
+		int count7 = 0;
+		int mCount5 = 0;
+		int mCount6 = 0;
+		int mCount7 = 0;
+		int wCount5 = 0;
+		int wCount6 = 0;
+		int wCount7 = 0;
 		
-		return "redirect:autoSplit";
+		for(Student s : stuList){
+			if(s.getAge() == 5){
+				count5++;
+				if(s.getGender().equals("M")){
+					mCount5++;
+				}else wCount5++;
+			}else if(s.getAge() == 6){
+				count6++;
+				if(s.getGender().equals("M")){
+					mCount6++;
+				}else wCount6++;
+			}else{
+				count7++;
+				if(s.getGender().equals("M")){
+					mCount7++;
+				}else wCount7++;
+			}
+		}
+		model.addAttribute("stuList", stuList);
+		model.addAttribute("allCount", allCount);
+		model.addAttribute("count5", count5);
+		model.addAttribute("count6", count6);
+		model.addAttribute("count7", count7);
+		model.addAttribute("mCount5", mCount5);
+		model.addAttribute("mCount6", mCount6);
+		model.addAttribute("mCount7", mCount7);
+		model.addAttribute("wCount5", wCount5);
+		model.addAttribute("wCount6", wCount6);
+		model.addAttribute("wCount7", wCount7);
+		session.setAttribute("hateApply", 1);
+		
+		return "AdminPage/autoSplit";
 	}
 }

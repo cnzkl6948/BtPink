@@ -14,6 +14,7 @@
 		<typeAlias type="xyz.btpink.www.vo.Attendence" alias="Attendence"/>
 		<typeAlias type="xyz.btpink.www.vo.ClassVO" alias="ClassVO"/> 
 		<typeAlias type="xyz.btpink.www.vo.Aapply" alias="Aapply"/>
+		<typeAlias type="xyz.btpink.www.vo.IdentfyVO" alias="IdentfyVO"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/AccountMapper.xml" />

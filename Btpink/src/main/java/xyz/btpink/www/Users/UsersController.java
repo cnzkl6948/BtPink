@@ -50,9 +50,10 @@ public class UsersController {
 	public String login(Account account, Locale locale, Model model, HttpSession session) {
 		System.out.println("로그인 접속시 : " + account);
 		Account ac = accountDao.login(account);
-		if (ac.getId() != null) {
-			session.setAttribute("User", ac);
-		}
+		System.out.println("db 갔다온 정보 ac : "+ac);
+			if (ac.getId() != null) {
+				session.setAttribute("User", ac);
+			}
 		return "redirect:/";
 	}
 

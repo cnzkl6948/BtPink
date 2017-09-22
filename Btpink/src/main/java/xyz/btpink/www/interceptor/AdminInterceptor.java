@@ -30,6 +30,7 @@ public class AdminInterceptor extends HandlerInterceptorAdapter {
 		if (account == null || account.getMemNo().substring(0, 1).equals("P")) {
 			//request.getContextPath()로 루트 경로를 구하여 절대 경로로 처리
 			response.sendRedirect(request.getContextPath());
+			session.invalidate();
 			return false;
 		}else{
 			

@@ -2,16 +2,21 @@ package xyz.btpink.www.vo;
 
 public class ClassVO {
 
-	String classNo;
-	String className;
-	String capa;
-	String memNo;
-	String age;
+	private String classNo;
+	private String className;
+	private int capa;
+	private String memNo;
+	private int age;
+	private int boyCapa;
+	private int girlCapa;
+	private int boy;
+	private int girl;
+	
 	
 	public ClassVO(){}
 	
 
-	public ClassVO(String classNo, String className, String capa, String memNo, String age) {
+	public ClassVO(String classNo, String className, int capa, String memNo, int age) {
 		super();
 		this.classNo = classNo;
 		this.className = className;
@@ -20,13 +25,58 @@ public class ClassVO {
 		this.age = age;
 	}
 
+	
+	
 
-	public String getAge() {
+
+
+
+	public int getBoyCapa() {
+		return boyCapa;
+	}
+
+
+	public void setBoyCapa(int boyCapa) {
+		this.boyCapa = boyCapa;
+	}
+
+
+	public int getGirlCapa() {
+		return girlCapa;
+	}
+
+
+	public void setGirlCapa(int girlCapa) {
+		this.girlCapa = girlCapa;
+	}
+
+
+	public int getBoy() {
+		return boy;
+	}
+
+
+	public void setBoy(int boy) {
+		this.boy = boy;
+	}
+
+
+	public int getGirl() {
+		return girl;
+	}
+
+
+	public void setGirl(int girl) {
+		this.girl = girl;
+	}
+
+
+	public int getAge() {
 		return age;
 	}
 
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
@@ -41,12 +91,12 @@ public class ClassVO {
 	}
 
 
-	public String getCapa() {
+	public int getCapa() {
 		return capa;
 	}
 
 
-	public void setCapa(String capa) {
+	public void setCapa(int capa) {
 		this.capa = capa;
 	}
 
