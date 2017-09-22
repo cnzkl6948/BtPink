@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -332,6 +333,66 @@ public class AdminController {
 		model.addAttribute("emotionEvent", emotion);
 		return "AdminPage/emotionCal";
 	}
+	//반 배정 초기값 불러오기
+	@RequestMapping(value = "/manualSplit", method = RequestMethod.GET)
+	public String manualSplit(Locale locale, Model model, HttpSession session)  {
+		logger.info("GoGoGo! manualSplit");
+		ArrayList<Student> stuList = sdao.allStuList(); 
+		int allCount = stuList.size();
+		int count5 = 0;
+		int count6 = 0;
+		int count7 = 0;
+		int mCount5 = 0;
+		int mCount6 = 0;
+		int mCount7 = 0;
+		int wCount5 = 0;
+		int wCount6 = 0;
+		int wCount7 = 0;
+		
+		for(Student s : stuList){
+			if(s.getAge() == 5){
+				count5++;
+				if(s.getGender().equals("M")){
+					mCount5++;
+				}else wCount5++;
+			}else if(s.getAge() == 6){
+				count6++;
+				if(s.getGender().equals("M")){
+					mCount6++;
+				}else wCount6++;
+			}else{
+				count7++;
+				if(s.getGender().equals("M")){
+					mCount7++;
+				}else wCount7++;
+			}
+		}
+		
+		System.out.println("allCount : "+allCount+" , count5 : "+count5+" , count6 : "+count6+" , count7 : "+count7+" , mcount5 : "+mCount5+" , mCount6 : "+mCount6+" , mCount7 : "+mCount7+" , wCount5 : "+wCount5+" , wCount6 : "+wCount6+" , wCount7 : "+wCount7);
+		
+		model.addAttribute("stuList", stuList);
+		model.addAttribute("allCount", allCount);
+		model.addAttribute("count5", count5);
+		model.addAttribute("count6", count6);
+		model.addAttribute("count7", count7);
+		model.addAttribute("mCount5", mCount5);
+		model.addAttribute("mCount6", mCount6);
+		model.addAttribute("mCount7", mCount7);
+		model.addAttribute("wCount5", wCount5);
+		model.addAttribute("wCount6", wCount6);
+		model.addAttribute("wCount7", wCount7);
+		
+		return "AdminPage/manualSplit";
+	}
+	
+	@RequestMapping(value = "/manualSplit", method = RequestMethod.POST)
+	public @ResponseBody String manualSplitPost(Student stu, Locale locale, Model model, HttpSession session)  {
+		logger.info("GoGoGo! manualSplit");
+		
+		sdao.updateA(stu);
+		
+		return "AdminPage/manualSplit";
+	}
 	
 	//반 배정 초기값 불러오기
 	@RequestMapping(value = "/autoSplit", method = RequestMethod.GET)
@@ -528,15 +589,44 @@ public class AdminController {
 			}
 		}
 		
-		//DB에 적용 stuList
-//		sdao.update(stuList);
 		
-		for(Student s : stuList){
-			sdao.updateA(s);
-			System.out.println(s.getStdno());
-			Thread.sleep(50);
+		//각 반별 리스트가 저장될 student를 생성 
+		Student[] goDB = new Student[classList.size()];
+		//stdnolist가 저장될 list
+		ArrayList<String> list = new ArrayList<>();
+		Student dummy = new Student();
+		//1. 각 반별 목록을 저장한다. classList
+		
+		for(int i=0; i < classList.size(); i++){
+			for(Student s : stuList){
+				if(classList.get(i).getClassNo().equals(s.getClassno())){
+					list.add(s.getStdno());
+				}
+			}
+			dummy.setList(list);
+			dummy.setClassno(classList.get(i).getClassNo());
+			goDB[i] = dummy;
 			
+			list = new ArrayList<>();
+			dummy = new Student();
 		}
+		
+		
+		//2. db에 적용한다.
+		for(int i=0; i<goDB.length; i++){
+			sdao.update(goDB[i]);
+			Thread.sleep(50);
+		}
+		
+		//DB에 적용 stuList
+//		sdao.update(std5);
+		
+//		for(Student s : stuList){
+//			sdao.updateA(s);
+//			System.out.println(s.getStdno());
+//			Thread.sleep(50);
+//			
+//		}
 		
 		stuList = sdao.allStuList(); 
 		int allCount = stuList.size();

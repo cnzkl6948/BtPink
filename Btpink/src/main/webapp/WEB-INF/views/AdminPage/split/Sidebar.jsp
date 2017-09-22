@@ -38,6 +38,7 @@
             <li><a href="Aapply"><i class="fa fa-circle-o"></i> 회원 가입 승인</a></li>
             <li><a href="classManagement"><i class="fa fa-circle-o"></i> 반 관리</a></li>
             <li><a href="autoSplit"><i class="fa fa-plus-square"></i>자동 반 배정</a></li>
+            <li><a href="manualSplit"><i class="fa fa-plus-square"></i>수동 반 배정</a></li>
           </ul>
         </li>
         </c:if>

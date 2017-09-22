@@ -33,12 +33,12 @@
 	)
 </insert>
 
-<update id="update">
-	<foreach collection="stu" item="item" >
+<update id="update" parameterType="Student">
 	update student 
-	set classno = #{item.classno} 
-	where stdno = #{item.stdno}
-	</foreach>
+	set classno = #{classno} 
+	<trim prefix="where" prefixOverrides="and|or">
+	    <foreach collection="list" item="item">or stdno = #{item}</foreach>
+	</trim>
 </update>
 
 <update id="updateA" parameterType="Student">
