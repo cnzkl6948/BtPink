@@ -19,6 +19,7 @@
 
 </style>
 <%@ include file="AdminPage/split/Head.jsp"%>
+<%@ include file="AdminPage/split/Header.jsp"%>
 <%@ include file="AdminPage/split/Sidebar.jsp"%>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -41,10 +42,10 @@
 				<div class="small-box bg-aqua">
 					<div class="inner">
 						<h3>
-							150<sup style="font-size: 20px">명</sup>
+							${mainParam.absent}<sup style="font-size: 20px">명</sup>
 						</h3>
 
-						<p>출석자 수</p>
+						<p>결석자 수</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-bag"></i>
@@ -59,10 +60,10 @@
 				<div class="small-box bg-green">
 					<div class="inner">
 						<h3>
-							53<sup style="font-size: 20px">명</sup>
+							${mainParam.early }<sup style="font-size: 20px">명</sup>
 						</h3>
 
-						<p>전체 인원수</p>
+						<p>조퇴자 수</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-stats-bars"></i>
@@ -75,10 +76,10 @@
 				<div class="small-box bg-yellow">
 					<div class="inner">
 						<h3>
-							44<sup style="font-size: 20px">명</sup>
+							${mainParam.sick}<sup style="font-size: 20px">명</sup>
 						</h3>
 
-						<p>조퇴자 수</p>
+						<p>병결자 수</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-person-add"></i>
@@ -91,10 +92,10 @@
 				<div class="small-box bg-red">
 					<div class="inner">
 						<h3>
-							65<sup style="font-size: 20px">명</sup>
+							${mainParam.late}<sup style="font-size: 20px">명</sup>
 						</h3>
 
-						<p>결석자수</p>
+						<p>지각자수</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-pie-graph"></i>

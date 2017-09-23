@@ -7,6 +7,8 @@ import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.IdentfyVO;
 
 public interface AttendenceMapper {
+	public Attendence getMainParam(String classno);
+	
 	public ArrayList<Attendence> selectAtd(String classno);
 	
 	public ArrayList<Attendence> selectAtdt(Attendence atd);
@@ -23,7 +25,7 @@ public interface AttendenceMapper {
 
 	public int identfy(IdentfyVO identfy);
 
-	public int updateCul(Attendence attendence);
+//	public int updateCul(Attendence attendence);
 	
 	public int updateCult(Attendence attendence);
 

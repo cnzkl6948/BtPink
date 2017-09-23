@@ -5,6 +5,12 @@
 
 <mapper namespace="xyz.btpink.www.dao.AttendenceMapper">
 
+<select id="getMainParam" parameterType="String" resultType="Attendence">
+ select count(case when absent=1 then 1 end)absent, count(case when early=1 then 1 end)early, count(case when sick=1 then 1 end)sick, count(case when late=1 then 1 end)late from attendence where today = to_char(sysdate, 'yy/mm/dd') and classno=#{classno}  
+
+
+</select>
+
 <select id="selectAtdt" parameterType="Attendence" resultType="Attendence">
 	select s.stdno, s.name, a.absent, a.early, a.sick, a.late from (select stdno, name from student where classno=#{classno})s inner join attendence a on s.stdno=a.stdno and a.today=TO_DATE(#{today},'MM-DD-YYYY HH24:MI:SS')
 

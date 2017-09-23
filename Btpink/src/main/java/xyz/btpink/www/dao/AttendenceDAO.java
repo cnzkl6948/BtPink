@@ -22,6 +22,14 @@ public class AttendenceDAO {
 
 	@Autowired
 	StudentDAO sdao;
+	
+	public Attendence getMainParam(String classno){
+		
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		Attendence result = mapper.getMainParam(classno);
+		return result;
+		
+	}
 
 	public ArrayList<Attendence> selectAtd(String classno) {
 
