@@ -31,9 +31,9 @@
 						<div class="thumbnail thumbnailContent">
 							<a href="readNotice?boardnum=${board.boardnum}"> <c:choose>
 									<c:when test="${board.boardImage == null }">
-										<img
-											src="./resources/img/home/courses/course-${board.boardnum%4 + 1}.jpg"
-											alt="image" class="img-responsive" >
+										<img 
+											src="./resources/img/kindergarten_child/kids_0${board.boardnum%6 + 1}.jpg"
+											alt="image" class="img-responsive" style="height:250px; ">
 									</c:when>
 									<c:otherwise>
 										<img src="./resources/NoticeImage/${board.boardImage}.jpg"

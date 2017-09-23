@@ -21,7 +21,7 @@
 			<div class="col-xs-12 block">
 				<div class="thumbnail thumbnailContent">
 					<img
-						src="./resources/img/home/courses/course-${board.boardnum%4 + 1}.jpg"
+						src="./resources/img/kindergarten_child/kids_0${board.boardnum%6 + 1}.jpg"
 						alt="image" class="img-responsive" width="500px">
 					<div class="sticker-round bg-color-${board.boardnum%6 + 1}">
 						<fmt:parseDate value="${board.inputdate}" var="dateFmt"

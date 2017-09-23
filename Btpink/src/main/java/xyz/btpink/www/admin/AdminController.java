@@ -81,7 +81,6 @@ public class AdminController {
 			System.out.println(tdao.selectDemand(account.getId()));
 		}
 		
-		
 		return "adminPage";
 	}
 
