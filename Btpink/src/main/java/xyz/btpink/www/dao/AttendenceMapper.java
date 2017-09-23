@@ -14,4 +14,6 @@ public interface AttendenceMapper {
 	public ArrayList<Attendence> getEmotionList(String stdno);
 
 	public ArrayList<Attendence> selectToday(String date);
+	
+	public int updateCul(Attendence attendence);
 }

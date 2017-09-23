@@ -32,11 +32,6 @@ public class HomeController {
 	@Autowired
 	BoardDAO dao;
 	
-	@Autowired
-	ClassDAO cDao;
-	
-	@Autowired
-	AccountDAO aDao;
 	
 	
 	/**
@@ -50,8 +45,7 @@ public class HomeController {
 	}
 	
 	
-	
-	
+
 	
 
 

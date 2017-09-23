@@ -1,6 +1,7 @@
 package xyz.btpink.www.vo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Student implements Serializable{
@@ -19,14 +20,9 @@ public class Student implements Serializable{
 	private String hateid;
 	private int count;
 	private List<Student> stuList;
+	private ArrayList<String> list;
 	
 	public Student() {}
-
-	
-
-
-
-	
 	
 	public Student(String stdno, String name, int age, int height, String classno, String birth, String address,
 			String image, String gender, String parentno, String personalid, String hateid, int count,
@@ -46,6 +42,26 @@ public class Student implements Serializable{
 		this.hateid = hateid;
 		this.count = count;
 		this.stuList = stuList;
+	}
+
+
+
+
+	
+
+
+	public ArrayList<String> getList() {
+		return list;
+	}
+
+
+
+
+
+
+
+	public void setList(ArrayList<String> list) {
+		this.list = list;
 	}
 
 

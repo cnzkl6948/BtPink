@@ -12,12 +12,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-               자동 반 배정
+               수동 반 배정
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">자동 반 배정</li>
+        <li class="active">수동 반 배정</li>
       </ol>
     </section>
 	<br>
@@ -81,9 +81,9 @@
 	                  <td>${stu.stdno}<input type="hidden" id="stdno${status.index}" name="stuList[${status.index}].stdno" value="${stu.stdno}" readonly="readonly"></td>
 	                  <td>${stu.name}<input type="hidden" id="name${status.index}" name="stuList[${status.index}].name" value="${stu.name}" readonly="readonly"></td>
 	                  <td>${stu.age}<input type="hidden" id="age${status.index}" name="stuList[${status.index}].age" value="${stu.age}" readonly="readonly"></td>
-	                  <td>${stu.classno}<input type="hidden" id="classno${status.index}" name="stuList[${status.index}].classno" value="${stu.classno}"></td>
+	                  <td><input type="text" id="classno${status.index}" name="stuList[${status.index}].classno" value="${stu.classno}"></td>
 	                  <td>${stu.gender}<input type="hidden" id="gender${status.index}" name="stuList[${status.index}].gender" value="${stu.gender}" readonly="readonly"></td>
-	                  <td><input type="text" id="hateid${status.index}" name="stuList[${status.index}].hateid" value="${stu.hateid}" style="width:100%"></td>
+	                  <td>${stu.hateid}<input type="hidden" id="hateid${status.index}" name="stuList[${status.index}].hateid" value="${stu.hateid}" style="width:100%"></td>
 	                  <td><button type="button" class="btn btn-block btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger" onclick="send('${status.index}');">적용</button></td>
 	                </tr>
                 </c:forEach>
@@ -110,13 +110,13 @@
 	                  <div class="box-header with-border">
 	                    <h4 class="box-title">
 	                      <span>
-	                      	  반 배정 메뉴에 대하여
+	                      	 수동 반 배정 메뉴에 대하여
 	                      </span>
 	                    </h4>
 	                  </div>
 	                  <div id="collapseOne" class="panel-collapse collapse in">
 	                    <div class="box-body">
-	                      	&nbsp이 메뉴는 조건을 입력받아 자동으로 반배정 하는 메뉴입니다.	             	
+	                      	&nbsp이 메뉴는 반을 직접적으로 수정하는 메뉴입니다.	             	
 	                    </div>
 	                  </div>
 	                </div>
@@ -130,9 +130,8 @@
 	                  </div>
 	                  <div id="collapseTwo" class="panel-collapse collapse in">
 	                    <div class="box-body">
-	                      1. 반 배정 버튼을 누릅니다.<br>
-	                      2. 호감 비호감 ID 입력란이 활성화 됩니다.<br>
-	                      3. ID를 입력하고 적용 버튼을 눌러주세요.
+	                      1. classno를 입력합니다.<br>
+	                      2. 적용 버튼을 눌러주세요.
 	                    </div>
 	                  </div>
 	                </div>
@@ -146,8 +145,7 @@
 	                  </div>
 	                  <div id="collapseThree" class="panel-collapse collapse in">
 	                    <div class="box-body">
-	                     	 ◎  남녀 성비율은 자동으로 균등 분배됩니다.<br>
-	                     	 ◎  적용버튼을 누르는 순간 비호감 ID를 가진 학생이 교환됩니다.
+	                     	 ◎  적용버튼을 누르는 순간 비호감 ID에 관계없이 적용됩니다.
 	                    </div>
 	                  </div>
 	                </div>
@@ -156,26 +154,6 @@
 	            <!-- /.box-body -->
 	          </div>
 	          <!-- /.box -->
-	          <button type="button" class="btn btn-block btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="location.href='calculate'">
-                	자동 반 배정
-              </button>
-				<div class="modal modal-danger fade" id="modal-danger">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="btn btn-outline pull-right"
-									data-dismiss="modal" onclick="closeModal()">닫기</button>
-								<h4 class="modal-title">자동 반 배정</h4>
-							</div>
-							<div class="modal-body">
-								<p id="chulcheck">자동 반 배정 중&hellip;</p>
-							</div>
-						</div>
-						<!-- /.modal-content -->
-					</div>
-					<!-- /.modal-dialog -->
-				</div>
-				<!-- /.modal -->
         </section>
         <!-- /.right col -->
       </div>
@@ -201,16 +179,9 @@
 <script src="./resources/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- page script -->
 <script>
-var hateA = ${hateApply};
 $(function(){
-	if(hateA == 0){
-		$('input[type=text]').attr("readonly",true).attr("disabled",false);
-	}else{
-		$('input[type=text]').attr("readonly",false).attr("disabled",false);
-	}
 	$('#stulist').DataTable();
 });
-
 function send(index){
 	var stdno = '#stdno'+index;
 	var name = '#name'+index;
@@ -219,25 +190,21 @@ function send(index){
 	var gender = '#gender'+index;
 	var hateid = '#hateid'+index;
 	
-	if(hateA == 0){
-		alert('자동 반 배정을 눌러주세요.');
-	}else{
-		$.ajax({
-	        url: "autoSplit",
-	        type: "POST",
-	        data: {
-	        	stdno 	: $(stdno).val(),
-	        	name 	: $(name).val(),
-	        	age 	: $(age).val(),
-	        	classno : $(classno).val(),
-	        	gender 	: $(gender).val(),
-	        	hateid 	: $(hateid).val()
-	        },
-	        success: function(result){	
-	        	location.href='autoSplit';
-	        }
-	    });
-	}
+	$.ajax({
+        url: "manualSplit",
+        type: "POST",
+        data: {
+        	stdno 	: $(stdno).val(),
+        	name 	: $(name).val(),
+        	age 	: $(age).val(),
+        	classno : $(classno).val(),
+        	gender 	: $(gender).val(),
+        	hateid 	: $(hateid).val()
+        },
+        success: function(result){	
+        	location.href='autoSplit';
+        }
+    });
 }
 </script>
 </body>

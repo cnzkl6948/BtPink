@@ -74,4 +74,9 @@ public ArrayList<Attendence> selectAtd(String classno){
 		return mapper.selectToday(date); 
 	}
 
+	public int updateCul(Attendence attendence){
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		int result = mapper.updateCul(attendence);
+		return result;
+	}
 }
