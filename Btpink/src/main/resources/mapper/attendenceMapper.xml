@@ -29,6 +29,11 @@
 <insert id="insertInitAtd" parameterType="String">
 	insert into attendence values (#{stdno}, #{classno}, to_char(sysdate, 'yy/mm/dd'), 1, 0, 0, 0, '')
 </insert>
+<update id="identfy" parameterType="IdentfyVO">
+	update attendence 
+		set emotion = #{emotion} 
+		where stdno = (select stdno from student where personalId = #{personId}) and today =(select to_char(sysdate,'yy/mm/dd')from dual)
+</update>
 
 
 
@@ -44,5 +49,10 @@
 	where  stdno = #{stdno} and today = TO_DATE(#{today},'MM-DD-YYYY HH24:MI:SS')
 </update>
 
+<select id="selectStudent" parameterType="Account" resultType="Attendence" >
+	select * from ATTENDENCE at,( 
+		select stdno from student where  parentno = #{memNo}
+	) std where std.stdno = at.stdno
+</select>
 
 </mapper>

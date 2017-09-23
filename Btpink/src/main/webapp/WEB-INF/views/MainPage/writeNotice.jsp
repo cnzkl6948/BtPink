@@ -28,7 +28,14 @@
 <section class="mainContent full-width clearfix">
 	<div class="container">
 		<h4 class="text-center">Write form</h4>
-		<div class="space-50">&nbsp;</div>
+								<div class="sectionTitle text-center">
+									<h2>
+										<span class="shape shape-left bg-color-4"></span> <span>글쓰기</span>
+										<span class="shape shape-right bg-color-4"></span>
+									</h2>
+								</div>
+							
+		<div class="space-20">&nbsp;</div>
 		<!-- Start contact form 2 -->
 		<div class="row">
 			<div class="col-xs-12">
@@ -37,16 +44,10 @@
 						enctype="multipart/form-data" onsubmit="return formCheck();">
 						<div class="row">
 
-							<div class="col-sm-10 col-xs-12">
-								<div class="sectionTitle text-center">
-									<h2>
-										<span class="shape shape-left bg-color-4"></span> <span>글쓰기</span>
-										<span class="shape shape-right bg-color-4"></span>
-									</h2>
-								</div>
+							<div class="col-sm-6 col-xs-12">
 								<div class="form-group">
 									<i class="fa fa-envelope"></i> <input type="text"
-										class="form-control border-color-1" placeholder="title"
+										class="form-control border-color-6" placeholder="title"
 										name="title" id="title">
 								</div>
 								<div class="form-group">
@@ -54,16 +55,21 @@
 										type="text" class="form-control border-color-2"
 										id="exampleInputEmail2" name="id" placeholder="${User.id }"
 										disabled="disabled">
-
+								</div>
+								<div class="form-group">
+									<i class="fa fa-comments" aria-hidden="true"></i>
+									<textarea class="form-control border-color-1"
+										placeholder="Write message" name="content" id="content"></textarea>
 								</div>
 							</div>
-							<div class="col-sm-2 col-xs-12">
-								<div class="col-sm-12 col-xs-12">
+								
+							
+							<div class="col-sm-6 col-xs-12">
 									<div class="box bg-color-5">
-										<div class="box-img border-color-5 text-center">
-											<img id="target" src="#" alt="image" class="img-responsive">
+										<div class="box-img border-color-5 text-center" style="height:220px; padding: 5px; ">
+											<img id="target" src="#" alt="image" class="img-responsive" style="max-height: 200px;">
 										</div>
-										<div class="box-info">
+										<div class="box-info" style="padding:5px; ">
 											<div class="filebox" style="padding: 3px">
 												<h4 style="text-align: center;">
 													<input type="file" name="file" id="file" accept="image/*"
@@ -76,21 +82,21 @@
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-xs-12">
-								<div class="form-group">
-									<i class="fa fa-comments" aria-hidden="true"></i>
-									<textarea class="form-control border-color-4"
-										placeholder="Write message" name="content" id="content"></textarea>
-								</div>
-							</div>
+							
 							<div class="col-xs-12">
 								<div class="formBtnArea">
-									<button type="submit" class="btn btn-primary">등록</button>
+									<button type="reset" class="btn btn-success">
+										<i class="fa fa-rocket"> 취소 </i>
+									</button>
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+									<button type="submit" class="btn btn-primary">
+										<i class="fa fa-rocket"> 등록 </i>
+									</button>
 								</div>
 							</div>
-						</div>
+							</div>
 					</form>
+					
 				</div>
 			</div>
 		</div>

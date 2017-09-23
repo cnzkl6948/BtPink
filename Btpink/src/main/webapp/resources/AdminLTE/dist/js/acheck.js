@@ -44,8 +44,7 @@ function snapshot() {
 		data : $("#formTest").serialize(), // serializes the form's elements.
 		success : function(detectFaceId) {
 			// show response from the php script.
-			alert(detectFaceId)
-//			$.ajax({
+z//			$.ajax({
 //				url : "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/identify",
 //				beforeSend : function(xhrObj) {
 //					// Request headers

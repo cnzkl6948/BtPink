@@ -1,9 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- <style> -->
+<style>
+ .alert_text { 
+     display: table; 
+     position : absolute;
+     background: #FAF4C0; 
+     height: 50px; 
+     width: 150px; 
+     margin: 0 auto 10px;
+     display:block;
+ } 
+/* .tooltips { */
+/* 	position: relative; */
+/* 	display: inline; */
+/* } */
 
+</style>
 <%@ include file="AdminPage/split/Head.jsp"%>
-<%@ include file="AdminPage/split/Header.jsp"%>
 <%@ include file="AdminPage/split/Sidebar.jsp"%>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -21,70 +36,70 @@
 	<section class="content">
 		<div class="row">
 
-				<div class="col-lg-3 col-xs-6">
-					<!-- small box -->
-					<div class="small-box bg-aqua">
-						<div class="inner">
-							<h3>
-								150<sup style="font-size: 20px">명</sup>
-							</h3>
+			<div class="col-lg-3 col-xs-6">
+				<!-- small box -->
+				<div class="small-box bg-aqua">
+					<div class="inner">
+						<h3>
+							150<sup style="font-size: 20px">명</sup>
+						</h3>
 
-							<p>출석자 수</p>
-						</div>
-						<div class="icon">
-							<i class="ion ion-bag"></i>
-						</div>
+						<p>출석자 수</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-bag"></i>
 					</div>
 				</div>
-				<!-- ./col -->
+			</div>
+			<!-- ./col -->
 
 
-				<div class="col-lg-3 col-xs-6">
-					<!-- small box -->
-					<div class="small-box bg-green">
-						<div class="inner">
-							<h3>
-								53<sup style="font-size: 20px">명</sup>
-							</h3>
+			<div class="col-lg-3 col-xs-6">
+				<!-- small box -->
+				<div class="small-box bg-green">
+					<div class="inner">
+						<h3>
+							53<sup style="font-size: 20px">명</sup>
+						</h3>
 
-							<p>전체 인원수</p>
-						</div>
-						<div class="icon">
-							<i class="ion ion-stats-bars"></i>
-						</div>
+						<p>전체 인원수</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-stats-bars"></i>
 					</div>
 				</div>
-				<!-- ./col -->
-				<div class="col-lg-3 col-xs-6">
-					<!-- small box -->
-					<div class="small-box bg-yellow">
-						<div class="inner">
-							<h3>
-								44<sup style="font-size: 20px">명</sup>
-							</h3>
+			</div>
+			<!-- ./col -->
+			<div class="col-lg-3 col-xs-6">
+				<!-- small box -->
+				<div class="small-box bg-yellow">
+					<div class="inner">
+						<h3>
+							44<sup style="font-size: 20px">명</sup>
+						</h3>
 
-							<p>조퇴자 수</p>
-						</div>
-						<div class="icon">
-							<i class="ion ion-person-add"></i>
-						</div>
+						<p>조퇴자 수</p>
+					</div>
+					<div class="icon">
+						<i class="ion ion-person-add"></i>
 					</div>
 				</div>
-				<!-- ./col -->
-				<div class="col-lg-3 col-xs-6">
-					<!-- small box -->
-					<div class="small-box bg-red">
-						<div class="inner">
-							<h3>
-								65<sup style="font-size: 20px">명</sup>
-							</h3>
+			</div>
+			<!-- ./col -->
+			<div class="col-lg-3 col-xs-6">
+				<!-- small box -->
+				<div class="small-box bg-red">
+					<div class="inner">
+						<h3>
+							65<sup style="font-size: 20px">명</sup>
+						</h3>
 
-							<p>결석자수</p>
-						</div>
-						<div class="icon">
-							<i class="ion ion-pie-graph"></i>
-						</div>
+						<p>결석자수</p>
 					</div>
+					<div class="icon">
+						<i class="ion ion-pie-graph"></i>
+					</div>
+				</div>
 				<!-- ./col -->
 			</div>
 		</div>
@@ -116,11 +131,12 @@
 						<ul class="todo-list">
 
 							<c:forEach var="notice" items="${TeacherNotice}">
-								<li>${notice.name}<span class="handle"> <i
-										class="fa fa-ellipsis-v"></i> <i class="fa fa-ellipsis-v"></i>
-								</span> <span class="text">${notice.demandcontent}</span>
-									<div class="tools">
-										<i class="fa fa-trash-o"></i>
+								<li class="tooltips mouseOverTest">${notice.name}<span
+									class="handle" style="position: relative;"> <i class="fa fa-ellipsis-v"></i>
+								</span> <span>${notice.demandsubject}</span>
+									<div class="tools ">
+										<span class="text col-lg-4 alert_text"  >${notice.demandcontent}</span> <i
+											class="fa fa-trash-o"></i>
 									</div>
 								</li>
 							</c:forEach>
@@ -267,5 +283,13 @@
 	src="./resources/AdminLTE/bower_components/morris.js/morris.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="./resources/AdminLTE/dist/js/pages/dashboard.js"></script>
+<script>
+	$(function(){
+		$(document).on('mouseover', '.mouseOverTest', function(){
+			$(".alert_text").css("position", "absolute");
+			$(".alert_text").css({top: event.pageY-240 + "px", left: event.pageX-240+ "px"});
+		})
+	})
+</script>
 </body>
 </html>

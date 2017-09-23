@@ -23,7 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class Detect {
-	public final String subscriptionKey = "d98e1b55a315483ea2658fbc75ef68b3";
+	public final String subscriptionKey = "6bfd85c06c0b42b8bc879751a17f71bf";
 	public final String uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
 	public String faceId[];
 	public String faceResult;
@@ -53,8 +53,8 @@ public class Detect {
 			request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 			// Request body.201708271503837703388.jpg
 			// 마이크로 소프트로 이미지 주소 전달
-			String url = "{\"url\":\"https://www.btpink.xyz/www/resources/face_detection/" + image + "\"}";
-//			String url = "{\"url\":\"https://geonho.btpink.xyz/www/resources/face_detection/" + image + "\"}";
+//			String url = "{\"url\":\"https://www.btpink.xyz/www/resources/face_detection/" + image + "\"}";
+			String url = "{\"url\":\"https://geonho.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 //			String url = "{\"url\":\"https://daheen.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 //			String url = "{\"url\":\"https://suenghan.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 			System.out.println(url);

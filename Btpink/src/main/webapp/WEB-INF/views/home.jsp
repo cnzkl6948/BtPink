@@ -167,25 +167,25 @@
 			</h2>
 		</div>
 
-		<div class="row">
+			<div class="row">
 			<c:forEach var="board" items="${boardlist}">
 				<div class="col-sm-4 col-xs-12 block">
 					<div class="thumbnail thumbnailContent">
 						<a href="readNotice?boardnum=${board.boardnum}"> <c:choose>
 								<c:when test="${board.boardImage == null }">
-									<img src="./resources/img/home/news/news-1.jpg" alt="image"
-										class="img-responsive">
+									<img src="./resources/img/kindergarten_child/kids_0${board.boardnum%6 + 1}.jpg" alt="image"
+										class="img-responsive" style="height: 300px;">
 								</c:when>
 								<c:otherwise>
 									<img src="./resources/NoticeImage/${board.boardImage}.jpg"
 										alt="image" class="img-responsive">
 								</c:otherwise>
 							</c:choose>
-
 						</a>
-						<div class="caption border-color-1">
+						<div class="sticker bg-color-${board.boardnum%6 + 1}">new</div>
+						<div class="caption border-color-${board.boardnum%6 + 1}">
 							<h3>
-								<a href="readNotice?boardnum=${board.boardnum}" class="color-1">${board.title}</a>
+								<a href="readNotice?boardnum=${board.boardnum}" class="color-${board.boardnum%6 + 1}">${board.title}</a>
 							</h3>
 							<ul class="list-inline">
 								<li><a href="single-blog-left-sidebar.html"><i
@@ -452,8 +452,8 @@
 			<div class="col-sm-4 col-xs-12 block">
 				<div class="thumbnail thumbnailContent">
 					<a href="course-single"><img
-						src="./resources/img/home/courses/course-1.jpg" alt="image"
-						class="img-responsive"></a>
+						src="./resources/img/kindergarten_child/timeTable1.jpg" alt="image"
+						class="img-responsive" style="height: 300px"></a>
 					<div class="caption border-color-1">
 						<h3>
 							<div class="color-1">오전반</div>
@@ -470,8 +470,8 @@
 			<div class="col-sm-4 col-xs-12 block">
 				<div class="thumbnail thumbnailContent">
 					<a href="course-single"><img
-						src="./resources/img/home/courses/course-2.jpg" alt="image"
-						class="img-responsive"></a>
+						src="./resources/img/kindergarten_child/timeTable2.jpg" alt="image"
+						class="img-responsive" style="height: 300px"></a>
 					<div class="caption border-color-2">
 						<h3>
 							<div class="color-2">오후반</div>
@@ -488,8 +488,8 @@
 			<div class="col-sm-4 col-xs-12 block">
 				<div class="thumbnail thumbnailContent">
 					<a href="course-single"><img
-						src="./resources/img/home/courses/course-3.jpg" alt="image"
-						class="img-responsive"></a>
+						src="./resources/img/kindergarten_child/timeTable3.png" alt="image"
+						class="img-responsive" style="height: 300px"></a>
 					<div class="caption border-color-3">
 						<h3>
 							<div class="color-3">종일반</div>
