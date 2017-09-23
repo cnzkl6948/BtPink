@@ -30,7 +30,7 @@ public class FaceAPIController {
 		Base64ToImgDecoder base = new Base64ToImgDecoder();
 		String fileName = base.decoder(image, "detect");
 		System.out.println(fileName);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		Detect detect = new Detect();
 		System.out.println("Controller 초기");
 		Map<String, IdentfyVO> identfy = detect.getFaceId(fileName);

@@ -178,7 +178,9 @@ public class AdminController {
 		Account loginuser = (Account) session.getAttribute("User");
 		System.out.println(loginuser);
 		String memno = loginuser.getMemNo();
+		System.out.println("dao 가기전 맴버넘버 가져오냐 ?"+memno);
 		ClassVO selClass = cdao.selectClass(memno);
+		System.out.println("selClass 다오 갔다옴"+selClass);
 		student.setClassno(selClass.getClassNo());
 
 		System.out.println(student);

@@ -67,7 +67,7 @@
 												<td>${fn:substring(list.memNo,1,9)}</td>
 												<td id="${list.memNo}"><c:if
 														test="${list.status =='0' }">
-														<button type="button" class="btn btn-block btn-primary"
+														<button type="button" class="btn btn-block btn-primary" 
 															onclick="javascript:sign('${list.memNo}','${list.status}')">승인</button>
 													</c:if> <c:if test="${list.status =='1' }">
 														<button type="button" class="btn btn-block btn-danger"
@@ -143,7 +143,7 @@
 				</div>
 				<!-- /.box -->
 				<button type="button" class="btn btn-block btn-danger"
-					data-toggle="modal" data-target="#modal-danger"
+					data-toggle="modal" data-target="#modal-danger" 
 					onclick="formcheck()">등록</button>
 				<button type="button" class="btn btn-block btn-default"
 					onclick="cancel()">취소</button>

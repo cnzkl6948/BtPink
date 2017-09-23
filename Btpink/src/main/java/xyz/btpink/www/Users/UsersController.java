@@ -50,10 +50,10 @@ public class UsersController {
 	public String login(Account account, Locale locale, Model model, HttpSession session) {
 		System.out.println("로그인 접속시 : " + account);
 		Account ac = accountDao.login(account);
-		System.out.println("db 갔다온 정보 ac : "+ac);
-			if (ac.getId() != null) {
-				session.setAttribute("User", ac);
-			}
+		System.out.println("db 갔다온 정보 ac : " + ac);
+		if (ac.getId() != null) {
+			session.setAttribute("User", ac);
+		}
 		return "redirect:/";
 	}
 
@@ -124,15 +124,21 @@ public class UsersController {
 	}
 
 	@RequestMapping(value = "myson", method = RequestMethod.GET)
-	public String MySon(Student st, Locale locale, Model model,HttpSession session) {
+	public String MySon(Student st, Locale locale, Model model, HttpSession session) {
 		ArrayList<Student> ckList = studentDao.joinCheck(st);
 		System.out.println(ckList);
 		return "MySon";
 	}
+
 	@RequestMapping(value = "classCheck", method = RequestMethod.POST)
-	public @ResponseBody ArrayList<ClassVO>  classChek( Locale locale, Model model,HttpSession session) {
-		ArrayList<ClassVO> list=classDao.allClass();
-		session.setAttribute("cList", list);
+	public @ResponseBody ArrayList<ClassVO> classChek(Locale locale, Model model, HttpSession session) {
+		ArrayList<ClassVO> list = null;
+		list = (ArrayList<ClassVO>) session.getAttribute("cList");
+		if (list == null) {
+			list = classDao.allClass();
+			System.out.println("세션 있음");
+			session.setAttribute("cList", list);
+		}
 		return list;
 	}
 

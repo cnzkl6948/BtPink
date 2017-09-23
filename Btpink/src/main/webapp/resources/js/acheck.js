@@ -51,6 +51,7 @@ function snapshot() {
 		success : function(PersonId) {
 			// show response from the php script.
 			alert(PersonId);
+			
 		}
 	});
 }

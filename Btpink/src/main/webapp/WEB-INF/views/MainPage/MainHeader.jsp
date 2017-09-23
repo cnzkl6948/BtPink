@@ -51,7 +51,7 @@
 									<li><i class="fa fa-unlock-alt bg-color-5"
 										aria-hidden="true"></i> <a href='#loginModal'
 										data-toggle="modal">Login</a><span>or</span><a
-										href='#createAccount' data-toggle="modal">Create an
+										href='javascript:className()' >Create an
 											account</a></li>
 								</c:otherwise>
 							</c:choose>
@@ -149,17 +149,17 @@
 											</div>
 											<div id="SelectStudent">
 												<div class="col-sm-8 col-xs-12">
-													<div class="dropGeneral border-color-3">
-														<select id="classno">
+<!-- 													<div class="dropGeneral border-color-3"> -->
+<!-- 														<select id="classno" style="width: 100% ;text-align:center; height: 100%;"> -->
 <%-- 															<c:forEach items="${cList }"> --%>
 <%-- 																<option value="${cList.classNo }">${ cList.className}</option> --%>
 <%-- 															</c:forEach> --%>
-															<option value="c1">A_Class</option>
-															<option value="c2">B_Class</option>
-															<option value="c3">C_Class</option>
-															<option value="c4">D_Class</option>
-														</select>
-													</div>
+<!-- 															<option value="c1">A_Class</option> -->
+<!-- 															<option value="c2">B_Class</option> -->
+<!-- 															<option value="c3">C_Class</option> -->
+<!-- 															<option value="c4">D_Class</option> -->
+<!-- 														</select> -->
+<!-- 													</div> -->
 												</div>
 											</div>
 											<div class="col-sm-4 col-xs-12" style="margin-top: 3%;"

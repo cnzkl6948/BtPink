@@ -131,18 +131,17 @@ function login() {
 	}
 }
 function className() {
-	
+	var text = '<div class="col-sm-8 col-xs-12"><select  id="classno" class="form-control" >';
 	$.ajax({
 		url : "classCheck",
 		type : "post",
 		success : function(result) {
-			var text = '';
 			$.each(result, function(index, classData) {
-				text +='<option value="'+classData.classNo +'>'+classData.className +'</option>'
+				text +='<option value="'+classData.classNo +'" class="textCenter" >'+classData.className +'</option>'
 			})
+			text += '</select></div>';
+			$('#SelectStudent').html(text);
+			$('#createAccount').modal('toggle');
 		}
 	});
-	
-	$('#classno').html(text);
-	$('#createAccount').modal('toggle');
 }
