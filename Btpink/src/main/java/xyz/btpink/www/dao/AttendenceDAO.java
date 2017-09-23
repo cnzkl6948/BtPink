@@ -32,6 +32,15 @@ public ArrayList<Attendence> selectAtd(String classno){
 		
 	}
 
+public ArrayList<Attendence> selectAtdt(Attendence atd){
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		ArrayList<Attendence> result = new ArrayList<>();
+		result = mapper.selectAtdt(atd);
+	
+	return result;
+	
+}
+
 	public int initAtd(String classno){
 		AttendenceMapper mapper =sqlSession.getMapper(AttendenceMapper.class);
 		ArrayList<Attendence> result = new ArrayList<>();
@@ -74,9 +83,15 @@ public ArrayList<Attendence> selectAtd(String classno){
 		return mapper.selectToday(date); 
 	}
 
-	public int updateCul(Attendence attendence){
+//	public int updateCul(Attendence attendence){
+//		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+//		int result = mapper.updateCul(attendence);
+//		return result;
+//	}
+	
+	public int updateCult(Attendence attendence){
 		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
-		int result = mapper.updateCul(attendence);
+		int result = mapper.updateCult(attendence);
 		return result;
 	}
 }

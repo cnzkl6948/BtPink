@@ -5,10 +5,16 @@
 
 <mapper namespace="xyz.btpink.www.dao.AttendenceMapper">
 
+<select id="selectAtdt" parameterType="Attendence" resultType="Attendence">
+	select s.stdno, s.name, a.absent, a.early, a.sick, a.late from (select stdno, name from student where classno=#{classno})s inner join attendence a on s.stdno=a.stdno and a.today=TO_DATE(#{today},'MM-DD-YYYY HH24:MI:SS')
+
+</select>
+
 <select id="selectAtd" resultType="Attendence">
 	select s.stdno, s.name, a.absent, a.early, a.sick, a.late from (select stdno, name from student where classno=#{classno})s inner join attendence a on s.stdno=a.stdno and a.today=to_char(sysdate, 'yy/mm/dd')
 
 </select>
+
 <select id="getEmotionList" parameterType="string" resultType="Attendence">
 	select today, emotion
 	from attendence
@@ -26,14 +32,17 @@
 
 
 
-<update id="updateCul" parameterType="Attendence">
+<!-- <update id="updateCul" parameterType="Attendence"> -->
+<!-- 	update attendence -->
+<!-- 	set		absent = ${absent}, early= ${early}, sick=${sick}, late=${late} -->
+<!-- 	where  stdno = #{stdno} and today = to_char(sysdate, 'yy/mm/dd') -->
+<!-- </update> -->
+
+<update id="updateCult" parameterType="Attendence">
 	update attendence
 	set		absent = ${absent}, early= ${early}, sick=${sick}, late=${late}
-	where  stdno = #{stdno}
+	where  stdno = #{stdno} and today = TO_DATE(#{today},'MM-DD-YYYY HH24:MI:SS')
 </update>
-
-
-
 
 
 </mapper>

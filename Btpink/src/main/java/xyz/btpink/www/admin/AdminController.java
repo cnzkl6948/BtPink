@@ -249,9 +249,10 @@ public class AdminController {
 
 	// 출석부
 	@RequestMapping(value = "/Slist", method = RequestMethod.GET)
-	public String Slist(HttpSession session, Locale locale, Model model) {
+	public String Slist(HttpSession session, Locale locale, Model model, String day) {
+		
+		
 		logger.info("Go! Slist");
-
 		
 		Account loginuser = (Account)session.getAttribute("User"); //세션에서 로그인유저 계정정보를 가져옴
 		
@@ -259,19 +260,58 @@ public class AdminController {
 		ClassVO selClass = cdao.selectClass(memno); //멤버 넘버에 할당된 클래스 VO 가져옴
 		String classno = selClass.getClassNo(); //클래스 VO에 포함된 클래스 넘버 가져옴.
 		
-		ArrayList<Attendence> result = adao.selectAtd(classno); //해당 클래스 넘버에 해당된 출석 목록을 가져옴
+		if(day==null){
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+			Date currenttime = new Date();
+			String tempDate = sdf.format(currenttime);
+				
+			System.out.println(tempDate);
+			
+			Attendence atd = new Attendence();
+			atd.setClassno(classno);
+			atd.setToday(tempDate);
+			
+			ArrayList<Attendence> result = adao.selectAtdt(atd); //해당 클래스 넘버에 해당된 출석 목록을 가져옴
 
+			System.out.println(result);
+			model.addAttribute("list", result);
+			model.addAttribute("selDay", tempDate);
+		}
+		
+		else{
+		Attendence atd = new Attendence();
+		atd.setClassno(classno);
+		atd.setToday(day);
+		
+		ArrayList<Attendence> result = adao.selectAtdt(atd);
 		System.out.println(result);
 		model.addAttribute("list", result);
+		model.addAttribute("selDay", day);
+				
+		}
+		
+		
 
 		return "AdminPage/Slist";
 	}
 	
+	//출석부 날짜 변경
+	@RequestMapping(value="Slistday", method = RequestMethod.POST)
+	public String Slistday(Locale locale, Model model, String day){
+		
+		System.out.println(day);
+		
+		return "AdminPage/Slist";
+			
+	}
+	
 	//출석 변경
 	@RequestMapping(value="atdCheck", method = RequestMethod.POST)
-	public @ResponseBody String atdCheck(Attendence attendence){
+	public @ResponseBody String atdCheck(HttpSession session, Attendence attendence){
 		logger.info("Go! atdCheck!");
-		System.out.println(attendence);
+		
+		
+		System.out.println("atdcheck : "+attendence);
 		
 		if(attendence.getAbsent().equals("n")) attendence.setAbsent("0");
 		else attendence.setAbsent("1");
@@ -285,10 +325,9 @@ public class AdminController {
 		if(attendence.getSick().equals("n")) attendence.setSick("0");
 		else attendence.setSick("1");
 		
-		adao.updateCul(attendence);
 		
-		
-		
+		adao.updateCult(attendence);
+				
 //		System.out.println(Arrays.toString(ckdSend));
 //		for(int i=0; i < ckdSend.length; i++){
 //			
@@ -296,9 +335,8 @@ public class AdminController {
 //		}
 //		
 		return "과연 성공할 것인가";
-		
-		
-	}
+}
+	
 
 	// 인원확인
 	@RequestMapping(value = "/PCheck", method = RequestMethod.GET)
