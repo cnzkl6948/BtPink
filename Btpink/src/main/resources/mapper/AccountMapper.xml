@@ -53,4 +53,18 @@
 		where
 			memno = #{memNo}
 	</update>
+	
+	
+	<!-- 선생님이름으로 memNo 찾기 -->	
+	<select id="duplicateTeacherCheck" parameterType="Account" resultType="Account">
+		select DISTINCT a.* 
+		from account a, class c
+		where a.name= #{name}
+	    and a.type='t'
+	    and a.memno not in(	select DISTINCT MEMNO
+	                    	 from  class)
+	</select>
+	
+	
+	
 </mapper>

@@ -16,4 +16,8 @@ public interface AccountMapper {
 	public ArrayList<Aapply> accountCheck();
 
 	public int signUpdate(Account account);
+	
+	public ArrayList<Account> duplicateTeacherCheck(Account aco);
+		
+	
 }

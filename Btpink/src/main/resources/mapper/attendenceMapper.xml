@@ -29,4 +29,16 @@
 		where stdno = (select stdno from student where personalId = #{personId}) and today =(select to_char(sysdate,'yy/mm/dd')from dual)
 </update>
 
+
+
+<update id="updateCul" parameterType="Attendence">
+	update attendence
+	set		absent = ${absent}, early= ${early}, sick=${sick}, late=${late}
+	where  stdno = #{stdno}
+</update>
+
+
+
+
+
 </mapper>

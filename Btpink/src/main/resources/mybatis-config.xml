@@ -15,6 +15,7 @@
 		<typeAlias type="xyz.btpink.www.vo.ClassVO" alias="ClassVO"/> 
 		<typeAlias type="xyz.btpink.www.vo.Aapply" alias="Aapply"/>
 		<typeAlias type="xyz.btpink.www.vo.IdentfyVO" alias="IdentfyVO"/>
+		<typeAlias type="xyz.btpink.www.vo.CCTV" alias="CCTV"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/AccountMapper.xml" />
@@ -24,6 +25,7 @@
 		<mapper resource="mapper/boardMapper.xml" />	
 		<mapper resource="mapper/attendenceMapper.xml" />
 		<mapper resource="mapper/ClassMapper.xml" />
+		<mapper resource="mapper/CCTVMapper.xml" />
 	</mappers>
 	   
 </configuration>

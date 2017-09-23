@@ -104,7 +104,7 @@ public class MainPageController {
 				default:
 					color += "#FFFFFF"; // white
 					break;
-					
+
 				}
 
 				emotion += "{";
@@ -126,9 +126,9 @@ public class MainPageController {
 		}
 		System.out.println(emotion);
 		model.addAttribute("emotionEvent", emotion);
-	      String className = parentDAO.getClassName(account.getId());
-	      model.addAttribute("className", className);
+		String className = parentDAO.getClassName(account.getId());
+		model.addAttribute("className", className);
 		return "MainPage/MySon";
 	}
-	
+
 }

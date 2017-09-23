@@ -89,4 +89,9 @@ public ArrayList<Attendence> selectAtd(String classno){
 		
 		return mapper.identfy(identfy);
 	}
+	public int updateCul(Attendence attendence){
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		int result = mapper.updateCul(attendence);
+		return result;
+	}
 }

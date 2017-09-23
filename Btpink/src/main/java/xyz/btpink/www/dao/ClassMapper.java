@@ -11,4 +11,11 @@ public interface ClassMapper {
 
 	public ArrayList<ClassVO> allClass();
 
+	public ClassVO duplicateNameCheck(ClassVO cla);
+
+	public int selectNextClassNo();
+
+	public int classInsert(ClassVO cla);
+
+	public ArrayList<ClassVO> allClassList();
 }
