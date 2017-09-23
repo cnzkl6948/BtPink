@@ -18,7 +18,7 @@
 	<c:if test="${User!=null}">
 		<p class="space-bottom"
 			style="float: right; margin-right: 5%; margin-top: 3%;">
-			<button type="button" class="btn btn-sm btn-primary "
+			<button type="button" class="btn btn-primary"
 				onclick="location.href='writeNotice'">글쓰기</button>
 		</p>
 	</c:if>
