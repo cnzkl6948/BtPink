@@ -133,12 +133,8 @@ public class UsersController {
 	@RequestMapping(value = "classCheck", method = RequestMethod.POST)
 	public @ResponseBody ArrayList<ClassVO> classChek(Locale locale, Model model, HttpSession session) {
 		ArrayList<ClassVO> list = null;
-		list = (ArrayList<ClassVO>) session.getAttribute("cList");
-		if (list == null) {
 			list = classDao.allClass();
-			System.out.println("세션 있음");
-			session.setAttribute("cList", list);
-		}
+			model.addAttribute("cList", list);
 		return list;
 	}
 

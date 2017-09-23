@@ -37,7 +37,12 @@
 	where  stdno = #{stdno}
 </update>
 
+<select id="selectStudent" parameterType="Account" resultType="Attendence" >
+	select * from ATTENDENCE at,( 
+		select stdno from student where  parentno = #{memNo}
+	) std where std.stdno = at.stdno
 
+</select>
 
 
 

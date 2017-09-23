@@ -1,3 +1,5 @@
+var userName = '';
+
 $(function() {
 	var video = document.getElementById('myVideo');
 	if (navigator.webkitGetUserMedia) {
@@ -31,6 +33,7 @@ function takePhoto() {
 	}
 }
 function snapshot() {
+	$("#chulcheck").html("출석 체크 중....");
 	var set = document.getElementById('image');
 	// 찍은 사진을 저장한다.
 
@@ -48,10 +51,12 @@ function snapshot() {
 		url : "detectImage",
 		type : "POST",
 		data : $("#formId").serialize(), // serializes the form's elements.
-		success : function(PersonId) {
+		success : function(target) {
 			// show response from the php script.
-			alert(PersonId);
-			
+			userName = '';
+			for (var k in target){
+			getName(k);
+			}
 		}
 	});
 }
@@ -79,7 +84,8 @@ function getName(personId) {
 						})
 
 					}).done(function(data) {
-				$("#chulcheck").html(data.name);
+				userName +=','+data.name;
+				$("#chulcheck").html(userName.substring(1));
 			}).fail(function() {
 				alert("getName error");
 			});
