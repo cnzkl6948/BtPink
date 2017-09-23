@@ -31,11 +31,11 @@ public class AttendenceDAO {
 		
 	}
 
-	public ArrayList<Attendence> selectAtd(String classno) {
+	public ArrayList<Attendence> selectAtd(String today) {
 
 		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
 		ArrayList<Attendence> result = new ArrayList<>();
-		result = mapper.selectAtd(classno);
+		result = mapper.selectAtd(today);
 
 		return result;
 
@@ -64,6 +64,7 @@ public class AttendenceDAO {
 			System.out.println("학생번호 리스트 출력 : " + sresult);
 
 			for (int i = 0; i < sresult.size(); i++) {
+				System.out.println("for문 진입");
 				String stdno = sresult.get(i);
 				System.out.println(stdno);
 				Attendence atd = new Attendence(stdno, "", classno, "", "", "", "", "", "");

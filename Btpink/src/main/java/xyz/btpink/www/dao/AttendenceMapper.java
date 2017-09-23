@@ -9,7 +9,7 @@ import xyz.btpink.www.vo.IdentfyVO;
 public interface AttendenceMapper {
 	public Attendence getMainParam(String classno);
 	
-	public ArrayList<Attendence> selectAtd(String classno);
+	public ArrayList<Attendence> selectAtd(String today);
 	
 	public ArrayList<Attendence> selectAtdt(Attendence atd);
 
