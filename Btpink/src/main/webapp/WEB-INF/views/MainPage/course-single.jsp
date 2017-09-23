@@ -15,7 +15,7 @@
 	<div class="col-md-9 col-sm-12 col-xs-12 block pull-right">
 		<div class="col-md-9 col-sm-12 col-xs-12 block pull-left">
 			<div class="thumbnail thumbnailContent alt">
-				<img src="./resources/img/course-single/course-single-title.jpg"
+				<img src="./resources/img/kindergarten_child/timeTable3.png"
 					alt="image" class="img-responsive" width="10" height="100"
 					style="width: 700px;">
 			</div>

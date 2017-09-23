@@ -50,7 +50,6 @@ public class TensorflowController {
 		String classno = cdao.selectClass(sensei.getMemNo()).getClassNo();
 		
 		
-		
 		long time = System.currentTimeMillis(); 
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy/MM/dd hh:mm");
 		String str = dayTime.format(new Date(time));
