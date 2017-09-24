@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+.content-header {padding:30px 20px}
+.content-header>.breadcrumb {top:30px}
+.form-group {margin-bottom:8px}
+.form-group label {margin-top:5px}
+.progress {overflow:hidden;height:40px;margin-bottom:0;border-radius:4px}
+.progress-bar {height:40px;line-height:40px;font-size:18px}
+.small-box .icon {top:0}
+.small-box .txt_count {font-size:22px;vertical-align:bottom}
+.inp_date::-webkit-input-placeholder{color:#333;}
+.inp_date::-moz-placeholder{color:#333;}
+.inp_date::-ms-input-placeholder{color:#333;}
+.inp_date::-moz-placeholder{color:#333;}

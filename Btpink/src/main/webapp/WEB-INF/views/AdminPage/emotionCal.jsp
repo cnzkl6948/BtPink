@@ -22,7 +22,6 @@
 			<li class="active">감정달력</li>
 		</ol>
 	</section>
-	<br>
 	<!-- Main row -->
 	<section class="content">
 		<div class="row">

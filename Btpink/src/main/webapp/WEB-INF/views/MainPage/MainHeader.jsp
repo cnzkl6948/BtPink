@@ -40,19 +40,20 @@
 						</ul>
 					</div>
 					<div class="col-sm-3">
-						<ul class="list-inline functionList">
+						<ul class="list-inline functionList pull-right" style="width:auto">
 							<c:choose>
 								<c:when test="${User != null }">
-									<li><i i class="fa fa-globe bg-color-4" aria-hidden="true"></i><a
-										href="logout"><span>logout</span></a></li>
-
+									<li>
+										<i i class="fa fa-globe bg-color-4" aria-hidden="true"></i><a href="logout"><span>로그아웃</span></a>
+									</li>
 								</c:when>
 								<c:otherwise>
-									<li><i class="fa fa-unlock-alt bg-color-5"
-										aria-hidden="true"></i> <a href='#loginModal'
-										data-toggle="modal">Login</a><span>or</span><a
-										href='javascript:className()' >Create an
-											account</a></li>
+									<li>
+										<i class="fa fa-unlock-alt bg-color-5" aria-hidden="true"></i> <a href='#loginModal' data-toggle="modal">로그인</a>
+									</li>
+									<li style="margin-left:20px">
+										<i class="fa fa-sign-in bg-color-4" aria-hidden="true" style="margin-right:0px"></i> <a href='javascript:className()'>회원가입</a>
+									</li>
 								</c:otherwise>
 							</c:choose>
 						</ul>

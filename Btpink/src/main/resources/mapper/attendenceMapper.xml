@@ -31,6 +31,11 @@
 	select * from attendence where today = to_char(sysdate, 'yy/mm/dd') and classno=#{classno}
 </select>
 
+<delete id="delAtd">
+	DELETE FROM attendence
+	WHERE		today = to_char(sysdate, 'yy/mm/dd')
+</delete>
+
 <!-- 작업중 -->
 <insert id="insertInitAtd" parameterType="String">
 	insert into attendence values (#{stdno}, #{classno}, to_char(sysdate, 'yy/mm/dd'), 1, 0, 0, 0, '')

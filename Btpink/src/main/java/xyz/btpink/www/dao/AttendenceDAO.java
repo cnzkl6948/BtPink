@@ -76,7 +76,12 @@ public class AttendenceDAO {
 		return iresult;
 
 	}
+	public int delAtd(){
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		int result = mapper.delAtd();
 
+		return result;
+	}
 	public ArrayList<Attendence> getEmotionList(String stdno) {
 
 		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);

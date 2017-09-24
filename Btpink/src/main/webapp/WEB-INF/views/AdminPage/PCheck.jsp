@@ -19,16 +19,15 @@
         <li class="active">인원확인</li>
       </ol>
     </section>
-   <br>
       <!-- Main row -->
       <div class="row">
       <div class="col-lg-12">
         <!-- Left col -->
-        <section class="col-lg-6 col-md-12 connectedSortable">
+        <section class="col-lg-6 col-md-12">
               <div style="position:relative">
                  <div style="position:relative"><!-- style 추가 -->
               <form id="formId" style="font-size:0"><!-- style 추가/구조변경 -->
-               <p id="img_here" ></p>
+               <div id="img_here" ></div>
                <input type="hidden" id="image" name="image"> <br>
                <canvas id="store" style="display: none;"></canvas>
             </form>
@@ -40,7 +39,7 @@
         
         <!-- right col (We are only adding the ID to make the widgets sortable)-->
 
-        <section class="col-lg-6 col-md-12 connectedSortable">    
+        <section class="col-lg-6 col-md-12" style="padding-left:0">    
            <div class="box box-solid">
                <div class="box-header with-border">
                  <h3 class="box-title">사용 방법</h3>

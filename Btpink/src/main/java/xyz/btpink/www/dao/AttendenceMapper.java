@@ -25,7 +25,7 @@ public interface AttendenceMapper {
 
 	public int identfy(IdentfyVO identfy);
 
-//	public int updateCul(Attendence attendence);
+	public int delAtd();
 	
 	public int updateCult(Attendence attendence);
 

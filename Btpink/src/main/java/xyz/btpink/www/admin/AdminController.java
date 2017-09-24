@@ -816,15 +816,9 @@ public class AdminController {
 			Thread.sleep(50);
 		}
 
-		// DB에 적용 stuList
-		// sdao.update(std5);
-
-		// for(Student s : stuList){
-		// sdao.updateA(s);
-		// System.out.println(s.getStdno());
-		// Thread.sleep(50);
-		//
-		// }
+		//오늘 날짜의 출석 db가 있으면 모두 삭제
+		adao.delAtd();
+		
 
 		stuList = sdao.allStuList();
 		int allCount = stuList.size();

@@ -42,9 +42,8 @@
 				<div class="small-box bg-aqua">
 					<div class="inner">
 						<h3>
-							${mainParam.absent}<sup style="font-size: 20px">명</sup>
+							${mainParam.absent}<span class="txt_count">명</span>
 						</h3>
-
 						<p>결석자 수</p>
 					</div>
 					<div class="icon">
@@ -60,9 +59,8 @@
 				<div class="small-box bg-green">
 					<div class="inner">
 						<h3>
-							${mainParam.early }<sup style="font-size: 20px">명</sup>
+							${mainParam.early }<span class="txt_count">명</span>
 						</h3>
-
 						<p>조퇴자 수</p>
 					</div>
 					<div class="icon">
@@ -76,7 +74,7 @@
 				<div class="small-box bg-yellow">
 					<div class="inner">
 						<h3>
-							${mainParam.sick}<sup style="font-size: 20px">명</sup>
+							${mainParam.sick}<span class="txt_count">명</span>
 						</h3>
 
 						<p>병결자 수</p>
@@ -92,7 +90,7 @@
 				<div class="small-box bg-red">
 					<div class="inner">
 						<h3>
-							${mainParam.late}<sup style="font-size: 20px">명</sup>
+							${mainParam.late}<span class="txt_count">명</span>
 						</h3>
 
 						<p>지각자수</p>
