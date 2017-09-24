@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
+import xyz.btpink.www.vo.ClassVO;
 import xyz.btpink.www.vo.IdentfyVO;
 import xyz.btpink.www.vo.Student;
 
@@ -94,4 +95,12 @@ public ArrayList<Attendence> selectAtd(String classno){
 		int result = mapper.updateCul(attendence);
 		return result;
 	}
+
+	public ArrayList<Attendence> allAttendence(ArrayList<ClassVO> list) {
+		// TODO Auto-generated method stub
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		
+		return mapper.allAttendence(list);
+	}
+
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
+import xyz.btpink.www.vo.ClassVO;
 import xyz.btpink.www.vo.IdentfyVO;
 
 public interface AttendenceMapper {
@@ -22,4 +23,7 @@ public interface AttendenceMapper {
 	public int identfy(IdentfyVO identfy);
 
 	public int updateCul(Attendence attendence);
+	
+
+	public ArrayList<Attendence> allAttendence(ArrayList<ClassVO> list);
 }

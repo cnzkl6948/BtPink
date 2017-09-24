@@ -43,7 +43,9 @@
 	) std where std.stdno = at.stdno
 
 </select>
+<select id="allAttendence" parameterType="ClassVO" resultType="Attendence">
 
+</select>
 
 
 </mapper>

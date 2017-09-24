@@ -55,8 +55,11 @@ public class AdminController {
 
 	@Autowired
 	AccountDAO accdao;
-
+	
+	@Autowired
+	AttendenceDAO attendenceDao;
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
+
 
 	// 선생님 페이지
 	@RequestMapping(value = "/adminPage", method = RequestMethod.GET)
@@ -80,6 +83,9 @@ public class AdminController {
 			System.out.println(account.getId());
 			model.addAttribute("TeacherNotice", tdao.selectDemand(account.getId()));
 			System.out.println(tdao.selectDemand(account.getId()));
+			ArrayList<ClassVO> list = cdao.allClass();;
+			ArrayList<Attendence> aList =attendenceDao.allAttendence(list);
+			System.out.println(aList);
 		}
 		
 		return "adminPage";
