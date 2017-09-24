@@ -50,7 +50,6 @@ public class TensorflowController {
 		String classno = cdao.selectClass(sensei.getMemNo()).getClassNo();
 		
 		
-		
 		long time = System.currentTimeMillis(); 
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy/MM/dd hh:mm");
 		String str = dayTime.format(new Date(time));
@@ -98,7 +97,8 @@ public class TensorflowController {
 			Message mimeMessage = new MimeMessage(sessionMail); 
 			
 			//MimeMessage 생성 
-			mimeMessage.setFrom(new InternetAddress("lolly87@naver.com")); //발신자 셋팅 , 보내는 사람의 이메일주소를 한번 더 입력합니다. 이때는 이메일 풀 주소를 다 작성해주세요. 
+//			mimeMessage.setFrom(new InternetAddress("lolly87@naver.com")); //발신자 셋팅 , 보내는 사람의 이메일주소를 한번 더 입력합니다. 이때는 이메일 풀 주소를 다 작성해주세요. 
+			mimeMessage.setFrom(new InternetAddress("cnzkl6948@naver.com")); //발신자 셋팅 , 보내는 사람의 이메일주소를 한번 더 입력합니다. 이때는 이메일 풀 주소를 다 작성해주세요. 
 			mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient)); //수신자셋팅 //.TO 외에 .CC(참조) .BCC(숨은참조) 도 있음 
 			mimeMessage.setSubject(subject); //제목셋팅 
 			mimeMessage.setText(body); //내용셋팅 

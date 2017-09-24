@@ -130,18 +130,18 @@ function login() {
 		});
 	}
 }
-
-//엔터키!!
-//function loginEnter() {
-//	if (event.keyCode == 13) {
-//		// TODO : login
-//		login();
-//	}
-//}
-//function joinEnter() {
-//	if (event.keyCode == 13) {
-//		// TODO : login
-//		join();
-//	}
-//}
-
+function className() {
+	var text = '<div class="col-sm-8 col-xs-12"><select  id="classno" class="form-control" >';
+	$.ajax({
+		url : "classCheck",
+		type : "post",
+		success : function(result) {
+			$.each(result, function(index, classData) {
+				text +='<option value="'+classData.classNo +'" class="textCenter" >'+classData.className +'</option>'
+			})
+			text += '</select></div>';
+			$('#SelectStudent').html(text);
+			$('#createAccount').modal('toggle');
+		}
+	});
+}

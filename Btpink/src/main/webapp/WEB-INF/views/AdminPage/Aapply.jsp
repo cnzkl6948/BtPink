@@ -47,10 +47,10 @@
 							<table id="example2" class="table table-bordered table-hover"
 								style="text-align: center;">
 								<thead>
-									<tr>
-										<th>부모 ID</th>
+									<tr style="text-align: center;">
+										<th>I    D</th>
 										<th>부모 이름</th>
-										<th>학생 이름</th>
+										<th>구       분</th>
 										<th>전화 번호</th>
 										<th>가입 날짜</th>
 										<th>승인 여부</th>
@@ -58,21 +58,23 @@
 								</thead>
 								<tbody id="tableBody">
 									<c:forEach items="${AapplyList}" var="list">
-										<tr>
-											<td>${list.id }</td>
-											<td>${list.parentName }</td>
-											<td>${list.studentName }</td>
-											<td>${list.tell }</td>
-											<td>${fn:substring(list.memNo,1,9)}</td>
-											<td id="${list.memNo}"><c:if
-													test="${list.status =='0' }">
-													<button type="button" class="btn btn-block btn-primary"
-														onclick="javascript:sign('${list.memNo}','${list.status}')">승인</button>
-												</c:if> <c:if test="${list.status =='1' }">
-													<button type="button" class="btn btn-block btn-danger"
-														onclick="javascript:sign('${list.memNo}','${list.status}')">비승인</button>
-												</c:if></td>
-										</tr>
+										<c:if test="${list.id != 'admin' }">
+											<tr>
+												<td>${list.id }</td>
+												<td>${list.parentName }</td>
+												<td>${list.studentName }</td>
+												<td>${list.tell }</td>
+												<td>${fn:substring(list.memNo,1,9)}</td>
+												<td id="${list.memNo}"><c:if
+														test="${list.status =='0' }">
+														<button type="button" class="btn btn-block btn-primary" 
+															onclick="javascript:sign('${list.memNo}','${list.status}')">승인</button>
+													</c:if> <c:if test="${list.status =='1' }">
+														<button type="button" class="btn btn-block btn-danger"
+															onclick="javascript:sign('${list.memNo}','${list.status}')">비승인</button>
+													</c:if></td>
+											</tr>
+										</c:if>
 									</c:forEach>
 								</tbody>
 							</table>
@@ -141,7 +143,7 @@
 				</div>
 				<!-- /.box -->
 				<button type="button" class="btn btn-block btn-danger"
-					data-toggle="modal" data-target="#modal-danger"
+					data-toggle="modal" data-target="#modal-danger" 
 					onclick="formcheck()">등록</button>
 				<button type="button" class="btn btn-block btn-default"
 					onclick="cancel()">취소</button>
@@ -180,27 +182,30 @@
 <script>
 	$('#example2').DataTable();
 	function sign(memNo, status) {
-		$.ajax({
-			url : "sign",
-			type : "post",
-			data : {
-				'memNo' : memNo,
-				'status' : status
-			},
-			success : function(account) {
-				// SelectStudent background-color: #337ab7
-				var text = '';
-			
-					if(status =='1'){
-						text +='<button type="button" class="btn btn-block btn-primary"'
-							text +='onclick="javascript:sign(\'' +memNo+'\',\''+0+'\')">승인</button>'						
-					}else{
-						text +='<button type="button" class="btn btn-block btn-danger"'
-						text +='onclick="javascript:sign(\'' +memNo+'\',\''+1+'\')">비승인</button>'
+		$
+				.ajax({
+					url : "sign",
+					type : "post",
+					data : {
+						'memNo' : memNo,
+						'status' : status
+					},
+					success : function(account) {
+						// SelectStudent background-color: #337ab7
+						var text = '';
+
+						if (status == '1') {
+							text += '<button type="button" class="btn btn-block btn-primary"'
+							text += 'onclick="javascript:sign(\'' + memNo
+									+ '\',\'' + 0 + '\')">승인</button>'
+						} else {
+							text += '<button type="button" class="btn btn-block btn-danger"'
+							text += 'onclick="javascript:sign(\'' + memNo
+									+ '\',\'' + 1 + '\')">비승인</button>'
+						}
+						$('#' + memNo).html(text);
 					}
-				$('#'+memNo).html(text);
-			}
-		});
+				});
 	}
 </script>
 </body>
