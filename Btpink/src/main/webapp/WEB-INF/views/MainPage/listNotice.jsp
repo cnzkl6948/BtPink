@@ -15,17 +15,10 @@
 			</div>
 		</div>
 	</section>
-	<c:if test="${User!=null}">
-		<p class="space-bottom"
-			style="float: right; margin-right: 5%; margin-top: 3%;">
-			<button type="button" class="btn btn-primary"
-				onclick="location.href='writeNotice'">글쓰기</button>
-		</p>
-	</c:if>
 	<!-- MAIN SECTION -->
 	<section class="mainContent full-width clearfix coursesSection">
 		<div class="container">
-			<div class="row col-sm-12 ">
+			<div class="row">
 				<c:forEach var="board" items="${boardlist}">
 					<div class="col-md-3 col-sm-6 col-xs-12 block">
 						<div class="thumbnail thumbnailContent">
@@ -83,10 +76,15 @@
 
 				</c:forEach>
 			</div>
+			<c:if test="${User!=null}">
+			<div class="clearfix">
+				<button type="button" class="btn btn-primary pull-right" onclick="location.href='writeNotice'">글쓰기</button>
+			</div>
+			</c:if>
 
 			<!-- 페이지 이동 부분 -->
 			<div id="navigator" class="pagerArea text-center">
-				<ul class="pager">
+				<ul class="pager" style="margin:30px auto 20px">
 					<li class="prev"><a
 						href="javascript:pagingFormSubmit(${navi.currentPage - navi.pagePerGroup})">Prev<i
 							class="fa fa-arrow-left" aria-hidden="true"></i></a></li>

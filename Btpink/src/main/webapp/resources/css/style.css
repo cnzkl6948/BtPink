@@ -956,7 +956,7 @@ aside {
 }
 
 @media (min-width: 768px) {
-  .whiteSection, .mainContent, .lightSection, .colorSection {
+  .whiteSection, .lightSection, .colorSection {
     padding: 100px 0;
   }
 }

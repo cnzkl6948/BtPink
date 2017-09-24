@@ -4,6 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ include file="MainPage/MainHead.jsp"%>
+<style>
+.desc_notice {overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+</style>
 <%@ include file="MainPage/MainHeader.jsp"%>
 <!-- BANNER -->
 <section class="bannercontainer bannercontainerV1">
@@ -191,7 +194,7 @@
 								<li><a href="single-blog-left-sidebar.html"><i
 										class="fa fa-user" aria-hidden="true"></i>${board.id}</a></li>
 							</ul>
-							<p>${board.content}</p>
+							<p class="desc_notice">${board.content}</p>
 							<ul class="list-inline btn-yellow">
 								<li><a href="listNotice" class="btn btn-link"><i
 										class="fa fa-angle-double-right" aria-hidden="true"></i> Read

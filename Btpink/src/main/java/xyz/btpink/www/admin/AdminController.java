@@ -416,8 +416,18 @@ public class AdminController {
 
 	// 감정달력
 	@RequestMapping(value = "/getEmotionList", method = RequestMethod.POST)
-	public String getEmotionList(String stdno, Model model) {
+	public String getEmotionList(String stdno, Model model, HttpSession session) {
 		logger.info("Go! getEmotionList");
+		Account ac = (Account) session.getAttribute("User");
+		System.out.println(ac);
+		// 선생의 클래스 가져오기
+		ClassVO cla = cdao.selectClass(ac.getMemNo());
+
+		// 학생 목록 가져오기
+		ArrayList<Student> stuList = sdao.selectStu(cla.getClassNo());
+
+		model.addAttribute("stuList", stuList);
+		
 		ArrayList<Attendence> result = adao.getEmotionList(stdno);
 		int cnt = result.size();
 		int count = 0;
