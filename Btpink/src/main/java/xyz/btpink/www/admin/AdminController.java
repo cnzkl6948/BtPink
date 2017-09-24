@@ -64,7 +64,8 @@ public class AdminController {
 		logger.info("Go! adminPage");
 		Account account = (Account) session.getAttribute("User");
 		System.out.println("타입 확인 : " + account.getType());
-		if (!account.getType().equals("admin")) {
+		
+		if (!account.getType().equals("admin")) { //어드민이 아닐때
 
 			System.out.println("초기확인작업 시작");
 
@@ -72,7 +73,7 @@ public class AdminController {
 			ClassVO selClass = cdao.selectClass(memno); // 멤버 넘버에 할당된 클래스 VO 가져옴
 			String classno = selClass.getClassNo(); // 클래스 VO에 포함된 클래스 넘버 가져옴.
 
-			if (selClass != null) {
+			if (selClass != null) { //어드민이 아닐때
 				System.out.println("클래스 넘버 : " + classno);
 
 				adao.initAtd(classno); // 출석부 표시전 초기 확인작업
@@ -86,6 +87,13 @@ public class AdminController {
 			Attendence param = adao.getMainParam(classno);
 			model.addAttribute("mainParam", param);
 
+		}
+		
+		else{ //어드민일때
+			
+			Attendence param = adao.getMainParama();
+			model.addAttribute("mainParam", param);
+			
 		}
 
 		return "adminPage";
@@ -290,9 +298,7 @@ public class AdminController {
 				ArrayList<Attendence> result = adao.selectAtd(day);
 				System.out.println(result);
 				model.addAttribute("list", result);
-				model.addAttribute("selDay", day);
-				
-				
+				model.addAttribute("selDay", day);	
 				
 			}
 			

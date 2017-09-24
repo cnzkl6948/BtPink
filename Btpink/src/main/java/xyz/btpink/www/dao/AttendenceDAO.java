@@ -30,6 +30,12 @@ public class AttendenceDAO {
 		return result;
 		
 	}
+	
+	public Attendence getMainParama(){
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		Attendence result = mapper.getMainParama();
+		return result;
+	}
 
 	public ArrayList<Attendence> selectAtd(String today) {
 
