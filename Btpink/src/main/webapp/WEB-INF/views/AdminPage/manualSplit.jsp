@@ -66,7 +66,16 @@ pageEncoding="UTF-8"%>
 										<td>${stu.stdno}<input type="hidden" id="stdno${status.index}" name="stuList[${status.index}].stdno" value="${stu.stdno}" readonly="readonly"></td>
 										<td>${stu.name}<input type="hidden" id="name${status.index}" name="stuList[${status.index}].name" value="${stu.name}" readonly="readonly"></td>
 										<td>${stu.age}<input type="hidden" id="age${status.index}" name="stuList[${status.index}].age" value="${stu.age}" readonly="readonly"></td>
-										<td><input type="text" id="classno${status.index}" name="stuList[${status.index}].classno" value="${stu.classno}"></td>
+										<td>
+											<select id="classno${status.index}" name="stuList[${status.index}].classno">
+												<c:forEach var="class" items="${classList}">
+													<c:if test="${ class = stu.cla }"></c:if>
+													<option value="${class}">${class}</option>
+												</c:forEach>
+												
+											</select>
+										
+										</td>
 										<td>${stu.gender}<input type="hidden" id="gender${status.index}" name="stuList[${status.index}].gender" value="${stu.gender}" readonly="readonly"></td>
 										<td>${stu.hateid}<input type="hidden" id="hateid${status.index}" name="stuList[${status.index}].hateid" value="${stu.hateid}" style="width:100%"></td>
 										<td><button type="button" class="btn btn-block btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger" onclick="send('${status.index}');">적용</button></td>
@@ -166,7 +175,25 @@ pageEncoding="UTF-8"%>
 	<script>
 	$(function(){
 		$('#stulist').DataTable();
-	});
+ 	});
+	
+	function className() {
+		var text = '<div class="col-sm-8 col-xs-12"><select  id="classno" class="form-control" >';
+		$.ajax({
+			url : "classCheck",
+			type : "post",
+			success : function(result) {
+				$.each(result, function(index, classData) {
+					text +='<option value="'+classData.classNo +'" class="textCenter" >'+classData.className +'</option>'
+				})
+				text += '</select></div>';
+				$('#SelectStudent').html(text);
+				$('#createAccount').modal('toggle');
+			}
+		});
+	}
+	
+	
 	function send(index){
 		var stdno = '#stdno'+index;
 		var name = '#name'+index;
@@ -187,7 +214,7 @@ pageEncoding="UTF-8"%>
 			hateid 	: $(hateid).val()
 	},
 		success: function(result){
-		location.href='autoSplit';
+		location.href='manualSplit';
 	}
 	});
 	}
