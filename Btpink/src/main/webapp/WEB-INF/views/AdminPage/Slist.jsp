@@ -195,6 +195,8 @@
 		var early = '#early' + index;
 		var sick = '#sick' + index;
 		var late = '#late' + index;
+		
+ 		//var day = $('#day').val();
 
 		var absentD = 'n';
 		var earlyD = 'n';
@@ -228,7 +230,7 @@
 			},
 			success : function(result) {
 				alert('얏따');
-				location.href = 'Slist';
+				location.href = 'Slist?day='+$(day).val();
 			}
 		});
 
