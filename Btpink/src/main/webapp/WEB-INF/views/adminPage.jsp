@@ -46,9 +46,9 @@
 				<div class="small-box bg-aqua">
 					<div class="inner">
 						<h3>
-							${mainParam.absent}<span class="txt_count">명</span>
+							${mainParam.attend}<span class="txt_count">명</span>
 						</h3>
-						<p>결석자 수</p>
+						<p>출석자 수</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-bag"></i>
@@ -94,10 +94,10 @@
 				<div class="small-box bg-red">
 					<div class="inner">
 						<h3>
-							${mainParam.late}<span class="txt_count">명</span>
+							${mainParam.absent}<span class="txt_count">명</span>
 						</h3>
 
-						<p>지각자수</p>
+						<p>결석자 수</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-pie-graph"></i>

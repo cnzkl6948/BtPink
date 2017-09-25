@@ -33,6 +33,7 @@ import xyz.btpink.www.vo.Aapply;
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.ClassVO;
+import xyz.btpink.www.vo.MainParam;
 import xyz.btpink.www.vo.Student;
 
 @Controller
@@ -84,14 +85,14 @@ public class AdminController {
 				model.addAttribute("TeacherNotice", tdao.selectDemand(account.getId()));
 				System.out.println(tdao.selectDemand(account.getId()));
 			}
-			Attendence param = adao.getMainParam(classno);
+			MainParam param = adao.getMainParam(classno);
 			model.addAttribute("mainParam", param);
 
 		}
 		
 		else{ //어드민일때
 			
-			Attendence param = adao.getMainParama();
+			MainParam param = adao.getMainParama();
 			model.addAttribute("mainParam", param);
 			
 		}
@@ -279,6 +280,8 @@ public class AdminController {
 	public String Slist(HttpSession session, Locale locale, Model model, String day) {
 
 		logger.info("Go! Slist");
+		
+		System.out.println("day값 : "+day);
 
 		Account loginuser = (Account) session.getAttribute("User"); // 세션에서
 																	// 로그인유저

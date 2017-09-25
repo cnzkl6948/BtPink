@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.IdentfyVO;
+import xyz.btpink.www.vo.MainParam;
 
 public interface AttendenceMapper {
-	public Attendence getMainParam(String classno);
+	public MainParam getMainParam(String classno);
 	
-	public Attendence getMainParama();
+	public MainParam getMainParama();
 	
 	public ArrayList<Attendence> selectAtd(String today);
 	
