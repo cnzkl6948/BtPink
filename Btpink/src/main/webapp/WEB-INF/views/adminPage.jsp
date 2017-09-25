@@ -276,10 +276,8 @@
 
 <%@ include file="AdminPage/split/Footer.jsp"%>
 <!-- Morris.js charts -->
-<script
-	src="./resources/AdminLTE/bower_components/raphael/raphael.min.js"></script>
-<script
-	src="./resources/AdminLTE/bower_components/morris.js/morris.min.js"></script>
+<!-- <script src="./resources/AdminLTE/bower_components/raphael/raphael.min.js"></script> -->
+<!-- <script src="./resources/AdminLTE/bower_components/morris.js/morris.min.js"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="./resources/AdminLTE/dist/js/pages/dashboard.js"></script>
 <script>
