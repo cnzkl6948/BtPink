@@ -18,4 +18,9 @@ public interface ClassMapper {
 	public int classInsert(ClassVO cla);
 
 	public ArrayList<ClassVO> allClassList();
+
+
+
 }
+
+

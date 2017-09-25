@@ -43,6 +43,5 @@
 		where c.memno=a.memno
 	</select>
 	
-	 
-	
-</mapper>
+
+	</mapper>

@@ -36,10 +36,12 @@ function teacherNameCheck() {
 			type : "get",
 			data : "name=" + teacherName,
 			success : function(result) {
-			// SelectStudent
 			if (result[0] === undefined) {
+				alert($('#teacherName').val() + "선생님은 이미 지정된 반이 존재합니다.");
+			}else if (result[0].name==='No'){
 				alert($('#teacherName').val() + "선생님이 없습니다");
-			} else {
+			} 
+			else {
 				var SelectTeacher = '<label for="teacherList" class="col-sm-3 control-label">선생님목록</label> <div class="col-sm-9"> <select id="memNo" name="memNo" class="select-drop"><option value="" disabled selected>선생님 정보를 선택하세요.</option>';
 				$.each(result, function(index, account) {
 					SelectTeacher += '<option ' + '" value="'

@@ -125,7 +125,7 @@ public class AdminController {
 		return "succes";
 	}
 
-	// 반 등록 후에 admincontroller로 이동시킬것
+	// 반 등록 
 	@RequestMapping(value = "classInsert", method = RequestMethod.GET)
 	public String classManagement(Locale locale, Model model, ClassVO cla) {
 		logger.info("Go! classInsert");
@@ -152,8 +152,16 @@ public class AdminController {
 	// 선생님이름으로 정보 불러오기
 	@RequestMapping(value = "teacherNameCheck", method = RequestMethod.GET)
 	public @ResponseBody ArrayList<Account> teacherNameCheck(Account aco, Locale locale, Model model) {
-		System.out.println(aco);
+		Account liar = new Account();
+		liar.setName("No");
+		
 		ArrayList<Account> checkedTeacher = accdao.duplicateTeacherCheck(aco);
+		ArrayList<Account> teaList = accdao.allTeahcerName(aco.getName());
+		
+		if (teaList.size()==0) {
+			checkedTeacher.add(liar);
+		}
+		
 		return checkedTeacher;
 	}
 

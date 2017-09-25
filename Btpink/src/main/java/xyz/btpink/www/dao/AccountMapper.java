@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import xyz.btpink.www.vo.Aapply;
 import xyz.btpink.www.vo.Account;
+import xyz.btpink.www.vo.ClassVO;
 
 public interface AccountMapper {
 
@@ -18,6 +19,7 @@ public interface AccountMapper {
 	public int signUpdate(Account account);
 	
 	public ArrayList<Account> duplicateTeacherCheck(Account aco);
-		
+	
+	public ArrayList<Account> allTeahcerName(String name);
 	
 }

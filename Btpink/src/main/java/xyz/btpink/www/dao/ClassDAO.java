@@ -55,6 +55,6 @@ public class ClassDAO implements ClassMapper {
 		return claList;
 	}
 	
-
+	
 	
 }
