@@ -242,15 +242,18 @@ public class AdminController {
 		String memno = loginuser.getMemNo();
 		System.out.println("dao 가기전 맴버넘버 가져오냐 ?" + memno);
 		ClassVO selClass = cdao.selectClass(memno);
+		if(selClass == null){
+			student.setClassno("");
+		}else{
+			student.setClassno(selClass.getClassNo());
+		}
 		System.out.println("selClass 다오 갔다옴" + selClass);
-		student.setClassno(selClass.getClassNo());
-
 		System.out.println(student);
-
 		int result = sdao.insert(student);
 		if (result == 1) {
 			System.out.println("DB입력성공");
 		}
+		
 
 		return "success";
 	}
