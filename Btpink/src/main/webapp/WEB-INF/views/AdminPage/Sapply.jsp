@@ -143,7 +143,7 @@
 			</div>
 			<!-- /.box -->
 			<button type="button" class="btn btn-block btn-danger"
-				data-toggle="modal" data-target="#modal-danger" onclick="formcheck()">
+				data-toggle="modal" data-target="#modal-danger2" onclick="formcheck()">
 				등록</button>
 			<button type="reset" class="btn btn-block btn-default">취소</button>
 			<div class="modal modal-danger fade" id="modal-danger">
@@ -163,6 +163,25 @@
 				<!-- /.modal-dialog -->
 			</div>
 			<!-- /.modal -->
+			
+			<div class="modal modal-danger fade" id="modal-danger2">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="btn btn-outline pull-right"
+								data-dismiss="modal">닫기</button>
+							<h4 class="modal-title">학생 등록</h4>
+						</div>
+						<div class="modal-body">
+							<p id="chulcheck">등록중...</p>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- /.modal -->
+			
 		</section>
 		</div>
 		</form>
@@ -195,10 +214,16 @@ function formcheck(){
 		alert('키를 작성해 주세요');
 // 		return false;
 	}
-	else if($('#birth').val() === ""){
+	else if($('#datepicker').val() === ""){
 		alert('생일을 작성해 주세요');
 // 		return false;
 	}
+	
+// 	else if(years!=5||years!=6||years!=7){
+// 		alert('만 5,6,7세의 아동이 아닙니다.');
+// //		return false;
+// 	}
+	
 	else if($('#address').val() === ""){
 		alert('주소를 작성해 주세요');
 // 		return false;
