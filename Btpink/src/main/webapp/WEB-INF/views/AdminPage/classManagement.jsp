@@ -21,7 +21,7 @@
 	</section>
 	<!-- Main row -->
 	<div class="row">
-		<form action="classInsert" method="GET" id="classInsert" role="form" onsubmit="return formCheck();">
+		<form action="classInsert" method="post" id="classInsert" role="form" onsubmit="return formCheck();">
 		<div class="col-lg-12">
 		<section class="col-lg-6">
 			<!-- Horizontal Form -->
@@ -37,8 +37,8 @@
 						<div class="form-group clearfix">
 							<label for="name" class="col-sm-3 control-label">반이름</label>
 							<div class="col-sm-6">
-								<input type="text" class="form-control" id="className" name="className"	
-								placeholder="반이름(중복을 확인해 주세요)" >
+								<input type="text" class="form-control" id="className" name="className"	placeholder="반이름(중복을 확인해 주세요)" >
+								<input type="hidden" id="classNameCheckk" value="0">
 							</div>
 							<div class="col-sm-3">
 								<input type="button" class="btn btn-danger" onclick="classNameCheck()" value="확인">
@@ -48,7 +48,7 @@
 						<div class="form-group clearfix">
 							<label for="agegroup" class="col-sm-3 control-label">나이</label>
 								<div class="col-sm-4">
-										<select id="age" class="select-drop" name="age" onchange="ageCheck();">
+										<select id="age" class="select-drop" name="age"">
 											<option label="" disabled selected>나이</option>
 											<option value="5">5세</option>
 											<option value="6">6세</option>
@@ -62,8 +62,8 @@
 						<div class="form-group clearfix">
 							<label for="teacherName" class="col-sm-3 control-label">선생님 이름</label>
 							<div class="col-sm-6" >
-								<input type="text" class="form-control" id="teacherName"
-									name="teacherName" placeholder="선생님 이름" >
+								<input type="text" class="form-control" id="teacherName" name="teacherName" placeholder="선생님 이름" >
+								<input type="hidden" id="teacherNameCheckk" value="0">
 							</div>
 							<div class="col-sm-3" id="teacherNameCheckButton">
 								<input type="button" class="btn btn-danger" onclick="teacherNameCheck()" value="확인">
@@ -92,7 +92,6 @@
 	            </div>
 	            <!-- /.box-header -->
 	            <div class="box-body">
-	            <form id="classlist_form" action="classManagement" method="get">
 	              <table id="classlist" class="table table-bordered table-hover">
 	                <thead>
 	                <tr>
@@ -113,7 +112,6 @@
 	                </c:forEach>
 	                </tbody>
 	              </table>
-	              </form>
 	            </div>
 	            <!-- /.box-body -->
 	          </div>
@@ -172,27 +170,8 @@
 				<!-- /.box-body -->
 			</div>
 			<!-- /.box -->
-			<button type="button" class="btn btn-block btn-danger"
-				data-toggle="modal" data-target="#modal-danger" onclick="formcheck()">
-				등록</button>
-			<button type="resest" class="btn btn-block btn-default">취소</button>
-			<div class="modal modal-danger fade" id="modal-danger">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="btn btn-outline pull-right"
-								data-dismiss="modal">닫기</button>
-							<h4 class="modal-title">반 등록</h4>
-						</div>
-						<div class="modal-body">
-							<p id="chulcheck">등록 완료</p>
-						</div>
-					</div>
-					<!-- /.modal-content -->
-				</div>
-				<!-- /.modal-dialog -->
-			</div>
-			<!-- /.modal -->
+			<button type="submit" class="btn btn-block btn-danger"> 등록</button>
+			<button type="reset" class="btn btn-block btn-default">취소</button>
 			</div>
 		</section>
 		</form>
@@ -202,9 +181,6 @@
 <!-- /.content-wrapper -->
 
 <%@ include file="split/Footer.jsp"%>
-<script src="./resources/AdminLTE/js/sapply.js"></script>
-<script type="text/javascript"
-	src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 <script src="./resources/js/classManagement.js"></script>	
 <!-- ChartJS -->
 <script src="./resources/AdminLTE/bower_components/chart.js/Chart.js"></script>

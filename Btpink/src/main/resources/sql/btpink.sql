@@ -49,7 +49,7 @@ CREATE TABLE student(
 CREATE TABLE class(
 	classno 	VARCHAR2(50)	PRIMARY KEY,
 	classname	VARCHAR2(50)	NOT NULL,
-	capa		NUMBER		NOT NULL,
+	capa		NUMBER		,
 	age		NUMBER,
 	memno		VARCHAR2(50)	CONSTRAINT CLASS_FK REFERENCES account(memno) -- teacher의 memno
 );

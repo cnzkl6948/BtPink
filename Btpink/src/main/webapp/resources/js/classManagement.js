@@ -15,6 +15,7 @@ function classNameCheck() {
 				if (result == '1') {
 					$("#className").attr("readonly",true);
 					$("#classNameHidden").val("ok");
+					$('#classNameCheckk').val("1");
 				} else { 
 					alert("중복된 반이름이 있습니다.");
 				}
@@ -22,7 +23,7 @@ function classNameCheck() {
 		});
 
 	} else {
-		alert("2~8자리수를 입력 해 주세요")
+		alert("2~8자리수를 입력 해 주세요");
 	}
 }
 
@@ -52,6 +53,7 @@ function teacherNameCheck() {
 				SelectTeacher += '</select></div>';
 
 				$('#SelectTeacher').html(SelectTeacher);
+				$('#teacherNameCheckk').val("1");
 			}
 		}
 				
@@ -63,6 +65,18 @@ function teacherNameCheck() {
 }
 
 function formCheck(){
+	if($('#classNameCheckk').val() == 0){
+		alert('반이름 확인 버튼을 누르세요');
+		return false;
+	}
+	if($('#teacherNameCheckk').val() == 0){
+		alert('선생님 이름 확인 버튼을 누르세요');
+		return false;
+	}
+	
+	
+	
+	
 	var age_selectBox = document.getElementById("age");
 	var selectedValue = age_selectBox.options[age_selectBox.selectedIndex].value;
 	

@@ -173,8 +173,7 @@
 
 <%@ include file="split/Footer.jsp"%>
 <script src="./resources/AdminLTE/js/sapply.js"></script>
-<script type="text/javascript"
-	src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+<script type="text/javascript" src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 <script>
 $(function(){
 	//Date picker
