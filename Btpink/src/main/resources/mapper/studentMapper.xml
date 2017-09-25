@@ -29,7 +29,7 @@
 	#{gender},
 	#{parentno},
 	#{personalid},
-	'a'
+	#{hateid}
 	)
 </insert>
 
