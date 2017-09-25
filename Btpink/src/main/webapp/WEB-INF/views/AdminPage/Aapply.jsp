@@ -18,12 +18,8 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			회원가입 승인<small>Control panel</small>
+			회원가입 승인
 		</h1>
-		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class="active">회원가입 승인</li>
-		</ol>
 	</section>
 	<!-- Main row -->
 	<div class="row">
@@ -86,13 +82,12 @@
 						<div class="panel box box-primary">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 학생 등록
+									<a data-toggle="collapse" data-parent="#accordion"> 회원 가입 승인
 										메뉴에 대하여 </a>
 								</h4>
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in">
-								<div class="box-body">&nbsp;이 메뉴는 학생을 등록하는 메뉴입니다. 출석체크를
-									위해 사진 업로드가 필요합니다.</div>
+								<div class="box-body">&nbsp;이 메뉴는 회원 가입자를 승인해주는 메뉴입니다. </div>
 							</div>
 						</div>
 						<div class="panel box box-danger">
@@ -104,8 +99,7 @@
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse in">
 								<div class="box-body">
-									1. 모든 입력란을 체워주세요.<br> 2. 사진을 업로드 합니다.<br> 3. 등록 버튼을
-									누릅니다.
+									1. 승인 버튼 또는 비승인 버튼을 눌러주세요.
 								</div>
 							</div>
 						</div>
@@ -117,8 +111,9 @@
 							</div>
 							<div id="collapseThree" class="panel-collapse collapse in">
 								<div class="box-body">
-									◎ 등록된 사진을 이용해서 출석체크합니다.<br> ◎ 안경을 쓴 학생은 체크해주세요. 자리배치 시
-									필요한 정보입니다.
+									◎ 승인 버튼 활성화 : 비승인 상태<br> 
+									◎ 비승인 버튼 활성화 : 승인 상태<br>
+									◎ 승인하지 않으면 로그인이 불가능합니다.
 								</div>
 							</div>
 						</div>

@@ -16,12 +16,8 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			반 등록 <small>Control panel</small>
+			반 등록  
 		</h1>
-		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class="active">반 등록</li>
-		</ol>
 	</section>
 	<!-- Main row -->
 	<div class="row">

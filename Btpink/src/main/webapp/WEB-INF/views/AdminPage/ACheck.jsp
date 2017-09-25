@@ -11,12 +11,8 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			출석체크 <small>Control panel</small>
+			출석체크 
 		</h1>
-		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class="active">출석체크</li>
-		</ol>
 	</section>
 	<!-- Main row -->
       <div class="row">

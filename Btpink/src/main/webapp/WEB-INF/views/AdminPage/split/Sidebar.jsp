@@ -7,10 +7,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="./resources/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="./resources/AdminLTE/dist/img/logo-160x160.png" class="img-circle" alt="User Image" style="background-color: white">
         </div>
         <div class="pull-left info">
-          <p>선생이름(사이드바)</p>
+          <p>${ User.name }</p>
           <a href="/www"><i class="fa fa-circle text-success"></i> 메인화면 이동</a>
         </div>
       </div>

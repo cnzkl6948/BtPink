@@ -120,25 +120,25 @@ INSERT INTO teacher
 VALUES ('T201709071609','E');
 
 INSERT INTO class
-VALUES ('c1', '햇살', 16, 'T201709071601');
+VALUES ('c1', '햇살', 5, 'T201709071601');
 INSERT INTO class
-VALUES ('c2', '바람', 16, 'T201709071602');
+VALUES ('c2', '바람', 5, 'T201709071602');
 INSERT INTO class
-VALUES ('c3', '토끼', 16, 'T201709071603');
+VALUES ('c3', '토끼', 5, 'T201709071603');
 
 INSERT INTO class
-VALUES ('c4', '요괴', 17, 'T201709071604');
+VALUES ('c4', '요괴', 6, 'T201709071604');
 INSERT INTO class
-VALUES ('c5', '하늘', 17, 'T201709071605');
+VALUES ('c5', '하늘', 6, 'T201709071605');
 INSERT INTO class
-VALUES ('c6', '구름', 17, 'T201709071606');
+VALUES ('c6', '구름', 6, 'T201709071606');
 
 INSERT INTO class
-VALUES ('c7', '나무', 18, 'T201709071607');
+VALUES ('c7', '나무', 7, 'T201709071607');
 INSERT INTO class
-VALUES ('c8', '풀잎', 18, 'T201709071608');
+VALUES ('c8', '풀잎', 7, 'T201709071608');
 INSERT INTO class
-VALUES ('c9', '열매', 18, 'T201709071609');
+VALUES ('c9', '열매', 7, 'T201709071609');
 
 INSERT INTO account
 VALUES ('P201709071658', '엄마1', 'p', 'p1', 'p1', 'p1@admin.com', '010-9299-0044', 1);
