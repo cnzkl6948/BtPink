@@ -28,8 +28,7 @@
 	#{address},
 	#{gender},
 	#{parentno},
-	#{personalid},
-	'a'
+	#{personalid},''
 	)
 </insert>
 
