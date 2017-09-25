@@ -11,13 +11,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-               인원확인
-        <small>Control panel</small>
+               인원확인 
       </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">인원확인</li>
-      </ol>
     </section>
       <!-- Main row -->
       <div class="row">
