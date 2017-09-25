@@ -104,7 +104,7 @@
 			
 									<td><p data-placement="top" data-toggle="tooltip"
 											title="Edit">
-											<button class="btn btn-primary btn-xs"
+											<button class="btn btn-danger btn-xs"
 												onclick="send('${status.index}');">
 												<span class="glyphicon glyphicon-pencil"></span>
 											</button>
@@ -131,13 +131,13 @@
 						<div class="panel box box-primary">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 학생 등록
-										메뉴에 대하여 </a>
+									<a data-toggle="collapse" data-parent="#accordion"> 출석부 메뉴에 대하여 </a>
 								</h4>
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in">
-								<div class="box-body">&nbsp;이 메뉴는 학생을 등록하는 메뉴입니다. 출석체크를
-									위해 사진 업로드가 필요합니다.</div>
+								<div class="box-body">
+								&nbsp;이 메뉴는 출석부 관리 메뉴입니다.
+								</div>
 							</div>
 						</div>
 						<div class="panel box box-danger">
@@ -149,8 +149,7 @@
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse in">
 								<div class="box-body">
-									1. 모든 입력란을 체워주세요.<br> 2. 사진을 업로드 합니다.<br> 3. 등록 버튼을
-									누릅니다.
+									1. 조퇴/병결/지각에 체크하고 확인 버튼을 눌러주세요.
 								</div>
 							</div>
 						</div>
@@ -162,8 +161,7 @@
 							</div>
 							<div id="collapseThree" class="panel-collapse collapse in">
 								<div class="box-body">
-									◎ 등록된 사진을 이용해서 출석체크합니다.<br> ◎ 안경을 쓴 학생은 체크해주세요. 자리배치 시
-									필요한 정보입니다.
+									◎ 출결 항목은 체크 되어 있을 경우 결석입니다.
 								</div>
 							</div>
 						</div>
