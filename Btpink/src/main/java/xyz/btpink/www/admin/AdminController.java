@@ -126,13 +126,17 @@ public class AdminController {
 	}
 
 	// 반 등록 
-	@RequestMapping(value = "classInsert", method = RequestMethod.GET)
+	@RequestMapping(value = "classInsert", method = RequestMethod.POST)
 	public String classManagement(Locale locale, Model model, ClassVO cla) {
 		logger.info("Go! classInsert");
 		int classNo = cdao.selectNextClassNo();
+		
 		cla.setClassNo("c" + classNo);
+		
 		System.out.println(cla);
+		
 		int result = cdao.classInsert(cla);
+		
 		System.out.println(result);
 		return "redirect:/classManagement";
 	}
@@ -206,13 +210,12 @@ public class AdminController {
 
 		Thread.sleep(3000); // 서버에 이미지 파일이 저장되기 까지의 딜레이
 
-		// String url =
-		// "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
+		 String url = "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
 		// String url = "https://suenghan.btpink.xyz/www/resources/Sapply/" +
 		// filename + ".jpg";
 		// String url = "https://dahuin.btpink.xyz/www/resources/Sapply/" +
 		// filename + ".jpg";
-		String url = "https://geonho.btpink.xyz/www/resources/Sapply/" + filename + ".jpg";
+//		String url = "https://geonho.btpink.xyz/www/resources/Sapply/" + filename + ".jpg";
 
 		String[] array = { url, filename };
 

@@ -7,14 +7,14 @@
      display: table; 
      position : absolute;
      background: #FFFFFF; 
-     height: 50px; 
      width: 150px; 
      margin: 0 auto 10px;
      display:block;
      color:#333;
      border:1px solid;
      line-height: 50px;
-     font-size: 30px;
+     font-size: 13px;
+     z-index: 1000;
  } 
 /* .tooltips { */
 /* 	position: relative; */
