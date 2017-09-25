@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="split/Head.jsp"%>
+<link rel="stylesheet" href="./resources/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 <%@ include file="split/Header.jsp"%>
 <%@ include file="split/Sidebar.jsp"%>
 
@@ -37,7 +38,7 @@
 							</div>
 						</div>
 					</form>
-					<table id="example2" class="table table-bordered table-hover"
+					<table id="stulist" class="table table-bordered table-hover"
 						style="text-align: center;">
 						<thead>
 							<tr>
@@ -171,29 +172,6 @@
 				<!-- /.box-body -->
 			</div>
 			<!-- /.box -->
-			<button type="button" class="btn btn-block btn-danger"
-				data-toggle="modal" data-target="#modal-danger"
-				onclick="formcheck()">등록</button>
-			<button type="button" class="btn btn-block btn-default"
-				onclick="cancel()">취소</button>
-						
-			<div class="modal modal-danger fade" id="modal-danger">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="btn btn-outline pull-right"
-								data-dismiss="modal">닫기</button>
-							<h4 class="modal-title">학생 등록</h4>
-						</div>
-						<div class="modal-body">
-							<p id="chulcheck">등록 완료</p>
-						</div>
-					</div>
-					<!-- /.modal-content -->
-				</div>
-				<!-- /.modal-dialog -->
-			</div>
-			<!-- /.modal -->
 		</section>
 		</div>
 	</div>
@@ -203,9 +181,9 @@
 
 <%@ include file="split/Footer.jsp"%>
 <script src="./resources/AdminLTE/js/sapply.js"></script>
-<script type="text/javascript"
-	src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-
+<!-- DataTables -->
+	<script src="./resources/AdminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="./resources/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 <script>
 	$(function() {
@@ -213,6 +191,7 @@
 		$('#datepicker').datepicker({
 			autoclose : true
 		})
+		$('#stulist').DataTable();
 	});
 
 	function send(index) {

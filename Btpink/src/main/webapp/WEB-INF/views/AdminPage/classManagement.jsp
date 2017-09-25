@@ -186,7 +186,7 @@
 						<div class="modal-header">
 							<button type="button" class="btn btn-outline pull-right"
 								data-dismiss="modal">닫기</button>
-							<h4 class="modal-title">학생 등록</h4>
+							<h4 class="modal-title">반 등록</h4>
 						</div>
 						<div class="modal-body">
 							<p id="chulcheck">등록 완료</p>

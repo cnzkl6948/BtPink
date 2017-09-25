@@ -127,28 +127,6 @@
 				<!-- /.box-body -->
 			</div>
 			<!-- /.box -->
-			<button type="button" class="btn btn-block btn-danger"
-				data-toggle="modal" data-target="#modal-danger" 
-				onclick="formcheck()">등록</button>
-			<button type="button" class="btn btn-block btn-default"
-				onclick="cancel()">취소</button>
-			<div class="modal modal-danger fade" id="modal-danger">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="btn btn-outline pull-right"
-								data-dismiss="modal">닫기</button>
-							<h4 class="modal-title">학생 등록</h4>
-						</div>
-						<div class="modal-body">
-							<p id="chulcheck">등록 완료</p>
-						</div>
-					</div>
-					<!-- /.modal-content -->
-				</div>
-				<!-- /.modal-dialog -->
-			</div>
-			<!-- /.modal -->
 		</section>
 	</div>
 	</div>

@@ -76,7 +76,7 @@
 
 				</c:forEach>
 			</div>
-			<c:if test="${User!=null}">
+			<c:if test="${User!=null and User.type != 'p'}">
 			<div class="clearfix">
 				<button type="button" class="btn btn-primary pull-right" onclick="location.href='writeNotice'">글쓰기</button>
 			</div>
