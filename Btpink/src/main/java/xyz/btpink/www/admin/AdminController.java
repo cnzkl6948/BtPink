@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -211,9 +212,9 @@ public class AdminController {
 
 		Thread.sleep(3000); // 서버에 이미지 파일이 저장되기 까지의 딜레이
 
-		 String url = "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
-		// String url = "https://suenghan.btpink.xyz/www/resources/Sapply/" +
-		// filename + ".jpg";
+		//String url = "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
+		 String url = "https://suenghan.btpink.xyz/www/resources/Sapply/" +
+		 filename + ".jpg";
 		// String url = "https://dahuin.btpink.xyz/www/resources/Sapply/" +
 		// filename + ".jpg";
 //		String url = "https://geonho.btpink.xyz/www/resources/Sapply/" + filename + ".jpg";
@@ -236,7 +237,7 @@ public class AdminController {
 		String filename = file.getOriginalFilename();
 		student.setParentno("dummy");// 학부모 번호를 불러오는 과정 정해질때까지 더미로...
 		student.setImage(filename);
-
+		
 		Account loginuser = (Account) session.getAttribute("User");
 		System.out.println(loginuser);
 		String memno = loginuser.getMemNo();
@@ -260,8 +261,9 @@ public class AdminController {
 
 	// 나이계산 메소드
 	public int ageCal(Student student) {
+		
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-		Date currenttime = new Date();
+//		Date currenttime = new Date();
 		Date birthday = null;
 		try {
 			birthday = formatter.parse(student.getBirth());
@@ -269,13 +271,45 @@ public class AdminController {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
 		}
-		// System.out.println("현재시간" + currenttime);
-		// System.out.println("생일" + birthday);
+		
+		Calendar birth = new GregorianCalendar();
+	    Calendar today = new GregorianCalendar();
 
-		long diff = currenttime.getTime() - birthday.getTime();
-		long diffdays = diff / (24 * 60 * 60 * 1000);
-		int age = (int) diffdays / 365;
-		System.out.println("나이 : " + age);
+	    birth.setTime(birthday);
+	    today.setTime(new Date());
+
+	    int factor = 0;
+
+//	    if (today.get(Calendar.DAY_OF_YEAR) < birth.get(Calendar.DAY_OF_YEAR)) {
+//
+//	        factor = -1;
+//
+//	    }
+
+	    int age = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) + factor;
+	    System.out.println("나이계산결과 : "+age);
+
+
+
+
+		
+		
+//		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+//		Date currenttime = new Date();
+//		Date birthday = null;
+//		try {
+//			birthday = formatter.parse(student.getBirth());
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			// e.printStackTrace();
+//		}
+//		// System.out.println("현재시간" + currenttime);
+//		// System.out.println("생일" + birthday);
+//
+//		long diff = currenttime.getTime() - birthday.getTime();
+//		long diffdays = diff / (24 * 60 * 60 * 1000);
+//		int age = (int) diffdays / 365;
+//		System.out.println("나이 : " + age);
 
 		return age;
 
@@ -388,20 +422,29 @@ public class AdminController {
 		else
 			attendence.setAbsent("1");
 
-		if (attendence.getEarly().equals("n"))
+		if (attendence.getEarly().equals("n")){
 			attendence.setEarly("0");
-		else
+		}
+		else{
 			attendence.setEarly("1");
+			attendence.setAbsent("0");
+		}
 
-		if (attendence.getLate().equals("n"))
+		if (attendence.getLate().equals("n")){
 			attendence.setLate("0");
-		else
+		}
+		else{
 			attendence.setLate("1");
+			attendence.setAbsent("0");
+		}
 
-		if (attendence.getSick().equals("n"))
+		if (attendence.getSick().equals("n")){
 			attendence.setSick("0");
-		else
+		}
+		else{
 			attendence.setSick("1");
+			attendence.setAbsent("1");
+		}
 
 		adao.updateCult(attendence);
 

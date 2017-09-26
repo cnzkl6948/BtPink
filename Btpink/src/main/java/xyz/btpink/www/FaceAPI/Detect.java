@@ -53,10 +53,10 @@ public class Detect {
 			request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 			// Request body.201708271503837703388.jpg
 			// 마이크로 소프트로 이미지 주소 전달
-			String url = "{\"url\":\"https://www.btpink.xyz/www/resources/face_detection/" + image + "\"}";
+//			String url = "{\"url\":\"https://www.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 //			String url = "{\"url\":\"https://geonho.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 //			String url = "{\"url\":\"https://daheen.btpink.xyz/www/resources/face_detection/" + image + "\"}";
-//			String url = "{\"url\":\"https://suenghan.btpink.xyz/www/resources/face_detection/" + image + "\"}";
+			String url = "{\"url\":\"https://suenghan.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 			System.out.println(url);
 
 			StringEntity reqEntity = new StringEntity(url);
