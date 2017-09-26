@@ -34,4 +34,6 @@ public interface StudentMapper {
 	public void allHateNull();
 
 	public ArrayList<Student> selectStu(String classno);
+	
+	public Student mySon(String stdno);
 }

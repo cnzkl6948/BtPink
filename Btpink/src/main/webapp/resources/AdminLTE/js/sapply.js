@@ -156,7 +156,7 @@ function train() {
    })
    .done(function(data) {
        alert("train success");
-       $('#modal-danger2').modal('hide')
+       $('#modal-danger2').modal('hide');
        $('#modal-danger').modal();
    })
    .fail(function() {

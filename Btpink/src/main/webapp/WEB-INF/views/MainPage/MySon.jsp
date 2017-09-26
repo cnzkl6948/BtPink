@@ -27,14 +27,14 @@
 		<div class="row">
 			<div class="col-lg-7 col-lg-offset-1">
 				<div class="thumbnail thumbnailContent alt media">
-					<img class="media-object" src="./resources/img/event/1.jpg" alt="Image">
+					<img class="media-object" src="./resources/img/event/parent2.jpg" alt="Image">
 				</div>
 			</div>
 			<div class="col-lg-3">
 				<aside>
 					<div class="panel panel-default eventSidebar">
 							<div class="panel-heading bg-color-1 border-color-1">
-								<h3 class="panel-title">강동원 어린이</h3>
+								<h3 class="panel-title">${ mySon.name } 어린이</h3>
 							</div>
 							<div class="panel-body">
 								<ul class="media-list">
@@ -44,7 +44,7 @@
 										</div>
 										<div class="media-body iconContent">
 											<h4 class="media-heading color-2">생일</h4>
-											<p>${sf.studentName }</p>
+											<p>${ mySon.birth }</p>
 										</div>
 									</li>
 									<li class="media">
@@ -53,7 +53,7 @@
 										</div>
 										<div class="media-body iconContent">
 											<h4 class="media-heading color-3">신장</h4>
-											<p>${sf.height }</p>
+											<p>${ mySon.height } cm</p>
 										</div>
 									</li>
 									<li class="media iconContet">
@@ -62,7 +62,7 @@
 										</div>
 										<div class="media-body iconContent">
 											<h4 class="media-heading color-4">클래스</h4>
-											<p>${sf.className }</p>
+											<p>${ mySon.classno } 반</p>
 										</div>
 									</li>
 									<li class="media">
@@ -71,7 +71,7 @@
 										</div>
 										<div class="media-body iconContent">
 											<h4 class="media-heading color-5">담임선생님</h4>
-											<p>${sf.teacherName }</p>
+											<p>${ teacher } 선생님</p>
 										</div>
 									</li>
 								</ul>
@@ -257,7 +257,7 @@
 
 					 // retrieve the dropped element's stored Event Object
 					 var originalEventObject = $(this).data('eventObject');
-
+ 
 					 // we need to copy it, so that multiple events don't have a reference to the same object
 					 var copiedEventObject = $.extend({}, originalEventObject)
 

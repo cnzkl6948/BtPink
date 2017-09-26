@@ -34,4 +34,10 @@ public class TeacherDAO {
 		TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
 		return mapper.selectDemand(id);
 	}
+	
+	public String mySonTeacher(String classno){
+		TeacherMapper mapper = sqlSession.getMapper(TeacherMapper.class);
+		String result =  mapper.mySonTeacher(classno);
+		return result;
+	}
 }

@@ -6,6 +6,7 @@
 <%@ include file="MainPage/MainHead.jsp"%>
 <style>
 .desc_notice {overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.teamImage .maskingContent{background-color: rgba(248, 248, 248, 0);}
 </style>
 <%@ include file="MainPage/MainHeader.jsp"%>
 <!-- BANNER -->
@@ -181,7 +182,7 @@
 								</c:when>
 								<c:otherwise>
 									<img src="./resources/NoticeImage/${board.boardImage}.jpg"
-										alt="image" class="img-responsive">
+										alt="image" class="img-responsive" style="height:300px;">
 								</c:otherwise>
 							</c:choose>
 						</a>
@@ -230,208 +231,128 @@
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/home/team/team-1.jpg" alt="img"
+								<img src="./resources/img/teachers/teacher1.png" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
-									<ul class="list-inline">
-										<li><a href="#"><i class="fa fa-facebook"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-google-plus"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"
-												aria-hidden="true"></i></a></li>
-									</ul>
 								</div>
 							</div>
 							<div class="teamInfo">
 								<h3>
-									<a href="teachers-details.html">Amanda Smith</a>
+									<a href="teachers">園長先生</a>
 								</h3>
-								<p>English Teacher</p>
+								<p>원장선생님</p>
 							</div>
 						</div>
 					</div>
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/home/team/team-2.jpg" alt="img"
+								<img src="./resources/img/teachers/teacher2.png" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
-									<ul class="list-inline">
-										<li><a href="#"><i class="fa fa-facebook"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-google-plus"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"
-												aria-hidden="true"></i></a></li>
-									</ul>
 								</div>
 							</div>
 							<div class="teamInfo">
 								<h3>
-									<a href="teachers-details.html">Amanda Stone</a>
+									<a href="teachers">よしなが先生</a>
 								</h3>
-								<p>English Teacher</p>
+								<p>해바라기반 선생님</p>
 							</div>
 						</div>
 					</div>
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/home/team/team-3.jpg" alt="img"
+								<img src="./resources/img/teachers/teacher3.png" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
-									<ul class="list-inline">
-										<li><a href="#"><i class="fa fa-facebook"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-google-plus"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"
-												aria-hidden="true"></i></a></li>
-									</ul>
 								</div>
 							</div>
 							<div class="teamInfo">
 								<h3>
-									<a href="teachers-details.html">Amanda Stone</a>
+									<a href="teachers">まつざか先生</a>
 								</h3>
-								<p>English Teacher</p>
+								<p>장미반 선생님</p>
 							</div>
 						</div>
 					</div>
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/home/team/team-4.jpg" alt="img"
+								<img src="./resources/img/teachers/teacher4.png" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
-									<ul class="list-inline">
-										<li><a href="#"><i class="fa fa-facebook"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-google-plus"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"
-												aria-hidden="true"></i></a></li>
-									</ul>
 								</div>
 							</div>
 							<div class="teamInfo">
 								<h3>
-									<a href="teachers-details.html">Amanda Stone</a>
+									<a href="teachers">上尾先生</a>
 								</h3>
-								<p>English Teacher</p>
+								<p>벚꽃반 선생님</p>
 							</div>
 						</div>
 					</div>
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/home/team/team-1.jpg" alt="img"
+								<img src="./resources/img/teachers/kodomo1.png" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
-									<ul class="list-inline">
-										<li><a href="#"><i class="fa fa-facebook"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-google-plus"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"
-												aria-hidden="true"></i></a></li>
-									</ul>
 								</div>
 							</div>
 							<div class="teamInfo">
 								<h3>
-									<a href="teachers-details.html">Amanda Stone</a>
+									<a href="teachers">風間くん</a>
 								</h3>
-								<p>English Teacher</p>
+								<p>회계부</p>
 							</div>
 						</div>
 					</div>
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/home/team/team-2.jpg" alt="img"
+								<img src="./resources/img/teachers/kodomo2.png" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
-									<ul class="list-inline">
-										<li><a href="#"><i class="fa fa-facebook"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-google-plus"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"
-												aria-hidden="true"></i></a></li>
-									</ul>
 								</div>
 							</div>
 							<div class="teamInfo">
 								<h3>
-									<a href="teachers-details.html">Amanda Stone</a>
+									<a href="teachers-details.html">ネネちゃん</a>
 								</h3>
-								<p>English Teacher</p>
+								<p>유치원버스 보조선생님</p>
 							</div>
 						</div>
 					</div>
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/home/team/team-3.jpg" alt="img"
+								<img src="./resources/img/teachers/kodomo3.png" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
-									<ul class="list-inline">
-										<li><a href="#"><i class="fa fa-facebook"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-google-plus"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"
-												aria-hidden="true"></i></a></li>
-									</ul>
 								</div>
 							</div>
 							<div class="teamInfo">
 								<h3>
-									<a href="teachers-details.html">Amanda Stone</a>
+									<a href="teachers">マサオくん</a>
 								</h3>
-								<p>English Teacher</p>
+								<p>조리실장</p>
 							</div>
 						</div>
 					</div>
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/home/team/team-4.jpg" alt="img"
+								<img src="./resources/img/teachers/kodomo4.png" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
-									<ul class="list-inline">
-										<li><a href="#"><i class="fa fa-facebook"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-google-plus"
-												aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-pinterest-p"
-												aria-hidden="true"></i></a></li>
-									</ul>
 								</div>
 							</div>
 							<div class="teamInfo">
 								<h3>
-									<a href="teachers-details.html">Amanda Stone</a>
+									<a href="teachers">ボーちゃん</a>
 								</h3>
-								<p>English Teacher</p>
+								<p>환경미화 부장</p>
 							</div>
 						</div>
 					</div>

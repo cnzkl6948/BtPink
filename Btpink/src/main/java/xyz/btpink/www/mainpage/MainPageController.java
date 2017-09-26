@@ -1,11 +1,7 @@
 package xyz.btpink.www.mainpage;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
@@ -22,19 +18,32 @@ import xyz.btpink.www.dao.AttendenceDAO;
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.studentInfomation;
+import xyz.btpink.www.dao.ClassDAO;
 import xyz.btpink.www.dao.ParentDAO;
+import xyz.btpink.www.dao.StudentDAO;
+import xyz.btpink.www.dao.TeacherDAO;
 import xyz.btpink.www.vo.Account;
+import xyz.btpink.www.vo.Attendence;
+import xyz.btpink.www.vo.Student;
 
 @Controller
 public class MainPageController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@Autowired
+	StudentDAO sdao;
+	
+	@Autowired
 	AttendenceDAO attendenceDAO;
 
 	@Autowired
 	ParentDAO parentDAO; // 부모 관련 데이터 처리 객체
+	
+	@Autowired
+	TeacherDAO tdao;
 
+	@Autowired
+	ClassDAO cdao;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -51,6 +60,22 @@ public class MainPageController {
 	@RequestMapping(value = "/MySon", method = RequestMethod.GET)
 	public String kindergarten(Model model, HttpSession session) {
 		Account account = (Account) session.getAttribute("User");
+		System.out.println("myson : "+account);
+		
+		String myStdNo = parentDAO.myStdno(account.getMemNo());
+		
+		Student mySon = sdao.mySon(myStdNo);
+		mySon.setBirth(mySon.getBirth().split(" ")[0]);
+		
+		String teacher = tdao.mySonTeacher(mySon.getClassno());
+		
+		mySon.setClassno(cdao.mySonClass(mySon.getClassno()));
+		
+		
+		
+		model.addAttribute("teacher", teacher);
+		model.addAttribute("mySon", mySon);
+		
 		ArrayList<Attendence> result = attendenceDAO.selectStudent(account);
 		System.out.println(result);
 		int cnt = result.size();

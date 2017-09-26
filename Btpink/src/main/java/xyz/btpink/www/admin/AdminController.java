@@ -337,6 +337,7 @@ public class AdminController {
 		// int age = (int) diffdays / 365;
 		// System.out.println("나이 : " + age);
 
+
 		return age;
 
 	}

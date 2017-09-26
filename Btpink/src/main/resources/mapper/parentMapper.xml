@@ -71,4 +71,10 @@
 	 	s.parentno = #{memNo} and c.classno = s.classno and a.memno = c.memno
 	</select>
 	
+
+<select id="myStdno" parameterType="string" resultType="string">
+	SELECT stdno
+	FROM   parent
+	WHERE  memno = #{memno}
+</select>
 </mapper>

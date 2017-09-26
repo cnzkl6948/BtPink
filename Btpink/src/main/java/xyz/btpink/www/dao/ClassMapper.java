@@ -19,6 +19,7 @@ public interface ClassMapper {
 
 	public ArrayList<ClassVO> allClassList();
 
+	public String mySonClass(String classno);
 
 
 }

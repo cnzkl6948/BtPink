@@ -142,8 +142,7 @@
 				<!-- /.box-body -->
 			</div>
 			<!-- /.box -->
-			<button type="button" class="btn btn-block btn-danger"
-				data-toggle="modal" data-target="#modal-danger2" onclick="formcheck()">
+			<button type="button" class="btn btn-block btn-danger" onclick="formcheck()">
 				등록</button>
 			<button type="reset" class="btn btn-block btn-default">취소</button>
 			<div class="modal modal-danger fade" id="modal-danger">
@@ -202,6 +201,20 @@ $(function(){
 });
 
 function formcheck(){
+	//나이 계산
+	var birthday = new Date($('#datepicker').val());
+	var today = new Date();
+	var years = today.getFullYear() - birthday.getFullYear();
+	
+	// Reset birthday to the current year.
+	birthday.setFullYear(today.getFullYear());
+	 
+	// If the user's birthday has not occurred yet this year, subtract 1.
+// 	if (today < birthday)
+// 	{
+// 	    years--;
+// 	}
+	
 	if($('#name').val() === ""){
 		alert('이름을 작성해 주세요');
 // 		return false;
@@ -210,19 +223,18 @@ function formcheck(){
 		alert('반 이름을 작성해 주세요');
 // 		return false;
 	}
-	else if($('#height').val() === ""){
-		alert('키를 작성해 주세요');
-// 		return false;
-	}
 	else if($('#datepicker').val() === ""){
 		alert('생일을 작성해 주세요');
 // 		return false;
 	}
-	
-// 	else if(years!=5||years!=6||years!=7){
-// 		alert('만 5,6,7세의 아동이 아닙니다.');
-// //		return false;
-// 	}
+	else if(!(years>=5&&years<=7)){
+		alert('만 5,6,7세의 아동이 아닙니다.');
+//		return false;
+	}
+	else if($('#height').val() === ""){
+		alert('키를 작성해 주세요');
+// 		return false;
+	}
 	
 	else if($('#address').val() === ""){
 		alert('주소를 작성해 주세요');
@@ -234,6 +246,7 @@ function formcheck(){
 	}
 	
 	else{
+	$('#modal-danger2').modal();
 	apper();
     }
 

@@ -74,7 +74,7 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/www"><img src="./resources/img/logo-school.png" alt="떡잎 유치원"></a>
+					<a class="navbar-brand" href="/www"><img src="./resources/img/logo/mainLogo2.png" alt="떡잎 유치원" style="width: 200px; height: auto;"></a>
 <!-- 					<a class="navbar-brand" href="/www"><img src="./resources/img/main-logo.png" alt="떡잎 유치원"></a> -->
 				</div>
 
