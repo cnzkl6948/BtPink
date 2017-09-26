@@ -26,11 +26,11 @@
 									<c:when test="${board.boardImage == null }">
 										<img 
 											src="./resources/img/kindergarten_child/kids_0${board.boardnum%6 + 1}.jpg"
-											alt="image" class="img-responsive" style="height:250px; ">
+											alt="image" class="img-responsive" style="height:250px;">
 									</c:when>
 									<c:otherwise>
 										<img src="./resources/NoticeImage/${board.boardImage}.jpg"
-											alt="image" class="img-responsive" >
+											alt="image" class="img-responsive" style="height:250px;">
 									</c:otherwise>
 								</c:choose>
 							</a> 
