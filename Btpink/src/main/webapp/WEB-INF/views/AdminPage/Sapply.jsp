@@ -142,8 +142,7 @@
 				<!-- /.box-body -->
 			</div>
 			<!-- /.box -->
-			<button type="button" class="btn btn-block btn-danger"
-				data-toggle="modal" data-target="#modal-danger" onclick="formcheck()">
+			<button type="button" class="btn btn-block btn-danger" onclick="formcheck()">
 				등록</button>
 			<button type="reset" class="btn btn-block btn-default">취소</button>
 			<div class="modal modal-danger fade" id="modal-danger">
@@ -163,6 +162,25 @@
 				<!-- /.modal-dialog -->
 			</div>
 			<!-- /.modal -->
+			
+			<div class="modal modal-danger fade" id="modal-danger2">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="btn btn-outline pull-right"
+								data-dismiss="modal">닫기</button>
+							<h4 class="modal-title">학생 등록</h4>
+						</div>
+						<div class="modal-body">
+							<p id="chulcheck">등록중...</p>
+						</div>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- /.modal -->
+			
 		</section>
 		</div>
 		</form>
@@ -183,6 +201,20 @@ $(function(){
 });
 
 function formcheck(){
+	//나이 계산
+	var birthday = new Date($('#datepicker').val());
+	var today = new Date();
+	var years = today.getFullYear() - birthday.getFullYear();
+	
+	// Reset birthday to the current year.
+	birthday.setFullYear(today.getFullYear());
+	 
+	// If the user's birthday has not occurred yet this year, subtract 1.
+// 	if (today < birthday)
+// 	{
+// 	    years--;
+// 	}
+	
 	if($('#name').val() === ""){
 		alert('이름을 작성해 주세요');
 // 		return false;
@@ -191,14 +223,19 @@ function formcheck(){
 		alert('반 이름을 작성해 주세요');
 // 		return false;
 	}
+	else if($('#datepicker').val() === ""){
+		alert('생일을 작성해 주세요');
+// 		return false;
+	}
+	else if(!(years>=5&&years<=7)){
+		alert('만 5,6,7세의 아동이 아닙니다.');
+//		return false;
+	}
 	else if($('#height').val() === ""){
 		alert('키를 작성해 주세요');
 // 		return false;
 	}
-	else if($('#birth').val() === ""){
-		alert('생일을 작성해 주세요');
-// 		return false;
-	}
+	
 	else if($('#address').val() === ""){
 		alert('주소를 작성해 주세요');
 // 		return false;
@@ -209,6 +246,7 @@ function formcheck(){
 	}
 	
 	else{
+	$('#modal-danger2').modal();
 	apper();
     }
 

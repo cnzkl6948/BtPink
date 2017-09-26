@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -33,6 +34,7 @@ import xyz.btpink.www.vo.Aapply;
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.ClassVO;
+import xyz.btpink.www.vo.MainParam;
 import xyz.btpink.www.vo.Student;
 
 @Controller
@@ -84,14 +86,14 @@ public class AdminController {
 				model.addAttribute("TeacherNotice", tdao.selectDemand(account.getId()));
 				System.out.println(tdao.selectDemand(account.getId()));
 			}
-			Attendence param = adao.getMainParam(classno);
+			MainParam param = adao.getMainParam(classno);
 			model.addAttribute("mainParam", param);
 
 		}
 		
 		else{ //어드민일때
 			
-			Attendence param = adao.getMainParama();
+			MainParam param = adao.getMainParama();
 			model.addAttribute("mainParam", param);
 			
 		}
@@ -210,9 +212,9 @@ public class AdminController {
 
 		Thread.sleep(3000); // 서버에 이미지 파일이 저장되기 까지의 딜레이
 
-		 String url = "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
-		// String url = "https://suenghan.btpink.xyz/www/resources/Sapply/" +
-		// filename + ".jpg";
+		//String url = "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
+		 String url = "https://suenghan.btpink.xyz/www/resources/Sapply/" +
+		 filename + ".jpg";
 		// String url = "https://dahuin.btpink.xyz/www/resources/Sapply/" +
 		// filename + ".jpg";
 //		String url = "https://geonho.btpink.xyz/www/resources/Sapply/" + filename + ".jpg";
@@ -235,29 +237,33 @@ public class AdminController {
 		String filename = file.getOriginalFilename();
 		student.setParentno("dummy");// 학부모 번호를 불러오는 과정 정해질때까지 더미로...
 		student.setImage(filename);
-
+		
 		Account loginuser = (Account) session.getAttribute("User");
 		System.out.println(loginuser);
 		String memno = loginuser.getMemNo();
 		System.out.println("dao 가기전 맴버넘버 가져오냐 ?" + memno);
 		ClassVO selClass = cdao.selectClass(memno);
+		if(selClass == null){
+			student.setClassno("");
+		}else{
+			student.setClassno(selClass.getClassNo());
+		}
 		System.out.println("selClass 다오 갔다옴" + selClass);
-		student.setClassno(selClass.getClassNo());
-
 		System.out.println(student);
-
 		int result = sdao.insert(student);
 		if (result == 1) {
 			System.out.println("DB입력성공");
 		}
+		
 
 		return "success";
 	}
 
 	// 나이계산 메소드
 	public int ageCal(Student student) {
+		
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-		Date currenttime = new Date();
+//		Date currenttime = new Date();
 		Date birthday = null;
 		try {
 			birthday = formatter.parse(student.getBirth());
@@ -265,13 +271,41 @@ public class AdminController {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
 		}
-		// System.out.println("현재시간" + currenttime);
-		// System.out.println("생일" + birthday);
+		
+		Calendar birth = new GregorianCalendar();
+	    Calendar today = new GregorianCalendar();
 
-		long diff = currenttime.getTime() - birthday.getTime();
-		long diffdays = diff / (24 * 60 * 60 * 1000);
-		int age = (int) diffdays / 365;
-		System.out.println("나이 : " + age);
+	    birth.setTime(birthday);
+	    today.setTime(new Date());
+
+	    int factor = 0;
+
+//	    if (today.get(Calendar.DAY_OF_YEAR) < birth.get(Calendar.DAY_OF_YEAR)) {
+//
+//	        factor = -1;
+//
+//	    }
+
+	    int age = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) + factor;
+	    System.out.println("나이계산결과 : "+age);
+		
+		
+//		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+//		Date currenttime = new Date();
+//		Date birthday = null;
+//		try {
+//			birthday = formatter.parse(student.getBirth());
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			// e.printStackTrace();
+//		}
+//		// System.out.println("현재시간" + currenttime);
+//		// System.out.println("생일" + birthday);
+//
+//		long diff = currenttime.getTime() - birthday.getTime();
+//		long diffdays = diff / (24 * 60 * 60 * 1000);
+//		int age = (int) diffdays / 365;
+//		System.out.println("나이 : " + age);
 
 		return age;
 
@@ -282,6 +316,8 @@ public class AdminController {
 	public String Slist(HttpSession session, Locale locale, Model model, String day) {
 
 		logger.info("Go! Slist");
+		
+		System.out.println("day값 : "+day);
 
 		Account loginuser = (Account) session.getAttribute("User"); // 세션에서
 																	// 로그인유저
@@ -382,20 +418,29 @@ public class AdminController {
 		else
 			attendence.setAbsent("1");
 
-		if (attendence.getEarly().equals("n"))
+		if (attendence.getEarly().equals("n")){
 			attendence.setEarly("0");
-		else
+		}
+		else{
 			attendence.setEarly("1");
+			attendence.setAbsent("0");
+		}
 
-		if (attendence.getLate().equals("n"))
+		if (attendence.getLate().equals("n")){
 			attendence.setLate("0");
-		else
+		}
+		else{
 			attendence.setLate("1");
+			attendence.setAbsent("0");
+		}
 
-		if (attendence.getSick().equals("n"))
+		if (attendence.getSick().equals("n")){
 			attendence.setSick("0");
-		else
+		}
+		else{
 			attendence.setSick("1");
+			attendence.setAbsent("1");
+		}
 
 		adao.updateCult(attendence);
 
@@ -442,7 +487,6 @@ public class AdminController {
 
 		// 학생 목록 가져오기
 		ArrayList<Student> stuList = sdao.selectStu(cla.getClassNo());
-
 		model.addAttribute("stuList", stuList);
 		
 		ArrayList<Attendence> result = adao.getEmotionList(stdno);
@@ -527,6 +571,18 @@ public class AdminController {
 	@RequestMapping(value = "/manualSplit", method = RequestMethod.GET)
 	public String manualSplit(Locale locale, Model model, HttpSession session) {
 		logger.info("GoGoGo! manualSplit");
+		//클래스 목록 가져오기
+		ArrayList<ClassVO> classAll = cdao.allClass();
+		ArrayList<String> classList = new ArrayList<>();
+		for(ClassVO c : classAll){
+			classList.add(c.getClassNo());
+		}
+		
+		model.addAttribute("classList", classList);
+		for(String c : classList){
+			System.out.println(c);
+		}
+		
 		ArrayList<Student> stuList = sdao.allStuList();
 		int allCount = stuList.size();
 		int count5 = 0;
@@ -586,7 +642,7 @@ public class AdminController {
 
 		sdao.updateA(stu);
 
-		return "AdminPage/manualSplit";
+		return "redirect:/manualSplit";
 	}
 
 	// 반 배정 초기값 불러오기

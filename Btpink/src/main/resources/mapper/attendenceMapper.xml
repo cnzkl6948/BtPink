@@ -5,12 +5,12 @@
 
 <mapper namespace="xyz.btpink.www.dao.AttendenceMapper">
 
-<select id="getMainParam" parameterType="String" resultType="Attendence">
- select count(case when absent=1 then 1 end)absent, count(case when early=1 then 1 end)early, count(case when sick=1 then 1 end)sick, count(case when late=1 then 1 end)late from attendence where today = to_char(sysdate, 'yy/mm/dd') and classno=#{classno}  
+<select id="getMainParam" parameterType="String" resultType="MainParam">
+ select count(case when absent=0 then 1 end)attend, count(case when early=1 then 1 end)early, count(case when sick=1 then 1 end)sick, count(case when absent=1 then 1 end)absent from attendence where today = to_char(sysdate, 'yy/mm/dd') and classno=#{classno}  
 </select>
 
-<select id="getMainParama" resultType="Attendence">
- select count(case when absent=1 then 1 end)absent, count(case when early=1 then 1 end)early, count(case when sick=1 then 1 end)sick, count(case when late=1 then 1 end)late from attendence where today = to_char(sysdate, 'yy/mm/dd')  
+<select id="getMainParama" resultType="MainParam">
+ select count(case when absent=0 then 1 end)attend, count(case when early=1 then 1 end)early, count(case when sick=1 then 1 end)sick, count(case when absent=1 then 1 end)absent from attendence where today = to_char(sysdate, 'yy/mm/dd')  
 </select>
 
 

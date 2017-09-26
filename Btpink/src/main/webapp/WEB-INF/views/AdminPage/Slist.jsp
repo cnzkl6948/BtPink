@@ -38,7 +38,7 @@
 						style="text-align: center;">
 						<thead>
 							<tr>
-								<th class="text-center"><input type="checkbox" id="checkall" /></th>
+<!-- 								<th class="text-center"><input type="checkbox" id="checkall" /></th> -->
 								<th class="text-center">학생번호</th>
 								<th class="text-center">이름</th>
 								<th class="text-center">출결</th>
@@ -51,7 +51,7 @@
 						<tbody id="tableBody">
 							<c:forEach items="${list}" var="rrs" varStatus="status">
 								<tr>
-									<td><input type="checkbox" class="checkthis" /></td>
+<!-- 									<td><input type="checkbox" class="checkthis" /></td> -->
 									<td>${rrs.stdno}<input type="hidden"
 										id="stdno${status.index}" name="list[${status.index}].stdno"
 										value="${rrs.stdno}" readonly="readonly"></td>
@@ -195,6 +195,8 @@
 		var early = '#early' + index;
 		var sick = '#sick' + index;
 		var late = '#late' + index;
+		
+ 		//var day = $('#day').val();
 
 		var absentD = 'n';
 		var earlyD = 'n';
@@ -228,7 +230,7 @@
 			},
 			success : function(result) {
 				alert('얏따');
-				location.href = 'Slist';
+				location.href = 'Slist?day='+$(day).val();
 			}
 		});
 
