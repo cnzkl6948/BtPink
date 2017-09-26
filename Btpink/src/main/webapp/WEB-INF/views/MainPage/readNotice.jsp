@@ -18,11 +18,11 @@
 <section class="mainContent full-width clearfix">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 block">
+			<div class="col-xs-9 col-lg-offset-2 block">
 				<div class="thumbnail thumbnailContent">
 					<img
 						src="./resources/img/kindergarten_child/kids_0${board.boardnum%6 + 1}.jpg"
-						alt="image" class="img-responsive" width="500px">
+						alt="image" class="img-responsive">
 					<div class="sticker-round bg-color-${board.boardnum%6 + 1}">
 						<fmt:parseDate value="${board.inputdate}" var="dateFmt"
 							pattern="yyyy-MM-dd HH:mm:ss" />
