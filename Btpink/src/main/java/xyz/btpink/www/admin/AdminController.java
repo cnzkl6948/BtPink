@@ -487,7 +487,6 @@ public class AdminController {
 
 		// 학생 목록 가져오기
 		ArrayList<Student> stuList = sdao.selectStu(cla.getClassNo());
-
 		model.addAttribute("stuList", stuList);
 		
 		ArrayList<Attendence> result = adao.getEmotionList(stdno);
@@ -572,6 +571,18 @@ public class AdminController {
 	@RequestMapping(value = "/manualSplit", method = RequestMethod.GET)
 	public String manualSplit(Locale locale, Model model, HttpSession session) {
 		logger.info("GoGoGo! manualSplit");
+		//클래스 목록 가져오기
+		ArrayList<ClassVO> classAll = cdao.allClass();
+		ArrayList<String> classList = new ArrayList<>();
+		for(ClassVO c : classAll){
+			classList.add(c.getClassNo());
+		}
+		
+		model.addAttribute("classList", classList);
+		for(String c : classList){
+			System.out.println(c);
+		}
+		
 		ArrayList<Student> stuList = sdao.allStuList();
 		int allCount = stuList.size();
 		int count5 = 0;
@@ -631,7 +642,7 @@ public class AdminController {
 
 		sdao.updateA(stu);
 
-		return "AdminPage/manualSplit";
+		return "redirect:/manualSplit";
 	}
 
 	// 반 배정 초기값 불러오기
