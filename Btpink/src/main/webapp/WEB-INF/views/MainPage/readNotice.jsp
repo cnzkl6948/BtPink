@@ -31,7 +31,7 @@
 									</c:when>
 									<c:otherwise>
 										<img src="./resources/NoticeImage/${board.boardImage}.jpg"
-											alt="image" class="img-responsive" style="width:500px;">
+											alt="image" class="img-responsive" style="width:700px;">
 									</c:otherwise>
 								</c:choose>
 							</a> 	
