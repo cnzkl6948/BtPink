@@ -65,6 +65,13 @@
 	                    	 from  class)
 	</select>
 	
-	
+	<!-- 모든 선생님이름 -->
+	<select id="allTeahcerName" parameterType="string" resultType="Account">
+		select name 
+		from account
+		where Type = 't'
+		and name= #{name}
+	</select>
+		
 	
 </mapper>

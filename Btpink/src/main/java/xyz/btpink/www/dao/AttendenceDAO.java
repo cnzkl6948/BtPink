@@ -11,6 +11,7 @@ import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.ClassVO;
 import xyz.btpink.www.vo.IdentfyVO;
+import xyz.btpink.www.vo.MainParam;
 import xyz.btpink.www.vo.Student;
 
 /**
@@ -24,17 +25,17 @@ public class AttendenceDAO {
 	@Autowired
 	StudentDAO sdao;
 	
-	public Attendence getMainParam(String classno){
+	public MainParam getMainParam(String classno){
 		
 		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
-		Attendence result = mapper.getMainParam(classno);
+		MainParam result = mapper.getMainParam(classno);
 		return result;
 		
 	}
 	
-	public Attendence getMainParama(){
+	public MainParam getMainParama(){
 		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
-		Attendence result = mapper.getMainParama();
+		MainParam result = mapper.getMainParama();
 		return result;
 	}
 
@@ -138,4 +139,14 @@ public class AttendenceDAO {
 		return mapper.allAttendence(classVO);
 	}
 
+	public int late(IdentfyVO identfyVO) {
+		// TODO Auto-generated method stub
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		return mapper.late(identfyVO);
+	}
+	public int insertInitAtd(Attendence atd){
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		return mapper.insertInitAtd(atd);
+	}
+	
 }

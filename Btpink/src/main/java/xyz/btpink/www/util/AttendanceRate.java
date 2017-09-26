@@ -22,6 +22,7 @@ public class AttendanceRate {
 		keys = "'" + list.get(0).getName() + "'";
 		System.out.println();
 		AdminMaimPage pageList = new AdminMaimPage(data, keys, keys);
+		System.out.println("출결확률"+pageList);
 		return pageList;
 	}
 

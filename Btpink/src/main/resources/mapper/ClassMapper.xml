@@ -28,7 +28,8 @@
 	
 	<!--  반 등록하기 -->
 	<insert id="classInsert" parameterType="ClassVO"> 
-		insert into class values(
+		insert into class (classno, classname, memno, age) 
+		values(
 			#{classNo},
 			#{className},
 			#{memNo},
@@ -43,6 +44,5 @@
 		where c.memno=a.memno
 	</select>
 	
-	 
-	
-</mapper>
+
+	</mapper>

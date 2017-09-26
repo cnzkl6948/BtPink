@@ -15,12 +15,8 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			감정달력 <small>Control panel</small>
+			감정 달력  
 		</h1>
-		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class="active">감정달력</li>
-		</ol>
 	</section>
 	<!-- Main row -->
 	<section class="content">

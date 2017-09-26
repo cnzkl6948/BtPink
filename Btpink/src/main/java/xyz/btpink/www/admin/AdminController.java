@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -35,6 +36,7 @@ import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.AdminMaimPage;
 import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.ClassVO;
+import xyz.btpink.www.vo.MainParam;
 import xyz.btpink.www.vo.Student;
 
 @Controller
@@ -87,7 +89,7 @@ public class AdminController {
 				model.addAttribute("TeacherNotice", tdao.selectDemand(account.getId()));
 				System.out.println(tdao.selectDemand(account.getId()));
 			}
-			Attendence param = adao.getMainParam(classno);
+			MainParam param = adao.getMainParam(classno);
 			model.addAttribute("mainParam", param);
 
 			ClassVO classVO = new ClassVO();
@@ -103,7 +105,7 @@ public class AdminController {
 
 		else { // 어드민일때
 
-			Attendence param = adao.getMainParama();
+			MainParam param = adao.getMainParama();
 			model.addAttribute("mainParam", param);
 
 			System.out.println("초기작업 종료");
@@ -112,31 +114,17 @@ public class AdminController {
 			model.addAttribute("TeacherNotice", tdao.selectDemand(account.getId()));
 			System.out.println(tdao.selectDemand(account.getId()));
 			ArrayList<ClassVO> list = cdao.allClass();
-			ArrayList<Attendence> resultList = null;
-			System.out.println("admon Class 갯수 :"+list);
+			ArrayList<Attendence> resultList = new ArrayList<>();
+			String adminChart= "";
+			System.out.println("admon Class 갯수 :" + list);
 			for (int i = 0; i < list.size(); i++) {
 				ArrayList<Attendence> aList = attendenceDao.allAttendence(list.get(i));
-				if (i == 0) {
-					resultList = aList;
-					for (int j = 0; j < resultList.size(); j++) {
-						resultList.get(j)
-								.setName("," + resultList.get(j).getName() + ":" + resultList.get(j).getAbsentAvg());
-					}
-				} else {
-					for (int x = 0; x < resultList.size(); x++) {
-						System.out.println("i : "+i );
-						for (int y = 0; y < aList.size(); y++) {
-							if (resultList.get(x).getToday()
-									.equalsIgnoreCase(aList.get(y).getToday())) {
-								resultList.get(x).setName(resultList.get(x).getName()+"," + aList.get(y).getName() 
-										+ ":" + aList.get(y).getAbsentAvg());
-							}
-						}
-					}
-					AttendanceRate at = new AttendanceRate();
-					System.out.println(at.AdminPage(resultList));
+				for (int j = 0; j < 1; j++) {
+					System.out.println(aList.get(j));
+					adminChart +=",['"+aList.get(j).getName()+"',"+Math.round(((1.0-aList.get(j).getAbsentAvg())*100.0))+"]";
 				}
-			}System.out.println(resultList);
+				model.addAttribute("adminChart", adminChart);
+			}System.out.println(adminChart.substring(1));
 		}
 		return "adminPage";
 	}
@@ -158,6 +146,7 @@ public class AdminController {
 		return "AdminPage/Aapply";
 	}
 
+	// 가입 승인란
 	@RequestMapping(value = "sign", method = RequestMethod.POST)
 	public @ResponseBody String sign(Account account, String memNo, Model model) {
 		System.out.println("sign : " + account);
@@ -167,14 +156,18 @@ public class AdminController {
 		return "succes";
 	}
 
-	// 반 등록 후에 admincontroller로 이동시킬것
-	@RequestMapping(value = "classInsert", method = RequestMethod.GET)
+	// 반 등록
+	@RequestMapping(value = "classInsert", method = RequestMethod.POST)
 	public String classManagement(Locale locale, Model model, ClassVO cla) {
 		logger.info("Go! classInsert");
 		int classNo = cdao.selectNextClassNo();
+
 		cla.setClassNo("c" + classNo);
+
 		System.out.println(cla);
+
 		int result = cdao.classInsert(cla);
+
 		System.out.println(result);
 		return "redirect:/classManagement";
 	}
@@ -194,8 +187,16 @@ public class AdminController {
 	// 선생님이름으로 정보 불러오기
 	@RequestMapping(value = "teacherNameCheck", method = RequestMethod.GET)
 	public @ResponseBody ArrayList<Account> teacherNameCheck(Account aco, Locale locale, Model model) {
-		System.out.println(aco);
+		Account liar = new Account();
+		liar.setName("No");
+
 		ArrayList<Account> checkedTeacher = accdao.duplicateTeacherCheck(aco);
+		ArrayList<Account> teaList = accdao.allTeahcerName(aco.getName());
+
+		if (teaList.size() == 0) {
+			checkedTeacher.add(liar);
+		}
+
 		return checkedTeacher;
 	}
 
@@ -272,23 +273,27 @@ public class AdminController {
 		String memno = loginuser.getMemNo();
 		System.out.println("dao 가기전 맴버넘버 가져오냐 ?" + memno);
 		ClassVO selClass = cdao.selectClass(memno);
+		if (selClass == null) {
+			student.setClassno("");
+		} else {
+			student.setClassno(selClass.getClassNo());
+		}
 		System.out.println("selClass 다오 갔다옴" + selClass);
-		student.setClassno(selClass.getClassNo());
-
-		System.out.println(student);
-
+		System.out.println("학생들록 값 : " + student);
 		int result = sdao.insert(student);
 		if (result == 1) {
 			System.out.println("DB입력성공");
 		}
-
+		Attendence atd = new Attendence(student.getStdno(), "", student.getClassno(), "", "", "", "", "", "", 0.0);
+		adao.insertInitAtd(atd);
 		return "success";
 	}
 
 	// 나이계산 메소드
 	public int ageCal(Student student) {
+
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-		Date currenttime = new Date();
+		// Date currenttime = new Date();
 		Date birthday = null;
 		try {
 			birthday = formatter.parse(student.getBirth());
@@ -296,13 +301,41 @@ public class AdminController {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
 		}
-		// System.out.println("현재시간" + currenttime);
-		// System.out.println("생일" + birthday);
 
-		long diff = currenttime.getTime() - birthday.getTime();
-		long diffdays = diff / (24 * 60 * 60 * 1000);
-		int age = (int) diffdays / 365;
-		System.out.println("나이 : " + age);
+		Calendar birth = new GregorianCalendar();
+		Calendar today = new GregorianCalendar();
+
+		birth.setTime(birthday);
+		today.setTime(new Date());
+
+		int factor = 0;
+
+		// if (today.get(Calendar.DAY_OF_YEAR) <
+		// birth.get(Calendar.DAY_OF_YEAR)) {
+		//
+		// factor = -1;
+		//
+		// }
+
+		int age = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) + factor;
+		System.out.println("나이계산결과 : " + age);
+
+		// SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+		// Date currenttime = new Date();
+		// Date birthday = null;
+		// try {
+		// birthday = formatter.parse(student.getBirth());
+		// } catch (ParseException e) {
+		// // TODO Auto-generated catch block
+		// // e.printStackTrace();
+		// }
+		// // System.out.println("현재시간" + currenttime);
+		// // System.out.println("생일" + birthday);
+		//
+		// long diff = currenttime.getTime() - birthday.getTime();
+		// long diffdays = diff / (24 * 60 * 60 * 1000);
+		// int age = (int) diffdays / 365;
+		// System.out.println("나이 : " + age);
 
 		return age;
 
@@ -313,6 +346,8 @@ public class AdminController {
 	public String Slist(HttpSession session, Locale locale, Model model, String day) {
 
 		logger.info("Go! Slist");
+
+		System.out.println("day값 : " + day);
 
 		Account loginuser = (Account) session.getAttribute("User"); // 세션에서
 																	// 로그인유저
@@ -416,20 +451,26 @@ public class AdminController {
 		else
 			attendence.setAbsent("1");
 
-		if (attendence.getEarly().equals("n"))
+		if (attendence.getEarly().equals("n")) {
 			attendence.setEarly("0");
-		else
+		} else {
 			attendence.setEarly("1");
+			attendence.setAbsent("0");
+		}
 
-		if (attendence.getLate().equals("n"))
+		if (attendence.getLate().equals("n")) {
 			attendence.setLate("0");
-		else
+		} else {
 			attendence.setLate("1");
+			attendence.setAbsent("0");
+		}
 
-		if (attendence.getSick().equals("n"))
+		if (attendence.getSick().equals("n")) {
 			attendence.setSick("0");
-		else
+		} else {
 			attendence.setSick("1");
+			attendence.setAbsent("1");
+		}
 
 		adao.updateCult(attendence);
 
@@ -476,7 +517,6 @@ public class AdminController {
 
 		// 학생 목록 가져오기
 		ArrayList<Student> stuList = sdao.selectStu(cla.getClassNo());
-
 		model.addAttribute("stuList", stuList);
 
 		ArrayList<Attendence> result = adao.getEmotionList(stdno);
@@ -561,6 +601,18 @@ public class AdminController {
 	@RequestMapping(value = "/manualSplit", method = RequestMethod.GET)
 	public String manualSplit(Locale locale, Model model, HttpSession session) {
 		logger.info("GoGoGo! manualSplit");
+		// 클래스 목록 가져오기
+		ArrayList<ClassVO> classAll = cdao.allClass();
+		ArrayList<String> classList = new ArrayList<>();
+		for (ClassVO c : classAll) {
+			classList.add(c.getClassNo());
+		}
+
+		model.addAttribute("classList", classList);
+		for (String c : classList) {
+			System.out.println(c);
+		}
+
 		ArrayList<Student> stuList = sdao.allStuList();
 		int allCount = stuList.size();
 		int count5 = 0;
@@ -620,7 +672,7 @@ public class AdminController {
 
 		sdao.updateA(stu);
 
-		return "AdminPage/manualSplit";
+		return "redirect:/manualSplit";
 	}
 
 	// 반 배정 초기값 불러오기

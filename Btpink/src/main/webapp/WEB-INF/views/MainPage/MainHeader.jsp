@@ -32,9 +32,9 @@
 					<div class="col-sm-9">
 						<ul class="list-inline topList">
 							<li><i class="fa fa-envelope bg-color-1" aria-hidden="true"></i>
-								<a href="mailto:info@yourdomain.com">info@yourdomain.com</a></li>
+								info@yourdomain.com</li>
 							<li><i class="fa fa-phone bg-color-2" aria-hidden="true"></i>
-								+1 234 567 8900</li>
+								02-6000-7138</li>
 							<li><i class="fa fa-clock-o bg-color-6" aria-hidden="true"></i>
 								Open: 9am - 6pm</li>
 						</ul>
@@ -74,8 +74,8 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/www"><img
-						src="./resources/img/logo-school.png" alt="Kidz School"></a>
+					<a class="navbar-brand" href="/www"><img src="./resources/img/logo-school.png" alt="떡잎 유치원"></a>
+<!-- 					<a class="navbar-brand" href="/www"><img src="./resources/img/main-logo.png" alt="떡잎 유치원"></a> -->
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -101,12 +101,11 @@
 									class="fa fa-calendar bg-color-5" aria-hidden="true"></i> <span>버스
 										위치</span>
 							</a></li>
-							<li class="dropdown singleDrop color-1   active "><a
-								href="MySon" class="dropdown-toggle"> <i
-									class="fa fa-home bg-color-1" aria-hidden="true"></i> <span>내
-										아이 정보</span>
-							</a></li>
 						</c:if>
+						<c:if test="${User.type == 'p' }">
+							<li class="dropdown singleDrop color-1   active "><a href="MySon" class="dropdown-toggle"> <i class="fa fa-home bg-color-1" aria-hidden="true"></i> <span>내 아이 정보</span>
+							</a></li>
+						</c:if>	
 						<c:if test="${User.type == 't' or User.type == 'admin'}">
 							<li class="dropdown singleDrop color-6 "><a href="adminPage"
 								class="dropdown-toggle"> <i class="fa fa-gg bg-color-6"
@@ -124,7 +123,7 @@
 			<div class="modal-content">
 				<div class="panel panel-default formPanel">
 					<div class="panel-heading bg-color-1 border-color-1">
-						<h3 class="panel-title">Create an account</h3>
+						<h3 class="panel-title">회원 가입</h3>
 					</div>
 					<div class="panel-body">
 						<form action="join" method="POST" id="createSubmit" role="form">
@@ -132,14 +131,11 @@
 								<div class="tabCommon" style="margin-bottom: 15px;">
 									<ul class="nav nav-tabs">
 										<li class="active"><a data-toggle="tab"
-											href="#create_parent" aria-expanded="true">Parent</a></li>
+											href="#create_parent" aria-expanded="true">학부모</a></li>
 										<li class=""><a data-toggle="tab" href="#create_teacher"
-											id="SelectTeacher" aria-expanded="false">Teacher</a></li>
+											id="SelectTeacher" aria-expanded="false">선생님</a></li>
 									</ul>
 									<div class="tab-content">
-										<!-- 선생님  -->
-										<div id="create_teacher" class="tab-pane fade "></div>
-
 										<!--학부모 -->
 										<div id="create_parent" class="tab-pane fade in active">
 
@@ -148,6 +144,7 @@
 												<input type="text" class="form-control" id="studentName"
 													placeholder="StudentName">
 											</div>
+											<!-- 학생목록 / 반 목록 불러오는 영역 -->
 											<div id="SelectStudent">
 												<div class="col-sm-8 col-xs-12">
 												</div>
@@ -158,6 +155,9 @@
 													onclick="javascript:studentCheck()">학생확인</button>
 											</div> 
 										</div>
+										<!-- 선생님  -->
+										<div id="create_teacher" class="tab-pane fade "></div>
+
 									</div>
 								</div>
 							</div>
@@ -167,7 +167,7 @@
 								<div class="footerInfo ">
 									<div class="input-group col-sm-12 col-xs-12 ">
 										<input type="text" class="form-control" id="id" name="id"
-											form="createSubmit" placeholder="UserId(중복을 확인해 주세요)" 
+											placeholder="UserId(중복을 확인해 주세요)" 
 											aria-describedby="basic-addon21">
 										<button type="button" class="input-group-addon"
 											onclick="javascript:idOverlap()" id="basic-addon21">
@@ -182,30 +182,30 @@
 							</div>
 							<div class="form-group formField">
 								<input type="text" class="form-control" id="name" name="name"
-									placeholder="Name">
+									placeholder="이름">
 							</div>
 
 							<div class="form-group formField">
 								<input type="password" class="form-control" id="pw" name="pw"
-									placeholder="Password">
+									placeholder="비밀번호">
 							</div>
 							<div class="form-group formField">
 								<input type="password" class="form-control" id="pwCk"
-									placeholder="Re-Password">
+									placeholder="비밀번호">
 							</div>
 							<div class="form-group formField">
 								<input type="text" class="form-control" id="email" name="email"
-									placeholder="Emanil">
+									placeholder="이메일">
 							</div>
 							<div class="form-group formField">
 								<input type="text" class="form-control" name="phone" id="phone"
-									placeholder="Phone">
+									placeholder="전화번호">
 							</div>
 							<input type="hidden" id="type" name="type" value="t">
 							<div class="form-group formField">
 								<input type="button"
 									class="btn btn-primary btn-block bg-color-3 border-color-3"
-									value="Register" onclick="javascript:join()">
+									value="가입 정보 등록" onclick="javascript:join()">
 							</div>
 						</form>
 					</div>
@@ -221,22 +221,22 @@
 			<div class="modal-content">
 				<div class="panel panel-default formPanel">
 					<div class="panel-heading bg-color-1 border-color-1">
-						<h3 class="panel-title">Login</h3>
+						<h3 class="panel-title">로그인</h3>
 					</div>
 					<div class="panel-body">
 						<form action="login" method="POST" role="form" id="joinSubmit">
 							<div class="form-group formField">
 								<input type="text" class="form-control" id="loginId" name="id"
-									placeholder="User name">
+									placeholder="ID">
 							</div>
 							<div class="form-group formField">
 								<input type="password" class="form-control" id="loginPw" name=pw
-									placeholder="Password">
+									placeholder="비밀번호">
 							</div>
 							<div class="form-group formField">
 								<input type="button"
 									class="btn btn-primary btn-block bg-color-3 border-color-3"
-									onclick="javascript:login()" id="btnLogin" value="Login">
+									onclick="javascript:login()" id="btnLogin" value="유치원 입장">
 							</div>
 						</form>
 					</div>

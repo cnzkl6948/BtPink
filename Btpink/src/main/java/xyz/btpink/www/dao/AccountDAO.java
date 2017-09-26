@@ -57,5 +57,9 @@ public class AccountDAO implements AccountMapper {
 		return checkedTeacher;
 	}
 	
-	
+	public ArrayList<Account> allTeahcerName(String name){
+		AccountMapper mapper = sqlSession.getMapper(AccountMapper.class);
+		ArrayList<Account> teaList = mapper.allTeahcerName(name);
+		return teaList;
+	}
 }

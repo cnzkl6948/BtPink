@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="split/Head.jsp"%>
+<link rel="stylesheet" href="./resources/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 <%@ include file="split/Header.jsp"%>
 <%@ include file="split/Sidebar.jsp"%>
 
@@ -9,11 +10,7 @@
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
-		<h1>출석부<small>Control panel</small></h1>
-		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class="active">출석부</li>
-		</ol>
+		<h1>출석부 </h1>
 	</section>
 
 	<!-- Main row -->
@@ -37,11 +34,11 @@
 							</div>
 						</div>
 					</form>
-					<table id="example2" class="table table-bordered table-hover"
+					<table id="stulist" class="table table-bordered table-hover"
 						style="text-align: center;">
 						<thead>
 							<tr>
-								<th class="text-center"><input type="checkbox" id="checkall" /></th>
+<!-- 								<th class="text-center"><input type="checkbox" id="checkall" /></th> -->
 								<th class="text-center">학생번호</th>
 								<th class="text-center">이름</th>
 								<th class="text-center">출결</th>
@@ -54,7 +51,7 @@
 						<tbody id="tableBody">
 							<c:forEach items="${list}" var="rrs" varStatus="status">
 								<tr>
-									<td><input type="checkbox" class="checkthis" /></td>
+<!-- 									<td><input type="checkbox" class="checkthis" /></td> -->
 									<td>${rrs.stdno}<input type="hidden"
 										id="stdno${status.index}" name="list[${status.index}].stdno"
 										value="${rrs.stdno}" readonly="readonly"></td>
@@ -103,7 +100,7 @@
 			
 									<td><p data-placement="top" data-toggle="tooltip"
 											title="Edit">
-											<button class="btn btn-primary btn-xs"
+											<button class="btn btn-danger btn-xs"
 												onclick="send('${status.index}');">
 												<span class="glyphicon glyphicon-pencil"></span>
 											</button>
@@ -130,13 +127,13 @@
 						<div class="panel box box-primary">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 학생 등록
-										메뉴에 대하여 </a>
+									<a data-toggle="collapse" data-parent="#accordion"> 출석부 메뉴에 대하여 </a>
 								</h4>
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in">
-								<div class="box-body">&nbsp;이 메뉴는 학생을 등록하는 메뉴입니다. 출석체크를
-									위해 사진 업로드가 필요합니다.</div>
+								<div class="box-body">
+								&nbsp;이 메뉴는 출석부 관리 메뉴입니다.
+								</div>
 							</div>
 						</div>
 						<div class="panel box box-danger">
@@ -148,8 +145,7 @@
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse in">
 								<div class="box-body">
-									1. 모든 입력란을 체워주세요.<br> 2. 사진을 업로드 합니다.<br> 3. 등록 버튼을
-									누릅니다.
+									1. 조퇴/병결/지각에 체크하고 확인 버튼을 눌러주세요.
 								</div>
 							</div>
 						</div>
@@ -161,8 +157,7 @@
 							</div>
 							<div id="collapseThree" class="panel-collapse collapse in">
 								<div class="box-body">
-									◎ 등록된 사진을 이용해서 출석체크합니다.<br> ◎ 안경을 쓴 학생은 체크해주세요. 자리배치 시
-									필요한 정보입니다.
+									◎ 출결 항목은 체크 되어 있을 경우 결석입니다.
 								</div>
 							</div>
 						</div>
@@ -171,29 +166,6 @@
 				<!-- /.box-body -->
 			</div>
 			<!-- /.box -->
-			<button type="button" class="btn btn-block btn-danger"
-				data-toggle="modal" data-target="#modal-danger"
-				onclick="formcheck()">등록</button>
-			<button type="button" class="btn btn-block btn-default"
-				onclick="cancel()">취소</button>
-						
-			<div class="modal modal-danger fade" id="modal-danger">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="btn btn-outline pull-right"
-								data-dismiss="modal">닫기</button>
-							<h4 class="modal-title">학생 등록</h4>
-						</div>
-						<div class="modal-body">
-							<p id="chulcheck">등록 완료</p>
-						</div>
-					</div>
-					<!-- /.modal-content -->
-				</div>
-				<!-- /.modal-dialog -->
-			</div>
-			<!-- /.modal -->
 		</section>
 		</div>
 	</div>
@@ -203,9 +175,9 @@
 
 <%@ include file="split/Footer.jsp"%>
 <script src="./resources/AdminLTE/js/sapply.js"></script>
-<script type="text/javascript"
-	src="https://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-
+<!-- DataTables -->
+	<script src="./resources/AdminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="./resources/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 <script>
 	$(function() {
@@ -213,6 +185,7 @@
 		$('#datepicker').datepicker({
 			autoclose : true
 		})
+		$('#stulist').DataTable();
 	});
 
 	function send(index) {
@@ -222,6 +195,8 @@
 		var early = '#early' + index;
 		var sick = '#sick' + index;
 		var late = '#late' + index;
+		
+ 		//var day = $('#day').val();
 
 		var absentD = 'n';
 		var earlyD = 'n';
@@ -255,7 +230,7 @@
 			},
 			success : function(result) {
 				alert('얏따');
-				location.href = 'Slist';
+				location.href = 'Slist?day='+$(day).val();
 			}
 		});
 

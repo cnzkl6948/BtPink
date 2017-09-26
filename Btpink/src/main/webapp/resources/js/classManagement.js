@@ -15,6 +15,7 @@ function classNameCheck() {
 				if (result == '1') {
 					$("#className").attr("readonly",true);
 					$("#classNameHidden").val("ok");
+					$('#classNameCheckk').val("1");
 				} else { 
 					alert("중복된 반이름이 있습니다.");
 				}
@@ -22,7 +23,7 @@ function classNameCheck() {
 		});
 
 	} else {
-		alert("2~8자리수를 입력 해 주세요")
+		alert("2~8자리수를 입력 해 주세요");
 	}
 }
 
@@ -36,10 +37,12 @@ function teacherNameCheck() {
 			type : "get",
 			data : "name=" + teacherName,
 			success : function(result) {
-			// SelectStudent
 			if (result[0] === undefined) {
+				alert($('#teacherName').val() + "선생님은 이미 지정된 반이 존재합니다.");
+			}else if (result[0].name==='No'){
 				alert($('#teacherName').val() + "선생님이 없습니다");
-			} else {
+			} 
+			else {
 				var SelectTeacher = '<label for="teacherList" class="col-sm-3 control-label">선생님목록</label> <div class="col-sm-9"> <select id="memNo" name="memNo" class="select-drop"><option value="" disabled selected>선생님 정보를 선택하세요.</option>';
 				$.each(result, function(index, account) {
 					SelectTeacher += '<option ' + '" value="'
@@ -50,6 +53,7 @@ function teacherNameCheck() {
 				SelectTeacher += '</select></div>';
 
 				$('#SelectTeacher').html(SelectTeacher);
+				$('#teacherNameCheckk').val("1");
 			}
 		}
 				
@@ -61,6 +65,18 @@ function teacherNameCheck() {
 }
 
 function formCheck(){
+	if($('#classNameCheckk').val() == 0){
+		alert('반이름 확인 버튼을 누르세요');
+		return false;
+	}
+	if($('#teacherNameCheckk').val() == 0){
+		alert('선생님 이름 확인 버튼을 누르세요');
+		return false;
+	}
+	
+	
+	
+	
 	var age_selectBox = document.getElementById("age");
 	var selectedValue = age_selectBox.options[age_selectBox.selectedIndex].value;
 	

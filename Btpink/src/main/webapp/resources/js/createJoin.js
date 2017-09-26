@@ -49,7 +49,7 @@ function idOverlap() {
 							"background-color: #337ab7");
 					$("#id").attr("style", "background-color:#ffffff; ");
 					$('#idCheck').val('true');
-					$("#id").attr("disabled", "disabled");
+					$("#id").attr("readonly", "readonly");
 				} else {
 					alert("중복된 아이디가 있습니다.");
 				}

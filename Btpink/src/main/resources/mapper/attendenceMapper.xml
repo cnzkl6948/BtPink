@@ -5,12 +5,12 @@
 
 <mapper namespace="xyz.btpink.www.dao.AttendenceMapper">
 
-<select id="getMainParam" parameterType="String" resultType="Attendence">
- select count(case when absent=1 then 1 end)absent, count(case when early=1 then 1 end)early, count(case when sick=1 then 1 end)sick, count(case when late=1 then 1 end)late from attendence where today = to_char(sysdate, 'yy/mm/dd') and classno=#{classno}  
+<select id="getMainParam" parameterType="String" resultType="MainParam">
+ select count(case when absent=0 then 1 end)attend, count(case when early=1 then 1 end)early, count(case when sick=1 then 1 end)sick, count(case when absent=1 then 1 end)absent from attendence where today = to_char(sysdate, 'yy/mm/dd') and classno=#{classno}  
 </select>
 
-<select id="getMainParama" resultType="Attendence">
- select count(case when absent=1 then 1 end)absent, count(case when early=1 then 1 end)early, count(case when sick=1 then 1 end)sick, count(case when late=1 then 1 end)late from attendence where today = to_char(sysdate, 'yy/mm/dd')  
+<select id="getMainParama" resultType="MainParam">
+ select count(case when absent=0 then 1 end)attend, count(case when early=1 then 1 end)early, count(case when sick=1 then 1 end)sick, count(case when absent=1 then 1 end)absent from attendence where today = to_char(sysdate, 'yy/mm/dd')  
 </select>
 
 
@@ -41,15 +41,19 @@
 </delete>
 
 <!-- 작업중 -->
-<insert id="insertInitAtd" parameterType="String">
+<insert id="insertInitAtd" parameterType="Attendence">
 	insert into attendence values (#{stdno}, #{classno}, to_char(sysdate, 'yy/mm/dd'), 1, 0, 0, 0, '')
 </insert>
 <update id="identfy" parameterType="IdentfyVO">
 	update attendence 
-		set emotion = #{emotion} 
+		set emotion = #{emotion},absent =0,early = 0, sick=0, late=0 
 		where stdno = (select stdno from student where personalId = #{personId}) and today =(select to_char(sysdate,'yy/mm/dd')from dual)
 </update>
-
+<update id="late" parameterType="IdentfyVO">
+	update attendence 
+		set emotion = #{emotion},absent =0,early = 0,sick=0,late=1 
+		where stdno = (select stdno from student where personalId = #{personId}) and today =(select to_char(sysdate,'yy/mm/dd')from dual)
+</update>
 
 
 <!-- <update id="updateCul" parameterType="Attendence"> -->
