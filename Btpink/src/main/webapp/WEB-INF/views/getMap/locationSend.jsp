@@ -11,7 +11,7 @@
 $(document).ready(function(){
 	setInterval(function(){
 		getLocation();
-	}, 5000);
+	}, 1000);
 });
 
 

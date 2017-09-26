@@ -5,10 +5,26 @@
 
 <mapper namespace="xyz.btpink.www.dao.AttendenceMapper">
 
-<select id="selectAtd" resultType="Attendence">
-	select s.stdno, s.name, a.absent, a.early, a.sick, a.late from (select stdno, name from student where classno=#{classno})s inner join attendence a on s.stdno=a.stdno and a.today=to_char(sysdate, 'yy/mm/dd')
+<select id="getMainParam" parameterType="String" resultType="Attendence">
+ select count(case when absent=1 then 1 end)absent, count(case when early=1 then 1 end)early, count(case when sick=1 then 1 end)sick, count(case when late=1 then 1 end)late from attendence where today = to_char(sysdate, 'yy/mm/dd') and classno=#{classno}  
+</select>
+
+<select id="getMainParama" resultType="Attendence">
+ select count(case when absent=1 then 1 end)absent, count(case when early=1 then 1 end)early, count(case when sick=1 then 1 end)sick, count(case when late=1 then 1 end)late from attendence where today = to_char(sysdate, 'yy/mm/dd')  
+</select>
+
+
+
+<select id="selectAtdt" parameterType="Attendence" resultType="Attendence">
+	select s.stdno, s.name, a.absent, a.early, a.sick, a.late from (select stdno, name from student where classno=#{classno})s inner join attendence a on s.stdno=a.stdno and a.today=TO_DATE(#{today},'MM-DD-YYYY HH24:MI:SS')
 
 </select>
+
+<select id="selectAtd" resultType="Attendence">
+	select s.stdno, s.name, a.absent, a.early, a.sick, a.late from (select stdno, name from student)s inner join attendence a on s.stdno=a.stdno and a.today=TO_DATE(#{today},'MM-DD-YYYY HH24:MI:SS')
+
+</select>
+
 <select id="getEmotionList" parameterType="string" resultType="Attendence">
 	select today, emotion
 	from attendence
@@ -18,6 +34,11 @@
 <select id="checkAtd" parameterType="String" resultType="Attendence">
 	select * from attendence where today = to_char(sysdate, 'yy/mm/dd') and classno=#{classno}
 </select>
+
+<delete id="delAtd">
+	DELETE FROM attendence
+	WHERE		today = to_char(sysdate, 'yy/mm/dd')
+</delete>
 
 <!-- 작업중 -->
 <insert id="insertInitAtd" parameterType="String">
@@ -31,20 +52,28 @@
 
 
 
-<update id="updateCul" parameterType="Attendence">
+<!-- <update id="updateCul" parameterType="Attendence"> -->
+<!-- 	update attendence -->
+<!-- 	set		absent = ${absent}, early= ${early}, sick=${sick}, late=${late} -->
+<!-- 	where  stdno = #{stdno} and today = to_char(sysdate, 'yy/mm/dd') -->
+<!-- </update> -->
+
+<update id="updateCult" parameterType="Attendence">
 	update attendence
 	set		absent = ${absent}, early= ${early}, sick=${sick}, late=${late}
-	where  stdno = #{stdno}
+	where  stdno = #{stdno} and today = TO_DATE(#{today},'MM-DD-YYYY HH24:MI:SS')
 </update>
 
 <select id="selectStudent" parameterType="Account" resultType="Attendence" >
 	select * from ATTENDENCE at,( 
 		select stdno from student where  parentno = #{memNo}
 	) std where std.stdno = at.stdno
-
 </select>
 <select id="allAttendence" parameterType="ClassVO" resultType="Attendence">
-
+select c.classname as name,c.classno,a.absentavg,a.today from class c ,(
+select avg(absent) as absentAvg,today from attendence   where classno = #{classNo} group by today order by today desc) a
+where c.classno = #{classNo} and
+<![CDATA[ rownum <= 7 ]]>
 </select>
 
 

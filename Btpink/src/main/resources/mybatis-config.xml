@@ -16,6 +16,7 @@
 		<typeAlias type="xyz.btpink.www.vo.Aapply" alias="Aapply"/>
 		<typeAlias type="xyz.btpink.www.vo.IdentfyVO" alias="IdentfyVO"/>
 		<typeAlias type="xyz.btpink.www.vo.CCTV" alias="CCTV"/>
+		<typeAlias type="xyz.btpink.www.vo.studentInfomation" alias="studentInfomation"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/AccountMapper.xml" />
@@ -27,5 +28,4 @@
 		<mapper resource="mapper/ClassMapper.xml" />
 		<mapper resource="mapper/CCTVMapper.xml" />
 	</mappers>
-	   
 </configuration>

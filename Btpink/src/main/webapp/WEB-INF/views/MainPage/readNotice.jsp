@@ -33,8 +33,8 @@
 						<fmt:formatDate value="${dateFmt}" type="date" pattern="dd" />
 					</div>
 					<div
-						class="caption border-color-${board.boardnum%6 + 1} singleBlog">
-						<h3 class="color-${(board.boardnum+1)%6 + 1}">${board.title}</h3>
+						class="caption border-color-${board.boardnum%4 + 1} singleBlog">
+						<h3 class="color-${(board.boardnum+1)%4 + 1}">${board.title}</h3>
 						<ul class="list-inline blogInfo">
 							<li><i class="fa fa-user" aria-hidden="true"></i>${board.id}</li>
 							<li><i class="fa fa-comments-o" aria-hidden="true"></i>${replyCount}

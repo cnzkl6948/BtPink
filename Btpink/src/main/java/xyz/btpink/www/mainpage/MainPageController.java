@@ -21,6 +21,7 @@ import xyz.btpink.www.HomeController;
 import xyz.btpink.www.dao.AttendenceDAO;
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
+import xyz.btpink.www.vo.studentInfomation;
 import xyz.btpink.www.dao.ParentDAO;
 import xyz.btpink.www.vo.Account;
 
@@ -127,7 +128,10 @@ public class MainPageController {
 		System.out.println(emotion);
 		model.addAttribute("emotionEvent", emotion);
 		String className = parentDAO.getClassName(account.getId());
+		studentInfomation sf=parentDAO.studentInfomation(account);
+		model.addAttribute("sf", sf);
 		model.addAttribute("className", className);
+		
 		return "MainPage/MySon";
 	}
 

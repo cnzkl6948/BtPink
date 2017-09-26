@@ -35,6 +35,8 @@
 <link
 	href='https://fonts.googleapis.com/css?family=Dosis:400,300,600,700'
 	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
 
 <!-- CUSTOM CSS -->
 <link href="./resources/css/style.css" rel="stylesheet">

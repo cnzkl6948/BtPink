@@ -61,5 +61,14 @@
 		                	    WHERE a.ID= #{parentId})
 		    )
 	</select>
-
+	<select id = "studentInfomation" parameterType="Account" resultType="studentInfomation">
+	
+	 select 
+	 	s.name as studentName,s.height as height,c.className as className,a.name as teacherName 
+	 from 
+	 	student s,class c,account a 
+	 where 
+	 	s.parentno = #{memNo} and c.classno = s.classno and a.memno = c.memno
+	</select>
+	
 </mapper>

@@ -15,15 +15,16 @@
 </section>
 <!-- WHITE SECTION -->
 <div class="mainContent">
+	<div class="container">
 	<div class="row">
-		<div class="col-lg-6 col-lg-offset-3">
+		<div class="col-lg-10 col-lg-offset-1">
 			<img src="./resources/img/kindergarten_child/timeTable3.png" alt="image" class="img-responsive" style="width:100%">
 		</div>
 	</div>
 
 	<div class="row" style="margin-top:25px">
 			<div class="col-lg-2 col-lg-offset-1">
-				<div class="tabCommon tabLeft pull-right">
+				<div class="tabCommon tabLeft">
 					<ul class="nav nav-tabs">
 						<li class="active"><a data-toggle="tab" href="#leftHome" style="width: 132px;">오전반</a></li>
 						<li><a data-toggle="tab" href="#leftMenu1"
@@ -33,7 +34,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-lg-6">
+			<div class="col-lg-8">
 				<div class="tab-content">
 					<div id="leftHome" class="tab-pane fade in active">
 						<table class="table table-curved text-center">
@@ -236,6 +237,7 @@
 					</div>
 				</div>
 			</div>
+	</div>
 	</div>
 </div>
 <%@ include file="MainFooter.jsp"%>

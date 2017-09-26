@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!-- <style> -->
 <style>
  .alert_text { 
@@ -19,6 +20,7 @@
 
 </style>
 <%@ include file="AdminPage/split/Head.jsp"%>
+<%@ include file="AdminPage/split/Header.jsp"%>
 <%@ include file="AdminPage/split/Sidebar.jsp"%>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -41,10 +43,9 @@
 				<div class="small-box bg-aqua">
 					<div class="inner">
 						<h3>
-							150<sup style="font-size: 20px">명</sup>
+							${mainParam.absent}<span class="txt_count">명</span>
 						</h3>
-
-						<p>출석자 수</p>
+						<p>결석자 수</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-bag"></i>
@@ -59,10 +60,9 @@
 				<div class="small-box bg-green">
 					<div class="inner">
 						<h3>
-							53<sup style="font-size: 20px">명</sup>
+							${mainParam.early }<span class="txt_count">명</span>
 						</h3>
-
-						<p>전체 인원수</p>
+						<p>조퇴자 수</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-stats-bars"></i>
@@ -75,10 +75,10 @@
 				<div class="small-box bg-yellow">
 					<div class="inner">
 						<h3>
-							44<sup style="font-size: 20px">명</sup>
+							${mainParam.sick}<span class="txt_count">명</span>
 						</h3>
 
-						<p>조퇴자 수</p>
+						<p>병결자 수</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-person-add"></i>
@@ -91,10 +91,10 @@
 				<div class="small-box bg-red">
 					<div class="inner">
 						<h3>
-							65<sup style="font-size: 20px">명</sup>
+							${mainParam.late}<span class="txt_count">명</span>
 						</h3>
 
-						<p>결석자수</p>
+						<p>지각자수</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-pie-graph"></i>
@@ -132,8 +132,8 @@
 
 							<c:forEach var="notice" items="${TeacherNotice}">
 								<li class="tooltips mouseOverTest">${notice.name}<span
-									class="handle" style="position: relative;"> <i class="fa fa-ellipsis-v"></i>
-								</span> <span>${notice.demandsubject}</span>
+									class="handle" style="position: relative;"> &ensp;<i class="fa fa-ellipsis-v"></i>
+								</span>&ensp; <span>${fn:substring(notice.startdate,0,10)}~${fn:substring(notice.enddate,0,10)}</span>&ensp;<i class="fa fa-ellipsis-v"></i>&ensp;<span>${notice.demandsubject}</span>
 									<div class="tools ">
 										<span class="text col-lg-4 alert_text"  >${notice.demandcontent}</span> <i
 											class="fa fa-trash-o"></i>
@@ -282,14 +282,40 @@
 <script
 	src="./resources/AdminLTE/bower_components/morris.js/morris.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="./resources/AdminLTE/dist/js/pages/dashboard.js"></script>
+<!-- <script src="./resources/AdminLTE/dist/js/pages/dashboard.js"></script> -->
 <script>
 	$(function(){
 		$(document).on('mouseover', '.mouseOverTest', function(){
 			$(".alert_text").css("position", "absolute");
 			$(".alert_text").css({top: event.pageY-240 + "px", left: event.pageX-240+ "px"});
 		})
+		  var area = new Morris.Area({
+			    element   : 'revenue-chart',
+			    resize    : true,
+			    data      : [
+			    	${avg.data}
+// 			      { y: '2011 Q1', item1: 2666, item2: 2666 },
+// 			      { y: '2011 Q2', item1: 2778, item2: 2294 },
+// 			      { y: '2011 Q3', item1: 4912, item2: 1969 },
+// 			      { y: '2011 Q4', item1: 3767, item2: 3597 },
+// 			      { y: '2012 Q1', item1: 6810, item2: 1914 },
+// 			      { y: '2012 Q2', item1: 5670, item2: 4293 },
+// 			      { y: '2012 Q3', item1: 4820, item2: 3795 },
+// 			      { y: '2012 Q4', item1: 15073, item2: 5967 },
+// 			      { y: '2013 Q1', item1: 10687, item2: 4460 },
+// 			      { y: '2013 Q2', item1: 8432, item2: 5713 }
+			    ],
+			    xkey      : 'y', 
+			    ykeys     : [${avg.keys}], 
+			    labels    : [${avg.labels}],
+			    lineColors: ['#a0d0e0', '#3c8dbc'],
+// 			    ykeys     : ['item1', 'item2'],
+// 			    labels    : ['Item 1', 'Item 2'],
+// 			    lineColors: ['#a0d0e0', '#3c8dbc'], 
+// 			    hideHover : 'auto'
+			  });
 	})
 </script>
+
 </body>
 </html>

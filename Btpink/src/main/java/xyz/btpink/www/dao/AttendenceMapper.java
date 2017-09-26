@@ -8,7 +8,13 @@ import xyz.btpink.www.vo.ClassVO;
 import xyz.btpink.www.vo.IdentfyVO;
 
 public interface AttendenceMapper {
-	public ArrayList<Attendence> selectAtd(String classno);
+	public Attendence getMainParam(String classno);
+
+	public Attendence getMainParama();
+
+	public ArrayList<Attendence> selectAtd(String today);
+
+	public ArrayList<Attendence> selectAtdt(Attendence atd);
 
 	public ArrayList<Attendence> checkAtd(String classno);
 
@@ -23,7 +29,11 @@ public interface AttendenceMapper {
 	public int identfy(IdentfyVO identfy);
 
 	public int updateCul(Attendence attendence);
-	
 
-	public ArrayList<Attendence> allAttendence(ArrayList<ClassVO> list);
+	public ArrayList<Attendence> allAttendence(ClassVO classVO);
+
+	public int delAtd();
+
+	public int updateCult(Attendence attendence);
+
 }

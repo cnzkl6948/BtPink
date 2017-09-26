@@ -1,21 +1,21 @@
 /* ====== index =====
 1. COMMON
 2. UI KIT
-	2.1 BUTTON
-	2.2 SECTION TITLE
-	2.3 FORM
-	2.4 PAGINATION
-	2.5 ACCORDION
-	2.6 TABS
-	2.7 DATEPICKER
-	2.8 THUMBNAIL
-	2.9 MODAL
-	2.10 PANEL
-	2.11 PRICE RANGE SLIDER
-	2.12 LIST
-	2.13 CART
-	2.14 PAGER
-	2.15 Extra
+  2.1 BUTTON
+  2.2 SECTION TITLE
+  2.3 FORM
+  2.4 PAGINATION
+  2.5 ACCORDION
+  2.6 TABS
+  2.7 DATEPICKER
+  2.8 THUMBNAIL
+  2.9 MODAL
+  2.10 PANEL
+  2.11 PRICE RANGE SLIDER
+  2.12 LIST
+  2.13 CART
+  2.14 PAGER
+  2.15 Extra
   2.16 ALERT
   2.17 LABELS
   2.18 BADGES
@@ -28,28 +28,28 @@
 
 
 3. 1.1 HEADER
-	3.1 TOP COLOR BAR
-	3.2 TOP INFO BAR
-	3.3 HEADER TRANSPARENT
-	3.4 LIGHT HEADER
+  3.1 TOP COLOR BAR
+  3.2 TOP INFO BAR
+  3.3 HEADER TRANSPARENT
+  3.4 LIGHT HEADER
    1.2 HEADER V3
 4. 1.1 FOOTER
-	4.1 FOOTER INFO
-	4.2 COPY RIGHT
+  4.1 FOOTER INFO
+  4.2 COPY RIGHT
    1.2 FOOTER V2
 5. 1.1 HOME
-	5.1 BANNER
-	5.2 FEATURES SECTION
-	5.3 PROMOTION
-	5.4 ABOUT SCHOOL
-	5.5 SERVICES SECTION
-	5.7 TEAM SECTION
-	5.8 EVENT SECTION
-	5.9 COUNT UP SECTION
-	5.10 HOME GALLERY SECTION
-	5.11 COMMENT SECTION
-	5.12 MAP AREA SECTION
-	5.13 HOME CONTACT SECTION
+  5.1 BANNER
+  5.2 FEATURES SECTION
+  5.3 PROMOTION
+  5.4 ABOUT SCHOOL
+  5.5 SERVICES SECTION
+  5.7 TEAM SECTION
+  5.8 EVENT SECTION
+  5.9 COUNT UP SECTION
+  5.10 HOME GALLERY SECTION
+  5.11 COMMENT SECTION
+  5.12 MAP AREA SECTION
+  5.13 HOME CONTACT SECTION
    1.2 HOME V2
     5.1 BANNER
     5.2.BANNER BOTTOM
@@ -58,20 +58,20 @@
    1.2 HOME V3
     5.1 BANNER
 6. 6. COURSE
-	6.1 COURSE LEFT SIDEBAR
-	6.2 COURSE LIST
-	6.3 COURSE RIGHT SIDE BAR
-	6.4 COURSE COUNTER
+  6.1 COURSE LEFT SIDEBAR
+  6.2 COURSE LIST
+  6.3 COURSE RIGHT SIDE BAR
+  6.4 COURSE COUNTER
 7. BLOG
 8. COMING SOON
 9. SERVICES
-	9.1 SERVICES STYLE
+  9.1 SERVICES STYLE
 10. TESTIMONIAL
 11. CART PAGE
 12. PRICING TABLE
 13. CHECKOUT STEP
-	13.1 CHECKOUT PROGRESS
-	13.2 CHECKOUT INFO
+  13.1 CHECKOUT PROGRESS
+  13.2 CHECKOUT INFO
 14. SINGLE PRODUCT
     14.1 PRODUCT GALLERY
     14.2 PRODUCT REVIEW
@@ -80,6 +80,7 @@
 /*=== MIXINS ===*/
 /*=== VARIABLES ===*/
 /*=== MEDIA QUERY ===*/
+
 * {
   outline: 0;
   margin: 0;
@@ -87,7 +88,7 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 14px;
   line-height: 21px;
   color: #666666;
@@ -111,7 +112,7 @@ p {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   text-transform: uppercase;
   color: #202020;
   margin-top: 0;
@@ -956,8 +957,8 @@ aside {
 }
 
 @media (min-width: 768px) {
-  .whiteSection, .mainContent, .lightSection, .colorSection {
-    padding: 100px 0;
+  .whiteSection, .mainContent, .lightSection, .colorSection  {
+    padding: 50px 0;
   }
 }
 
@@ -970,7 +971,7 @@ aside {
 }
 
 .sectionTitle h2 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 36px;
   color: #ea7066;
   text-transform: capitalize;
@@ -1020,7 +1021,7 @@ aside {
 
 .sectionTitleSmall h2 {
   text-align: center;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   text-transform: capitalize;
   margin: 0 0 12px 0;
   color: #ffffff;
@@ -1051,7 +1052,7 @@ aside {
   color: #ffffff;
   margin-bottom: 40px;
   margin: 0 0 8px 0;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   text-transform: capitalize;
   font-weight: 600;
 }
@@ -1155,7 +1156,7 @@ aside {
 }
 
 .resultInfo h3 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   color: #666666;
   font-size: 28px;
   text-transform: capitalize;
@@ -1177,7 +1178,7 @@ aside {
   color: #ffffff;
   text-transform: capitalize;
   font-weight: 700;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
 }
 
 .formPanel.panel .panel-body {
@@ -1206,7 +1207,7 @@ aside {
 }
 
 .formPanel.panel .panel-body .media-list li .media-body.iconContent .media-heading {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 20px;
   font-weight: 700;
 }
@@ -1432,7 +1433,7 @@ aside {
 }
 
 .tabCommon .media-body .media-heading {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 28px;
   color: #ea7066;
   margin: 0 0 25px 0;
@@ -1737,7 +1738,7 @@ aside {
 
 .functionList > li a {
   color: rgba(255, 255, 255, 0.8);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .functionList > li.LanguageList {
@@ -1839,7 +1840,7 @@ aside {
 }
 
 .cart-dropdown .dropdown-menu li:first-child {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 24px;
   color: #222222;
   text-transform: capitalize;
@@ -1884,7 +1885,7 @@ aside {
 }
 
 .cart-dropdown .dropdown-menu li:last-child span {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 24px;
   color: #222222;
   font-weight: 700;
@@ -1952,7 +1953,7 @@ aside {
 }
 
 .cart-dropdown .dropdown-menu .media-body h4 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 20px;
   color: #222222;
   text-transform: capitalize;
@@ -2086,7 +2087,7 @@ aside {
 }
 
 .errorInfo h3 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 48px;
   color: #222222;
   margin-bottom: 25px;
@@ -2370,7 +2371,7 @@ aside {
 
 .navbar-default .navbar-nav > li > a {
   text-transform: capitalize;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 15px;
 }
 
@@ -2617,7 +2618,7 @@ aside {
 .navbar-nav > li.dropdown.megaDropMenu .dropdown-menu .list-unstyled li.listHeading, .navbar-nav > li.dropdown.megaDropMenu .dropdown-menu .list-unstyled li:first-child {
   float: left;
   font-weight: 700;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
 }
 
 @media (min-width: 320px) {
@@ -2739,7 +2740,7 @@ aside {
   display: inline-block;
   width: auto;
   height: auto;
-  font-family: "FontAwesome";
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   margin-left: 5px;
   vertical-align: middle;
   content: "\f107";
@@ -2925,7 +2926,7 @@ aside {
 }
 
 .navbar-default.lightHeader .navbar-nav > li > a {
-  color: #000000;
+  color: #333;
 }
 
 .navbar-default.lightHeader .navbar-nav > li.active.color-1 > a {
@@ -3041,7 +3042,7 @@ aside {
   display: inline-block;
   width: auto;
   height: auto;
-  font-family: "FontAwesome";
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   margin-left: 5px;
   vertical-align: middle;
   content: "\f107";
@@ -3327,7 +3328,7 @@ footer .color-bar {
   color: #ffffff;
   font-size: 20px;
   margin: 0;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-weight: 700;
   text-transform: capitalize;
 }
@@ -3395,7 +3396,7 @@ footer .color-bar {
 }
 
 .postLink li .media-body .media-heading {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 14px;
   font-size: 14px;
   font-weight: 400;
@@ -3570,7 +3571,7 @@ footer .color-bar {
   color: #ffffff;
   font-size: 20px;
   margin: 0;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-weight: 700;
   text-transform: capitalize;
 }
@@ -3638,7 +3639,7 @@ footer .color-bar {
 }
 
 .postLink li .media-body .media-heading {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 14px;
   font-size: 14px;
   font-weight: 400;
@@ -3831,7 +3832,7 @@ footer .color-bar {
 .tp-caption.rs-caption-3 {
   white-space: normal !important;
   width: inherit;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   text-shadow: 3px 1px rgba(34, 34, 34, 0.52);
 }
 
@@ -4078,9 +4079,9 @@ footer .color-bar {
 .sectionLink .linkText {
   line-height: 190px;
   display: block;
-  font-family: 'Dosis', sans-serif;
-  font-size: 32px;
-  font-weight: 400;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
+  font-size: 28px;
+  font-weight: 500;
   color: #ffffff;
   letter-spacing: 1px;
 }
@@ -4137,7 +4138,7 @@ footer .color-bar {
   font-size: 24px;
   line-height: 30px;
   color: #ffffff;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-weight: 700;
   text-transform: capitalize;
   text-overflow: ellipsis;
@@ -4196,7 +4197,7 @@ footer .color-bar {
   color: #ffffff;
   margin-bottom: 40px;
   margin: 0 0 23px 0;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   text-transform: capitalize;
 }
 
@@ -4233,7 +4234,7 @@ footer .color-bar {
 
 /*=== 5.4 ABOUT SCHOOL ===*/
 .schoolInfo h2 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 36px;
   line-height: 42px;
   text-transform: capitalize;
@@ -4349,7 +4350,7 @@ footer .color-bar {
 
 /*=== 5.6 COURSES SECTION ===*/
 .block h3 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   text-transform: capitalize;
   font-weight: 700;
   text-overflow: ellipsis;
@@ -4521,7 +4522,7 @@ footer .color-bar {
 }
 
 .thumbnailContent.alt > .caption .table.table-curved thead tr th:first-child {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 20px;
 }
 
@@ -4545,7 +4546,7 @@ footer .color-bar {
 
 .thumbnailContent.alt > .caption .table.table-curved tbody tr td span {
   display: block;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 15px;
@@ -4879,7 +4880,7 @@ footer .color-bar {
 .teachersInfo h3 {
   color: #ea7066;
   text-transform: capitalize;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-weight: 700;
   font-size: 28px;
   margin: 0 0 25px 0;
@@ -5402,7 +5403,7 @@ footer .color-bar {
   line-height: 4px1;
   color: #ea7066;
   text-transform: capitalize;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   margin: 0 0 20px 0;
 }
 
@@ -5798,7 +5799,7 @@ footer .color-bar {
 }
 
 .banner-bottom-inner .colContent-info h3 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 20px;
   color: #ffffff;
   text-transform: capitalize;
@@ -5954,7 +5955,7 @@ footer .color-bar {
 }
 
 .box-info h4 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 20px;
   color: #ffffff;
   text-transform: capitalize;
@@ -6944,7 +6945,7 @@ footer .color-bar {
 
 @media (min-width: 320px) {
   .single-category .box .box-info h3 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
     font-size: 15px;
     margin-top: 8px;
     color: #ffffff;
@@ -6981,7 +6982,7 @@ footer .color-bar {
   font-size: 24px;
   color: #ffffff;
   text-transform: capitalize;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
 }
 
 .courseSidebar .panel-body {
@@ -7222,7 +7223,7 @@ footer .color-bar {
 }
 
 .courseList .media-body .media-heading a {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   text-transform: capitalize;
   font-weight: 700;
   line-height: 20px;
@@ -7393,7 +7394,7 @@ footer .color-bar {
   color: #ffffff;
   text-transform: capitalize;
   font-weight: 700;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
 }
 
 .rightSidebar .panel .panel-body {
@@ -7428,7 +7429,7 @@ footer .color-bar {
 }
 
 .rightSidebar .panel .panel-body .media-list li .media-body.iconContent .media-heading {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 20px;
   font-weight: 700;
 }
@@ -7471,7 +7472,7 @@ footer .color-bar {
   color: #ffffff;
   text-transform: capitalize;
   font-weight: 700;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
 }
 
 .eventSidebar.panel .panel-body {
@@ -7500,7 +7501,7 @@ footer .color-bar {
 }
 
 .eventSidebar.panel .panel-body .media-list li .media-body.iconContent .media-heading {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 20px;
   font-weight: 700;
 }
@@ -7548,7 +7549,7 @@ footer .color-bar {
 }
 
 .coursesCounter .counterInner h3 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 26px;
   font-weight: 700;
   color: #ffffff;
@@ -7607,7 +7608,7 @@ footer .color-bar {
 
 .thumbnailContent > .caption.singleBlog h3 {
   line-height: 34px;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   text-transform: capitalize;
   font-weight: 700;
   margin: 0 0 20px 0;
@@ -7695,7 +7696,7 @@ footer .color-bar {
 }
 
 .blogComments h3 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 24px;
   color: #ea7066;
   font-weight: 700;
@@ -7829,7 +7830,7 @@ footer .color-bar {
   font-weight: 700;
   color: #222222;
   font-size: 4px1;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   text-transform: capitalize;
 }
 
@@ -7981,7 +7982,7 @@ footer .color-bar {
   margin: 0 auto;
   color: #f0c24b;
   text-align: center;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
 }
 
 .count-down #simple_timer .table-cell {
@@ -8086,7 +8087,7 @@ footer .color-bar {
 
 .servicesStyle > .media-body > .media-heading {
   text-transform: capitalize;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 24px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -8378,7 +8379,7 @@ footer .color-bar {
 .priceTitle h3 {
   margin: 0;
   color: #ffffff;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 34px;
   font-weight: 600;
   text-transform: capitalize;
@@ -8420,7 +8421,7 @@ footer .color-bar {
 
 .priceOffer li {
   margin-bottom: 25px;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   color: #666666;
   font-size: 18px;
 }
@@ -8436,7 +8437,7 @@ footer .color-bar {
 .priceBtn h4 {
   display: inline-block;
   float: right;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 34px;
   font-weight: 600;
   text-align: center;
@@ -8450,7 +8451,7 @@ footer .color-bar {
 }
 
 .priceBtn h5 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 28px;
   font-weight: 600;
   color: #222222;
@@ -8686,7 +8687,7 @@ footer .color-bar {
 
 .progress-wizard .progressInfo {
   text-align: center;
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-weight: 600;
   font-size: 16px;
   color: #222222;
@@ -8723,7 +8724,7 @@ footer .color-bar {
 }
 
 .checkoutInfo .panel-heading .panel-title {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-weight: 700;
   font-size: 24px;
   color: #ffffff;
@@ -8778,7 +8779,7 @@ footer .color-bar {
 }
 
 .lowerPartTitle h4 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-weight: 700;
   font-size: 24px;
   color: #ea7066;
@@ -8939,7 +8940,7 @@ footer .color-bar {
 }
 
 .product-info .product-title {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 40px;
   color: #222222;
   text-transform: capitalize;
@@ -9009,7 +9010,7 @@ footer .color-bar {
 }
 
 .share span {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 24px;
   color: #222222;
   font-weight: 600;
@@ -9062,7 +9063,7 @@ footer .color-bar {
 }
 
 .product-review .tab-content h3 {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Noto Sans KR','Noto Sans JP','Open Sans',sans-serif;
   font-size: 24px;
   color: #ea7066;
   text-transform: capitalize;

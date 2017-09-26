@@ -40,19 +40,20 @@
 						</ul>
 					</div>
 					<div class="col-sm-3">
-						<ul class="list-inline functionList">
+						<ul class="list-inline functionList pull-right" style="width:auto">
 							<c:choose>
 								<c:when test="${User != null }">
-									<li><i i class="fa fa-globe bg-color-4" aria-hidden="true"></i><a
-										href="logout"><span>logout</span></a></li>
-
+									<li>
+										<i i class="fa fa-globe bg-color-4" aria-hidden="true"></i><a href="logout"><span>로그아웃</span></a>
+									</li>
 								</c:when>
 								<c:otherwise>
-									<li><i class="fa fa-unlock-alt bg-color-5"
-										aria-hidden="true"></i> <a href='#loginModal'
-										data-toggle="modal">Login</a><span>or</span><a
-										href='javascript:className()' >Create an
-											account</a></li>
+									<li>
+										<i class="fa fa-unlock-alt bg-color-5" aria-hidden="true"></i> <a href='#loginModal' data-toggle="modal">로그인</a>
+									</li>
+									<li style="margin-left:20px">
+										<i class="fa fa-sign-in bg-color-4" aria-hidden="true" style="margin-right:0px"></i> <a href='javascript:className()'>회원가입</a>
+									</li>
 								</c:otherwise>
 							</c:choose>
 						</ul>
@@ -149,17 +150,6 @@
 											</div>
 											<div id="SelectStudent">
 												<div class="col-sm-8 col-xs-12">
-<!-- 													<div class="dropGeneral border-color-3"> -->
-<!-- 														<select id="classno" style="width: 100% ;text-align:center; height: 100%;"> -->
-<%-- 															<c:forEach items="${cList }"> --%>
-<%-- 																<option value="${cList.classNo }">${ cList.className}</option> --%>
-<%-- 															</c:forEach> --%>
-<!-- 															<option value="c1">A_Class</option> -->
-<!-- 															<option value="c2">B_Class</option> -->
-<!-- 															<option value="c3">C_Class</option> -->
-<!-- 															<option value="c4">D_Class</option> -->
-<!-- 														</select> -->
-<!-- 													</div> -->
 												</div>
 											</div>
 											<div class="col-sm-4 col-xs-12" style="margin-top: 3%;"
@@ -177,7 +167,7 @@
 								<div class="footerInfo ">
 									<div class="input-group col-sm-12 col-xs-12 ">
 										<input type="text" class="form-control" id="id" name="id"
-											form="createSubmit" placeholder="UserId(중복을 확인해 주세요)"
+											form="createSubmit" placeholder="UserId(중복을 확인해 주세요)" 
 											aria-describedby="basic-addon21">
 										<button type="button" class="input-group-addon"
 											onclick="javascript:idOverlap()" id="basic-addon21">
