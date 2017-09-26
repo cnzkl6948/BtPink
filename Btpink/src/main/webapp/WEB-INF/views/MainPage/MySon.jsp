@@ -27,7 +27,7 @@
 		<div class="row">
 			<div class="col-lg-7 col-lg-offset-1">
 				<div class="thumbnail thumbnailContent alt media">
-					<img class="media-object" src="./resources/img/event/1.jpg" alt="Image">
+					<img class="media-object" src="./resources/img/event/parent2.jpg" alt="Image">
 				</div>
 			</div>
 			<div class="col-lg-3">
