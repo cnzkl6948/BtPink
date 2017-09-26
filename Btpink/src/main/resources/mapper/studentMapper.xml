@@ -76,4 +76,10 @@
 	from student
 	where classno = #{classno}
 </select>
+
+<select id="mySon" parameterType="string" resultType="Student">
+	select * 
+	from student
+	where stdno = #{stdno}
+</select>
 </mapper>

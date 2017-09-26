@@ -76,4 +76,14 @@
 
 
 	</select>
+	
+	<select id="mySonTeacher" parameterType="string" resultType="string">
+		SELECT name
+		FROM account
+		WHERE memno = (
+			SELECT	memno
+			FROM	class
+			WHERE	classno = #{classno}
+		)
+	</select>
 </mapper>

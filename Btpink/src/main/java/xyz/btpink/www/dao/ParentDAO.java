@@ -22,7 +22,13 @@ import xyz.btpink.www.vo.Demand;
 public class ParentDAO {
 	@Autowired
 	SqlSession sqlSession;
-
+	
+	public String myStdno(String memno){
+		ParentMapper mapper = sqlSession.getMapper(ParentMapper.class);
+		String result = mapper.myStdno(memno);
+		return result;
+	}
+	
 	public int insert(Parent parent) {
 		int result = 0;
 		System.out.println("parent 0"+parent);

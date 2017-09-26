@@ -21,4 +21,7 @@ public interface ParentMapper {
 	public Demand getStdInfo(Account account);
 	
 	public String getClassName(String parentId);
+	
+	public String myStdno(String memno);
+
 }

@@ -62,4 +62,9 @@
 		    )
 	</select>
 
+<select id="myStdno" parameterType="string" resultType="string">
+	SELECT stdno
+	FROM   parent
+	WHERE  memno = #{memno}
+</select>
 </mapper>

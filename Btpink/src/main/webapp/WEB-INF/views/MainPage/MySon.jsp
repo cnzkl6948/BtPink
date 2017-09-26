@@ -34,7 +34,7 @@
 				<aside>
 					<div class="panel panel-default eventSidebar">
 							<div class="panel-heading bg-color-1 border-color-1">
-								<h3 class="panel-title">강동원 어린이</h3>
+								<h3 class="panel-title">${ mySon.name } 어린이</h3>
 							</div>
 							<div class="panel-body">
 								<ul class="media-list">
@@ -44,7 +44,7 @@
 										</div>
 										<div class="media-body iconContent">
 											<h4 class="media-heading color-2">생일</h4>
-											<p>2012-11-23</p>
+											<p>${ mySon.birth }</p>
 										</div>
 									</li>
 									<li class="media">
@@ -53,7 +53,7 @@
 										</div>
 										<div class="media-body iconContent">
 											<h4 class="media-heading color-3">신장</h4>
-											<p>104cm</p>
+											<p>${ mySon.height } cm</p>
 										</div>
 									</li>
 									<li class="media iconContet">
@@ -62,7 +62,7 @@
 										</div>
 										<div class="media-body iconContent">
 											<h4 class="media-heading color-4">클래스</h4>
-											<p>해바라기반</p>
+											<p>${ mySon.classno } 반</p>
 										</div>
 									</li>
 									<li class="media">
@@ -71,7 +71,7 @@
 										</div>
 										<div class="media-body iconContent">
 											<h4 class="media-heading color-5">담임선생님</h4>
-											<p>아이유</p>
+											<p>${ teacher } 선생님</p>
 										</div>
 									</li>
 								</ul>
