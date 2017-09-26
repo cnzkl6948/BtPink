@@ -68,13 +68,13 @@ pageEncoding="UTF-8"%>
 										<td>${stu.age}<input type="hidden" id="age${status.index}" name="stuList[${status.index}].age" value="${stu.age}" readonly="readonly"></td>
 										<td>
 											<select id="classno${status.index}" name="stuList[${status.index}].classno">
-												<c:forEach var="class" items="${classList}">
-													<c:if test="${ class = stu.cla }"></c:if>
-													<option value="${class}">${class}</option>
+												<c:forEach var="ccc" items="${classList}">
+													<c:if test="${ ccc == stu.classno }">
+														<option value="${ccc}" selected>${ccc}</option>
+													</c:if>
+													<option value="${ccc}">${ccc}</option>
 												</c:forEach>
-												
 											</select>
-										
 										</td>
 										<td>${stu.gender}<input type="hidden" id="gender${status.index}" name="stuList[${status.index}].gender" value="${stu.gender}" readonly="readonly"></td>
 										<td>${stu.hateid}<input type="hidden" id="hateid${status.index}" name="stuList[${status.index}].hateid" value="${stu.hateid}" style="width:100%"></td>
@@ -177,23 +177,6 @@ pageEncoding="UTF-8"%>
 		$('#stulist').DataTable();
  	});
 	
-	function className() {
-		var text = '<div class="col-sm-8 col-xs-12"><select  id="classno" class="form-control" >';
-		$.ajax({
-			url : "classCheck",
-			type : "post",
-			success : function(result) {
-				$.each(result, function(index, classData) {
-					text +='<option value="'+classData.classNo +'" class="textCenter" >'+classData.className +'</option>'
-				})
-				text += '</select></div>';
-				$('#SelectStudent').html(text);
-				$('#createAccount').modal('toggle');
-			}
-		});
-	}
-	
-	
 	function send(index){
 		var stdno = '#stdno'+index;
 		var name = '#name'+index;
@@ -203,20 +186,20 @@ pageEncoding="UTF-8"%>
 		var hateid = '#hateid'+index;
 		
 		$.ajax({
-	url: "manualSplit",
-	type: "POST",
-	data: {
-			stdno 	: $(stdno).val(),
-			name 	: $(name).val(),
-			age 	: $(age).val(),
-		classno : $(classno).val(),
-			gender 	: $(gender).val(),
-			hateid 	: $(hateid).val()
-	},
-		success: function(result){
-		location.href='manualSplit';
-	}
-	});
+			url: "manualSplit",
+			type: "POST",
+			data: {
+					stdno 	: $(stdno).val(),
+					name 	: $(name).val(),
+					age 	: $(age).val(),
+					classno : $(classno).val(),
+					gender 	: $(gender).val(),
+					hateid 	: $(hateid).val()
+			},
+				success: function(result){
+				location.href='manualSplit';
+			}
+		});
 	}
 	</script>
 </body>
