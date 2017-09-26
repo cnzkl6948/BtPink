@@ -288,10 +288,6 @@ public class AdminController {
 
 	    int age = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) + factor;
 	    System.out.println("나이계산결과 : "+age);
-
-
-
-
 		
 		
 //		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
