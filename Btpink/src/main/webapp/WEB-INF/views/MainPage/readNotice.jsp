@@ -21,18 +21,17 @@
 			<div class="col-xs-9 col-lg-offset-2 block">
 				<div class="thumbnail thumbnailContent">
 						<a> <c:choose>
-							<c:when test="${board.boardImage == null }">
-								<img 
-									src="./resources/img/kindergarten_child/kids_0${board.boardnum%6 + 1}.jpg"
-									alt="image" class="img-responsive"  width="500px">
-							</c:when>
-							<c:otherwise>
-								<img src="./resources/NoticeImage/${board.boardImage}.jpg"
-									alt="image" class="img-responsive" style="width:500px;">
-							</c:otherwise>
-						</c:choose>
-						</a> 	
-						
+									<c:when test="${board.boardImage == null }">
+										<img 
+											src="./resources/img/kindergarten_child/kids_0${board.boardnum%6 + 1}.jpg"
+											alt="image" class="img-responsive"  width="500px">
+									</c:when>
+									<c:otherwise>
+										<img src="./resources/NoticeImage/${board.boardImage}.jpg"
+											alt="image" class="img-responsive" width="500px">
+									</c:otherwise>
+								</c:choose>
+							</a> 	
 					<div class="sticker-round bg-color-${board.boardnum%6 + 1}">
 						<fmt:parseDate value="${board.inputdate}" var="dateFmt"
 							pattern="yyyy-MM-dd HH:mm:ss" />
