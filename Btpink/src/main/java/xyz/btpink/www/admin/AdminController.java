@@ -241,13 +241,12 @@ public class AdminController {
 
 		Thread.sleep(3000); // 서버에 이미지 파일이 저장되기 까지의 딜레이
 
-		// String url =
-		// "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
+		 String url = "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
 		// String url = "https://suenghan.btpink.xyz/www/resources/Sapply/" +
 		// filename + ".jpg";
 		// String url = "https://dahuin.btpink.xyz/www/resources/Sapply/" +
 		// filename + ".jpg";
-		String url = "https://geonho.btpink.xyz/www/resources/Sapply/" + filename + ".jpg";
+//		String url = "https://geonho.btpink.xyz/www/resources/Sapply/" + filename + ".jpg";
 
 		String[] array = { url, filename };
 
@@ -265,7 +264,7 @@ public class AdminController {
 		int age = ageCal(student); // 나이계산 메소드 호출
 		student.setAge(age);
 		String filename = file.getOriginalFilename();
-		student.setParentno("dummy");// 학부모 번호를 불러오는 과정 정해질때까지 더미로...
+		student.setParentno("");// 학부모 번호를 불러오는 과정 정해질때까지 더미로...
 		student.setImage(filename);
 
 		Account loginuser = (Account) session.getAttribute("User");
