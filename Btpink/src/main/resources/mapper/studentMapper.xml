@@ -6,14 +6,14 @@
 <mapper namespace="xyz.btpink.www.dao.StudentMapper">
 <!-- 	부모가 회원가입 할떄 학생 찾기 -->
 	<select id="joinCheck" parameterType="Student" resultType="Student">
-		select * from student where name = #{name} and classno = #{classno}
+		select * from student where name = #{name} and classno = #{classno} and parentno is null
 	</select>
 <!-- 	 학생의 넘버를 부모에게 저장 -->
 	<update id="parentUpdate" parameterType="Student">
 		UPDATE student SET 
 			parentno = #{parentno}
 		WHERE 
-		stdno = #{stdno}	
+		stdno = #{stdno} 
 	</update>
 
 <!--  학생 등록 -->

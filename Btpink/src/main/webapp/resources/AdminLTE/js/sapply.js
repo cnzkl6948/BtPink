@@ -155,6 +155,7 @@ function train() {
        
    })
    .done(function(data) {
+	   secondform(); //DB입력을 위한 2차 폼 전송
        alert("train success");
        $('#modal-danger2').modal('hide');
        $('#modal-danger').modal();
@@ -189,7 +190,7 @@ function addPerson() {
         var personID = data.personId;
         $('#personalid').val(personID); //추출한 personID 폼에 입력
         $('#stdno').val(stdno);
-        secondform(); //DB입력을 위한 2차 폼 전송
+       
 
 //         $("#responseTextArea").val(personID);
 //         $("#data").val(personID);

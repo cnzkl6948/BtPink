@@ -166,19 +166,7 @@
 						<li class="pull-left header"><i class="fa fa-inbox"></i>출석인원
 							변동 현황</li>
 					</ul>
-				<c:if test="${User.name != 'admin' }">
-<!-- 					<div class="tab-content no-padding"> -->
-<!-- 						Morris chart - Sales -->
-<!-- 						<div class="chart tab-pane active" id="revenue-chart" -->
-<!-- 							style="position: relative; height: 300px;"></div> -->
-<!-- 												<div class="chart tab-pane" id="sales-chart" -->
-<!-- 													style="position: relative; height: 300px;"></div> -->
-<!-- 					</div> -->
-						<div class="chart" id="line-chart" style="height: 300px; color: red;"></div>
-				</c:if>	
-				<c:if test="${User.name == 'admin' }">
 				<div id="bar-chart" style="height: 300px;"></div>	
-				</c:if>	
 				</div>
 				<!-- /.nav-tabs-custom -->
 			</div>
@@ -211,42 +199,42 @@
 			$(".alert_text").css("position", "absolute");
 			$(".alert_text").css({top: event.pageY-240 + "px", left: event.pageX-240+ "px"});
 		})
-		var name = '${User.name}';
+// 		var name = '${User.name}';
 
-		if(name != 'admin'){
-		  var line = new Morris.Line({
-			    element          : 'line-chart',
-			    resize           : true,
-			    data             : [
-			    	${avg.data} 
-// 			      { y: '2011 Q1', item1: 2666 },
-// 			      { y: '2011 Q2', item1: 2778 },
-// 			      { y: '2011 Q3', item1: 4912 },
-// 			      { y: '2011 Q4', item1: 3767 },
-// 			      { y: '2012 Q1', item1: 6810 },
-// 			      { y: '2012 Q2', item1: 5670 },
-// 			      { y: '2012 Q3', item1: 4820 },
-// 			      { y: '2012 Q4', item1: 15073 },
-// 			      { y: '2013 Q1', item1: 10687 },
-// 			      { y: '2013 Q2', item1: 8432 }
-			    ],
-			    xkey             : 'y',
-// 			    ykeys: ['item1'],
-// 			    labels: ['Item 1'],
-			    ykeys            : [${avg.keys}],
-			    labels           : [${avg.labels}],
-			    lineColors       : ['#efefef'],
-			    lineWidth        : 2,
-			    hideHover        : 'auto',
-			    gridTextColor    : 'red',
-			    gridStrokeWidth  : 0.4,
-			    pointSize        : 4,
-			    pointStrokeColors: ['blue'],
-			    gridLineColor    : '#efefef',
-			    gridTextFamily   : 'Open Sans',
-			    gridTextSize     : 10
-			  });	
-		}else{
+// 		if(name != 'admin'){
+// 		  var line = new Morris.Line({
+// 			    element          : 'line-chart',
+// 			    resize           : true,
+// 			    data             : [
+// 			    	${avg.data} 
+// // 			      { y: '2011 Q1', item1: 2666 },
+// // 			      { y: '2011 Q2', item1: 2778 },
+// // 			      { y: '2011 Q3', item1: 4912 },
+// // 			      { y: '2011 Q4', item1: 3767 },
+// // 			      { y: '2012 Q1', item1: 6810 },
+// // 			      { y: '2012 Q2', item1: 5670 },
+// // 			      { y: '2012 Q3', item1: 4820 },
+// // 			      { y: '2012 Q4', item1: 15073 },
+// // 			      { y: '2013 Q1', item1: 10687 },
+// // 			      { y: '2013 Q2', item1: 8432 }
+// 			    ],
+// 			    xkey             : 'y',
+// // 			    ykeys: ['item1'],
+// // 			    labels: ['Item 1'],
+// 			    ykeys            : [${avg.keys}],
+// 			    labels           : [${avg.labels}],
+// 			    lineColors       : ['#efefef'],
+// 			    lineWidth        : 2,
+// 			    hideHover        : 'auto',
+// 			    gridTextColor    : 'red',
+// 			    gridStrokeWidth  : 0.4,
+// 			    pointSize        : 4,
+// 			    pointStrokeColors: ['blue'],
+// 			    gridLineColor    : '#efefef',
+// 			    gridTextFamily   : 'Open Sans',
+// 			    gridTextSize     : 10
+// 			  });	
+// 		}else{
 		    var bar_data = {
 		    	      data : [${adminChart}],
 		    	      color: '#3c8dbc'
@@ -269,7 +257,7 @@
 		    	        tickLength: 0
 		    	      }
 		    	    })
-		}
+// 		}
 		
 	})
 </script>

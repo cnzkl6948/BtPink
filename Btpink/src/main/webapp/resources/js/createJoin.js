@@ -14,7 +14,7 @@ function studentCheck() {
 				success : function(result) {
 					// SelectStudent
 					if (result[0] === undefined) {
-						alert($('#studentName').val() + "학생이 없습니다");
+						alert($('#studentName').val() + "학생이 등록 되었거나 학생이 없습니다.");
 					} else {
 
 						var SelectStudent = '<div class="col-sm-12 col-xs-12"><select  id="stdno" name = "stdno" class="form-control" >';
