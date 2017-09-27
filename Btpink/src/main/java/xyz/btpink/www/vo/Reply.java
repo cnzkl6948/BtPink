@@ -9,8 +9,19 @@ public class Reply {
 	String id;					//작성자 ID
 	String text;				//리플내용
 	String inputdate;			//작성날짜
+	String name;			//유저이름
 	
 	public Reply() {
+	}
+
+	public Reply(int replynum, int boardnum, String id, String text, String inputdate, String name) {
+		super();
+		this.replynum = replynum;
+		this.boardnum = boardnum;
+		this.id = id;
+		this.text = text;
+		this.inputdate = inputdate;
+		this.name = name;
 	}
 
 	public int getReplynum() {
@@ -53,9 +64,19 @@ public class Reply {
 		this.inputdate = inputdate;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Reply [replynum=" + replynum + ", boardnum=" + boardnum + ", id=" + id + ", text=" + text
-				+ ", inputdate=" + inputdate + "]";
+				+ ", inputdate=" + inputdate + ", name=" + name + "]";
 	}
 }

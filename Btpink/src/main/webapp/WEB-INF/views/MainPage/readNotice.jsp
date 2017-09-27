@@ -45,7 +45,7 @@
 						class="caption border-color-${board.boardnum%4 + 1} singleBlog">
 						<h3 class="color-${(board.boardnum+1)%4 + 1}">${board.title}</h3>
 						<ul class="list-inline blogInfo">
-							<li><i class="fa fa-user" aria-hidden="true"></i>${board.id}</li>
+							<li><i class="fa fa-user" aria-hidden="true"></i>${board.name}</li>
 							<li><i class="fa fa-comments-o" aria-hidden="true"></i>${replyCount}
 								Comments</li>
 						</ul>
@@ -93,7 +93,7 @@
 										alt="image" class="img-circle">
 								</div>
 								<div class="media-body">
-									<h4 class="media-heading">${reply.id}</h4>
+									<h4 class="media-heading">${reply.name}</h4>
 									<p>${reply.inputdate}</p>
 									<p>${reply.text}</p>
 									<c:if test="${User.id == reply.id}">

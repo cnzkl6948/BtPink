@@ -54,7 +54,7 @@
 								<div class="form-group">
 									<i class="fa fa-user" aria-hidden="true"></i> <input
 										type="text" class="form-control border-color-2"
-										id="exampleInputEmail2" name="id" placeholder="${User.id }"
+										id="exampleInputEmail2" name="id" placeholder="${board.name }"
 										disabled="disabled">
 								</div>
 								<div class="form-group">
