@@ -13,4 +13,6 @@ public interface TeacherMapper {
 	public int insertTeacher(Teacher teacher);
 
 	public ArrayList<Demand> selectDemand(String id);
+
+	public String mySonTeacher(String classno);
 }

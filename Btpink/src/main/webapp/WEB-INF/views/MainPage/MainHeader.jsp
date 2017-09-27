@@ -167,7 +167,7 @@
 								<div class="footerInfo ">
 									<div class="input-group col-sm-12 col-xs-12 ">
 										<input type="text" class="form-control" id="id" name="id"
-											form="createSubmit" placeholder="ID(중복을 확인해 주세요)"
+											placeholder="UserId(중복을 확인해 주세요)" 
 											aria-describedby="basic-addon21">
 										<button type="button" class="input-group-addon"
 											onclick="javascript:idOverlap()" id="basic-addon21">

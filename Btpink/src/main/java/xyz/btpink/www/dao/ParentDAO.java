@@ -13,6 +13,7 @@ import xyz.btpink.www.vo.Parent;
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Board;
 import xyz.btpink.www.vo.Demand;
+import xyz.btpink.www.vo.studentInfomation;
 
 
 /**
@@ -22,7 +23,13 @@ import xyz.btpink.www.vo.Demand;
 public class ParentDAO {
 	@Autowired
 	SqlSession sqlSession;
-
+	
+	public String myStdno(String memno){
+		ParentMapper mapper = sqlSession.getMapper(ParentMapper.class);
+		String result = mapper.myStdno(memno);
+		return result;
+	}
+	
 	public int insert(Parent parent) {
 		int result = 0;
 		System.out.println("parent 0"+parent);
@@ -77,6 +84,10 @@ public class ParentDAO {
 		}
 		return className;
 	}
-
+	public studentInfomation studentInfomation(Account ac){
+		
+		ParentMapper mapper = sqlSession.getMapper(ParentMapper.class);
+		return mapper.studentInfomation(ac);
+	}
 	
 }

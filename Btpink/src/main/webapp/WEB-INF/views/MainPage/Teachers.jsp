@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="MainHead.jsp"%>
+<style>
+.teamImage .maskingContent{background-color: rgba(248, 248, 248, 0);}
+</style>
 <%@include file="MainHeader.jsp"%>
 
 <body class="body-wrapper">

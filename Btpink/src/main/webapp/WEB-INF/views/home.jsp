@@ -6,6 +6,7 @@
 <%@ include file="MainPage/MainHead.jsp"%>
 <style>
 .desc_notice {overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.teamImage .maskingContent{background-color: rgba(248, 248, 248, 0);}
 </style>
 <%@ include file="MainPage/MainHeader.jsp"%>
 <!-- BANNER -->

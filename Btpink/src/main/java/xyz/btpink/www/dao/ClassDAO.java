@@ -54,7 +54,12 @@ public class ClassDAO implements ClassMapper {
 		ArrayList<ClassVO> claList = mapper.allClassList();
 		return claList;
 	}
-	
+	public String mySonClass(String classno){
+		ClassMapper mapper = sqlSession.getMapper(ClassMapper.class);
+		String result = mapper.mySonClass(classno);
+		return result;
+		
+	}
 	
 	
 }

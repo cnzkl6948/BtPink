@@ -95,4 +95,10 @@ public class StudentDAO {
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
 		mapper.allHateNull();
 	}
+	
+	public Student mySon(String stdno){
+		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+		Student result = mapper.mySon(stdno);
+		return result;
+	}
 }

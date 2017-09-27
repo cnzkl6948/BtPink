@@ -44,5 +44,11 @@
 		where c.memno=a.memno
 	</select>
 	
+	<select id="mySonClass" parameterType="string" resultType="string">
+		SELECT	classname
+		FROM	class
+		WHERE	classno = #{classno}
+	</select>
+
 
 	</mapper>

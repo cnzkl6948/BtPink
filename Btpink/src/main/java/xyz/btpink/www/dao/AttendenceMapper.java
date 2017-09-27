@@ -4,16 +4,17 @@ import java.util.ArrayList;
 
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
+import xyz.btpink.www.vo.ClassVO;
 import xyz.btpink.www.vo.IdentfyVO;
 import xyz.btpink.www.vo.MainParam;
 
 public interface AttendenceMapper {
 	public MainParam getMainParam(String classno);
-	
+
 	public MainParam getMainParama();
-	
+
 	public ArrayList<Attendence> selectAtd(String today);
-	
+
 	public ArrayList<Attendence> selectAtdt(Attendence atd);
 
 	public ArrayList<Attendence> checkAtd(String classno);
@@ -28,8 +29,14 @@ public interface AttendenceMapper {
 
 	public int identfy(IdentfyVO identfy);
 
+	public int late(IdentfyVO identfyVO);
+
+	public int updateCul(Attendence attendence);
+
+	public ArrayList<Attendence> allAttendence(ClassVO classVO);
+
 	public int delAtd();
-	
+
 	public int updateCult(Attendence attendence);
 
 }

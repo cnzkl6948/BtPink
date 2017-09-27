@@ -54,9 +54,9 @@ public class Detect {
 			// Request body.201708271503837703388.jpg
 			// 마이크로 소프트로 이미지 주소 전달
 //			String url = "{\"url\":\"https://www.btpink.xyz/www/resources/face_detection/" + image + "\"}";
-//			String url = "{\"url\":\"https://geonho.btpink.xyz/www/resources/face_detection/" + image + "\"}";
+			String url = "{\"url\":\"https://geonho.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 //			String url = "{\"url\":\"https://daheen.btpink.xyz/www/resources/face_detection/" + image + "\"}";
-			String url = "{\"url\":\"https://suenghan.btpink.xyz/www/resources/face_detection/" + image + "\"}";
+//			String url = "{\"url\":\"https://suenghan.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 			System.out.println(url);
 
 			StringEntity reqEntity = new StringEntity(url);
@@ -89,12 +89,8 @@ public class Detect {
 						detectMap.put(identfy.getFaceId(), identfy);
 					}
 					
-					System.out.println(identfy);
-					System.err.println("detect Map : "+detectMap);
 					//faceId Identfy클래스로 보냄
-					System.out.println("Detection 초기");
 					identifyMap = identy.identfy(list);
-					System.out.println("Detection 말기");
 					for (String merge : identifyMap.keySet()) {
 						if(detectMap.containsKey(identifyMap.get(merge).getFaceId())){
 							identifyMap.put(merge, new xyz.btpink.www.vo.IdentfyVO(merge, detectMap.get(identifyMap.get(merge).getFaceId()).getEmotion()));

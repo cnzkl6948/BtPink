@@ -1,26 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!-- <style> -->
 <style>
- .alert_text { 
-     display: table; 
-     position : absolute;
-     background: #FFFFFF; 
-     width: 150px; 
-     margin: 0 auto 10px;
-     display:block;
-     color:#333;
-     border:1px solid;
-     line-height: 50px;
-     font-size: 13px;
-     z-index: 1000;
- } 
+.alert_text {
+	display: table;
+	position: absolute;
+	background: #FFFFFF;
+	width: 150px;
+	margin: 0 auto 10px;
+	display: block;
+	color: #333;
+	border: 1px solid;
+	line-height: 50px;
+	font-size: 13px;
+	z-index: 1000;
+}
 /* .tooltips { */
 /* 	position: relative; */
 /* 	display: inline; */
 /* } */
-
 </style>
 <%@ include file="AdminPage/split/Head.jsp"%>
 <%@ include file="AdminPage/split/Header.jsp"%>
@@ -135,11 +135,13 @@
 
 							<c:forEach var="notice" items="${TeacherNotice}">
 								<li class="tooltips mouseOverTest">${notice.name}<span
-									class="handle" style="position: relative;"> <i class="fa fa-ellipsis-v"></i>
-								</span> <span>${notice.demandsubject}</span>
+									class="handle" style="position: relative;"> &ensp;<i
+										class="fa fa-ellipsis-v"></i>
+								</span>&ensp; <span>${fn:substring(notice.startdate,0,10)}~${fn:substring(notice.enddate,0,10)}</span>&ensp;<i
+									class="fa fa-ellipsis-v"></i>&ensp;<span>${notice.demandsubject}</span>
 									<div class="tools ">
-										<span class="text col-lg-4 alert_text"  >${notice.demandcontent}</span> <i
-											class="fa fa-trash-o"></i>
+										<span class="text col-lg-4 alert_text">${notice.demandcontent}</span>
+										<i class="fa fa-trash-o"></i>
 									</div>
 								</li>
 							</c:forEach>
@@ -161,118 +163,28 @@
 				<div class="nav-tabs-custom">
 					<!-- Tabs within a box -->
 					<ul class="nav nav-tabs pull-right">
-						<li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-						<li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
 						<li class="pull-left header"><i class="fa fa-inbox"></i>출석인원
 							변동 현황</li>
 					</ul>
-					<div class="tab-content no-padding">
-						<!-- Morris chart - Sales -->
-						<div class="chart tab-pane active" id="revenue-chart"
-							style="position: relative; height: 300px;"></div>
-						<div class="chart tab-pane" id="sales-chart"
-							style="position: relative; height: 300px;"></div>
-					</div>
+				<c:if test="${User.name != 'admin' }">
+<!-- 					<div class="tab-content no-padding"> -->
+<!-- 						Morris chart - Sales -->
+<!-- 						<div class="chart tab-pane active" id="revenue-chart" -->
+<!-- 							style="position: relative; height: 300px;"></div> -->
+<!-- 												<div class="chart tab-pane" id="sales-chart" -->
+<!-- 													style="position: relative; height: 300px;"></div> -->
+<!-- 					</div> -->
+						<div class="chart" id="line-chart" style="height: 300px; color: red;"></div>
+				</c:if>	
+				<c:if test="${User.name == 'admin' }">
+				<div id="bar-chart" style="height: 300px;"></div>	
+				</c:if>	
 				</div>
 				<!-- /.nav-tabs-custom -->
 			</div>
 			<!-- /.Left col -->
 		</div>
 		<!--여기까지 두번째 row -->
-		<!-- 세번째 row-->
-<!-- 		<div class="row"> -->
-<!-- 			<div class="col-lg-12"> -->
-<!-- 				Calendar -->
-<!-- 				<div class="box box-solid bg-green-gradient"> -->
-<!-- 					<div class="box-header"> -->
-<!-- 						<i class="fa fa-calendar"></i> -->
-
-<!-- 						<h3 class="box-title">현황별 일정</h3> -->
-<!-- 						tools box -->
-<!-- 						<div class="pull-right box-tools"> -->
-<!-- 							button with a dropdown -->
-<!-- 							<div class="btn-group"> -->
-<!-- 								<button type="button" -->
-<!-- 									class="btn btn-success btn-sm dropdown-toggle" -->
-<!-- 									data-toggle="dropdown"> -->
-<!-- 									<i class="fa fa-bars"></i> -->
-<!-- 								</button> -->
-<!-- 								<ul class="dropdown-menu pull-right" role="menu"> -->
-<!-- 									<li><a href="#">Add new event</a></li> -->
-<!-- 									<li><a href="#">Clear events</a></li> -->
-<!-- 									<li class="divider"></li> -->
-<!-- 									<li><a href="#">View calendar</a></li> -->
-<!-- 								</ul> -->
-<!-- 							</div> -->
-<!-- 							<button type="button" class="btn btn-success btn-sm" -->
-<!-- 								data-widget="collapse"> -->
-<!-- 								<i class="fa fa-minus"></i> -->
-<!-- 							</button> -->
-<!-- 							<button type="button" class="btn btn-success btn-sm" -->
-<!-- 								data-widget="remove"> -->
-<!-- 								<i class="fa fa-times"></i> -->
-<!-- 							</button> -->
-<!-- 						</div> -->
-<!-- 						/. tools -->
-<!-- 					</div> -->
-<!-- 					/.box-header -->
-<!-- 					<div class="box-body no-padding"> -->
-<!-- 						The calendar -->
-<!-- 						<div id="calendar" style="width: 100%"></div> -->
-<!-- 					</div> -->
-<!-- 					/.box-body -->
-<!-- 					<div class="box-footer text-black"> -->
-<!-- 						<div class="row"> -->
-<!-- 							<div class="col-sm-6"> -->
-<!-- 								Progress bars -->
-<!-- 								<div class="clearfix"> -->
-<!-- 									<span class="pull-left">Task #1</span> <small -->
-<!-- 										class="pull-right">90%</small> -->
-<!-- 								</div> -->
-<!-- 								<div class="progress xs"> -->
-<!-- 									<div class="progress-bar progress-bar-green" -->
-<!-- 										style="width: 90%;"></div> -->
-<!-- 								</div> -->
-
-<!-- 								<div class="clearfix"> -->
-<!-- 									<span class="pull-left">Task #2</span> <small -->
-<!-- 										class="pull-right">70%</small> -->
-<!-- 								</div> -->
-<!-- 								<div class="progress xs"> -->
-<!-- 									<div class="progress-bar progress-bar-green" -->
-<!-- 										style="width: 70%;"></div> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 							/.col -->
-<!-- 							<div class="col-sm-6"> -->
-<!-- 								<div class="clearfix"> -->
-<!-- 									<span class="pull-left">Task #3</span> <small -->
-<!-- 										class="pull-right">60%</small> -->
-<!-- 								</div> -->
-<!-- 								<div class="progress xs"> -->
-<!-- 									<div class="progress-bar progress-bar-green" -->
-<!-- 										style="width: 60%;"></div> -->
-<!-- 								</div> -->
-
-<!-- 								<div class="clearfix"> -->
-<!-- 									<span class="pull-left">Task #4</span> <small -->
-<!-- 										class="pull-right">40%</small> -->
-<!-- 								</div> -->
-<!-- 								<div class="progress xs"> -->
-<!-- 									<div class="progress-bar progress-bar-green" -->
-<!-- 										style="width: 40%;"></div> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 							/.col -->
-<!-- 						</div> -->
-<!-- 						/.row -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 				/.box -->
-
-<!-- 			</div> -->
-<!-- 		</div> -->
-		<!-- 여기까지 세번찌 -->
 	</section>
 	<!-- /.content -->
 </div>
@@ -280,17 +192,87 @@
 
 <%@ include file="AdminPage/split/Footer.jsp"%>
 <!-- Morris.js charts -->
-<!-- <script src="./resources/AdminLTE/bower_components/raphael/raphael.min.js"></script> -->
-<!-- <script src="./resources/AdminLTE/bower_components/morris.js/morris.min.js"></script> -->
+<script
+	src="./resources/AdminLTE/bower_components/raphael/raphael.min.js"></script>
+<script
+	src="./resources/AdminLTE/bower_components/morris.js/morris.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="./resources/AdminLTE/dist/js/pages/dashboard.js"></script>
+<!-- <script src="./resources/AdminLTE/dist/js/pages/dashboard.js"></script> -->
+<script src="./resources/AdminLTE/bower_components/Flot/jquery.flot.js"></script>
+<!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+<script src="./resources/AdminLTE/bower_components/Flot/jquery.flot.resize.js"></script>
+<!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+<script src="./resources/AdminLTE/bower_components/Flot/jquery.flot.pie.js"></script>
+<!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
+<script src="./resources/AdminLTE/bower_components/Flot/jquery.flot.categories.js"></script>
 <script>
 	$(function(){
 		$(document).on('mouseover', '.mouseOverTest', function(){
 			$(".alert_text").css("position", "absolute");
 			$(".alert_text").css({top: event.pageY-240 + "px", left: event.pageX-240+ "px"});
 		})
+		var name = '${User.name}';
+
+		if(name != 'admin'){
+		  var line = new Morris.Line({
+			    element          : 'line-chart',
+			    resize           : true,
+			    data             : [
+			    	${avg.data} 
+// 			      { y: '2011 Q1', item1: 2666 },
+// 			      { y: '2011 Q2', item1: 2778 },
+// 			      { y: '2011 Q3', item1: 4912 },
+// 			      { y: '2011 Q4', item1: 3767 },
+// 			      { y: '2012 Q1', item1: 6810 },
+// 			      { y: '2012 Q2', item1: 5670 },
+// 			      { y: '2012 Q3', item1: 4820 },
+// 			      { y: '2012 Q4', item1: 15073 },
+// 			      { y: '2013 Q1', item1: 10687 },
+// 			      { y: '2013 Q2', item1: 8432 }
+			    ],
+			    xkey             : 'y',
+// 			    ykeys: ['item1'],
+// 			    labels: ['Item 1'],
+			    ykeys            : [${avg.keys}],
+			    labels           : [${avg.labels}],
+			    lineColors       : ['#efefef'],
+			    lineWidth        : 2,
+			    hideHover        : 'auto',
+			    gridTextColor    : 'red',
+			    gridStrokeWidth  : 0.4,
+			    pointSize        : 4,
+			    pointStrokeColors: ['blue'],
+			    gridLineColor    : '#efefef',
+			    gridTextFamily   : 'Open Sans',
+			    gridTextSize     : 10
+			  });	
+		}else{
+		    var bar_data = {
+		    	      data : [${adminChart}],
+		    	      color: '#3c8dbc'
+		    	    }
+		    	    $.plot('#bar-chart', [bar_data], {
+		    	      grid  : {
+		    	        borderWidth: 1,
+		    	        borderColor: '#f3f3f3',
+		    	        tickColor  : '#f3f3f3'
+		    	      },
+		    	      series: {
+		    	        bars: {
+		    	          show    : true,
+		    	          barWidth: 0.5,
+		    	          align   : 'center'
+		    	        }
+		    	      },
+		    	      xaxis : {
+		    	        mode      : 'categories',
+		    	        tickLength: 0
+		    	      }
+		    	    })
+		}
+		
 	})
 </script>
+
 </body>
 </html>

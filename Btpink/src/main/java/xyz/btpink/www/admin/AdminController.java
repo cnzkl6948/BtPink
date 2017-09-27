@@ -29,9 +29,11 @@ import xyz.btpink.www.dao.AttendenceDAO;
 import xyz.btpink.www.dao.ClassDAO;
 import xyz.btpink.www.dao.StudentDAO;
 import xyz.btpink.www.dao.TeacherDAO;
+import xyz.btpink.www.util.AttendanceRate;
 import xyz.btpink.www.util.Split;
 import xyz.btpink.www.vo.Aapply;
 import xyz.btpink.www.vo.Account;
+import xyz.btpink.www.vo.AdminMaimPage;
 import xyz.btpink.www.vo.Attendence;
 import xyz.btpink.www.vo.ClassVO;
 import xyz.btpink.www.vo.MainParam;
@@ -58,6 +60,8 @@ public class AdminController {
 	@Autowired
 	AccountDAO accdao;
 
+	@Autowired
+	AttendenceDAO attendenceDao;
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
 	// 선생님 페이지
@@ -66,8 +70,8 @@ public class AdminController {
 		logger.info("Go! adminPage");
 		Account account = (Account) session.getAttribute("User");
 		System.out.println("타입 확인 : " + account.getType());
-		
-		if (!account.getType().equals("admin")) { //어드민이 아닐때
+
+		if (!account.getType().equals("admin")) { // 어드민이 아닐때
 
 			System.out.println("초기확인작업 시작");
 
@@ -75,13 +79,12 @@ public class AdminController {
 			ClassVO selClass = cdao.selectClass(memno); // 멤버 넘버에 할당된 클래스 VO 가져옴
 			String classno = selClass.getClassNo(); // 클래스 VO에 포함된 클래스 넘버 가져옴.
 
-			if (selClass != null) { //어드민이 아닐때
+			if (selClass != null) { // 어드민이 아닐때
 				System.out.println("클래스 넘버 : " + classno);
 
 				adao.initAtd(classno); // 출석부 표시전 초기 확인작업
 
 				System.out.println("초기작업 종료");
-
 				System.out.println(account.getId());
 				model.addAttribute("TeacherNotice", tdao.selectDemand(account.getId()));
 				System.out.println(tdao.selectDemand(account.getId()));
@@ -89,15 +92,40 @@ public class AdminController {
 			MainParam param = adao.getMainParam(classno);
 			model.addAttribute("mainParam", param);
 
-		}
-		
-		else{ //어드민일때
-			
-			MainParam param = adao.getMainParama();
-			model.addAttribute("mainParam", param);
-			
+			ClassVO classVO = new ClassVO();
+			classVO.setClassNo(classno);
+			System.out.println("어텐던스 출결확인" + classVO);
+			ArrayList<Attendence> aList = attendenceDao.allAttendence(classVO);
+			AttendanceRate ar = new AttendanceRate();
+			AdminMaimPage result = ar.AttendanceRate(aList);
+			System.out.println(result);
+
+			model.addAttribute("avg", result);
 		}
 
+		else { // 어드민일때
+
+			MainParam param = adao.getMainParama();
+			model.addAttribute("mainParam", param);
+
+			System.out.println("초기작업 종료");
+
+			System.out.println(account.getId());
+			model.addAttribute("TeacherNotice", tdao.selectDemand(account.getId()));
+			System.out.println(tdao.selectDemand(account.getId()));
+			ArrayList<ClassVO> list = cdao.allClass();
+			ArrayList<Attendence> resultList = new ArrayList<>();
+			String adminChart= "";
+			System.out.println("admon Class 갯수 :" + list);
+			for (int i = 0; i < list.size(); i++) {
+				ArrayList<Attendence> aList = attendenceDao.allAttendence(list.get(i));
+				for (int j = 0; j < 1; j++) {
+					System.out.println(aList.get(j));
+					adminChart +=",['"+aList.get(j).getName()+"',"+Math.round(((1.0-aList.get(j).getAbsentAvg())*100.0))+"]";
+				}
+				model.addAttribute("adminChart", adminChart);
+			}System.out.println(adminChart.substring(1));
+		}
 		return "adminPage";
 	}
 
@@ -118,6 +146,7 @@ public class AdminController {
 		return "AdminPage/Aapply";
 	}
 
+	// 가입 승인란
 	@RequestMapping(value = "sign", method = RequestMethod.POST)
 	public @ResponseBody String sign(Account account, String memNo, Model model) {
 		System.out.println("sign : " + account);
@@ -127,18 +156,18 @@ public class AdminController {
 		return "succes";
 	}
 
-	// 반 등록 
+	// 반 등록
 	@RequestMapping(value = "classInsert", method = RequestMethod.POST)
 	public String classManagement(Locale locale, Model model, ClassVO cla) {
 		logger.info("Go! classInsert");
 		int classNo = cdao.selectNextClassNo();
-		
+
 		cla.setClassNo("c" + classNo);
-		
+
 		System.out.println(cla);
-		
+
 		int result = cdao.classInsert(cla);
-		
+
 		System.out.println(result);
 		return "redirect:/classManagement";
 	}
@@ -160,14 +189,14 @@ public class AdminController {
 	public @ResponseBody ArrayList<Account> teacherNameCheck(Account aco, Locale locale, Model model) {
 		Account liar = new Account();
 		liar.setName("No");
-		
+
 		ArrayList<Account> checkedTeacher = accdao.duplicateTeacherCheck(aco);
 		ArrayList<Account> teaList = accdao.allTeahcerName(aco.getName());
-		
-		if (teaList.size()==0) {
+
+		if (teaList.size() == 0) {
 			checkedTeacher.add(liar);
 		}
-		
+
 		return checkedTeacher;
 	}
 
@@ -212,12 +241,13 @@ public class AdminController {
 
 		Thread.sleep(3000); // 서버에 이미지 파일이 저장되기 까지의 딜레이
 
-		//String url = "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
-		 String url = "https://suenghan.btpink.xyz/www/resources/Sapply/" +
-		 filename + ".jpg";
+		// String url =
+		// "https://www.btpink.xyz/www/resources/Sapply/"+filename+".jpg";
+		// String url = "https://suenghan.btpink.xyz/www/resources/Sapply/" +
+		// filename + ".jpg";
 		// String url = "https://dahuin.btpink.xyz/www/resources/Sapply/" +
 		// filename + ".jpg";
-//		String url = "https://geonho.btpink.xyz/www/resources/Sapply/" + filename + ".jpg";
+		String url = "https://geonho.btpink.xyz/www/resources/Sapply/" + filename + ".jpg";
 
 		String[] array = { url, filename };
 
@@ -237,33 +267,33 @@ public class AdminController {
 		String filename = file.getOriginalFilename();
 		student.setParentno("dummy");// 학부모 번호를 불러오는 과정 정해질때까지 더미로...
 		student.setImage(filename);
-		
+
 		Account loginuser = (Account) session.getAttribute("User");
 		System.out.println(loginuser);
 		String memno = loginuser.getMemNo();
 		System.out.println("dao 가기전 맴버넘버 가져오냐 ?" + memno);
 		ClassVO selClass = cdao.selectClass(memno);
-		if(selClass == null){
+		if (selClass == null) {
 			student.setClassno("");
-		}else{
+		} else {
 			student.setClassno(selClass.getClassNo());
 		}
 		System.out.println("selClass 다오 갔다옴" + selClass);
-		System.out.println(student);
+		System.out.println("학생들록 값 : " + student);
 		int result = sdao.insert(student);
 		if (result == 1) {
 			System.out.println("DB입력성공");
 		}
-		
-
+		Attendence atd = new Attendence(student.getStdno(), "", student.getClassno(), "", "", "", "", "", "", 0.0);
+		adao.insertInitAtd(atd);
 		return "success";
 	}
 
 	// 나이계산 메소드
 	public int ageCal(Student student) {
-		
+
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-//		Date currenttime = new Date();
+		// Date currenttime = new Date();
 		Date birthday = null;
 		try {
 			birthday = formatter.parse(student.getBirth());
@@ -271,41 +301,42 @@ public class AdminController {
 			// TODO Auto-generated catch block
 			// e.printStackTrace();
 		}
-		
+
 		Calendar birth = new GregorianCalendar();
-	    Calendar today = new GregorianCalendar();
+		Calendar today = new GregorianCalendar();
 
-	    birth.setTime(birthday);
-	    today.setTime(new Date());
+		birth.setTime(birthday);
+		today.setTime(new Date());
 
-	    int factor = 0;
+		int factor = 0;
 
-//	    if (today.get(Calendar.DAY_OF_YEAR) < birth.get(Calendar.DAY_OF_YEAR)) {
-//
-//	        factor = -1;
-//
-//	    }
+		// if (today.get(Calendar.DAY_OF_YEAR) <
+		// birth.get(Calendar.DAY_OF_YEAR)) {
+		//
+		// factor = -1;
+		//
+		// }
 
-	    int age = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) + factor;
-	    System.out.println("나이계산결과 : "+age);
-		
-		
-//		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-//		Date currenttime = new Date();
-//		Date birthday = null;
-//		try {
-//			birthday = formatter.parse(student.getBirth());
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			// e.printStackTrace();
-//		}
-//		// System.out.println("현재시간" + currenttime);
-//		// System.out.println("생일" + birthday);
-//
-//		long diff = currenttime.getTime() - birthday.getTime();
-//		long diffdays = diff / (24 * 60 * 60 * 1000);
-//		int age = (int) diffdays / 365;
-//		System.out.println("나이 : " + age);
+		int age = today.get(Calendar.YEAR) - birth.get(Calendar.YEAR) + factor;
+		System.out.println("나이계산결과 : " + age);
+
+		// SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+		// Date currenttime = new Date();
+		// Date birthday = null;
+		// try {
+		// birthday = formatter.parse(student.getBirth());
+		// } catch (ParseException e) {
+		// // TODO Auto-generated catch block
+		// // e.printStackTrace();
+		// }
+		// // System.out.println("현재시간" + currenttime);
+		// // System.out.println("생일" + birthday);
+		//
+		// long diff = currenttime.getTime() - birthday.getTime();
+		// long diffdays = diff / (24 * 60 * 60 * 1000);
+		// int age = (int) diffdays / 365;
+		// System.out.println("나이 : " + age);
+
 
 		return age;
 
@@ -316,81 +347,84 @@ public class AdminController {
 	public String Slist(HttpSession session, Locale locale, Model model, String day) {
 
 		logger.info("Go! Slist");
-		
-		System.out.println("day값 : "+day);
+
+		System.out.println("day값 : " + day);
 
 		Account loginuser = (Account) session.getAttribute("User"); // 세션에서
 																	// 로그인유저
 																	// 계정정보를 가져옴
-		
-		if(loginuser.getType().equals("admin")){
-			
+
+		if (loginuser.getType().equals("admin")) {
+
 			if (day == null) {
-			
-			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-			Date currenttime = new Date();
-			String tempDate = sdf.format(currenttime);
-			
-			ArrayList<Attendence> result = adao.selectAtd(tempDate);
-			model.addAttribute("list", result);
-			model.addAttribute("selDay", tempDate);
-			
+
+				SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+				Date currenttime = new Date();
+				String tempDate = sdf.format(currenttime);
+
+				ArrayList<Attendence> result = adao.selectAtd(tempDate);
+				model.addAttribute("list", result);
+				model.addAttribute("selDay", tempDate);
+
 			}
-			
-			else{
-				
+
+			else {
+
 				Attendence atd = new Attendence();
 				atd.setToday(day);
 
 				ArrayList<Attendence> result = adao.selectAtd(day);
 				System.out.println(result);
 				model.addAttribute("list", result);
-				model.addAttribute("selDay", day);	
-				
+				model.addAttribute("selDay", day);
+
 			}
-			
-		}
-		
-		else{
-		
-		String memno = loginuser.getMemNo(); // 멤버 넘버 가져옴
-		ClassVO selClass = cdao.selectClass(memno); // 멤버 넘버에 할당된 클래스 VO 가져옴
-		String classno = selClass.getClassNo(); // 클래스 VO에 포함된 클래스 넘버 가져옴.
 
-		if (day == null) {
-			System.out.println("널 구문 진입");
-			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-			Date currenttime = new Date();
-			String tempDate = sdf.format(currenttime);
-
-			System.out.println(tempDate);
-
-			Attendence atd = new Attendence();
-			atd.setClassno(classno);
-			atd.setToday(tempDate);
-
-			ArrayList<Attendence> result = adao.selectAtdt(atd); // 해당 클래스 넘버에
-																	// 해당된 출석
-																	// 목록을 가져옴
-
-			System.out.println(result);
-			model.addAttribute("list", result);
-			model.addAttribute("selDay", tempDate);
 		}
 
 		else {
-			System.out.println("낫널 구문 진입");
-			Attendence atd = new Attendence();
-			atd.setClassno(classno);
-			atd.setToday(day);
 
-			ArrayList<Attendence> result = adao.selectAtdt(atd);
-			System.out.println(result);
-			model.addAttribute("list", result);
-			model.addAttribute("selDay", day);
+			String memno = loginuser.getMemNo(); // 멤버 넘버 가져옴
+			ClassVO selClass = cdao.selectClass(memno); // 멤버 넘버에 할당된 클래스 VO 가져옴
+			String classno = selClass.getClassNo(); // 클래스 VO에 포함된 클래스 넘버 가져옴.
 
-		}
-		
+			if (day == null) {
+				System.out.println("널 구문 진입");
+				SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+				Date currenttime = new Date();
+				String tempDate = sdf.format(currenttime);
+
+				System.out.println(tempDate);
+
+				Attendence atd = new Attendence();
+				atd.setClassno(classno);
+				atd.setToday(tempDate);
+
+				ArrayList<Attendence> result = adao.selectAtdt(atd); // 해당 클래스
+																		// 넘버에
+																		// 해당된
+																		// 출석
+																		// 목록을
+																		// 가져옴
+
+				System.out.println(result);
+				model.addAttribute("list", result);
+				model.addAttribute("selDay", tempDate);
+			}
+
+			else {
+				System.out.println("낫널 구문 진입");
+				Attendence atd = new Attendence();
+				atd.setClassno(classno);
+				atd.setToday(day);
+
+				ArrayList<Attendence> result = adao.selectAtdt(atd);
+				System.out.println(result);
+				model.addAttribute("list", result);
+				model.addAttribute("selDay", day);
+
+			}
+
 		}
 
 		return "AdminPage/Slist";
@@ -418,26 +452,23 @@ public class AdminController {
 		else
 			attendence.setAbsent("1");
 
-		if (attendence.getEarly().equals("n")){
+		if (attendence.getEarly().equals("n")) {
 			attendence.setEarly("0");
-		}
-		else{
+		} else {
 			attendence.setEarly("1");
 			attendence.setAbsent("0");
 		}
 
-		if (attendence.getLate().equals("n")){
+		if (attendence.getLate().equals("n")) {
 			attendence.setLate("0");
-		}
-		else{
+		} else {
 			attendence.setLate("1");
 			attendence.setAbsent("0");
 		}
 
-		if (attendence.getSick().equals("n")){
+		if (attendence.getSick().equals("n")) {
 			attendence.setSick("0");
-		}
-		else{
+		} else {
 			attendence.setSick("1");
 			attendence.setAbsent("1");
 		}
@@ -488,7 +519,7 @@ public class AdminController {
 		// 학생 목록 가져오기
 		ArrayList<Student> stuList = sdao.selectStu(cla.getClassNo());
 		model.addAttribute("stuList", stuList);
-		
+
 		ArrayList<Attendence> result = adao.getEmotionList(stdno);
 		int cnt = result.size();
 		int count = 0;
@@ -571,18 +602,18 @@ public class AdminController {
 	@RequestMapping(value = "/manualSplit", method = RequestMethod.GET)
 	public String manualSplit(Locale locale, Model model, HttpSession session) {
 		logger.info("GoGoGo! manualSplit");
-		//클래스 목록 가져오기
+		// 클래스 목록 가져오기
 		ArrayList<ClassVO> classAll = cdao.allClass();
 		ArrayList<String> classList = new ArrayList<>();
-		for(ClassVO c : classAll){
+		for (ClassVO c : classAll) {
 			classList.add(c.getClassNo());
 		}
-		
+
 		model.addAttribute("classList", classList);
-		for(String c : classList){
+		for (String c : classList) {
 			System.out.println(c);
 		}
-		
+
 		ArrayList<Student> stuList = sdao.allStuList();
 		int allCount = stuList.size();
 		int count5 = 0;
@@ -889,9 +920,8 @@ public class AdminController {
 			Thread.sleep(50);
 		}
 
-		//오늘 날짜의 출석 db가 있으면 모두 삭제
+		// 오늘 날짜의 출석 db가 있으면 모두 삭제
 		adao.delAtd();
-		
 
 		stuList = sdao.allStuList();
 		int allCount = stuList.size();

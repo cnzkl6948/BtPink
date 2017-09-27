@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Attendence;
+import xyz.btpink.www.vo.ClassVO;
 import xyz.btpink.www.vo.IdentfyVO;
 import xyz.btpink.www.vo.MainParam;
 import xyz.btpink.www.vo.Student;
@@ -74,7 +75,7 @@ public class AttendenceDAO {
 				System.out.println("for문 진입");
 				String stdno = sresult.get(i);
 				System.out.println(stdno);
-				Attendence atd = new Attendence(stdno, "", classno, "", "", "", "", "", "");
+				Attendence atd = new Attendence(stdno, "", classno, "", "", "", "", "", "",0.0);
 				System.out.println("atd 객체 확인 : " + atd);
 				iresult = mapper.insertInitAtd(atd); // 입력 작업
 			}
@@ -130,4 +131,22 @@ public class AttendenceDAO {
 		int result = mapper.updateCult(attendence);
 		return result;
 	}
+
+	public ArrayList<Attendence> allAttendence(ClassVO classVO) {
+		// TODO Auto-generated method stub
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		
+		return mapper.allAttendence(classVO);
+	}
+
+	public int late(IdentfyVO identfyVO) {
+		// TODO Auto-generated method stub
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		return mapper.late(identfyVO);
+	}
+	public int insertInitAtd(Attendence atd){
+		AttendenceMapper mapper = sqlSession.getMapper(AttendenceMapper.class);
+		return mapper.insertInitAtd(atd);
+	}
+	
 }
