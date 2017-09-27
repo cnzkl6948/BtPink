@@ -40,15 +40,16 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="homeContactContent">
-					<form action="writeNotice" method="post" role="form" id="writeform"
+					<form action="editNotice" method="post" role="form"
 						enctype="multipart/form-data" onsubmit="return formCheck();">
 						<div class="row">
+						<input type="hidden" name="boardnum" value="${board.boardnum }">
 
 							<div class="col-sm-6 col-xs-12">
 								<div class="form-group">
 									<i class="fa fa-envelope"></i> <input type="text"
 										class="form-control border-color-6" placeholder="title"
-										name="title" id="title">
+										name="title" id="title" value="${board.title}">
 								</div>
 								<div class="form-group">
 									<i class="fa fa-user" aria-hidden="true"></i> <input
@@ -59,7 +60,7 @@
 								<div class="form-group">
 									<i class="fa fa-comments" aria-hidden="true"></i>
 									<textarea class="form-control border-color-1"
-										placeholder="Write message" name="content" id="content"></textarea>
+										placeholder="Write message" name="content" id="content">${board.content}</textarea>
 								</div>
 							</div>
 								
@@ -85,7 +86,7 @@
 							
 							<div class="col-xs-12">
 								<div class="formBtnArea">
-									<button type="reset" class="btn btn-success">
+									<button type="reset" class="btn btn-success" onclick="location.href='readNotice?boardnum=${board.boardnum}'">
 										<i class="fa fa-rocket"> 취소 </i>
 									</button>
 									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
