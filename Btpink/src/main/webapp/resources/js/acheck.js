@@ -68,32 +68,31 @@ function snapshot() {
 function getName(personId) {
 	var params = {};
 
-	$
-			.ajax(
-					{
-						url : "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/example-group-00/persons/"
-								+ personId + "?" + $.param(params),
-						beforeSend : function(xhrObj) {
-							// Request headers
-							xhrObj.setRequestHeader("Content-Type",
-									"application/json");
-							xhrObj.setRequestHeader(
-									"Ocp-Apim-Subscription-Key",
-									"6bfd85c06c0b42b8bc879751a17f71bf");
-						},
-						type : "GET",
-						// Request body
-						data : JSON.stringify({
-							"personGroupId" : "example-group-00",
-							"personIds" : [ personId ]
-						})
+	$.ajax(
+			{
+				url : "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/example-group-00/persons/"
+						+ personId + "?" + $.param(params),
+				beforeSend : function(xhrObj) {
+					// Request headers
+					xhrObj.setRequestHeader("Content-Type",
+							"application/json");
+					xhrObj.setRequestHeader(
+							"Ocp-Apim-Subscription-Key",
+							"6bfd85c06c0b42b8bc879751a17f71bf");
+				},
+				type : "GET",
+				// Request body
+				data : JSON.stringify({
+					"personGroupId" : "example-group-00",
+					"personIds" : [ personId ]
+				})
 
-					}).done(function(data) {
-				userName +=','+data.name;
-				$("#chulcheck").html(userName.substring(1));
-			}).fail(function() {
-				alert("getName error");
-			});
+			}).done(function(data) {
+		userName +=','+data.name;
+		$("#chulcheck").html(userName.substring(1));
+	}).fail(function() {
+		alert("getName error");
+	});
 }
 
 function closeModal() {

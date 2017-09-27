@@ -14,7 +14,7 @@ $(document).ready(function(){
 			}
 		});
 		getMap();
-	}, 2000);
+	}, 500);
 });
 
 var mapContainer = mapContainer = document.getElementById('maps'), // 지도를 표시할 div 

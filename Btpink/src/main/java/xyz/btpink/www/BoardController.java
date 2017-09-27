@@ -95,7 +95,6 @@ public class BoardController {
 		} else {
 			board.setBoardImage("");
 		}
-		System.out.println(board);
 		dao.insertBoard(board);
 
 		return "redirect:listNotice";
@@ -212,6 +211,7 @@ public class BoardController {
 	public String editForm(int boardnum, HttpSession session, Model model) {
 
 		Board board = dao.get(boardnum);
+				
 		model.addAttribute("board", board);
 		return "MainPage/editNotice";
 	}
@@ -223,29 +223,31 @@ public class BoardController {
 	 *            수정할 글 정보
 	 */
 	@RequestMapping (value="/editNotice", method=RequestMethod.POST)
-	public String edit(
-			Board board, 
-			MultipartFile upload,
-			HttpSession session) {
+	public String edit(Board board, HttpSession session, MultipartFile file, String boardImageCheck) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		String savedFilename = sdf.format(new Date());
+		savedFilename = savedFilename + new Date().getTime();
+		String filename = savedFilename;
 		
-		//수정할 글이 로그인한 본인 글인지 확인
-		Account user=  (Account) session.getAttribute("User");
-		String id =user.getId();
-		
-		Board oldBoard = dao.get(board.getBoardnum());
-		if (oldBoard == null || !oldBoard.getId().equals(id)) {
-			return "redirect:listNotice";
+		// 파일 저장
+		File out = null;
+		try {
+			out = new File(path + filename + ".jpg");
+			file.transferTo(out);
+			Thread.sleep(3000);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
-		// 수정할 정보에 로그인 아이디 저장
-		board.setId(id);
-
-		// 수정 시 새로 첨부한 파일이 있으면 기존 파일을 삭제하고 새로 업로드
-		// 따위없음//
-
-		// 글 수정 처리
+		// 첨부파일없음
+		System.out.println(boardImageCheck);
+		if (boardImageCheck.equalsIgnoreCase("true")) {
+			System.out.println(filename);
+			board.setBoardImage(filename);
+		} else {
+			board.setBoardImage("");
+		}
 		dao.updateBoard(board);
-		// 원래의 글읽기 화면으로 이동
+
 		return "redirect:readNotice?boardnum=" + board.getBoardnum();
 	}
 
