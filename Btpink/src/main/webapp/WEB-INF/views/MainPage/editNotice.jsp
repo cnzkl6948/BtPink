@@ -30,7 +30,7 @@
 		<h4 class="text-center">Write form</h4>
 								<div class="sectionTitle text-center">
 									<h2>
-										<span class="shape shape-left bg-color-4"></span> <span>글쓰기</span>
+										<span class="shape shape-left bg-color-4"></span> <span>글 수정하기</span>
 										<span class="shape shape-right bg-color-4"></span>
 									</h2>
 								</div>
@@ -114,10 +114,7 @@
 		var img = $('#target').attr('src');
 		//이미지 첨부 여부
 		if(img !='#'){
-			alert("이미지가 있음");
 			$('#boardImageCheck').val('true');
-		}else{
-			alert('이미지가 없음');
 		}
 		//제목 유효성 검사
 		if (title.value.length < 5 || title.value.length > 30 ) { 

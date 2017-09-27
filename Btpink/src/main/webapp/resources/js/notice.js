@@ -39,11 +39,23 @@ function replyEditForm(replynum, boardnum, retext) {
 	str += '<input type="text" name="text" value="' + retext
 			+ '" style="width:530px;">';
 	str += '&nbsp;';
-	str += '<a href="javascript:replyEdit(document.editForm' + replynum
+/*	str += '<a href="javascript:replyEdit(document.editForm' + replynum
 			+ ')">[저장]</a>';
+*/
+	str += '<button type="button" class="btn btn-xs btn-success"' 
+		+'onclick="location.href=\'javascript:replyEdit(document.editForm'+replynum
+	+ ')\'"> <i class="fa fa-rocket"> 저장 </i></button>';
+	
 	str += '&nbsp;';
-	str += '<a href="javascript:replyEditCancle(document.getElementById(\'div'
+/*	str += '<a href="javascript:replyEditCancle(document.getElementById(\'div'
 			+ replynum + '\'))">[취소]</a>';
+*/	
+	str += '<button type="button" class="btn btn-xs btn-success"' 
+		+ 'onclick="replyEditCancle(document.getElementById(\'div'
+			+ replynum + '\'));"><i class="fa fa-rocket"> 취소 </i></button>';
+
+	
+	
 	str += '</form>';
 	div.innerHTML = str;
 }
