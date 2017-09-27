@@ -228,7 +228,7 @@ function formcheck(){
 // 		return false;
 	}
 	else if(!(years>=5&&years<=7)){
-		alert('만 5,6,7세의 아동이 아닙니다.');
+		alert('5, 6, 7세의 아동이 아닙니다.');
 //		return false;
 	}
 	else if($('#height').val() === ""){
