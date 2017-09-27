@@ -181,13 +181,10 @@ public class BoardController {
 	 */
 	@RequestMapping (value="/deleteNotice", method=RequestMethod.GET)
 	public String delete(int boardnum, HttpSession session) {
-		Account user = (Account) session.getAttribute("User");
-		String id = user.getId();
 
 		// 삭제할 글 번호와 본인 글인지 확인할 로그인아이디
 		Board board = new Board();
 		board.setBoardnum(boardnum);
-		board.setId(id);
 
 		// 첨부된 파일같은거 없음
 
