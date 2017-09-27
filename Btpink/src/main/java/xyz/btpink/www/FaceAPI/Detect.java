@@ -84,7 +84,11 @@ public class Detect {
 						map = new ObjectMapper().readValue(jsonArray.getJSONObject(0).getJSONObject("faceAttributes").getJSONObject("emotion").toString(), TreeMap.class);
 						identfy.setFaceId((String) jsonArray.getJSONObject(i).get("faceId"));
 						//크기별로 정렬 후 저장
-						identfy.setEmotion(sortByValue(map));
+						if(sortByValue(map) == null){
+							identfy.setEmotion("neutral");
+						}else{
+							identfy.setEmotion(sortByValue(map));
+						}
 						//faceId와 identfy 이모션 저장
 						detectMap.put(identfy.getFaceId(), identfy);
 					}
