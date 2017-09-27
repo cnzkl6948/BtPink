@@ -117,7 +117,6 @@ public class Detect {
 		double d = 0.0;
 		System.out.println(map);
 			for ( String s : map.keySet()) {
-				System.out.println("작은 for문  : "+s);
 				try{
 				if(map.get(s)>d){
 					d = map.get(s);

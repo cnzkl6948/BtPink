@@ -73,7 +73,7 @@
 						id = #{id}))) demand 
 				where 
 					demand.stdno = parent.stdno
-
+				 <![CDATA[   and rownum <= 5 ]]>
 
 	</select>
 	
