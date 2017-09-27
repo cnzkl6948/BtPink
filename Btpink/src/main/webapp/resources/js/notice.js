@@ -35,13 +35,11 @@ function replyEditForm(replynum, boardnum, retext) {
 			+ '" action="replyEdit" method="post">';
 	str += '<input type="hidden" name="replynum" value="' + replynum + '">';
 	str += '<input type="hidden" name="boardnum" value="' + boardnum + '">';
+	str += '<br>';
+	str += '<div class="form-group"><input type="text" name="text" class="form-control border-color-4" value="' + retext
+			+ '"style="width:530px;"></div>';
+
 	str += '&nbsp;';
-	str += '<input type="text" name="text" value="' + retext
-			+ '" style="width:530px;">';
-	str += '&nbsp;';
-/*	str += '<a href="javascript:replyEdit(document.editForm' + replynum
-			+ ')">[저장]</a>';
-*/
 	str += '<button type="button" class="btn btn-xs btn-success"' 
 		+'onclick="location.href=\'javascript:replyEdit(document.editForm'+replynum
 	+ ')\'"> <i class="fa fa-rocket"> 저장 </i></button>';
@@ -54,8 +52,6 @@ function replyEditForm(replynum, boardnum, retext) {
 		+ 'onclick="replyEditCancle(document.getElementById(\'div'
 			+ replynum + '\'));"><i class="fa fa-rocket"> 취소 </i></button>';
 
-	
-	
 	str += '</form>';
 	div.innerHTML = str;
 }
