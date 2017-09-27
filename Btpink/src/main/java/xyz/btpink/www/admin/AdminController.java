@@ -96,11 +96,15 @@ public class AdminController {
 			classVO.setClassNo(classno);
 			System.out.println("어텐던스 출결확인" + classVO);
 			ArrayList<Attendence> aList = attendenceDao.allAttendence(classVO);
-			AttendanceRate ar = new AttendanceRate();
-			AdminMaimPage result = ar.AttendanceRate(aList);
-			System.out.println(result);
+			String todayAbsent = "";
+			for (Attendence a : aList) {
+				todayAbsent = ",['"+a.getToday().substring(0,10)+"',"+((1-a.getAbsentAvg())*100)+"]"+todayAbsent;
+			}
+//			AttendanceRate ar = new AttendanceRate();
+//			AdminMaimPage result = ar.AttendanceRate(aList);
+//			System.out.println(result);
 
-			model.addAttribute("avg", result);
+			model.addAttribute("adminChart", todayAbsent.substring(1));
 		}
 
 		else { // 어드민일때

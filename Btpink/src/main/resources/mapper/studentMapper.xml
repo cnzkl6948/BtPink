@@ -13,7 +13,7 @@
 		UPDATE student SET 
 			parentno = #{parentno}
 		WHERE 
-		stdno = #{stdno}	
+		stdno = #{stdno} and parentno is null	
 	</update>
 
 <!--  학생 등록 -->
