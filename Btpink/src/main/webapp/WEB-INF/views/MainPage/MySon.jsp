@@ -257,7 +257,7 @@
 
 					 // retrieve the dropped element's stored Event Object
 					 var originalEventObject = $(this).data('eventObject');
-
+ 
 					 // we need to copy it, so that multiple events don't have a reference to the same object
 					 var copiedEventObject = $.extend({}, originalEventObject)
 

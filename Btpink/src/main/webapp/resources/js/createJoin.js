@@ -36,7 +36,7 @@ function studentCheck() {
 
 function idOverlap() {
 	var id = $("#id").val();
-	if (id.length > 6 && id.length < 13) {
+	if (id.length > 5 && id.length < 13) { 
 		$.ajax({
 			url : "idOverlap",
 			type : "get",
@@ -48,8 +48,8 @@ function idOverlap() {
 					$("#basic-addon21").attr("style",
 							"background-color: #337ab7");
 					$("#id").attr("style", "background-color:#ffffff; ");
-					// $("#id").disabled = disabled;
 					$('#idCheck').val('true');
+					$("#id").attr("readonly", "readonly");
 				} else {
 					alert("중복된 아이디가 있습니다.");
 				}

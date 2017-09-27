@@ -1,7 +1,7 @@
 package xyz.btpink.www.vo;
 
 public class Attendence {
-	
+
 	private String stdno;
 	private String name;
 	private String classno;
@@ -11,14 +11,15 @@ public class Attendence {
 	private String sick;
 	private String late;
 	private String emotion;
-	
-	public Attendence(){
-		
+	private double absentAvg;
+
+	public Attendence() {
+
 	}
-	
-	public Attendence(String stdno, String name, String classno, String today, String absent, String early, String sick, String late,
-			String emotion) {
-		
+
+	public Attendence(String stdno, String name, String classno, String today, String absent, String early, String sick,
+			String late, String emotion, double absentAvg) {
+		super();
 		this.stdno = stdno;
 		this.name = name;
 		this.classno = classno;
@@ -28,10 +29,16 @@ public class Attendence {
 		this.sick = sick;
 		this.late = late;
 		this.emotion = emotion;
+		this.absentAvg = absentAvg;
 	}
-				
 
-	
+	public double getAbsentAvg() {
+		return absentAvg;
+	}
+
+	public void setAbsentAvg(double absentAvg) {
+		this.absentAvg = absentAvg;
+	}
 
 	public String getStdno() {
 		return stdno;
@@ -109,8 +116,8 @@ public class Attendence {
 	public String toString() {
 		return "Attendence [stdno=" + stdno + ", name=" + name + ", classno=" + classno + ", today=" + today
 				+ ", absent=" + absent + ", early=" + early + ", sick=" + sick + ", late=" + late + ", emotion="
-				+ emotion + "]";
+				+ emotion + ", absentAvg=" + absentAvg + "]";
 	}
-	
+
 
 }

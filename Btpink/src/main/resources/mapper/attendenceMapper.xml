@@ -41,15 +41,19 @@
 </delete>
 
 <!-- 작업중 -->
-<insert id="insertInitAtd" parameterType="String">
+<insert id="insertInitAtd" parameterType="Attendence">
 	insert into attendence values (#{stdno}, #{classno}, to_char(sysdate, 'yy/mm/dd'), 1, 0, 0, 0, '')
 </insert>
 <update id="identfy" parameterType="IdentfyVO">
 	update attendence 
-		set emotion = #{emotion} 
+		set emotion = #{emotion},absent =0,early = 0, sick=0, late=0 
 		where stdno = (select stdno from student where personalId = #{personId}) and today =(select to_char(sysdate,'yy/mm/dd')from dual)
 </update>
-
+<update id="late" parameterType="IdentfyVO">
+	update attendence 
+		set emotion = #{emotion},absent =0,early = 0,sick=0,late=1 
+		where stdno = (select stdno from student where personalId = #{personId}) and today =(select to_char(sysdate,'yy/mm/dd')from dual)
+</update>
 
 
 <!-- <update id="updateCul" parameterType="Attendence"> -->
@@ -69,5 +73,12 @@
 		select stdno from student where  parentno = #{memNo}
 	) std where std.stdno = at.stdno
 </select>
+<select id="allAttendence" parameterType="ClassVO" resultType="Attendence">
+select c.classname as name,c.classno,a.absentavg,a.today from class c ,(
+select avg(absent) as absentAvg,today from attendence   where classno = #{classNo} group by today order by today desc) a
+where c.classno = #{classNo} and
+<![CDATA[ rownum <= 7 ]]>
+</select>
+
 
 </mapper>

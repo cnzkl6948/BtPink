@@ -1,5 +1,7 @@
 package xyz.btpink.www.FaceAPI;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -22,11 +24,17 @@ public class FaceAPIController {
 	@Autowired
 	AttendenceDAO attedenceDao;
 	private static final Logger logger = LoggerFactory.getLogger(UsersController.class);
-	
-	//출석체크 알고리즘 실행
+
+	// 출석체크 알고리즘 실행
 	@RequestMapping(value = "detectImage", method = RequestMethod.POST)
 	public @ResponseBody Map<String, IdentfyVO> detectImage(String image, Model model) throws Exception {
-		logger.info("Get faceId");
+		long time = System.currentTimeMillis();
+		SimpleDateFormat dayTime = new SimpleDateFormat("kk:mm");
+		String str = dayTime.format(new Date(time));
+		System.out.println(str);
+		int hour = Integer.parseInt(str.split(":")[0]);
+		int minite = Integer.parseInt(str.split(":")[1]);
+
 		Base64ToImgDecoder base = new Base64ToImgDecoder();
 		String fileName = base.decoder(image, "detect");
 		System.out.println(fileName);
@@ -34,12 +42,20 @@ public class FaceAPIController {
 		Detect detect = new Detect();
 		System.out.println("Controller 초기");
 		Map<String, IdentfyVO> identfy = detect.getFaceId(fileName);
-	for (String result : identfy.keySet()) {
-		attedenceDao.identfy(identfy.get(result));
-	}
+
+		if (9 < hour || (hour == 9 && minite > 0)) {
+			for (String result : identfy.keySet()) {
+			attedenceDao.late(identfy.get(result));
+			}
+		} else {
+
+			for (String result : identfy.keySet()) {
+				attedenceDao.identfy(identfy.get(result));
+			}
+		}
 		System.out.println("Controller 마지막");
-		
+
 		return identfy;
 	}
-	
+
 }

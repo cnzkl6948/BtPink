@@ -13,6 +13,7 @@ import xyz.btpink.www.vo.Parent;
 import xyz.btpink.www.vo.Account;
 import xyz.btpink.www.vo.Board;
 import xyz.btpink.www.vo.Demand;
+import xyz.btpink.www.vo.studentInfomation;
 
 
 /**
@@ -83,6 +84,10 @@ public class ParentDAO {
 		}
 		return className;
 	}
-
+	public studentInfomation studentInfomation(Account ac){
+		
+		ParentMapper mapper = sqlSession.getMapper(ParentMapper.class);
+		return mapper.studentInfomation(ac);
+	}
 	
 }
