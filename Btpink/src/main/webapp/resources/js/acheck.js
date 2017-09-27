@@ -54,9 +54,14 @@ function snapshot() {
 		success : function(target) {
 			// show response from the php script.
 			userName = '';
-			for (var k in target){
-			getName(k);
+			if(target==""){
+				$("#chulcheck").html("등록된 사람이 없습니다.");
+			}else{
+				for (var k in target){
+					getName(k);	
+				}
 			}
+			
 		}
 	});
 }

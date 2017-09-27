@@ -42,15 +42,20 @@ public class FaceAPIController {
 		Detect detect = new Detect();
 		System.out.println("Controller 초기");
 		Map<String, IdentfyVO> identfy = detect.getFaceId(fileName);
-
-		if (9 < hour || (hour == 9 && minite > 0)) {
-			for (String result : identfy.keySet()) {
-			attedenceDao.late(identfy.get(result));
-			}
+		System.out.println("ident null 인가요 ?" + identfy);
+		if (identfy.size() == 0) {
+			identfy = null;
+			System.out.println("사람없음으로 들어옴");
 		} else {
+			if (9 < hour || (hour == 9 && minite > 0)) {
+				for (String result : identfy.keySet()) {
+					attedenceDao.late(identfy.get(result));
+				}
+			} else {
 
-			for (String result : identfy.keySet()) {
-				attedenceDao.identfy(identfy.get(result));
+				for (String result : identfy.keySet()) {
+					attedenceDao.identfy(identfy.get(result));
+				}
 			}
 		}
 		System.out.println("Controller 마지막");
