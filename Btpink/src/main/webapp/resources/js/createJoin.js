@@ -22,7 +22,7 @@ function studentCheck() {
 							SelectStudent += '<option ' + '" value="'
 									+ student.stdno + '">' + ' 주소  : '
 									+ student.address + ' 생일 : '
-									+ student.birth + '</option>';
+									+ (student.birth).substring(0,11) + '</option>';
 						})
 						SelectStudent += '</select></div>';
 
