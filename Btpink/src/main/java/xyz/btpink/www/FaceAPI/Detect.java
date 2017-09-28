@@ -84,7 +84,7 @@ public class Detect {
 						map = new ObjectMapper().readValue(jsonArray.getJSONObject(0).getJSONObject("faceAttributes").getJSONObject("emotion").toString(), TreeMap.class);
 						identfy.setFaceId((String) jsonArray.getJSONObject(i).get("faceId"));
 						//크기별로 정렬 후 저장
-						if(sortByValue(map) == null){
+						if(sortByValue(map) == null || sortByValue(map).equals("")){
 							identfy.setEmotion("neutral");
 						}else{
 							identfy.setEmotion(sortByValue(map));

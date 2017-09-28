@@ -574,7 +574,7 @@ public class AdminController {
 					color += "#8A2908"; // brown
 					break;
 				default:
-					color += "#FFFFFF"; // white
+					color += "#00a65a"; // white
 					break;
 
 				}
