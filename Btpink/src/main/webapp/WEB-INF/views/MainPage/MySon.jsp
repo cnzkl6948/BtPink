@@ -16,7 +16,7 @@
     <section class="pageTitleSection">
          <div class="container">
              <div class="pageTitleInfo">
-                  <h2>我が子</h2>
+                  <h2>我が子の情報</h2>
              </div>
          </div>
     </section>

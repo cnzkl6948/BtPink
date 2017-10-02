@@ -100,7 +100,7 @@
 							</a></li>
 						</c:if>
 						<c:if test="${User.type == 'p' }">
-							<li class="dropdown singleDrop color-1   active "><a href="MySon" class="dropdown-toggle"> <i class="fa fa-home bg-color-1" aria-hidden="true"></i> <span>我が子の情報</span>
+							<li class="dropdown singleDrop color-1 "><a href="MySon" class="dropdown-toggle"> <i class="fa fa-home bg-color-1" aria-hidden="true"></i> <span>我が子の情報</span>
 							</a></li>
 						</c:if>	
 						<c:if test="${User.type == 't' or User.type == 'admin'}">

@@ -25,7 +25,7 @@
 			<div class="col-lg-2 col-lg-offset-1">
 				<div class="tabCommon tabLeft pull-right">
 					<ul class="nav nav-tabs">
-						<li class="active"><a data-toggle="tab" href="#leftHome" style="width: 132px;">오전반</a></li>
+						<li class="active"><a data-toggle="tab" href="#leftHome" style="width: 132px;">午前クラス</a></li>
 						<li><a data-toggle="tab" href="#leftMenu1"
 							style="width: 132px;">午後クラス</a></li>
 						<li><a data-toggle="tab" href="#leftMenu2"
