@@ -83,33 +83,33 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown singleDrop color-3 "><a href="teachers"
 							class="dropdown-toggle"><i class="fa fa-list-ul bg-color-3"
-								aria-hidden="true"></i> <span>선생님 소개</span></a>
+								aria-hidden="true"></i> <span>先生の紹介</span></a>
 						<li class=" dropdown megaDropMenu color-2 "><a
 							href="course-single" class="dropdown-toggle"> <i
-								class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i> <span>교육
-									과정 소개</span>
+								class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i> <span>
+									コースの紹介</span>
 						</a></li>
 						<li class="dropdown singleDrop color-4 "><a href="listNotice"
 							class="dropdown-toggle"> <i
 								class="fa fa-pencil-square-o bg-color-4" aria-hidden="true"></i>
-								<span>공지사항</span>
+								<span>お知らせ</span>
 						</a></li>
 
 						<c:if test="${User.type == 'p' or User.type == 'admin' }">
 							<li class="dropdown singleDrop color-5  "><a href="getBus"
 								class="dropdown-toggle"> <i
-									class="fa fa-calendar bg-color-5" aria-hidden="true"></i> <span>버스
-										위치</span>
+									class="fa fa-calendar bg-color-5" aria-hidden="true"></i> <span>バス
+										の位置</span>
 							</a></li>
 						</c:if>
 						<c:if test="${User.type == 'p' }">
-							<li class="dropdown singleDrop color-1   active "><a href="MySon" class="dropdown-toggle"> <i class="fa fa-home bg-color-1" aria-hidden="true"></i> <span>내 아이 정보</span>
+							<li class="dropdown singleDrop color-1   active "><a href="MySon" class="dropdown-toggle"> <i class="fa fa-home bg-color-1" aria-hidden="true"></i> <span>家の子の情報</span>
 							</a></li>
 						</c:if>	
 						<c:if test="${User.type == 't' or User.type == 'admin'}">
 							<li class="dropdown singleDrop color-6 "><a href="adminPage"
 								class="dropdown-toggle"> <i class="fa fa-gg bg-color-6"
-									aria-hidden="true"></i> <span>선생님 페이지</span></a></li>
+									aria-hidden="true"></i> <span>先生のページ</span></a></li>
 						</c:if>
 					</ul>
 				</div>
@@ -123,7 +123,7 @@
 			<div class="modal-content">
 				<div class="panel panel-default formPanel">
 					<div class="panel-heading bg-color-1 border-color-1">
-						<h3 class="panel-title">회원 가입</h3>
+						<h3 class="panel-title">会員登録</h3>
 					</div>
 					<div class="panel-body">
 						<form action="join" method="POST" id="createSubmit" role="form">
@@ -131,9 +131,9 @@
 								<div class="tabCommon" style="margin-bottom: 15px;">
 									<ul class="nav nav-tabs">
 										<li class="active"><a data-toggle="tab"
-											href="#create_parent" aria-expanded="true">학부모</a></li>
+											href="#create_parent" aria-expanded="true">親</a></li>
 										<li class=""><a data-toggle="tab" href="#create_teacher"
-											id="SelectTeacher" aria-expanded="false">선생님</a></li>
+											id="SelectTeacher" aria-expanded="false">先生</a></li>
 									</ul>
 									<div class="tab-content">
 										<!--학부모 -->
@@ -152,7 +152,7 @@
 											<div class="col-sm-4 col-xs-12" style="margin-top: 3%;"
 												id="studentSelectButton">
 												<button type="button" class="btn btn-xs btn-primary"
-													onclick="javascript:studentCheck()">학생확인</button>
+													onclick="javascript:studentCheck()">学生確認</button>
 											</div> 
 										</div>
 										<!-- 선생님  -->
@@ -221,7 +221,7 @@
 			<div class="modal-content">
 				<div class="panel panel-default formPanel">
 					<div class="panel-heading bg-color-1 border-color-1">
-						<h3 class="panel-title">로그인</h3>
+						<h3 class="panel-title">ログイン</h3>
 					</div>
 					<div class="panel-body">
 						<form action="login" method="POST" role="form" id="joinSubmit">
