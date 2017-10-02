@@ -9,7 +9,7 @@
 <section class="pageTitleSection">
 	<div class="container">
 		<div class="pageTitleInfo">
-			<h2>교육 과정 소개</h2>
+			<h2>教育課程の紹介</h2>
 		</div>
 	</div>
 </section>
@@ -25,11 +25,11 @@
 			<div class="col-lg-2 col-lg-offset-1">
 				<div class="tabCommon tabLeft pull-right">
 					<ul class="nav nav-tabs">
-						<li class="active"><a data-toggle="tab" href="#leftHome" style="width: 132px;">오전반</a></li>
+						<li class="active"><a data-toggle="tab" href="#leftHome" style="width: 132px;">午前クラス</a></li>
 						<li><a data-toggle="tab" href="#leftMenu1"
-							style="width: 132px;">오후반</a></li>
+							style="width: 132px;">午後クラス</a></li>
 						<li><a data-toggle="tab" href="#leftMenu2"
-							style="width: 132px;">종일반</a></li>
+							style="width: 132px;">全日クラス</a></li>
 					</ul>
 				</div>
 			</div>
@@ -39,55 +39,53 @@
 						<table class="table table-curved text-center">
 							<thead>
 								<tr>
-									<th class="text-center bg-color-1">시간 <i class="fa fa-arrow-down" aria-hidden="true"></i></th>
-									<th class="text-center bg-color-2">월</th>
-									<th class="text-center bg-color-3">화</th>
-									<th class="text-center bg-color-4">수</th>
-									<th class="text-center bg-color-5">목</th>
-									<th class="text-center bg-color-6">금</th>
+									<th class="text-center bg-color-1">時間 <i class="fa fa-arrow-down" aria-hidden="true"></i></th>
+									<th class="text-center bg-color-2">月曜日</th>
+									<th class="text-center bg-color-3">火曜日</th>
+									<th class="text-center bg-color-4">水曜日</th>
+									<th class="text-center bg-color-5">木曜日</th>
+									<th class="text-center bg-color-6">金曜日</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td>9.00 - 10.00 AM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 								</tr>
 								<tr>
 									<td>10.00 - 11.00 AM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 								</tr>
 								<tr>
 									<td>11.00 - 11.30 AM</td>
-									<td><span class="color-2">쉬는시간</span> 점심</td>
-									<td><span class="color-3">쉬는시간</span> 점심</td>
-									<td><span class="color-4">쉬는시간</span> 점심</td>
-									<td><span class="color-5">쉬는시간</span> 점심</td>
-									<td><span class="color-6">쉬는시간</span> 점심</td>
+									<td><span class="color-2">休み時間</span> 昼ご飯</td>
+									<td><span class="color-3">休み時間</span> 昼ご飯</td>
+									<td><span class="color-4">休み時間</span> 昼ご飯</td>
+									<td><span class="color-5">休み時間</span> 昼ご飯</td>
+									<td><span class="color-6">休み時間</span> 昼ご飯</td>
 								</tr>
 								<tr>
 									<td>11.30 - 12.30 PM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
-								</tr>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>								</tr>
 								<tr>
 									<td>12.30 - 1.30 PM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
-								</tr>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>								</tr>
 							</tbody>
 						</table>
 					</div>
@@ -95,54 +93,54 @@
 						<table class="table table-curved">
 							<thead>
 								<tr>
-									<th class="text-center bg-color-1">시간 <i class="fa fa-arrow-down" aria-hidden="true"></i></th>
-									<th class="text-center bg-color-2">월</th>
-									<th class="text-center bg-color-3">화</th>
-									<th class="text-center bg-color-4">수</th>
-									<th class="text-center bg-color-5">목</th>
-									<th class="text-center bg-color-6">금</th>
+									<th class="text-center bg-color-1">時間 <i class="fa fa-arrow-down" aria-hidden="true"></i></th>
+									<th class="text-center bg-color-2">月曜日</th>
+									<th class="text-center bg-color-3">火曜日</th>
+									<th class="text-center bg-color-4">水曜日</th>
+									<th class="text-center bg-color-5">木曜日</th>
+									<th class="text-center bg-color-6">金曜日</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td>12.30 - 1.30 PM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 								</tr>
 								<tr>
 									<td>1.30 - 2.30 PM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 								</tr>
 								<tr>
 									<td>2.30 - 3.30 PM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 								</tr>
 								<tr>
 									<td>3.30 - 4.30 PM</td>
-									<td><span class="color-2">쉬는시간</span> 간식</td>
-									<td><span class="color-3">쉬는시간</span> 간식</td>
-									<td><span class="color-4">쉬는시간</span> 간식</td>
-									<td><span class="color-5">쉬는시간</span> 간식</td>
-									<td><span class="color-6">쉬는시간</span> 간식</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 								</tr>
 								<tr>
 									<td>4.30 - 5.30 PM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 							</tbody>
 						</table>
 					</div>
@@ -150,86 +148,86 @@
 						<table class="table table-curved">
 							<thead>
 								<tr>
-									<th class="text-center bg-color-1">시간 <i class="fa fa-arrow-down" aria-hidden="true"></i></th>
-									<th class="text-center bg-color-2">월</th>
-									<th class="text-center bg-color-3">화</th>
-									<th class="text-center bg-color-4">수</th>
-									<th class="text-center bg-color-5">목</th>
-									<th class="text-center bg-color-6">금</th>
+									<th class="text-center bg-color-1">時間<i class="fa fa-arrow-down" aria-hidden="true"></i></th>
+									<th class="text-center bg-color-2">月曜日</th>
+									<th class="text-center bg-color-3">火曜日</th>
+									<th class="text-center bg-color-4">水曜日</th>
+									<th class="text-center bg-color-5">木曜日</th>
+									<th class="text-center bg-color-6">金曜日</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td>9.00 - 10.00 AM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 								</tr>
 								<tr>
 									<td>10.00 - 11.00 AM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 								</tr>
 								<tr>
 									<td>11.00 - 11.30 AM</td>
-									<td><span class="color-2">쉬는시간</span> 점심</td>
-									<td><span class="color-3">쉬는시간</span> 점심</td>
-									<td><span class="color-4">쉬는시간</span> 점심</td>
-									<td><span class="color-5">쉬는시간</span> 점심</td>
-									<td><span class="color-6">쉬는시간</span> 점심</td>
+									<td><span class="color-2">休み時間</span> 昼ご飯</td>
+									<td><span class="color-3">休み時間</span> 昼ご飯</td>
+									<td><span class="color-4">休み時間</span> 昼ご飯</td>
+									<td><span class="color-5">休み時間</span> 昼ご飯</td>
+									<td><span class="color-6">休み時間</span> 昼ご飯</td>
 								</tr>
 								<tr>
 									<td>11.30 - 12.30 PM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 								</tr>
 								<tr>
 									<td>12.30 - 1.30 PM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 								</tr>
 								<tr>
 									<td>1.30 - 2.30 PM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 								</tr>
 								<tr>
 									<td>2.30 - 3.30 PM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 								</tr>
 								<tr>
 									<td>3.30 - 4.30 PM</td>
-									<td><span class="color-2">쉬는시간</span> 간식</td>
-									<td><span class="color-3">쉬는시간</span> 간식</td>
-									<td><span class="color-4">쉬는시간</span> 간식</td>
-									<td><span class="color-5">쉬는시간</span> 간식</td>
-									<td><span class="color-6">쉬는시간</span> 간식</td>
+									<td><span class="color-2">休み時間</span> お菓子</td>
+									<td><span class="color-3">休み時間</span>　お菓子</td>
+									<td><span class="color-4">休み時間</span> お菓子</td>
+									<td><span class="color-5">休み時間</span> お菓子</td>
+									<td><span class="color-6">休み時間</span> お菓子</td>
 								</tr>
 								<tr>
 									<td>4.30 - 5.30 PM</td>
-									<td><span class="color-2">영어</span> 영어 말하기</td>
-									<td><span class="color-3">미술</span> 그림 그리기</td>
-									<td><span class="color-4">역사</span> 우리나라 역사</td>
-									<td><span class="color-5">야외활동</span> 산책</td>
-									<td><span class="color-6">수학</span> 재미있는 숫자 놀이</td>
+									<td><span class="color-2">英語</span> 英語で話し</td>
+									<td><span class="color-3">美術</span> 絵を描く</td>
+									<td><span class="color-4">歴史</span> 国の歴史</td>
+									<td><span class="color-5">野外活動</span> 散歩</td>
+									<td><span class="color-6">数学</span> 面白い数学遊び</td>
 								</tr>
 							</tbody>
 						</table>

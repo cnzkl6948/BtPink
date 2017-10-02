@@ -33,7 +33,7 @@ function takePhoto() {
 	}
 }
 function snapshot() {
-	$("#chulcheck").html("出席チェック中....");
+	$("#chulcheck").html("出席確認中。。。");
 	var set = document.getElementById('image');
 	// 찍은 사진을 저장한다.
 
@@ -97,5 +97,5 @@ function getName(personId) {
 
 function closeModal() {
 	$('#img_here').html('');
-	$("#chulcheck").val('出席チェック中&hellip;');
+	$("#chulcheck").val('出席確認中。。。&hellip;');
 }

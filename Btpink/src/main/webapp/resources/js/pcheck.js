@@ -58,7 +58,7 @@ function snapshot() {
 			// src="https://suenghan.btpink.xyz/www/resources/object_detection/test.jpg"
 			// width="400" height="300"/>
 
-			var cnt = count + '명';
+			var cnt = count + '人';
 			$('#img').html(url);
 			$('#hitocheck').html(cnt);
 		}
@@ -67,5 +67,5 @@ function snapshot() {
 function closeModal() {
 	$('#img').html('');
 	$('#img_here').html('');
-	$("#hitocheck").html('인원 확인 중&hellip; <br>30초 이상 시간이 필요합니다. <br>기다려주세요.');
+	$("#hitocheck").html('人数確認中&hellip; <br>30秒以上かかります。 <br>少々お待ちください。');
 }
