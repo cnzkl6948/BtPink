@@ -49,11 +49,16 @@ public class FaceAPIController {
 		} else {
 			if (9 < hour || (hour == 9 && minite > 0)) {
 				for (String result : identfy.keySet()) {
+					if(identfy.get(result).getEmotion()==null || identfy.get(result).getEmotion().equals("")){
+						identfy.get(result).setEmotion("neneutral");
+					}
 					attedenceDao.late(identfy.get(result));
 				}
 			} else {
-
 				for (String result : identfy.keySet()) {
+					if(identfy.get(result).getEmotion()==null || identfy.get(result).getEmotion().equals("")){
+						identfy.get(result).setEmotion("neneutral");
+					}
 					attedenceDao.identfy(identfy.get(result));
 				}
 			}

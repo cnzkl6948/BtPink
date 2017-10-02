@@ -10,7 +10,9 @@ public class Board {
 	String content; // 글내용
 	String inputdate; // 작성날짜,시간
 	String boardImage;// 보드 이미지, null값 가능
-
+	String name;
+	
+	
 	public Board() {
 	}
 
@@ -22,6 +24,20 @@ public class Board {
 		this.content = content;
 		this.inputdate = inputdate;
 		this.boardImage = boardImage;
+	}
+	
+	
+
+	public Board(int boardnum, String id, String title, String content, String inputdate, String boardImage,
+			String name) {
+		super();
+		this.boardnum = boardnum;
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.inputdate = inputdate;
+		this.boardImage = boardImage;
+		this.name = name;
 	}
 
 	public int getBoardnum() {
@@ -72,10 +88,18 @@ public class Board {
 		this.boardImage = boardImage;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Override
 	public String toString() {
 		return "Board [boardnum=" + boardnum + ", id=" + id + ", title=" + title + ", content=" + content
-				+ ", inputdate=" + inputdate + ", boardImage=" + boardImage + "]";
+				+ ", inputdate=" + inputdate + ", boardImage=" + boardImage + ", name=" + name + "]";
 	}
 
 	

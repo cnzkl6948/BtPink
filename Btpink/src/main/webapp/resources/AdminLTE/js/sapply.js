@@ -98,7 +98,7 @@ function firstform(){
         contentType: false,
         success: function(result)
         {	
-        	alert('이미지 전달 성공 리턴');  	
+//        	alert('이미지 전달 성공 리턴');  	
         	url=result[0]; //전달받은 result값 = 이미지의 url
         	stdno=result[1];// 
            	addPerson();
@@ -115,7 +115,7 @@ function cancel(){
 
 //personid에 faceid를 삽입한다.
 function addFace(personID) {
-	alert(url);
+//	alert(url);
     $.ajax({
         url: "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/example-group-00/persons/"+personID+"/persistedFaces",
         beforeSend: function(xhrObj){
@@ -130,11 +130,11 @@ function addFace(personID) {
         })
     })
     .done(function(data) {
-        alert("add face success");
+//        alert("add face success");
         train();
     })
     .fail(function() {
-        alert("add face error");
+//        alert("add face error");
     });
 }
 
@@ -155,7 +155,8 @@ function train() {
        
    })
    .done(function(data) {
-       alert("train success");
+	   secondform(); //DB입력을 위한 2차 폼 전송
+//       alert("train success");
        $('#modal-danger2').modal('hide');
        $('#modal-danger').modal();
    })
@@ -183,16 +184,11 @@ function addPerson() {
         })
     })
     .done(function(data) {
-        alert("add person success");
-        alert(JSON.stringify(data, null));
-//        $('#formId').submit();
+//        alert("add person success");
+//        alert(JSON.stringify(data, null));
         var personID = data.personId;
         $('#personalid').val(personID); //추출한 personID 폼에 입력
         $('#stdno').val(stdno);
-        secondform(); //DB입력을 위한 2차 폼 전송
-
-//         $("#responseTextArea").val(personID);
-//         $("#data").val(personID);
          addFace(personID);
     })
     .fail(function() {
@@ -210,9 +206,7 @@ function secondform(){
         contentType: false,
         success: function(result)
         {	
-        	alert('DB 입력 폼 전달 성공 리턴');  	
-//        	url=result; //전달받은 result값 = 이미지의 url
-//           	addPerson();
+//        	alert('DB 입력 폼 전달 성공 리턴');  	
         }
     });
 }

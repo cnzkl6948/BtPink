@@ -88,11 +88,11 @@ function getName(personId) {
 				})
 
 			}).done(function(data) {
-		userName +=','+data.name;
-		$("#chulcheck").html(userName.substring(1));
-	}).fail(function() {
-		alert("getName error");
-	});
+				userName +=','+data.name;
+				$("#chulcheck").html(userName.substring(1));
+			}).fail(function() {
+				alert("getName error");
+			});
 }
 
 function closeModal() {

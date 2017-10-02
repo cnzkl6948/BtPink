@@ -25,16 +25,18 @@
 	<!-- 게시글 읽기 -->
 	<select id="getBoard" parameterType="int" resultType="Board">
 		select 
-			boardnum
-			, id
-			, title
-			, content
-			, to_char(inputdate, 'YYYY-MM-DD HH24:MI:SS') inputdate
-			, boardImage
+			b.boardnum
+			, b.id
+			, b.title
+			, b.content
+			, to_char(b.inputdate, 'YYYY-MM-DD HH24:MI:SS') inputdate
+			, b.boardImage
+			, a.name
 		from 
-			board 
+			board b, account a 
 		where 
 			boardnum = #{boardnum}
+		and b.id=a.id
 	</select>
 	
 	<!-- 첫페이지 최신글 3개 불러오기 -->
@@ -70,17 +72,19 @@
 	<!-- 현재 페이지 목록 (검색 필터링 후) -->
 	<select id="listBoard" parameterType="string" resultType="Board">
 		select 
-			boardnum
-			, id
-			, title
-			, content
-			, to_char(inputdate, 'YYYY-MM-DD') inputdate
-			, boardImage
+			b.boardnum
+			, b.id
+			, b.title
+			, b.content
+			, to_char(b.inputdate, 'YYYY-MM-DD') inputdate
+			, b.boardImage
+			, a.name
 		from 
-			board 
+			board b, account a
 		<if test="_parameter != null">
 		where 
 			title like '%' || #{searchText} || '%'
+			and b.id=a.id
 		</if>
 		order by boardnum desc
 	</select>
@@ -93,7 +97,6 @@
 			board
 		where
 			boardnum = #{boardnum}
-			and id = #{id}
 	</delete>
 
 	<!-- 글 수정 -->
@@ -103,6 +106,7 @@
 		set
 			title = #{title}
 			, content = #{content}
+			, boardImage = #{boardImage}
 		where
 			boardnum = #{boardnum}
 	</update>
@@ -136,15 +140,16 @@
 	<!-- 현재 글의 리플 목록 -->
 	<select id="listReply" parameterType="int" resultType="Reply">
 		select 
-			replynum
-			, boardnum
-			, id
-			, text
-			, to_char(inputdate, 'YYYY-MM-DD') inputdate
-		from 
-			reply 
+			r.replynum
+			, r.boardnum
+			, r.id
+			, r.text
+			, to_char(r.inputdate, 'YYYY-MM-DD') inputdate
+      , a.name
+		from reply r, account a
 		where
 			boardnum = #{boardnum}
+    and r.id=a.id
 		order by replynum desc
 	</select>
 

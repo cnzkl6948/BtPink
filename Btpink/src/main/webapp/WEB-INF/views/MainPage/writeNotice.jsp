@@ -113,10 +113,7 @@
 		var img = $('#target').attr('src');
 		//이미지 첨부 여부
 		if(img !='#'){
-			alert("이미지가 있음");
 			$('#boardImageCheck').val('true');
-		}else{
-			alert('이미지가 없음');
 		}
 		//제목 유효성 검사
 		if (title.value.length < 5 || title.value.length > 30 ) { 

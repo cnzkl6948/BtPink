@@ -45,7 +45,7 @@
 						class="caption border-color-${board.boardnum%4 + 1} singleBlog">
 						<h3 class="color-${(board.boardnum+1)%4 + 1}">${board.title}</h3>
 						<ul class="list-inline blogInfo">
-							<li><i class="fa fa-user" aria-hidden="true"></i>${board.id}</li>
+							<li><i class="fa fa-user" aria-hidden="true"></i>${board.name}</li>
 							<li><i class="fa fa-comments-o" aria-hidden="true"></i>${replyCount}
 								Comments</li>
 						</ul>
@@ -65,7 +65,7 @@
 						</ul>
 
 						<!-- 본인 글인 경우에만 보이기 -->
-						<c:if test="${User.id == board.id}">
+						<c:if test="${User.id == board.id or User.id=='admin'}">
 							<br>
 
 							<!-- 현재글 수정하기-->
@@ -89,14 +89,13 @@
 							<li class="media">
 								<div class="media-left">
 									<img
-										src="./resources/img/blog/blog-${reply.replynum%4 + 1}.jpg"
+										src="./resources/img/teachers/kodomo${reply.replynum%4 + 1}.png"
 										alt="image" class="img-circle">
 								</div>
 								<div class="media-body">
-									<h4 class="media-heading">${reply.id}</h4>
+									<h4 class="media-heading">${reply.name}</h4>
 									<p>${reply.inputdate}</p>
 									<p>${reply.text}</p>
-
 									<c:if test="${User.id == reply.id}">
 										<a
 											href="javascript:replyEditForm(${reply.replynum}, ${reply.boardnum}, '${reply.text}')"

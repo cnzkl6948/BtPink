@@ -229,7 +229,6 @@
 				late : lateD
 			},
 			success : function(result) {
-				alert('얏따');
 				location.href = 'Slist?day='+$(day).val();
 			}
 		});
