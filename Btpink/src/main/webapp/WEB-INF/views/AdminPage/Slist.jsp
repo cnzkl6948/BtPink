@@ -10,7 +10,7 @@
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
-		<h1>출석부 </h1>
+		<h1>出席簿 </h1>
 	</section>
 
 	<!-- Main row -->
@@ -19,14 +19,14 @@
 		<section class="col-lg-8">
 			<div class="box box-danger">
 				<div class="box-header with-border">
-					<h3 class="box-title">출석부</h3>
+					<h3 class="box-title">出席簿</h3>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
 					<form action="Slist" method="GET">
 						<div class="col-lg-12 col-md-12" style="padding-bottom:10px">
 							<div class="col-lg-10 col-lg-offset-1">
-								<label for="datepicker" class="control-label pull-left" style="padding-top:7px">날짜선택 : </label>
+								<label for="datepicker" class="control-label pull-left" style="padding-top:7px">日選択 : </label>
 								<div class="col-lg-8">
 									<input type="text" class="form-control inp_date" name="day" id="datepicker" placeholder="${selDay}">
 								</div>
@@ -39,13 +39,13 @@
 						<thead>
 							<tr>
 <!-- 								<th class="text-center"><input type="checkbox" id="checkall" /></th> -->
-								<th class="text-center">학생번호</th>
-								<th class="text-center">이름</th>
-								<th class="text-center">출결</th>
-								<th class="text-center">조퇴</th>
-								<th class="text-center">병결</th>
-								<th class="text-center">지각</th>
-								<th class="text-center">확인</th>
+								<th class="text-center">學生番號</th>
+								<th class="text-center">名前</th>
+								<th class="text-center">出缺</th>
+								<th class="text-center">早退</th>
+								<th class="text-center">病缺</th>
+								<th class="text-center">遅刻</th>
+								<th class="text-center">確認</th>
 							</tr>
 						</thead>
 						<tbody id="tableBody">
@@ -118,7 +118,7 @@
 		<section class="col-lg-4" style="padding-left:0">
 			<div class="box box-solid">
 				<div class="box-header with-border">
-					<h3 class="box-title">사용 방법</h3>
+					<h3 class="box-title">使い方</h3>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -127,37 +127,37 @@
 						<div class="panel box box-primary">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 출석부 메뉴에 대하여 </a>
+									<a data-toggle="collapse" data-parent="#accordion"> 出席簿メニューについて</a>
 								</h4>
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in">
 								<div class="box-body">
-								&nbsp;이 메뉴는 출석부 관리 메뉴입니다.
+								&nbsp;このメニューは出席簿管理メニューです。
 								</div>
 							</div>
 						</div>
 						<div class="panel box box-danger">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 사용 방법
+									<a data-toggle="collapse" data-parent="#accordion"> 使い方
 									</a>
 								</h4>
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse in">
 								<div class="box-body">
-									1. 조퇴/병결/지각에 체크하고 확인 버튼을 눌러주세요.
+									1.早退/病欠/時刻にチェックし、確認ボタンを押してください。
 								</div>
 							</div>
 						</div>
 						<div class="panel box box-success">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 특이사항 </a>
+									<a data-toggle="collapse" data-parent="#accordion"> 特異事項 </a>
 								</h4>
 							</div>
 							<div id="collapseThree" class="panel-collapse collapse in">
 								<div class="box-body">
-									◎ 출결 항목은 체크 되어 있을 경우 결석입니다.
+									◎出欠項目はチェックされている場合、欠席です。
 								</div>
 							</div>
 						</div>

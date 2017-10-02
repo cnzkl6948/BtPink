@@ -74,7 +74,7 @@ public class Identfy {
 								if (map.get(personId).getConfidence() < confidence) {
 									map.put(personId, identfy);
 								}
-							} else if (confidence > 0.7) {
+							} else if (confidence > 0.5) {
 								//없을시 0.7이상 저장
 								map.put(personId, identfy);
 							}

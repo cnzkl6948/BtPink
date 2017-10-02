@@ -11,7 +11,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-               인원확인 
+             人員確認 
       </h1>
     </section>
       <!-- Main row -->
@@ -37,7 +37,7 @@
         <section class="col-lg-6 col-md-12" style="padding-left:0">    
            <div class="box box-solid">
                <div class="box-header with-border">
-                 <h3 class="box-title">사용 방법</h3>
+                 <h3 class="box-title">使い方</h3>
                </div>
                <!-- /.box-header -->
                <div class="box-body">
@@ -47,13 +47,13 @@
                      <div class="box-header with-border">
                        <h4 class="box-title">
                          <a data-toggle="collapse" data-parent="#accordion">
-                              인원확인 메뉴에 대하여
+                              人員確認メニューについて
                          </a>
                        </h4>
                      </div>
                      <div id="collapseOne" class="panel-collapse collapse in">
                        <div class="box-body">
-                            &nbsp이 메뉴는 주기적으로 사진을 촬영하여 사진 속 인원 수를 헤야려 출석인원과 비교하여 변동사항이 발생했을 경우 경고알람을 선생님에게 보내는 메뉴입니다.                            
+                            &nbspこのメニューは周期的に写真を撮影して、写真の中の人数をヘヤリョ出席人数と比較して変動事項が発生した場合、警告アラームを先生に送ってくるメニューです。                            
                        </div>
                      </div>
                    </div>
@@ -61,14 +61,14 @@
                      <div class="box-header with-border">
                        <h4 class="box-title">
                          <a data-toggle="collapse" data-parent="#accordion">
-                              사용 방법
+                              使い方
                          </a>
                        </h4>
                      </div>
                      <div id="collapseTwo" class="panel-collapse collapse in">
                        <div class="box-body">
-                         1. 인원확인 버튼을 누릅니다.<br>
-                         2. 버튼을 누르면 5분마다 자동으로 사진을 촬영하고 인원 수를 헤아립니다.
+                         1.人員確認ボタンを押します。<br>
+                         2.ボタンを押すと5分ごとに自動に写真を撮影し、人員数をお察しいたします
                        </div>
                      </div>
                    </div>
@@ -76,16 +76,16 @@
                      <div class="box-header with-border">
                        <h4 class="box-title">
                          <a data-toggle="collapse" data-parent="#accordion">
-                              특이사항
+                              特異事項
                          </a>
                        </h4>
                      </div>
                      <div id="collapseThree" class="panel-collapse collapse in">
                        <div class="box-body">
-                            ◎ 인원 파악만 가능하며 학생식별은 불가능합니다.<br>
-                            ◎ 프로그램이 완벽하지 않기 때문에 인원 수 오류가 있을 수 있습니다.<br>
-                            ◎ 교구에 가려져 보이지 않을 수 있습니다.<br>
-                            ◎ 사진 처리에는 30초이상의 시간이 필요합니다.
+                         ◎人員把握に限られ、学生の識別は不可能です。<br>
+                         ◎プログラムが完璧でないため、人数の誤りがあります。<br>
+                         ◎教区に包まれて見えないができます。<br>
+                         ◎写真処理には30秒以上の時間が必要です。
                        </div>
                      </div>
                    </div>
@@ -95,21 +95,21 @@
              </div>
              <!-- /.box -->
              <button type="button" class="btn btn-block btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="snapshot()">
-                   인원확인
+                   人員確認
               </button>
             <div class="modal modal-danger fade" id="modal-danger">
                <div class="modal-dialog">
                   <div class="modal-content">
                      <div class="modal-header">
                         <button type="button" class="btn btn-outline pull-right"
-                           data-dismiss="modal" onclick="closeModal()">닫기</button>
-                        <h4 class="modal-title">인원 확인</h4>
+                           data-dismiss="modal" onclick="closeModal()">閉じる</button>
+                        <h4 class="modal-title">人員確認</h4>
                      </div>
                      <div class="modal-body">
                         <div id="imgg">
                            <p id="img"></p>
                         </div>
-                        <p id="hitocheck">인원 확인 중&hellip; <br>30초 이상 시간이 필요합니다. <br>기다려주세요.</p>
+                        <p id="hitocheck">人員確認中&hellip; <br>◎写真処理には30秒以上の時間が必要です。 <br>待ってください。</p>
                      </div>
                   </div>
                   <!-- /.modal-content -->

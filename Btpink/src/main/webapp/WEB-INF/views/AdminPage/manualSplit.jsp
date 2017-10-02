@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-		수동 반 배정 
+		手動組み分け
 		</h1>
 	</section>
 	<!-- Main row -->
@@ -21,20 +21,20 @@ pageEncoding="UTF-8"%>
 			<section class="col-lg-8 col-md-12">
 				<div class="box box-danger">
 					<div class="box-header with-border">
-						<h3 class="box-title">연령별 정보</h3>
+						<h3 class="box-title">年齢別の情報</h3>
 					</div>
 					<div class="box-body">
 						<div class="col-lg-12 col-md-12">
 							<div id="collapseTwo" class="panel-collapse collapse in">
 								<div class="progress">
 									<div class="progress-bar progress-bar-success progress-bar active" style="width: ${ (count5 / allCount) * 100 }%">
-										5세 ${ count5 }명
+										5年 ${ count5 }人
 									</div>
 									<div class="progress-bar progress-bar-warning progress-bar active" style="width: ${ (count6 / allCount) * 100 }%">
-										6세 ${ count6 }명
+										6年 ${ count6 }人
 									</div>
 									<div class="progress-bar progress-bar-danger progress-bar active" style="width: ${ (count7 / allCount) * 100 }%">
-										7세 ${ count7 }명
+										7年 ${ count7 }人
 									</div>
 								</div>
 							</div>
@@ -43,7 +43,7 @@ pageEncoding="UTF-8"%>
 				</div>
 				<div class="box box-danger">
 					<div class="box-header with-border">
-						<h3 class="box-title">학생 목록</h3>
+						<h3 class="box-title">學生目錄</h3>
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
@@ -51,13 +51,13 @@ pageEncoding="UTF-8"%>
 							<table id="stulist" class="table table-bordered table-hover">
 								<thead>
 									<tr>
-										<th>학번</th>
-										<th>이름</th>
-										<th>나이</th>
-										<th>반</th>
-										<th>성별</th>
-										<th>예외 ID</th>
-										<th>적용</th>
+										<th>學生番號</th>
+										<th>名前</th>
+										<th>年齡</th>
+										<th>クラス</th>
+										<th>性別</th>
+										<th>例外 ID</th>
+										<th>適用</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -78,7 +78,7 @@ pageEncoding="UTF-8"%>
 										</td>
 										<td>${stu.gender}<input type="hidden" id="gender${status.index}" name="stuList[${status.index}].gender" value="${stu.gender}" readonly="readonly"></td>
 										<td>${stu.hateid}<input type="hidden" id="hateid${status.index}" name="stuList[${status.index}].hateid" value="${stu.hateid}" style="width:100%"></td>
-										<td><button type="button" class="btn btn-block btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger" onclick="send('${status.index}');">적용</button></td>
+										<td><button type="button" class="btn btn-block btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger" onclick="send('${status.index}');">適用</button></td>
 									</tr>
 									</c:forEach>
 								</tbody>
@@ -94,7 +94,7 @@ pageEncoding="UTF-8"%>
 			<section class="col-lg-4 col-md-12" style="padding-left:0">
 				<div class="box box-solid">
 					<div class="box-header with-border">
-						<h3 class="box-title">사용 방법</h3>
+						<h3 class="box-title">使い方</h3>
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body">
@@ -104,13 +104,13 @@ pageEncoding="UTF-8"%>
 								<div class="box-header with-border">
 									<h4 class="box-title">
 									<span>
-										수동 반 배정 메뉴에 대하여
+										手動組み分けメニューについて
 									</span>
 									</h4>
 								</div>
 								<div id="collapseOne" class="panel-collapse collapse in">
 									<div class="box-body">
-										&nbsp이 메뉴는 반을 직접적으로 수정하는 메뉴입니다.
+										&nbspこのメニューは半を直接的に修正するメニューです。
 									</div>
 								</div>
 							</div>
@@ -118,14 +118,14 @@ pageEncoding="UTF-8"%>
 								<div class="box-header with-border">
 									<h4 class="box-title">
 									<span>
-										사용 방법
+										使い方
 									</span>
 									</h4>
 								</div>
 								<div id="collapseTwo" class="panel-collapse collapse in">
 									<div class="box-body">
-										1. classno를 입력합니다.<br>
-										2. 적용 버튼을 눌러주세요.
+										1. classnoを入力します。<br>
+										2. 適用ボタンを押してください。
 									</div>
 								</div>
 							</div>
@@ -133,14 +133,14 @@ pageEncoding="UTF-8"%>
 								<div class="box-header with-border">
 									<h4 class="box-title">
 									<span>
-										특이사항
+										特異事項
 									</span>
 									</h4>
 								</div>
 								<div id="collapseThree" class="panel-collapse collapse in">
 									<div class="box-body">
-										◎  적용버튼을 누르는 순간 예외 ID에 관계없이 적용됩니다.<br>
-										◎ 반 배정을 할 경우 오늘 출석한 모든 정보는 삭제 됩니다.
+										◎  適用ボタンを押した瞬間、例外IDに関係なく適用されます。<br>
+										◎クラス分けをする場合、今日出席したすべての情報は削除されます。
 									</div>
 								</div>
 							</div>

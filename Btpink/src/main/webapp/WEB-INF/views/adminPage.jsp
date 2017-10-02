@@ -116,7 +116,7 @@
 					<div class="box-header">
 						<i class="ion ion-clipboard"></i>
 
-						<h3 class="box-title">공지사항 또는 할일</h3>
+						<h3 class="box-title">학부모님께 받은 마음의 소리</h3>
 
 						<div class="box-tools pull-right">
 							<ul class="pagination pagination-sm inline">
