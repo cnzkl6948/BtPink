@@ -33,7 +33,7 @@ function takePhoto() {
 	}
 }
 function snapshot() {
-	$("#chulcheck").html("출석 체크 중....");
+	$("#chulcheck").html("出席確認中。。。");
 	var set = document.getElementById('image');
 	// 찍은 사진을 저장한다.
 
@@ -55,7 +55,7 @@ function snapshot() {
 			// show response from the php script.
 			userName = '';
 			if(target==""){
-				$("#chulcheck").html("등록된 사람이 없습니다.");
+				$("#chulcheck").html("登録された人がいません。");
 			}else{
 				for (var k in target){
 					getName(k);	
@@ -97,5 +97,5 @@ function getName(personId) {
 
 function closeModal() {
 	$('#img_here').html('');
-	$("#chulcheck").val('출석 체크 중&hellip;');
+	$("#chulcheck").val('出席確認中。。。&hellip;');
 }
