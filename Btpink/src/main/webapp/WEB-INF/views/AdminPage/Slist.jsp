@@ -30,7 +30,7 @@
 								<div class="col-lg-8">
 									<input type="text" class="form-control inp_date" name="day" id="datepicker" placeholder="${selDay}">
 								</div>
-								<input type="submit" class="btn btn-danger" value="날짜변경" />
+								<input type="submit" class="btn btn-danger" value="日付変更" />
 							</div>
 						</div>
 					</form>

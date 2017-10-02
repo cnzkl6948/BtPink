@@ -49,7 +49,7 @@
 							<label for="agegroup" class="col-sm-3 control-label">年齢</label>
 								<div class="col-sm-4">
 										<select id="age" class="select-drop" name="age"">
-											<option label="" disabled selected>나이</option>
+											<option label="" disabled selected>年齢</option>
 											<option value="5">5歳</option>
 											<option value="6">6歳</option>
 											<option value="7">7歳</option>
