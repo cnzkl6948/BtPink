@@ -9,7 +9,7 @@ function pagingFormSubmit(currentPage) {
 }
 // 글삭제시 확인 스크립트
 function deleteCheck(boardnum) {
-	if (confirm("정말 삭제하시겠습니까?")) {
+	if (confirm("本当に削除しますか?")) {
 		location.href = 'deleteNotice?boardnum=' + boardnum;
 	}
 }
@@ -18,7 +18,7 @@ function deleteCheck(boardnum) {
 function replyFormCheck() {
 	var retext = document.getElementById('retext');
 	if (retext.value.length < 5) {
-		alert('리플 내용을 입력하세요.');
+		alert('5字以上入力してください。');
 		retext.focus();
 		retext.select();
 		return false;
@@ -42,7 +42,7 @@ function replyEditForm(replynum, boardnum, retext) {
 	str += '&nbsp;';
 	str += '<button type="button" class="btn btn-xs btn-success"' 
 		+'onclick="location.href=\'javascript:replyEdit(document.editForm'+replynum
-	+ ')\'"> <i class="fa fa-rocket"> 저장 </i></button>';
+	+ ')\'"> <i class="fa fa-rocket"> セーブ </i></button>';
 	
 	str += '&nbsp;';
 /*	str += '<a href="javascript:replyEditCancle(document.getElementById(\'div'
@@ -50,7 +50,7 @@ function replyEditForm(replynum, boardnum, retext) {
 */	
 	str += '<button type="button" class="btn btn-xs btn-success"' 
 		+ 'onclick="replyEditCancle(document.getElementById(\'div'
-			+ replynum + '\'));"><i class="fa fa-rocket"> 취소 </i></button>';
+			+ replynum + '\'));"><i class="fa fa-rocket"> 取り消し </i></button>';
 
 	str += '</form>';
 	div.innerHTML = str;
@@ -63,14 +63,14 @@ function replyEditCancle(div) {
 
 // 리플 수정 정보 저장
 function replyEdit(form) {
-	if (confirm('수정된 내용을 저장하시겠습니까?')) {
+	if (confirm('修正した内容を登録しますか?')) {
 		form.submit();
 	}
 }
 
 // 리플 삭제
 function replyDelete(replynum, boardnum) {
-	if (confirm('리플을 삭제하시겠습니까?')) {
+	if (confirm('削除しますか?')) {
 		location.href = 'replyDelete?replynum=' + replynum + '&boardnum='
 				+ boardnum;
 	}

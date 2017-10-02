@@ -17,13 +17,13 @@ function classNameCheck() {
 					$("#classNameHidden").val("ok");
 					$('#classNameCheckk').val("1");
 				} else { 
-					alert("중복된 반이름이 있습니다.");
+					alert("すでにある名前です。");
 				}
 			}
 		});
 
 	} else {
-		alert("2~8자리수를 입력 해 주세요");
+		alert("2~8字を入力してください。");
 	}
 }
 

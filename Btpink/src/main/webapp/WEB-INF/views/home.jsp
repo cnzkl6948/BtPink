@@ -22,14 +22,13 @@
 					<div class="slider-caption container">
 						<div class="tp-caption rs-caption-1 sft start" data-hoffset="0"
 							data-x="0" data-y="200" data-speed="800" data-start="1000"
-							data-easing="Back.easeInOut" data-endspeed="300">요괴유치원에
-							어서오세요</div>
+							data-easing="Back.easeInOut" data-endspeed="300">双葉幼稚園にようこそ
+							</div>
 
 						<div class="tp-caption rs-caption-2 sft" data-hoffset="0"
 							data-x="0" data-y="265" data-speed="1000" data-start="1500"
 							data-easing="Power4.easeOut" data-endspeed="300"
-							data-endeasing="Power1.easeIn" data-captionhidden="off">우리
-							아이들을 위한 완벽한 유치원</div>
+							data-endeasing="Power1.easeIn" data-captionhidden="off">子供たちのための完璧な幼稚園</div>
 					</div>
 				</li>
 				<li data-transition="fade" data-slotamount="3"
@@ -42,7 +41,7 @@
 						<div class="tp-caption rs-caption-1 sft start text-center"
 							data-hoffset="0" data-x="center" data-y="200" data-speed="800"
 							data-start="1000" data-easing="Back.easeInOut"
-							data-endspeed="300">꿈과 희망의 유치원</div>
+							data-endspeed="300">夢と希望の幼稚園</div>
 
 						<div class="tp-caption rs-caption-2 sft text-center"
 							data-hoffset="0" data-x="center" data-y="265" data-speed="1000"
@@ -59,13 +58,13 @@
 						<div class="tp-caption rs-caption-1 sft start text-right"
 							data-x="0" data-hoffset="0" data-y="200" data-x="right" data-speed="800"
 							data-start="1000" data-easing="Back.easeInOut"
-							data-endspeed="300">악동들의 즐거운 배움터</div>
+							data-endspeed="300">悪童たちの楽しい遊び場</div>
 
 						<div class="tp-caption rs-caption-2 sft text-right"
 							data-hoffset="0" data-x="0" data-y="265" data-x="right" data-speed="1000"
 							data-start="1500" data-easing="Power4.easeOut"
 							data-endspeed="300" data-endeasing="Power1.easeIn"
-							data-captionhidden="off">마음 껏 뛰어노는 유치원</div>
+							data-captionhidden="off">存分に遊んで幼稚園</div>
 					</div></li>
 			</ul>
 		</div>
@@ -80,14 +79,14 @@
 				<div class="col-sm-4">
 					<a href="#latestNews" class="sectionLink bg-color-4" id="newsLink">
 						<i class="fa fa-files-o linkIcon border-color-4"
-						aria-hidden="true"></i> <span class="linkText">공지사항</span> <i
+						aria-hidden="true"></i> <span class="linkText">お知らせ</span> <i
 						class="fa fa-chevron-down locateArrow" aria-hidden="true"></i>
 					</a>
 				</div>
 				<div class="col-sm-4">
 					<a href="#ourTeam" class="sectionLink bg-color-2" id="teamLink">
 						<i class="fa fa-calendar-o linkIcon border-color-2"
-						aria-hidden="true"></i> <span class="linkText">선생님 소개</span> <i
+						aria-hidden="true"></i> <span class="linkText">先生の紹介</span> <i
 						class="fa fa-chevron-down locateArrow" aria-hidden="true"></i>
 					</a>
 				</div>
@@ -95,7 +94,7 @@
 					<a href="#ourCourses" class="sectionLink bg-color-1"
 						id="coursesLink"> <i
 						class="fa fa-file-text-o linkIcon border-color-1"
-						aria-hidden="true"></i> <span class="linkText">교육 과정 소개</span> <i
+						aria-hidden="true"></i> <span class="linkText">コースの紹介</span> <i
 						class="fa fa-chevron-down locateArrow" aria-hidden="true"></i>
 					</a>
 				</div>
@@ -109,8 +108,8 @@
 	<div class="container">
 		<div class="sectionTitle text-center">
 			<h2>
-				<span class="shape shape-left bg-color-4"></span> <span>우리
-					유치원은</span> <span class="shape shape-right bg-color-4"></span>
+				<span class="shape shape-left bg-color-4"></span> <span>うちの幼稚園は
+					</span> <span class="shape shape-right bg-color-4"></span>
 			</h2>
 		</div>
 
@@ -121,8 +120,8 @@
 						class="fa fa-graduation-cap bg-color-1" aria-hidden="true"></i>
 					</span>
 					<div class="media-body">
-						<h3 class="media-heading color-1">훌륭한 선생님</h3>
-						<p>모든 선생님들이 풍부한 경력을 가지고 있어 아이들의 앞길을 바르게 이끌어줍니다.</p>
+						<h3 class="media-heading color-1">素晴らしい先生</h3>
+						<p>すべての先生が豊富な経歴を持っており、子供たちの前途を正しく引き出します。</p>
 					</div>
 				</div>
 			</div>
@@ -132,8 +131,8 @@
 						class="fa fa-leaf bg-color-2" aria-hidden="true"></i>
 					</span>
 					<div class="media-body">
-						<h3 class="media-heading color-2">건강과 안전</h3>
-						<p>우리 유치원은 마음 껏 뛰어놀 수 있는 마당에서 아이들의 체력을 키워줍니다.</p>
+						<h3 class="media-heading color-2">健康と安全</h3>
+						<p>双葉幼稚園はゆっくり遊べる庭で子供たちの体力を育ててくれます。</p>
 					</div>
 				</div>
 			</div>
@@ -143,8 +142,8 @@
 						class="fa fa-car bg-color-3" aria-hidden="true"></i>
 					</span>
 					<div class="media-body">
-						<h3 class="media-heading color-3">배려와 존중</h3>
-						<p>친구들과 어울리며 올바른 인간관계를 가지도록 지도합니다.</p>
+						<h3 class="media-heading color-3">思いやりと尊重</h3>
+						<p>友達と遊びながら、立派な人間関係を学ぶように指導します。</p>
 					</div>
 				</div>
 			</div>
@@ -166,7 +165,7 @@
 	<div class="container">
 		<div class="sectionTitle text-center">
 			<h2>
-				<span class="shape shape-left bg-color-4"></span> <span>공지사항</span>
+				<span class="shape shape-left bg-color-4"></span> <span>お知らせ</span>
 				<span class="shape shape-right bg-color-4"></span>
 			</h2>
 		</div>
@@ -220,8 +219,8 @@
 	<div class="container">
 		<div class="sectionTitle text-center alt">
 			<h2>
-				<span class="shape shape-left bg-color-3"></span> <span>우리
-					선생님을 소개합니다</span> <span class="shape shape-right bg-color-3"></span>
+				<span class="shape shape-left bg-color-3"></span> <span>
+先生を紹介します</span> <span class="shape shape-right bg-color-3"></span>
 			</h2>
 		</div>
 
@@ -240,7 +239,7 @@
 								<h3>
 									<a href="teachers">園長先生</a>
 								</h3>
-								<p>원장선생님</p>
+								<p>院長先生</p>
 							</div>
 						</div>
 					</div>
@@ -256,7 +255,7 @@
 								<h3>
 									<a href="teachers">よしなが先生</a>
 								</h3>
-								<p>장미반 선생님</p>
+								<p>ばら組の担任の先生</p>
 							</div>
 						</div>
 					</div>
@@ -272,7 +271,7 @@
 								<h3>
 									<a href="teachers">まつざか先生</a>
 								</h3>
-								<p>해바라기반 선생님</p>
+								<p>ひまわり半教師</p>
 							</div>
 						</div>
 					</div>
@@ -288,7 +287,7 @@
 								<h3>
 									<a href="teachers">上尾先生</a>
 								</h3>
-								<p>벚꽃반 선생님</p>
+								<p>さくら組の担任の先生</p>
 							</div>
 						</div>
 					</div>
@@ -304,7 +303,7 @@
 								<h3>
 									<a href="teachers">風間くん</a>
 								</h3>
-								<p>회계부</p>
+								<p>会計部</p>
 							</div>
 						</div>
 					</div>
@@ -320,7 +319,7 @@
 								<h3>
 									<a href="teachers-details.html">ネネちゃん</a>
 								</h3>
-								<p>유치원버스 보조선생님</p>
+								<p>幼稚園バスの補助の先生</p>
 							</div>
 						</div>
 					</div>
@@ -336,7 +335,7 @@
 								<h3>
 									<a href="teachers">マサオくん</a>
 								</h3>
-								<p>조리실장</p>
+								<p>調理実装</p>
 							</div>
 						</div>
 					</div>
@@ -352,7 +351,7 @@
 								<h3>
 									<a href="teachers">ボーちゃん</a>
 								</h3>
-								<p>환경미화 부장</p>
+								<p>環境美化部長</p>
 							</div>
 						</div>
 					</div>
@@ -367,8 +366,7 @@
 	<div class="container">
 		<div class="sectionTitle text-center">
 			<h2>
-				<span class="shape shape-left bg-color-4"></span> <span>교육 과정
-					소개</span> <span class="shape shape-right bg-color-4"></span>
+				<span class="shape shape-left bg-color-4"></span> <span>コースの紹介</span> <span class="shape shape-right bg-color-4"></span>
 			</h2>
 		</div>
 
@@ -380,14 +378,14 @@
 						class="img-responsive" style="height: 300px"></a>
 					<div class="caption border-color-1">
 						<h3>
-							<div class="color-1">오전반</div>
+							<div class="color-1">午前クラス</div>
 						</h3>
 						<ul class="list-unstyled">
-							<li><i class="fa fa-calendar-o" aria-hidden="true"></i>나이 :
-								만 4 ~ 6 세</li>
+							<li><i class="fa fa-calendar-o" aria-hidden="true"></i>年齢 :
+								 4 ~ 6歳 </li>
 							<li><i class="fa fa-clock-o" aria-hidden="true"></i>9.00AM-12.30PM</li>
 						</ul>
-						<p>오전 수업만 진행합니다.</p>
+						<p>午前中の授業だけ進みます。</p>
 					</div>
 				</div>
 			</div>
@@ -398,14 +396,14 @@
 						class="img-responsive" style="height: 300px"></a>
 					<div class="caption border-color-2">
 						<h3>
-							<div class="color-2">오후반</div>
+							<div class="color-2">午後クラス</div>
 						</h3>
 						<ul class="list-unstyled">
-							<li><i class="fa fa-calendar-o" aria-hidden="true"></i>나이 :
-								만 4 ~ 6 세</li>
+							<li><i class="fa fa-calendar-o" aria-hidden="true"></i>年齢 :
+								 4 ~ 6 歳</li>
 							<li><i class="fa fa-clock-o" aria-hidden="true"></i>12.30PM-05.30PM</li>
 						</ul>
-						<p>오후 수업 및 방화 후 학습활동을 진행합니다.</p>
+						<p>午後の授業や野外学習活動を進めています。</p>
 					</div>
 				</div>
 			</div>
@@ -416,14 +414,14 @@
 						class="img-responsive" style="height: 300px"></a>
 					<div class="caption border-color-3">
 						<h3>
-							<div class="color-3">종일반</div>
+							<div class="color-3">全日クラス</div>
 						</h3>
 						<ul class="list-unstyled">
-							<li><i class="fa fa-calendar-o" aria-hidden="true"></i>나이 :
-								만 4 ~ 6 세</li>
+							<li><i class="fa fa-calendar-o" aria-hidden="true"></i>年齢 :
+								 4 ~ 6 歳</li>
 							<li><i class="fa fa-clock-o" aria-hidden="true"></i>9.00AM-05.30PM</li>
 						</ul>
-						<p>오전부터 방과후 수업까지 모든 과정을 학습합니다.</p>
+						<p>午前から午後の授業まで、すべての過程を学習します。</p>
 					</div>
 				</div>
 			</div>

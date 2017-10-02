@@ -14,14 +14,14 @@ function studentCheck() {
 				success : function(result) {
 					// SelectStudent
 					if (result[0] === undefined) {
-						alert($('#studentName').val() + "학생이 등록 되었거나 학생이 없습니다.");
+						alert($('#studentName').val() + "学生がすでに登録されていたり、入力した学生の名前がいません。");
 					} else {
 
 						var SelectStudent = '<div class="col-sm-12 col-xs-12"><select  id="stdno" name = "stdno" class="form-control" >';
 						$.each(result, function(index, student) {
 							SelectStudent += '<option ' + '" value="'
-									+ student.stdno + '">' + ' 주소  : '
-									+ student.address + ' 생일 : '
+									+ student.stdno + '">' + ' 住所  : '
+									+ student.address + ' 誕生日 : '
 									+ student.birth + '</option>';
 						})
 						SelectStudent += '</select></div>';
@@ -51,13 +51,13 @@ function idOverlap() {
 					$('#idCheck').val('true');
 					$("#id").attr("readonly", "readonly");
 				} else {
-					alert("중복된 아이디가 있습니다.");
+					alert("すでに登録されています。");
 				}
 			}
 		});
 
 	} else {
-		alert("6~12자리수를 입력 해 주세요")
+		alert("6~12字の中で入力してください。")
 	}
 }
 function join() {
@@ -72,7 +72,7 @@ function join() {
 	var phone = $('#phone').val();
 	if (SelectTeacher == "false") {
 		if (stdno === undefined) {
-			alert("학생을 입력하시오.");
+			alert("学生を入力してください。");
 			result = false;
 		} else {
 			$('#type').val('p')
@@ -83,17 +83,17 @@ function join() {
 
 	if (result) {
 		if (idCheck == "false") {
-			alert("중복을 확인해 주세요");
+			alert("チェックしてください。");
 		} else if (name == 0) {
-			alert('이릅을 입력하시오');
+			alert('名前を入力してください。');
 		} else if (pw.length < 4 || pw.length > 13) {
-			alert("비밀번호 3~12");
+			alert("秘密番号 3~12");
 		} else if (pw != pwCk) {
-			alert("비밀번호 불일치");
+			alert("秘密番号 不一致");
 		} else if (email == "") {
-			alert("email 입력");
+			alert("email入力");
 		} else if (phone == "") {
-			alert("휴대폰번호를 입력해 주세요")
+			alert("電話番号を入力してください。")
 		} else {
 			document.getElementById('createSubmit').submit();
 		}
@@ -106,9 +106,9 @@ function login() {
 	var id = $('#loginId').val();
 	var pw = $('#loginPw').val();
 	if (id == '') {
-		alert('아이디 입력');
+		alert('ユーザー名を入力してください。');
 	} else if (pw == '') {
-		alert('비밀번호 입력')
+		alert('秘密番号を入力してください。')
 	} else {
 
 		$.ajax({
@@ -119,12 +119,12 @@ function login() {
 				// SelectStudent background-color: #337ab7
 				if (result != "") {
 					if (result.status == "0") {
-						alert("회원승인을 기다리세요..");
+						alert("承認を待ってください。");
 					} else {
 						document.getElementById('joinSubmit').submit();
 					}
 				} else {
-					alert("회원정보가 없습니다.")
+					alert("情報がありません。")
 				}
 			}
 		});

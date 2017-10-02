@@ -16,7 +16,7 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			반 등록  
+			クラス登錄  
 		</h1>
 	</section>
 	<!-- Main row -->
@@ -27,7 +27,7 @@
 			<!-- Horizontal Form -->
 			<div class="box box-danger">
 				<div class="box-header with-border">
-					<h3 class="box-title">반 등록</h3>
+					<h3 class="box-title">クラス登錄  </h3>
 				</div>
 				<!-- /.box-header -->
 				<!-- form start -->
@@ -35,24 +35,24 @@
 			<!-- 						method="POST" role="form"> -->
 					<div class="box-body">
 						<div class="form-group clearfix">
-							<label for="name" class="col-sm-3 control-label">반이름</label>
+							<label for="name" class="col-sm-3 control-label">クラス名前</label>
 							<div class="col-sm-6">
-								<input type="text" class="form-control" id="className" name="className"	placeholder="반이름(중복을 확인해 주세요)" >
+								<input type="text" class="form-control" id="className" name="className"	placeholder="クラス名前(重複を確認してください)" >
 								<input type="hidden" id="classNameCheckk" value="0">
 							</div>
 							<div class="col-sm-3">
-								<input type="button" class="btn btn-danger" onclick="classNameCheck()" value="확인">
+								<input type="button" class="btn btn-danger" onclick="classNameCheck()" value="確認">
 								<input type="hidden" id="classNameHidden">
 							</div>
 						</div>
 						<div class="form-group clearfix">
-							<label for="agegroup" class="col-sm-3 control-label">나이</label>
+							<label for="agegroup" class="col-sm-3 control-label">年齢</label>
 								<div class="col-sm-4">
 										<select id="age" class="select-drop" name="age"">
 											<option label="" disabled selected>나이</option>
-											<option value="5">5세</option>
-											<option value="6">6세</option>
-											<option value="7">7세</option>
+											<option value="5">5歳</option>
+											<option value="6">6歳</option>
+											<option value="7">7歳</option>
 										</select>
 								</div>
 							<div class="col-sm-5">
@@ -60,13 +60,13 @@
 							</div>
 						</div>
 						<div class="form-group clearfix">
-							<label for="teacherName" class="col-sm-3 control-label">선생님 이름</label>
+							<label for="teacherName" class="col-sm-3 control-label">先生名前</label>
 							<div class="col-sm-6" >
-								<input type="text" class="form-control" id="teacherName" name="teacherName" placeholder="선생님 이름" >
+								<input type="text" class="form-control" id="teacherName" name="teacherName" placeholder="先生名前" >
 								<input type="hidden" id="teacherNameCheckk" value="0">
 							</div>
 							<div class="col-sm-3" id="teacherNameCheckButton">
-								<input type="button" class="btn btn-danger" onclick="teacherNameCheck()" value="확인">
+								<input type="button" class="btn btn-danger" onclick="teacherNameCheck()" value="確認">
 							</div>
 						</div>	
 						
@@ -88,17 +88,17 @@
 			</div>
 			<div class="box box-danger">
 	            <div class="box-header with-border">
-	              <h3 class="box-title">반 목록</h3>
+	              <h3 class="box-title">クラス目錄</h3>
 	            </div>
 	            <!-- /.box-header -->
 	            <div class="box-body">
 	              <table id="classlist" class="table table-bordered table-hover">
 	                <thead>
 	                <tr>
-	                  <th>반 번호</th>
-	                  <th>반 이름</th>
-	                  <th>나이</th>
-	                  <th>선생님</th>
+	                  <th>クラス番号</th>
+	                  <th>クラス名前</th>
+	                  <th>年齡</th>
+	                  <th>先生</th>
 	                </tr>
 	                </thead>
 	                <tbody>
@@ -122,7 +122,7 @@
 		<section class="col-lg-6" style="padding-left:0">
 			<div class="box box-solid">
 				<div class="box-header with-border">
-					<h3 class="box-title">사용 방법</h3>
+					<h3 class="box-title">使い方</h3>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -131,37 +131,37 @@
 						<div class="panel box box-primary">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 반 등록
-										메뉴에 대하여 </a>
+									<a data-toggle="collapse" data-parent="#accordion"> クラス登録
+								メニューについて </a>
 								</h4>
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in">
-								<div class="box-body">&nbsp;이 메뉴는 반을 등록하는 메뉴입니다. </div>
+								<div class="box-body">&nbsp;このメニューはクラスを登録するメニューです。 </div>
 							</div>
 						</div>
 						<div class="panel box box-danger">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 사용 방법
+									<a data-toggle="collapse" data-parent="#accordion"> 使い方
 									</a>
 								</h4>
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse in">
 								<div class="box-body">
-									1. 모든 입력란을 채워주세요.<br> 2. 반이름과 선생님이름은 반드시 확인해 주세요.<br> 
-									3. 등록 버튼을 누릅니다.
+									1.すべての入力欄を満たしてください。<br> 2.半名前と先生名前は必ず確認してください。<br> 
+									3.登録ボタンを押します。
 								</div>
 							</div>
 						</div>
 						<div class="panel box box-success">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 특이사항 </a>
+									<a data-toggle="collapse" data-parent="#accordion"> 特異事項 </a>
 								</h4>
 							</div>
 							<div id="collapseThree" class="panel-collapse collapse in">
 								<div class="box-body">
-									◎ 기존에 있는 반 목록을 불러옵니다.<br> ◎기존에 존재하는 반 이름으로는 등록하실 수 없습니다.
+									◎従来にいるクラスリストを読み込みます。<br> ◎、従来に存在するクラス名は登録できません。
 								</div>
 							</div>
 						</div>
@@ -170,8 +170,8 @@
 				<!-- /.box-body -->
 			</div>
 			<!-- /.box -->
-			<button type="submit" class="btn btn-block btn-danger"> 등록</button>
-			<button type="reset" class="btn btn-block btn-default">취소</button>
+			<button type="submit" class="btn btn-block btn-danger">登錄</button>
+			<button type="reset" class="btn btn-block btn-default">取消</button>
 			</div>
 		</section>
 		</form>

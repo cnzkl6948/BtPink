@@ -15,7 +15,7 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			감정 달력  
+			感情カレンダー
 		</h1>
 	</section>
 	<!-- Main row -->
@@ -25,7 +25,7 @@
 				<!-- /. box -->
 				<div class="box box-solid">
 					<div class="box-header with-border">
-						<h4 class="box-title">색깔 별 감정 상태</h4>
+						<h4 class="box-title">色星感情状態</h4>
 					</div>
 					<div class="box-body">
 						<!-- the events -->
@@ -33,12 +33,12 @@
 							<input type="hidden" id="stdno" name="stdno">
 						</form>
 						<div id="external-events">
-							<div class="col-xs-6 external-event bg-green">일반</div>
-							<div class="col-xs-6 external-event bg-black">공포</div>
-							<div class="col-xs-6 external-event bg-aqua">놀람</div>
-							<div class="col-xs-6 external-event bg-yellow">행복</div>
-							<div class="col-xs-6 external-event bg-red">분노</div>
-							<div class="col-xs-6 external-event bg-blue">슬픔</div>
+							<div class="col-xs-6 external-event bg-green">日常</div>
+							<div class="col-xs-6 external-event bg-black">恐怖</div>
+							<div class="col-xs-6 external-event bg-aqua">驚き</div>
+							<div class="col-xs-6 external-event bg-yellow">幸せ</div>
+							<div class="col-xs-6 external-event bg-red">怒り</div>
+							<div class="col-xs-6 external-event bg-blue">悲しみ</div>
 						</div>
 					</div>
 					<!-- /.box-body -->
@@ -46,7 +46,7 @@
 				<!-- /. box -->
 				<div class="box box-solid">
 					<div class="box-header with-border">
-						<h4 class="box-title">학생 목록</h4>
+						<h4 class="box-title">學生目錄</h4>
 					</div>
 					<div class="box-body">
 						<!-- the events -->
