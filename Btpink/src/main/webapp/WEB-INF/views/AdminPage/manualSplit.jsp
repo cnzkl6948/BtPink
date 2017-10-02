@@ -28,13 +28,13 @@ pageEncoding="UTF-8"%>
 							<div id="collapseTwo" class="panel-collapse collapse in">
 								<div class="progress">
 									<div class="progress-bar progress-bar-success progress-bar active" style="width: ${ (count5 / allCount) * 100 }%">
-										5年 ${ count5 }人
+										5才 ${ count5 }人
 									</div>
 									<div class="progress-bar progress-bar-warning progress-bar active" style="width: ${ (count6 / allCount) * 100 }%">
-										6年 ${ count6 }人
+										6才 ${ count6 }人
 									</div>
 									<div class="progress-bar progress-bar-danger progress-bar active" style="width: ${ (count7 / allCount) * 100 }%">
-										7年 ${ count7 }人
+										7才 ${ count7 }人
 									</div>
 								</div>
 							</div>

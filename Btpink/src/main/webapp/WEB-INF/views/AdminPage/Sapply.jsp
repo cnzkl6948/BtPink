@@ -37,7 +37,7 @@
 								<label for="name" class="col-sm-2 control-label text-center">名前</label>
 								<div class="col-sm-5">
 									<input type="text" class="form-control" id="name" name="name"
-										placeholder="이름">
+										placeholder="名前">
 								</div>
 								<label class="col-sm-2 control-label text-center">性別</label>
 								<div class="col-sm-3">
@@ -58,14 +58,14 @@
 								<label for="height" class="col-sm-2 control-label text-center">身長</label>
 								<div class="col-sm-3">
 									<input type="text" class="form-control" id="height"
-										name="height" placeholder="키(cm)">
+										name="height" placeholder="身長(cm)">
 								</div>
 							</div>
 							<div class="form-group clearfix">
 								<label for="address" class="col-sm-2 control-label text-center">住所</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="address"
-										name="address" placeholder="주소">
+										name="address" placeholder="住所">
 								</div>
 							</div>
 							<div class="form-group clearfix">
@@ -171,7 +171,7 @@
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="btn btn-outline pull-right"
-										data-dismiss="modal">닫기</button>
+										data-dismiss="modal">閉じる</button>
 									<h4 class="modal-title">学生登録</h4>
 								</div>
 								<div class="modal-body">
@@ -220,27 +220,27 @@
 		// 	}
 
 		if ($('#name').val() === "") {
-			alert('이름을 작성해 주세요');
+			alert('名前を作成してください。');
 			// 		return false;
 		} else if ($('#classno').val() === "") {
-			alert('반 이름을 작성해 주세요');
+			alert('クラスの名前を作成してください。');
 			// 		return false;
 		} else if ($('#datepicker').val() === "") {
-			alert('생일을 작성해 주세요');
+			alert('誕生日を作成してください。');
 			// 		return false;
 		} else if (!(years >= 5 && years <= 7)) {
-			alert('5, 6, 7세의 아동이 아닙니다.');
+			alert('5, 6, 7才の子供じゃないです。');
 			//		return false;
 		} else if ($('#height').val() === "") {
-			alert('키를 작성해 주세요');
+			alert('身長を作成してください。');
 			// 		return false;
 		}
 
 		else if ($('#address').val() === "") {
-			alert('주소를 작성해 주세요');
+			alert('住所を作成してください。');
 			// 		return false;
 		} else if ($('#imgSelect').val() === "notyet") {
-			alert('사진을 넣어 주세요');
+			alert('写真を入れてください。');
 			// 		return false;
 		}
 
