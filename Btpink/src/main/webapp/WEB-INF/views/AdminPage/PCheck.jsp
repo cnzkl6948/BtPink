@@ -109,7 +109,7 @@
                         <div id="imgg">
                            <p id="img"></p>
                         </div>
-                        <p id="hitocheck">人員確認中&hellip; <br>◎写真処理には30秒以上の時間が必要です。 <br>待ってください。</p>
+                        <p id="hitocheck">人員確認中&hellip; <br>写真処理には30秒以上の時間が必要です。 <br>待ってください。</p>
                      </div>
                   </div>
                   <!-- /.modal-content -->
