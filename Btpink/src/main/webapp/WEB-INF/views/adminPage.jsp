@@ -30,7 +30,7 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			선생님 메인 화면 <small>컨트롤 패널</small>
+			先生用メインページ <small>コントロルパネル</small>
 		</h1>
 		<ol class="breadcrumb">
 			<li><i class="fa fa-dashboard"></i> Home</li>
@@ -46,9 +46,9 @@
 				<div class="small-box bg-aqua">
 					<div class="inner">
 						<h3>
-							${mainParam.attend}<span class="txt_count">명</span>
+							${mainParam.attend}<span class="txt_count">人</span>
 						</h3>
-						<p>출석자 수</p>
+						<p>出席</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-bag"></i>
@@ -63,9 +63,9 @@
 				<div class="small-box bg-green">
 					<div class="inner">
 						<h3>
-							${mainParam.early }<span class="txt_count">명</span>
+							${mainParam.early }<span class="txt_count">人</span>
 						</h3>
-						<p>조퇴자 수</p>
+						<p>早退</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-stats-bars"></i>
@@ -78,10 +78,10 @@
 				<div class="small-box bg-yellow">
 					<div class="inner">
 						<h3>
-							${mainParam.sick}<span class="txt_count">명</span>
+							${mainParam.sick}<span class="txt_count">人</span>
 						</h3>
 
-						<p>병결자 수</p>
+						<p>病欠</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-person-add"></i>
@@ -94,10 +94,10 @@
 				<div class="small-box bg-red">
 					<div class="inner">
 						<h3>
-							${mainParam.absent}<span class="txt_count">명</span>
+							${mainParam.absent}<span class="txt_count">人</span>
 						</h3>
 
-						<p>결석자 수</p>
+						<p>欠席</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-pie-graph"></i>
@@ -116,7 +116,7 @@
 					<div class="box-header">
 						<i class="ion ion-clipboard"></i>
 
-						<h3 class="box-title">학부모님께 받은 마음의 소리</h3>
+						<h3 class="box-title">受信メッセージ</h3>
 
 						<div class="box-tools pull-right">
 							<ul class="pagination pagination-sm inline">
@@ -163,8 +163,8 @@
 				<div class="nav-tabs-custom">
 					<!-- Tabs within a box -->
 					<ul class="nav nav-tabs pull-right">
-						<li class="pull-left header"><i class="fa fa-inbox"></i>출석인원
-							변동 현황</li>
+						<li class="pull-left header"><i class="fa fa-inbox"></i>出席人数
+							変動状況</li>
 					</ul>
 				<div id="bar-chart" style="height: 300px;"></div>	
 				</div>

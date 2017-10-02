@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-		자동 반 배정 
+		自動クラス配定 
 		</h1>
 	</section>
 	<!-- Main row -->
@@ -21,20 +21,20 @@ pageEncoding="UTF-8"%>
 		<section class="col-lg-8 col-md-12">
 			<div class="box box-danger">
 				<div class="box-header with-border">
-					<h3 class="box-title">연령별 정보</h3>
+					<h3 class="box-title">年齢の情報</h3>
 				</div>
 				<div class="box-body">
 					<div class="col-lg-12 col-md-12">
 						<div id="collapseTwo" class="panel-collapse collapse in">
 							<div class="progress">
 								<div class="progress-bar progress-bar-success progress-bar active" style="width: ${ (count5 / allCount) * 100 }%">
-									5세 ${ count5 }명
+									5才 ${ count5 }人
 								</div>
 								<div class="progress-bar progress-bar-warning progress-bar active" style="width: ${ (count6 / allCount) * 100 }%">
-									6세 ${ count6 }명
+									6才 ${ count6 }人
 								</div>
 								<div class="progress-bar progress-bar-danger progress-bar active" style="width: ${ (count7 / allCount) * 100 }%">
-									7세 ${ count7 }명
+									7才 ${ count7 }人
 								</div>
 							</div>
 						</div>
@@ -43,7 +43,7 @@ pageEncoding="UTF-8"%>
 			</div>
 			<div class="box box-danger">
 				<div class="box-header with-border">
-					<h3 class="box-title">학생 목록</h3>
+					<h3 class="box-title">学生目録</h3>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -51,13 +51,13 @@ pageEncoding="UTF-8"%>
 						<table id="stulist" class="table table-bordered table-hover">
 							<thead>
 								<tr>
-									<th>학번</th>
-									<th>이름</th>
-									<th>나이</th>
-									<th>반</th>
-									<th>성별</th>
-									<th>예외 ID</th>
-									<th>적용</th>
+									<th>学生番號</th>
+									<th>名前</th>
+									<th>年齢</th>
+									<th>クラス</th>
+									<th>性別</th>
+									<th>例外 ID</th>
+									<th>適用</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -69,7 +69,7 @@ pageEncoding="UTF-8"%>
 									<td>${stu.classno}<input type="hidden" id="classno${status.index}" name="stuList[${status.index}].classno" value="${stu.classno}"></td>
 									<td>${stu.gender}<input type="hidden" id="gender${status.index}" name="stuList[${status.index}].gender" value="${stu.gender}" readonly="readonly"></td>
 									<td><input type="text" id="hateid${status.index}" name="stuList[${status.index}].hateid" value="${stu.hateid}" style="width:100%"></td>
-									<td><button type="button" class="btn btn-block btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger" onclick="send('${status.index}');">적용</button></td>
+									<td><button type="button" class="btn btn-block btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger" onclick="send('${status.index}');">適用</button></td>
 								</tr>
 								</c:forEach>
 							</tbody>
@@ -85,7 +85,7 @@ pageEncoding="UTF-8"%>
 		<section class="col-lg-4 col-md-12" style="padding-left:0">
 			<div class="box box-solid">
 				<div class="box-header with-border">
-					<h3 class="box-title">사용 방법</h3>
+					<h3 class="box-title">使い方</h3>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -95,13 +95,13 @@ pageEncoding="UTF-8"%>
 							<div class="box-header with-border">
 								<h4 class="box-title">
 								<span>
-									반 배정 메뉴에 대하여
+									クラス配定メニューについて
 								</span>
 								</h4>
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in">
 								<div class="box-body">
-									&nbsp이 메뉴는 조건을 입력받아 자동으로 반배정 하는 메뉴입니다.
+									&nbspこのメニューは条件を入力させて自動でクラスを配定するメニューです。
 								</div>
 							</div>
 						</div>
@@ -109,15 +109,15 @@ pageEncoding="UTF-8"%>
 							<div class="box-header with-border">
 								<h4 class="box-title">
 								<span>
-									사용 방법
+									使い方
 								</span>
 								</h4>
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse in">
 								<div class="box-body">
-									1. 반 배정 버튼을 누릅니다.<br>
-									2. 호감 비호감 ID 입력란이 활성화 됩니다.<br>
-									3. ID를 입력하고 적용 버튼을 눌러주세요.
+									1. クラス配定ボタンを押します。<br>
+									2. 例外IDの入力が活性化します。<br>
+									3. IDを入力して適用ボタンを押してください。
 								</div>
 							</div>
 						</div>
@@ -125,15 +125,15 @@ pageEncoding="UTF-8"%>
 							<div class="box-header with-border">
 								<h4 class="box-title">
 								<span>
-									특이사항
+									特異事項
 								</span>
 								</h4>
 							</div>
 							<div id="collapseThree" class="panel-collapse collapse in">
 								<div class="box-body">
-									◎  남녀 성비율은 자동으로 균등 분배됩니다.<br>
-									◎  적용버튼을 누르는 순간 비호감 ID를 가진 학생이 교환됩니다.<br>
-									◎ 반 배정을 할 경우 오늘 출석한 모든 정보는 삭제 됩니다.
+									◎  男女の比率は自動で分配されます。<br>
+									◎  適用ボタンを押すとき例外IDを持つ学生が交換されます。<br>
+									◎ クラス配定をする場合、今日出席した全ての情報は削除されます。
 								</div>
 							</div>
 						</div>
@@ -143,18 +143,18 @@ pageEncoding="UTF-8"%>
 			</div>
 			<!-- /.box -->
 			<button type="button" class="btn btn-block btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="location.href='calculate'">
-			자동 반 배정
+			自動クラス配定
 			</button>
 			<div class="modal modal-danger fade" id="modal-danger">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="btn btn-outline pull-right"
-							data-dismiss="modal" onclick="closeModal()">닫기</button>
-							<h4 class="modal-title">자동 반 배정</h4>
+							data-dismiss="modal" onclick="closeModal()">閉じる</button>
+							<h4 class="modal-title">自動クラス配定</h4>
 						</div>
 						<div class="modal-body">
-							<p id="chulcheck">자동 반 배정 중&hellip;</p>
+							<p id="chulcheck">自動クラス配定中&hellip;</p>
 						</div>
 					</div>
 					<!-- /.modal-content -->
@@ -204,7 +204,7 @@ pageEncoding="UTF-8"%>
 		var hateid = '#hateid'+index;
 		
 		if(hateA == 0){
-			alert('자동 반 배정을 눌러주세요.');
+			alert('自動クラス配定を押してください。');
 		}else{
 			$.ajax({
 		url: "autoSplit",

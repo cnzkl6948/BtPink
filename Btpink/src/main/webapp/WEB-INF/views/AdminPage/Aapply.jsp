@@ -18,7 +18,7 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			회원가입 승인
+			会員加入承認
 		</h1>
 	</section>
 	<!-- Main row -->
@@ -27,7 +27,7 @@
 		<section class="col-lg-8">
 			<div class="box box-danger">
 				<div class="box-header with-border">
-					<h3 class="box-title">회원목록</h3>
+					<h3 class="box-title">会員目錄</h3>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -36,11 +36,11 @@
 						<thead>
 							<tr style="text-align: center;">
 								<th>I    D</th>
-								<th>부모 이름</th>
-								<th>구       분</th>
-								<th>전화 번호</th>
-								<th>가입 날짜</th>
-								<th>승인 여부</th>
+								<th>親の名前</th>
+								<th>区　　分</th>
+								<th>電話番号</th>
+								<th>加入日</th>
+								<th>承認許可</th>
 							</tr>
 						</thead>
 						<tbody id="tableBody">
@@ -55,10 +55,10 @@
 										<td id="${list.memNo}"><c:if
 												test="${list.status =='0' }">
 												<button type="button" class="btn btn-block btn-primary" 
-													onclick="javascript:sign('${list.memNo}','${list.status}')">승인</button>
+													onclick="javascript:sign('${list.memNo}','${list.status}')">承認</button>
 											</c:if> <c:if test="${list.status =='1' }">
 												<button type="button" class="btn btn-block btn-danger"
-													onclick="javascript:sign('${list.memNo}','${list.status}')">비승인</button>
+													onclick="javascript:sign('${list.memNo}','${list.status}')">不承認</button>
 											</c:if></td>
 									</tr>
 								</c:if>
@@ -73,7 +73,7 @@
 		<section class="col-lg-4" style="padding-left:0">
 			<div class="box box-solid">
 				<div class="box-header with-border">
-					<h3 class="box-title">사용 방법</h3>
+					<h3 class="box-title">使い方</h3>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -82,38 +82,38 @@
 						<div class="panel box box-primary">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 회원 가입 승인
-										메뉴에 대하여 </a>
+									<a data-toggle="collapse" data-parent="#accordion"> 会員加入承認
+										メニューについて </a>
 								</h4>
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in">
-								<div class="box-body">&nbsp;이 메뉴는 회원 가입자를 승인해주는 메뉴입니다. </div>
+								<div class="box-body">&nbsp;このメニューは会員登録を承認するメニューです。</div>
 							</div>
 						</div>
 						<div class="panel box box-danger">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 사용 방법
+									<a data-toggle="collapse" data-parent="#accordion"> 使い方
 									</a>
 								</h4>
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse in">
 								<div class="box-body">
-									1. 승인 버튼 또는 비승인 버튼을 눌러주세요.
+									1. 承認ボタンあるいは不承認ボタンを押してください。
 								</div>
 							</div>
 						</div>
 						<div class="panel box box-success">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 특이사항 </a>
+									<a data-toggle="collapse" data-parent="#accordion"> 特異事項 </a>
 								</h4>
 							</div>
 							<div id="collapseThree" class="panel-collapse collapse in">
 								<div class="box-body">
-									◎ 승인 버튼 활성화 : 비승인 상태<br> 
-									◎ 비승인 버튼 활성화 : 승인 상태<br>
-									◎ 승인하지 않으면 로그인이 불가능합니다.
+									◎ 承認ボタン活性化 : 不承認状態<br> 
+									◎ 不承認ボタン活性化 : 承認状態<br>
+									◎ 承認しなければ、ログインできません.
 								</div>
 							</div>
 						</div>
@@ -155,11 +155,11 @@
 						if (status == '1') {
 							text += '<button type="button" class="btn btn-block btn-primary"'
 							text += 'onclick="javascript:sign(\'' + memNo
-									+ '\',\'' + 0 + '\')">승인</button>'
+									+ '\',\'' + 0 + '\')">承認</button>'
 						} else {
 							text += '<button type="button" class="btn btn-block btn-danger"'
 							text += 'onclick="javascript:sign(\'' + memNo
-									+ '\',\'' + 1 + '\')">비승인</button>'
+									+ '\',\'' + 1 + '\')">不承認</button>'
 						}
 						$('#' + memNo).html(text);
 					}

@@ -11,7 +11,7 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			출석체크 
+			出席チェック 
 		</h1>
 	</section>
 	<!-- Main row -->
@@ -35,7 +35,7 @@
 		<section class="col-lg-6 col-md-12" style="padding-left:0">
 			<div class="box box-solid">
 				<div class="box-header with-border">
-					<h3 class="box-title">사용 방법</h3>
+					<h3 class="box-title">使い方</h3>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -44,39 +44,39 @@
 						<div class="panel box box-primary">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 출석 체크
-										메뉴에 대하여 </a>
+									<a data-toggle="collapse" data-parent="#accordion"> 出席チェック
+										メニューについて </a>
 								</h4>
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in">
-								<div class="box-body">&nbsp이 메뉴는 사진을 촬영하여 출석 체크 및 감정을 저장하는
-									메뉴입니다.</div>
+								<div class="box-body">&nbspこのメニューは写真を撮影して出席のチェック及び感情をセーブする
+									メニューです。</div>
 							</div>
 						</div>
 						<div class="panel box box-danger">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 사용 방법 </a>
+									<a data-toggle="collapse" data-parent="#accordion"> 使い方 </a>
 								</h4>
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse in">
 								<div class="box-body">
-									1. 출석체크 버튼을 누릅니다.<br> 2. 출석된 학생의 이름을 확인합니다.<br> 3. 닫기
-									버튼을 누르고 빠져나옵니다.
+									1. 出席チェックのボタンを押します.<br> 2. 出席が確認された学生の名前を確認します.<br> 3. 閉じるの
+									ボタンを押して抜け出します.
 								</div>
 							</div>
 						</div>
 						<div class="panel box box-success">
 							<div class="box-header with-border">
 								<h4 class="box-title">
-									<a data-toggle="collapse" data-parent="#accordion"> 특이사항 </a>
+									<a data-toggle="collapse" data-parent="#accordion"> 特異事項 </a>
 								</h4>
 							</div>
 							<div id="collapseThree" class="panel-collapse collapse in">
 								<div class="box-body">
-									◎ 동시에 여러명 출석이 가능합니다.<br> ◎ 학생등록 메뉴로 등록한 학생만 출석이 가능합니다.<br>
-									◎ 1회 체크에 3초 정도의 시간이 필요합니다.<br> ◎ 이 메뉴를 통한 출석은 하루에 1회만
-									가능합니다.
+									◎ 同時に複数の出席チェックができます。<br> ◎ 学生登録メニューで登録した学生だけ出席チェックができます。.<br>
+									◎ 一回チェックに３秒の時間が必要です。<br> ◎ このメニューでの出席は1日1回だけ
+									可能です。
 								</div>
 							</div>
 						</div>
@@ -87,17 +87,17 @@
 			<!-- /.box -->
 			<button type="button" class="btn btn-block btn-danger"
 				data-toggle="modal" data-target="#modal-danger" onclick="snapshot()">
-				출석체크</button>
+				出席チェック</button>
 			<div class="modal modal-danger fade" id="modal-danger">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="btn btn-outline pull-right"
-								data-dismiss="modal" onclick="closeModal()">닫기</button>
-							<h4 class="modal-title">출석 체크</h4>
+								data-dismiss="modal" onclick="closeModal()">閉じる</button>
+							<h4 class="modal-title">出席チェック</h4>
 						</div>
 						<div class="modal-body">
-							<p id="chulcheck">출석 체크 중&hellip;</p>
+							<p id="chulcheck">出席チェック中&hellip;</p>
 						</div>
 					</div>
 					<!-- /.modal-content -->

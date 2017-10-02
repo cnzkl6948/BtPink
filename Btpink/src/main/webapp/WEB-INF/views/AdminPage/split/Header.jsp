@@ -9,9 +9,9 @@
     <!-- Logo -->
     <a href="adminPage" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>요괴</b></span>
+      <span class="logo-mini"><b>双葉</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>요괴</b>유치원</span>
+      <span class="logo-lg"><b>双葉</b>幼稚園</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -41,7 +41,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-right">
-                  <a href="logout" class="btn btn-default btn-flat">로그 아웃</a>
+                  <a href="logout" class="btn btn-default btn-flat">ログアウト</a>
                 </div>
               </li>
             </ul>
