@@ -20,17 +20,17 @@
     <section class="pageTitleSection">
       <div class="container">
         <div class="pageTitleInfo">
-          <h2>공지사항 글쓰기</h2>
+          <h2>公知事項入力</h2>
         </div>
       </div>
     </section>
 <!-- MAIN SECTION -->
 <section class="mainContent full-width clearfix">
 	<div class="container">
-		<h4 class="text-center">Write form</h4>
+		<h4 class="text-center">公知事項入力</h4>
 								<div class="sectionTitle text-center">
 									<h2>
-										<span class="shape shape-left bg-color-4"></span> <span>글쓰기</span>
+										<span class="shape shape-left bg-color-4"></span> <span>入力</span>
 										<span class="shape shape-right bg-color-4"></span>
 									</h2>
 								</div>
@@ -86,11 +86,11 @@
 							<div class="col-xs-12">
 								<div class="formBtnArea">
 									<button type="reset" class="btn btn-success">
-										<i class="fa fa-rocket"> 취소 </i>
+										<i class="fa fa-rocket"> 取り消し </i>
 									</button>
 									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 									<button type="submit" class="btn btn-primary">
-										<i class="fa fa-rocket"> 등록 </i>
+										<i class="fa fa-rocket"> 登録 </i>
 									</button>
 								</div>
 							</div>
@@ -117,14 +117,14 @@
 		}
 		//제목 유효성 검사
 		if (title.value.length < 5 || title.value.length > 30 ) { 
-			alert("제목은 5~30 자만 입력하시오");
+			alert("主題は5~30 字だけ");
 			title.focus(); 
 			title.select();
 			return false;
 		}
 		//내용 유효성 검사
 		if (content.value.length < 5) {
-			alert("내용은 5글자 이상 쓰시오.");
+			alert("内容は5字以上");
 			title.focus();
 			title.select();
 			return false;

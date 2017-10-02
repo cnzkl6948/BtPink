@@ -11,7 +11,7 @@
 	<section class="pageTitleSection">
 		<div class="container">
 			<div class="pageTitleInfo">
-				<h2>공지 사항</h2>
+				<h2>公知事項</h2>
 			</div>
 		</div>
 	</section>
@@ -78,7 +78,7 @@
 			</div>
 			<c:if test="${User!=null and User.type != 'p'}">
 			<div class="clearfix">
-				<button type="button" class="btn btn-primary pull-right" onclick="location.href='writeNotice'">글쓰기</button>
+				<button type="button" class="btn btn-primary pull-right" onclick="location.href='writeNotice'">ライト</button>
 			</div>
 			</c:if>
 

@@ -16,7 +16,7 @@
     <section class="pageTitleSection">
          <div class="container">
              <div class="pageTitleInfo">
-                  <h2>내 아이 정보</h2>
+                  <h2>我が子</h2>
              </div>
          </div>
     </section>
@@ -34,7 +34,7 @@
             <aside>
                <div class="panel panel-default eventSidebar">
                      <div class="panel-heading bg-color-1 border-color-1">
-                        <h3 class="panel-title">${ mySon.name } 어린이</h3>
+                        <h3 class="panel-title">${ mySon.name } </h3>
                      </div>
                      <div class="panel-body">
                         <ul class="media-list">
@@ -43,7 +43,7 @@
                                <i class="fa fa-birthday-cake" aria-hidden="true"></i>
                               </div>
                               <div class="media-body iconContent">
-                                 <h4 class="media-heading color-2">생일</h4>
+                                 <h4 class="media-heading color-2">誕生日</h4>
                                  <p>${ mySon.birth }</p>
                               </div>
                            </li>
@@ -52,7 +52,7 @@
                                <i class="fa fa-sliders" aria-hidden="true"></i>
                               </div>
                               <div class="media-body iconContent">
-                                 <h4 class="media-heading color-3">신장</h4>
+                                 <h4 class="media-heading color-3">身長</h4>
                                  <p>${ mySon.height } cm</p>
                               </div>
                            </li>
@@ -61,8 +61,8 @@
                                <i class="fa fa-suitcase" aria-hidden="true"></i>
                               </div>
                               <div class="media-body iconContent">
-                                 <h4 class="media-heading color-4">클래스</h4>
-                                 <p>${ mySon.classno } 반</p>
+                                 <h4 class="media-heading color-4">クラス</h4>
+                                 <p>${ mySon.classno } 組</p>
                               </div>
                            </li>
                            <li class="media">
@@ -70,8 +70,8 @@
                                <i class="fa fa-user" aria-hidden="true"></i>
                               </div>
                               <div class="media-body iconContent">
-                                 <h4 class="media-heading color-5">담임선생님</h4>
-                                 <p>${ teacher } 선생님</p>
+                                 <h4 class="media-heading color-5">担当先生</h4>
+                                 <p>${ teacher } 先生</p>
                               </div>
                            </li>
                         </ul>
@@ -85,8 +85,8 @@
          <div class="col-lg-2 col-lg-offset-1">
             <div class="tabCommon tabLeft">
                 <ul class="nav nav-tabs">
-                     <li class="active"><a data-toggle="tab" href="#Calender" style="display:block">감정 달력</a></li>
-                     <li><a data-toggle="tab" href="#Message" style="display:block">마음의 소리</a></li>
+                     <li class="active"><a data-toggle="tab" href="#Calender" style="display:block">感情カレンダー</a></li>
+                     <li><a data-toggle="tab" href="#Message" style="display:block">心の声</a></li>
                 </ul>
             </div>
          </div>
@@ -98,12 +98,12 @@
                 <div id="Calender" class="tab-pane fade in active" style="position:relative">
                    <div class="col-lg-2">
                       <ul class="list-group" style="position:absolute;top:162px;left:-194px;width:100%">
-                          <li class="list-group-item"><i class="fa fa-gg ico_cal" aria-hidden="true" style="background-color:#00a65a;"></i> 일반</li>
-                          <li class="list-group-item"><i class="fa fa-gg ico_cal" aria-hidden="true" style="background-color:#000;"></i> 공포</li>
-                          <li class="list-group-item"><i class="fa fa-gg ico_cal" aria-hidden="true" style="background-color:#00c0ef;"></i> 놀람</li>
-                          <li class="list-group-item"><i class="fa fa-gg ico_cal" aria-hidden="true" style="background-color:#f39c12;"></i> 행복</li>
-                          <li class="list-group-item"><i class="fa fa-gg ico_cal" aria-hidden="true" style="background-color:#dd4b39;"></i> 분노</li>
-                          <li class="list-group-item"><i class="fa fa-gg ico_cal" aria-hidden="true" style="background-color:#0073b7;"></i> 슬픔</li>
+                          <li class="list-group-item"><i class="fa fa-gg ico_cal" aria-hidden="true" style="background-color:#00a65a;"></i>日常</li>
+                          <li class="list-group-item"><i class="fa fa-gg ico_cal" aria-hidden="true" style="background-color:#000;"></i>恐怖</li>
+                          <li class="list-group-item"><i class="fa fa-gg ico_cal" aria-hidden="true" style="background-color:#00c0ef;"></i>驚き</li>
+                          <li class="list-group-item"><i class="fa fa-gg ico_cal" aria-hidden="true" style="background-color:#f39c12;"></i>幸せ</li>
+                          <li class="list-group-item"><i class="fa fa-gg ico_cal" aria-hidden="true" style="background-color:#dd4b39;"></i>怒り</li>
+                          <li class="list-group-item"><i class="fa fa-gg ico_cal" aria-hidden="true" style="background-color:#0073b7;"></i>悲しみ</li>
                         </ul>
                      </div>
                      <!-- 감정달력 -->
@@ -111,7 +111,7 @@
                          <div class="sectionTitle text-center">
                               <h2>
                                   <span class="shape shape-left bg-color-4"></span> 
-                                  <span>우리 아이 감정 달력</span>
+                                  <span>感情カレンダー</span>
                                   <span class="shape shape-right bg-color-4"></span>
                               </h2>
                          </div>
@@ -126,7 +126,7 @@
                      <div class="sectionTitle text-center">
                          <h2>
                               <span class="shape shape-left bg-color-4"></span> 
-                              <span>선생님께 전하는 마음의 소리</span>
+                              <span>心の声</span>
                               <span class="shape shape-right bg-color-4"></span>
                          </h2>
                      </div>
@@ -138,12 +138,12 @@
                                        id="demandsubject"
                                        class="form-control border-color-2"
                                        name="demandsubject" onchange="subjectCheck();">
-                                       <option value="" disabled selected>주제를 선택하세요.</option>
-                                       <option value="food">음식</option>
-                                       <option value="medicine">약</option>
-                                       <option value="friends">교우관계</option>
-                                       <option value="attendence" >출석</option>
-                                       <option value="etc">기타</option>
+                                       <option value="" disabled selected>話題を選んでください</option>
+                                       <option value="food">食べ物</option>
+                                       <option value="medicine">薬</option>
+                                       <option value="friends">友達</option>
+                                       <option value="attendence">出席</option>
+                                       <option value="etc">その他</option>
                                   </select>
                               </div>
                          </div>
@@ -174,12 +174,12 @@
                                   <select id="attend"
                                        class="form-control border-color-6" name="attend"
                                        disabled="disabled">
-                                       <option value="" disabled selected>출결...</option>
-                                       <option value="absent">결석</option>
-                                       <option value="early">조퇴</option>
-                                       <option value="sick">병결</option>
-                                       <option value="late">지각</option>
-                                       <option value="normal">정상등원</option>
+                                       <option value="" disabled selected>出席...</option>
+                                       <option value="absent">欠席</option>
+                                       <option value="early">早退</option>
+                                       <option value="sick">病欠</option>
+                                       <option value="late">遅刻</option>
+                                       <option value="normal">出席</option>
                                   </select>
                               </div>
                          </div>
@@ -193,7 +193,7 @@
                          </div>
                          <div class="col-xs-12">
                               <div class="formBtnArea">
-                                  <button type="submit" class="btn btn-primary">등록</button>
+                                  <button type="submit" class="btn btn-primary">登録</button>
                               </div>
                          </div>
                      </form>

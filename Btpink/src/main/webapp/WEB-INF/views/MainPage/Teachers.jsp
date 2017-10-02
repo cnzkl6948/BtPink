@@ -11,7 +11,7 @@
     <section class="pageTitleSection">
       <div class="container">
         <div class="pageTitleInfo">
-          <h2>선생님 소개</h2>
+          <h2>先生紹介</h2>
         </div>
       </div>
     </section>
@@ -24,7 +24,7 @@
             <div class="sectionTitle text-center">
               <h2>
                 <span class="shape shape-left bg-color-4"></span>
-                <span>우리 선생님</span>
+                <span>先生</span>
                 <span class="shape shape-right bg-color-4"></span>
               </h2>
             </div>
@@ -47,18 +47,9 @@
             <div class="teamContent teamAdjust">
               <div class="teamImage">
               <img src="./resources/img/teachers/tea2.png" alt="img" style="height: 250px;">
-            <!--     <div class="maskingContent">
-                  <ul class="list-inline">
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                  </ul>
-                </div> -->
               </div>
               <div class="teamInfo teamTeacher" style="margin-left:85%;">
                 <h3><a href="teachers-details.html" style="font-size:25px;">よしなが </a></h3>
-        <!--         <p>English Teacher</p> -->
               </div>
             </div>
           </div>
@@ -66,18 +57,9 @@
             <div class="teamContent teamAdjust">
               <div class="teamImage">
               <img src="./resources/img/teachers/tea3.png"alt="img" style="height: 250px;">
-          <!--       <div class="maskingContent">
-                  <ul class="list-inline">
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                  </ul>
-                </div> -->
               </div>
               <div class="teamInfo teamTeacher" style="margin-left:85%;">
                 <h3><a href="teachers-details.html" style="font-size:25px;">まつざか</a></h3>
-             <!--    <p>English Teacher</p> -->
               </div>
             </div>
           </div>
@@ -92,7 +74,7 @@
             <div class="sectionTitle text-center alt">
               <h2>
                 <span class="shape shape-left bg-color-3"></span>
-                <span>원내 임직원</span>
+                <span>職員</span>
                 <span class="shape shape-right bg-color-3"></span>
               </h2>
             </div>
@@ -110,8 +92,7 @@
                   </div>
                   <div class="teamInfo">
                     <h3><a>風間くん</a></h3>
-               <!--<h3><a href="teachers-details.html">風間くん</a></h3> -->
-                    <p>회계부</p>
+                    <p>会計</p>
                   </div>
                 </div>
               </div>
@@ -124,7 +105,7 @@
                   </div>
                   <div class="teamInfo">
                     <h3><a href="teachers-details.html">ネネちゃん</a></h3>
-                    <p>유치원버스 보조선생님</p>
+                    <p>バス補助先生</p>
                   </div>
                 </div>
               </div>
@@ -138,7 +119,7 @@
                   <div class="teamInfo">
                     <h3><a>マサオくん</a></h3>
                   <!--  <h3><a href="teachers-details.html">マサオくん</a></h3> -->
-                    <p>조리실장</p>
+                    <p>料理人</p>
                   </div>
                 </div>
               </div>
@@ -152,64 +133,7 @@
                   <div class="teamInfo">
                     <h3><a>ボーちゃん</a></h3>
                     <!-- <h3><a href="teachers-details.html">ボーちゃん</a></h3> -->
-                    <p>환경미화 부장</p>
-                  </div>
-                </div>
-              </div>
-              <div class="slide">
-                <div class="teamContent">
-                  <div class="teamImage">
-                    <img src="./resources/img/home/team/team-2.jpg" alt="img" class="img-circle">
-                    <div class="maskingContent">
-                      <ul class="list-inline">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="teamInfo">
-                    <h3><a href="teachers-details.html">Amanda Stone</a></h3>
-                    <p>English Teacher</p>
-                  </div>
-                </div>
-              </div>
-              <div class="slide">
-                <div class="teamContent">
-                  <div class="teamImage">
-                    <img src="./resources/img/home/team/team-3.jpg" alt="img" class="img-circle">
-                    <div class="maskingContent">
-                      <ul class="list-inline">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="teamInfo">
-                    <h3><a href="teachers-details.html">Amanda Stone</a></h3>
-                    <p>English Teacher</p>
-                  </div>
-                </div>
-              </div>
-              <div class="slide">
-                <div class="teamContent">
-                  <div class="teamImage">
-                    <img src="./resources/img/home/team/team-4.jpg" alt="img" class="img-circle">
-                    <div class="maskingContent">
-                      <ul class="list-inline">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="teamInfo">
-                    <h3><a href="teachers-details.html">Amanda Stone</a></h3>
-                    <p>English Teacher</p>
+                    <p>環境整理</p>
                   </div>
                 </div>
               </div>

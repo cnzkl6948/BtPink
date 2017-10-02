@@ -18,13 +18,13 @@ function formCheck() {
 	var content = document.getElementById('content');
 
 	if (title.value.length < 5) {
-		alert("제목을 입력하세요.");
+		alert("話題を5字以上入力してください。");
 		title.focus();
 		title.select();
 		return false;
 	}
 	if (content.value.length < 5) {
-		alert("내용을 입력하세요.");
+		alert("内容を5字以上入力してください。");
 		title.focus();
 		title.select();
 		return false;
@@ -50,19 +50,19 @@ function formDemandCheck() {
 	//출석일때 분류선택 유효성검사
 	  if (demandsubject.value == 'attendence') {
 		if(attend.value == ""){
-			alert("출석의 세부분류를 지정해 주세요");
+			alert("出席の分類を決めてください。");
 			return false;
 		}
 	}
 	  //제목 유효성검사
 	  if (demandsubject.value.length < 1) {
-			alert("주제를 선택해주세요.");
+			alert("話題を選んでください。");
 			return false;
 		}
 		
 		//내용 유효성 검사
 		if (content.value.length < 5) {
-			alert("내용은 5글자 이상 쓰시오.");
+			alert("内容を5字以上入力してください。");
 			content.focus();
 			content.select();
 			return false;
