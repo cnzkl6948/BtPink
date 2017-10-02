@@ -32,7 +32,7 @@
 	</select>
 	<select id="accountCheck" resultType="Aapply">
 		select
-			a.memno,a.id as id,a.name as parentName, coalesce(s.name ,'선생님')as studentname,a.phone as tell, a.status
+			a.memno,a.id as id,a.name as parentName, coalesce(s.name ,'先生')as studentname,a.phone as tell, a.status
 		from
   			account a LEFT OUTER JOIN student s
 		ON 
