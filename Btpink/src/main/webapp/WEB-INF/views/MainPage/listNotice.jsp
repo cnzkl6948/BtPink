@@ -11,7 +11,7 @@
 	<section class="pageTitleSection">
 		<div class="container">
 			<div class="pageTitleInfo">
-				<h2>公知事項</h2>
+				<h2>お知らせ</h2>
 			</div>
 		</div>
 	</section>

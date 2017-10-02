@@ -82,16 +82,15 @@
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown singleDrop color-3 "><a href="teachers"
-							class="dropdown-toggle"><i class="fa fa-list-ul bg-color-3"
-								aria-hidden="true"></i> <span>先生紹介</span></a>
+							class="dropdown-toggle"><i class="fa fa-list-ul bg-color-3"　aria-hidden="true"></i> <span>先生紹介</span></a>
 						<li class=" dropdown megaDropMenu color-2 "><a
 							href="course-single" class="dropdown-toggle"> <i
-								class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i> <span>教育家庭紹介</span>
+								class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i> <span>教育課程紹介</span>
 						</a></li>
 						<li class="dropdown singleDrop color-4 "><a href="listNotice"
 							class="dropdown-toggle"> <i
 								class="fa fa-pencil-square-o bg-color-4" aria-hidden="true"></i>
-								<span>公知事項</span>
+								<span>お知らせ</span>
 						</a></li>
 
 						<c:if test="${User.type == 'p' or User.type == 'admin' }">
@@ -101,7 +100,7 @@
 							</a></li>
 						</c:if>
 						<c:if test="${User.type == 'p' }">
-							<li class="dropdown singleDrop color-1   active "><a href="MySon" class="dropdown-toggle"> <i class="fa fa-home bg-color-1" aria-hidden="true"></i> <span>我が子</span>
+							<li class="dropdown singleDrop color-1   active "><a href="MySon" class="dropdown-toggle"> <i class="fa fa-home bg-color-1" aria-hidden="true"></i> <span>我が子の情報</span>
 							</a></li>
 						</c:if>	
 						<c:if test="${User.type == 't' or User.type == 'admin'}">

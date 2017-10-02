@@ -20,17 +20,17 @@
     <section class="pageTitleSection">
       <div class="container">
         <div class="pageTitleInfo">
-          <h2>公知事項入力</h2>
+          <h2>お知らせ入力</h2>
         </div>
       </div>
     </section>
 <!-- MAIN SECTION -->
 <section class="mainContent full-width clearfix">
 	<div class="container">
-		<h4 class="text-center">公知事項入力</h4>
+		<h4 class="text-center">お知らせ入力</h4>
 								<div class="sectionTitle text-center">
 									<h2>
-										<span class="shape shape-left bg-color-4"></span> <span>公知事項修正</span>
+										<span class="shape shape-left bg-color-4"></span> <span>お知らせ修正</span>
 										<span class="shape shape-right bg-color-4"></span>
 									</h2>
 								</div>

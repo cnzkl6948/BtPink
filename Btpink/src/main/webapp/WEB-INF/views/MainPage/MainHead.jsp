@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>双葉　幼稚園</title>
+<title>双葉幼稚園</title>
 
 <!-- PLUGINS CSS STYLE -->
 <link href="./resources/plugins/jquery-ui/jquery-ui.css"
