@@ -62,21 +62,21 @@ public class ParentController {
 		//임시데이터 생성
 		
 		Account account =  (Account) session.getAttribute("User");
-		System.out.println("Demand : "+account);
+//		System.out.println("Demand : "+account);
 		//예외처리 해야하나?? 
 		Demand stdDemand = dao.getStdInfo(account);
-		System.out.println(stdDemand);
+//		System.out.println(stdDemand);
 		demand.setStdno(stdDemand.getStdno());	
 		demand.setClassno(stdDemand.getClassno());
 				
 		demand.setStartdate(dateRange.substring(0, 10));
 		demand.setEnddate(dateRange.substring(13,23));
-		System.out.println(demand);
+//		System.out.println(demand);
 		int result = dao.insertDemand(demand);
 		
 		
 		System.out.println(result);
-		return "redirect:/";
+		return "redirect:/MySon";
 	}
 	
 	

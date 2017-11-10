@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-		手動組み分け
+		クラス手動配置
 		</h1>
 	</section>
 	<!-- Main row -->
@@ -69,10 +69,14 @@ pageEncoding="UTF-8"%>
 										<td>
 											<select id="classno${status.index}" name="stuList[${status.index}].classno">
 												<c:forEach var="ccc" items="${classList}">
-													<c:if test="${ ccc == stu.classno }">
-														<option value="${ccc}" selected>${ccc}</option>
-													</c:if>
-													<option value="${ccc}">${ccc}</option>
+													<c:choose>
+														<c:when test="${ ccc == stu.classno }">
+															<option value="${ccc}" selected>${ccc}</option>
+														</c:when>
+														<c:otherwise>
+															<option value="${ccc}">${ccc}</option>
+														</c:otherwise>
+													</c:choose>
 												</c:forEach>
 											</select>
 										</td>
@@ -104,7 +108,7 @@ pageEncoding="UTF-8"%>
 								<div class="box-header with-border">
 									<h4 class="box-title">
 									<span>
-										手動組み分けメニューについて
+										クラス手動配置メニューについて
 									</span>
 									</h4>
 								</div>

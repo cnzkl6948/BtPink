@@ -33,33 +33,25 @@
         <div class="row">
           <div class="col-sm-4 col-xs-12">
             <div class="teamContent teamAdjust">
-              <div class="teamImage" style=" text-align: left; }">
-               <img src="./resources/img/teachers/tea1.png"alt="img" style="height: 250px;">
-          
-              </div>
-              <div class="teamInfo teamTeacher" style="margin-left:85%;" >
-                <h3><a href="teachers-details.html" style="font-size:25px;">園長</a></h3>
-     <!--            <p>English Teacher</p> -->
+               <img src="./resources/img/teachers/cat/boss1.png"alt="img" style="height: 250px;">
+              <div class="teamInfo teamTeacher">
+                <h3><a href="" style="font-size:25px;margin-left: 50px;">園長</a></h3>
               </div>
             </div>
           </div>
           <div class="col-sm-4 col-xs-12">
             <div class="teamContent teamAdjust">
-              <div class="teamImage">
-              <img src="./resources/img/teachers/tea2.png" alt="img" style="height: 250px;">
-              </div>
-              <div class="teamInfo teamTeacher" style="margin-left:85%;">
-                <h3><a href="teachers-details.html" style="font-size:25px;">よしなが </a></h3>
+              <img src="./resources/img/teachers/cat/boss2.png" alt="img" style="height: 250px;">
+              <div class="teamInfo teamTeacher">
+                <h3><a href="" style="font-size:25px;margin-left: 50px;">よしなが </a></h3>
               </div>
             </div>
           </div>
           <div class="col-sm-4 col-xs-12">
             <div class="teamContent teamAdjust">
-              <div class="teamImage">
-              <img src="./resources/img/teachers/tea3.png"alt="img" style="height: 250px;">
-              </div>
-              <div class="teamInfo teamTeacher" style="margin-left:85%;">
-                <h3><a href="teachers-details.html" style="font-size:25px;">まつざか</a></h3>
+              <img src="./resources/img/teachers/cat/boss3.png"alt="img" style="height: 250px;">
+              <div class="teamInfo teamTeacher">
+                <h3><a style="font-size:25px;margin-left: 50px;">まつざか</a></h3>
               </div>
             </div>
           </div>
@@ -86,7 +78,7 @@
               <div class="slide">
                 <div class="teamContent">
                   <div class="teamImage">
-                   <img src="./resources/img/teachers/kodomo1.png" alt="img" class="img-circle">
+                   <img src="./resources/img/teachers/cat/kodomo1.jpg" alt="img" class="img-circle">
                     <div class="maskingContent">
                     </div>
                   </div>
@@ -99,7 +91,7 @@
               <div class="slide">
                 <div class="teamContent">
                   <div class="teamImage">
-                    <img src="./resources/img/teachers/kodomo2.png" alt="img" class="img-circle">
+                    <img src="./resources/img/teachers/cat/kodomo2.jpg" alt="img" class="img-circle">
                    <div class="maskingContent">
                     </div>
                   </div>
@@ -112,13 +104,12 @@
               <div class="slide">
                 <div class="teamContent">
                   <div class="teamImage">
-                    <img src="./resources/img/teachers/kodomo3.png" alt="img" class="img-circle">
+                    <img src="./resources/img/teachers/cat/kodomo3.jpg" alt="img" class="img-circle">
                   <div class="maskingContent">
                     </div>
                   </div>
                   <div class="teamInfo">
                     <h3><a>マサオくん</a></h3>
-                  <!--  <h3><a href="teachers-details.html">マサオくん</a></h3> -->
                     <p>料理人</p>
                   </div>
                 </div>
@@ -126,7 +117,7 @@
               <div class="slide">
                 <div class="teamContent">
                   <div class="teamImage">
-                   <img src="./resources/img/teachers/kodomo4.png" alt="img" class="img-circle">
+                   <img src="./resources/img/teachers/cat/kodomo4.jpg" alt="img" class="img-circle">
                     <div class="maskingContent">
                     </div>
                   </div>

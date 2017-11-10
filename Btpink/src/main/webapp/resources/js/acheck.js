@@ -78,7 +78,7 @@ function getName(personId) {
 							"application/json");
 					xhrObj.setRequestHeader(
 							"Ocp-Apim-Subscription-Key",
-							"6bfd85c06c0b42b8bc879751a17f71bf");
+							"9d96fff5c2a74e74843402a1f8c3595b");
 				},
 				type : "GET",
 				// Request body

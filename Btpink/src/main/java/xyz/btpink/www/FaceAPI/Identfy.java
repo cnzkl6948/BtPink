@@ -33,7 +33,7 @@ public class Identfy {
 			HttpPost request = new HttpPost(uri);
 
 			request.setHeader("Content-Type", "application/json");
-			request.setHeader("Ocp-Apim-Subscription-Key", "6bfd85c06c0b42b8bc879751a17f71bf");
+			request.setHeader("Ocp-Apim-Subscription-Key", "9d96fff5c2a74e74843402a1f8c3595b");
 			String[] test = new String[1];
 			String body = "{ \"personGroupId\":\"example-group-00\",\"faceIds\":" + array + "}";
 

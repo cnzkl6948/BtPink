@@ -121,7 +121,7 @@ function addFace(personID) {
         beforeSend: function(xhrObj){
             // Request headers
             xhrObj.setRequestHeader("Content-Type","application/json");
-            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","6bfd85c06c0b42b8bc879751a17f71bf");
+            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","9d96fff5c2a74e74843402a1f8c3595b");
         },
         type: "POST",
         // Request body
@@ -145,7 +145,7 @@ function train() {
        url: "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/persongroups/example-group-00/train",
        beforeSend: function(xhrObj){
            // Request headers
-           xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","6bfd85c06c0b42b8bc879751a17f71bf");
+           xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","9d96fff5c2a74e74843402a1f8c3595b");
        },
        type: "POST",
        // Request body
@@ -174,7 +174,7 @@ function addPerson() {
         beforeSend: function(xhrObj){
             // Request headers
             xhrObj.setRequestHeader("Content-Type","application/json");
-            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","6bfd85c06c0b42b8bc879751a17f71bf");
+            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","9d96fff5c2a74e74843402a1f8c3595b");
         },
         type: "POST",
         // Request body

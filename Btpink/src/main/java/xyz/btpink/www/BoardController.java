@@ -123,9 +123,9 @@ public class BoardController {
 		// 검색어와 시작 위치, 페이지당 글 수를 전달하여 목록 읽기
 		ArrayList<Board> boardlist = dao.listBoard(searchText, navi.getStartRecord(), navi.getCountPerPage());
 
-		for (Board bo : boardlist) {
-			System.out.println(bo);
-		}
+//		for (Board bo : boardlist) {
+//			System.out.println(bo);
+//		}
 		// 페이지 정보 객체와 글 목록, 검색어를 모델에 저장
 		model.addAttribute("boardlist", boardlist);
 		model.addAttribute("navi", navi);
@@ -152,7 +152,7 @@ public class BoardController {
 		// 전달된 글 번호로 해당 글정보 읽기
 		System.out.println("readNotice");
 		Board board = dao.get(boardnum);
-		System.out.println(board);
+//		System.out.println(board);
 		if (board == null) {
 			return "redirect:listNotice";
 		}
@@ -238,7 +238,7 @@ public class BoardController {
 		// 첨부파일없음
 		System.out.println(boardImageCheck);
 		if (boardImageCheck.equalsIgnoreCase("true")) {
-			System.out.println(filename);
+//			System.out.println(filename);
 			board.setBoardImage(filename);
 		} else {
 			board.setBoardImage("");

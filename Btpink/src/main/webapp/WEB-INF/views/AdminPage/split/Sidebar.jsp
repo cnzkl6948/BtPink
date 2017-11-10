@@ -7,11 +7,12 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="./resources/AdminLTE/dist/img/logo-160x160.png" class="img-circle" alt="User Image" style="background-color: white">
+          <img src="./resources/AdminLTE/dist/img/logo.png" class="img-circle" alt="User Image" style="background-color: white">
         </div>
         <div class="pull-left info">
           <p>${ User.name }</p>
-          <a href="/www"><i class="fa fa-circle text-success"></i> メインページへ移動</a>
+          <a href="/www"><i class="fa fa-circle text-success"></i> メインページへ移動</a><br>
+          <a href="logout"><i class="fa fa-circle text-error"></i> ログアウト</a>
         </div>
       </div>
       <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -37,8 +38,8 @@
           <ul class="treeview-menu">
             <li><a href="Aapply"><i class="fa fa-circle-o"></i> 会員加入承認</a></li>
             <li><a href="classManagement"><i class="fa fa-circle-o"></i> クラス管理</a></li>
-            <li><a href="autoSplit"><i class="fa fa-plus-square"></i>自動クラス配定</a></li>
-            <li><a href="manualSplit"><i class="fa fa-plus-square"></i>手動クラス配定</a></li>
+            <li><a href="autoSplit"><i class="fa fa-plus-square"></i>クラス自動配置</a></li>
+            <li><a href="manualSplit"><i class="fa fa-plus-square"></i>クラス手動配置</a></li>
           </ul>
         </li>
         </c:if>

@@ -274,15 +274,15 @@ public class AdminController {
 		Account loginuser = (Account) session.getAttribute("User");
 		System.out.println(loginuser);
 		String memno = loginuser.getMemNo();
-		System.out.println("dao 가기전 맴버넘버 가져오냐 ?" + memno);
+//		System.out.println("dao 가기전 맴버넘버 가져오냐 ?" + memno);
 		ClassVO selClass = cdao.selectClass(memno);
 		if (selClass == null) {
 			student.setClassno("");
 		} else {
 			student.setClassno(selClass.getClassNo());
 		}
-		System.out.println("selClass 다오 갔다옴" + selClass);
-		System.out.println("학생들록 값 : " + student);
+//		System.out.println("selClass 다오 갔다옴" + selClass);
+//		System.out.println("학생들록 값 : " + student);
 		int result = sdao.insert(student);
 		if (result == 1) {
 			System.out.println("DB입력성공");
@@ -752,7 +752,7 @@ public class AdminController {
 		for (Student s : stuList) {
 			if (s.getClassno().equals(stu.getClassno()) && s.getStdno().equals(stu.getHateid())) {
 				// 같은 반에 stu가 싫어하는 학번이 있다면
-				System.out.println("같은 반에 stu가 싫어하는 학번이 있다면");
+//				System.out.println("같은 반에 stu가 싫어하는 학번이 있다면");
 
 				// 1. stu를 싫어하는 학생이 없는 클래스
 				ArrayList<String> like = new ArrayList<>();
@@ -775,27 +775,25 @@ public class AdminController {
 				}
 				if (like.size() == 0) {
 					result = "다른반에서 모두 받아주지 않음. 그대로 있으셈";
-					System.out.println(result);
+//					System.out.println(result);
 					break;
 				} else {
 					// 2. hateid를 싫어하지 않는 같은 성, 다른반의 학생
-					System.out.println("2. hateid를 싫어하지 않는 같은 성, 다른반의 학생");
+//					System.out.println("2. hateid를 싫어하지 않는 같은 성, 다른반의 학생");
 					for (String cno : like) {
 						for (Student s3 : stuList) {
-
-							if (s3.getGender().equals(stu.getGender()) && s3.getClassno().equals(cno)
-									&& (s3.getHateid() == null || !s3.getHateid().equals(stu.getHateid()))) {
+							if (s3.getGender().equals(stu.getGender()) && s3.getClassno().equals(cno) && (s3.getHateid() == null || !s3.getHateid().equals(stu.getHateid()))) {
 								// cno와 classno가 동일하고 hateid가 없거나 stu의 hateid를
 								// 싫어하지 않는 s3
-								System.out.println("cno와 classno가 동일하고 hateid가 없거나 stu의 hateid를 싫어하지 않는 s3");
+//								System.out.println("cno와 classno가 동일하고 hateid가 없거나 stu의 hateid를 싫어하지 않는 s3");
 								// 3. 교대
 								s3.setClassno(stu.getClassno());
 								stu.setClassno(cno);
-								System.out.println("교체선수 : " + s3);
+//								System.out.println("교체선수 : " + s3);
 								sdao.updateA(s3);
 								sdao.updateA(stu);
 								result = "성공";
-								System.out.println(result);
+//								System.out.println(result);
 								break;
 							}
 						}

@@ -74,8 +74,7 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/www"><img src="./resources/img/logo/mainLogo2.png" alt="떡잎 유치원" style="width: 200px; height: auto;"></a>
-<!-- 					<a class="navbar-brand" href="/www"><img src="./resources/img/main-logo.png" alt="떡잎 유치원"></a> -->
+					<a class="navbar-brand" href="/www"><img src="./resources/img/logo/mainLogo4.png"  style="width: 200px; height: auto;"></a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -85,7 +84,7 @@
 							class="dropdown-toggle"><i class="fa fa-list-ul bg-color-3"　aria-hidden="true"></i> <span>先生紹介</span></a>
 						<li class=" dropdown megaDropMenu color-2 "><a
 							href="course-single" class="dropdown-toggle"> <i
-								class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i> <span>教育課程紹介</span>
+								class="fa fa-file-text-o bg-color-2" aria-hidden="true"></i> <span>コースの紹介</span>
 						</a></li>
 						<li class="dropdown singleDrop color-4 "><a href="listNotice"
 							class="dropdown-toggle"> <i
@@ -241,13 +240,3 @@
 			</div>
 		</div>
 	</div>
-<!-- 	<script type="text/javascript"> -->
-<!-- // 		$(document).ready(function() { -->
-<!-- // 			$.ajax({ -->
-<!-- // 				url : "classCheck", -->
-<!-- // 				type : "post", -->
-<!-- // 				success : function(result) { -->
-<!-- // 				} -->
-<!-- // 			}); -->
-<!-- // 		}); -->
-<!-- 	</script> -->

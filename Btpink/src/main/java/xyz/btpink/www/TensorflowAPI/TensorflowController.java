@@ -73,8 +73,8 @@ public class TensorflowController {
 				
 				// 메일 내용 
 				String recipient = sensei.getEmail();  //받는 사람의 메일주소를 입력해주세요. 
-				String subject = sensei.getName() + " 선생님 반 인원을 확인하세요."; //메일 제목 입력해주세요. 
-				String body = "인원 변동이 있습니다. 현재인원 : "+count+"명 입니다."; //메일 내용 입력해주세요. 
+				String subject = sensei.getName() + " 先生クラスを確認してください。"; //메일 제목 입력해주세요. 
+				String body = "人数の変動が起こりました。現在人数 : "+count+"人です。"; //메일 내용 입력해주세요. 
 				Properties props = System.getProperties(); // 정보를 담기 위한 객체 생성 
 				
 				// SMTP 서버 정보 설정 

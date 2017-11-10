@@ -23,13 +23,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class Detect {
-	public final String subscriptionKey = "6bfd85c06c0b42b8bc879751a17f71bf";
+	public final String subscriptionKey = "9d96fff5c2a74e74843402a1f8c3595b";
 	public final String uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
 	public String faceId[];
 	public String faceResult;
 	public int len;
 	public TreeMap<String, Double> map;
 	TreeMap<String, xyz.btpink.www.vo.IdentfyVO> identifyMap;
+	
 	public Map<String, xyz.btpink.www.vo.IdentfyVO> getFaceId(String image) {
 		HttpClient httpclient = new DefaultHttpClient();
 		try {

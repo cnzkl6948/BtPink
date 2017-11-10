@@ -11,7 +11,7 @@ pageEncoding="UTF-8"%>
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-		自動クラス配定 
+		クラス自動配置
 		</h1>
 	</section>
 	<!-- Main row -->
@@ -95,13 +95,13 @@ pageEncoding="UTF-8"%>
 							<div class="box-header with-border">
 								<h4 class="box-title">
 								<span>
-									クラス配定メニューについて
+									クラス自動配置メニューについて
 								</span>
 								</h4>
 							</div>
 							<div id="collapseOne" class="panel-collapse collapse in">
 								<div class="box-body">
-									&nbspこのメニューは条件を入力させて自動でクラスを配定するメニューです。
+									&nbspこのメニューは条件を入力させて自動でクラスを配置するメニューです。
 								</div>
 							</div>
 						</div>
@@ -115,7 +115,7 @@ pageEncoding="UTF-8"%>
 							</div>
 							<div id="collapseTwo" class="panel-collapse collapse in">
 								<div class="box-body">
-									1. クラス配定ボタンを押します。<br>
+									1. クラス配置ボタンを押します。<br>
 									2. 例外IDの入力が活性化します。<br>
 									3. IDを入力して適用ボタンを押してください。
 								</div>
@@ -133,7 +133,7 @@ pageEncoding="UTF-8"%>
 								<div class="box-body">
 									◎  男女の比率は自動で分配されます。<br>
 									◎  適用ボタンを押すとき例外IDを持つ学生が交換されます。<br>
-									◎ クラス配定をする場合、今日出席した全ての情報は削除されます。
+									◎ クラス自動配置をする場合、今日出席した全ての情報は削除されます。
 								</div>
 							</div>
 						</div>
@@ -143,7 +143,7 @@ pageEncoding="UTF-8"%>
 			</div>
 			<!-- /.box -->
 			<button type="button" class="btn btn-block btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="location.href='calculate'">
-			自動クラス配定
+			クラス自動配置
 			</button>
 			<div class="modal modal-danger fade" id="modal-danger">
 				<div class="modal-dialog">
@@ -151,10 +151,10 @@ pageEncoding="UTF-8"%>
 						<div class="modal-header">
 							<button type="button" class="btn btn-outline pull-right"
 							data-dismiss="modal" onclick="closeModal()">閉じる</button>
-							<h4 class="modal-title">自動クラス配定</h4>
+							<h4 class="modal-title">クラス自動配置</h4>
 						</div>
 						<div class="modal-body">
-							<p id="chulcheck">自動クラス配定中&hellip;</p>
+							<p id="chulcheck">クラス自動配置中&hellip;</p>
 						</div>
 					</div>
 					<!-- /.modal-content -->
@@ -204,7 +204,7 @@ pageEncoding="UTF-8"%>
 		var hateid = '#hateid'+index;
 		
 		if(hateA == 0){
-			alert('自動クラス配定を押してください。');
+			alert('クラス自動配置を押してください。');
 		}else{
 			$.ajax({
 		url: "autoSplit",

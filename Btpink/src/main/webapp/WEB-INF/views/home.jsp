@@ -230,7 +230,7 @@
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/teachers/teacher1.png" alt="img"
+								<img src="./resources/img/teachers/cat/tea1.jpg" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
 								</div>
@@ -246,7 +246,7 @@
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/teachers/teacher2.png" alt="img"
+								<img src="./resources/img/teachers/cat/tea2.jpg" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
 								</div>
@@ -262,7 +262,7 @@
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/teachers/teacher3.png" alt="img"
+								<img src="./resources/img/teachers/cat/tea3.jpg" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
 								</div>
@@ -278,7 +278,7 @@
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/teachers/teacher4.png" alt="img"
+								<img src="./resources/img/teachers/cat/tea4.jpg" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
 								</div>
@@ -294,7 +294,7 @@
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/teachers/kodomo1.png" alt="img"
+								<img src="./resources/img/teachers/cat/kodomo1.jpg" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
 								</div>
@@ -310,14 +310,14 @@
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/teachers/kodomo2.png" alt="img"
+								<img src="./resources/img/teachers/cat/kodomo2.jpg" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
 								</div>
 							</div>
 							<div class="teamInfo">
 								<h3>
-									<a href="teachers-details.html">ネネちゃん</a>
+									<a href="teachers">ネネちゃん</a>
 								</h3>
 								<p>幼稚園バスの補助の先生</p>
 							</div>
@@ -326,7 +326,7 @@
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/teachers/kodomo3.png" alt="img"
+								<img src="./resources/img/teachers/cat/kodomo3.jpg" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
 								</div>
@@ -342,7 +342,7 @@
 					<div class="slide">
 						<div class="teamContent">
 							<div class="teamImage">
-								<img src="./resources/img/teachers/kodomo4.png" alt="img"
+								<img src="./resources/img/teachers/cat/kodomo4.jpg" alt="img"
 									class="img-circle">
 								<div class="maskingContent">
 								</div>

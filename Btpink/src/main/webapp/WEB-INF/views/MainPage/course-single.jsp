@@ -9,7 +9,7 @@
 <section class="pageTitleSection">
 	<div class="container">
 		<div class="pageTitleInfo">
-			<h2>教育課程の紹介</h2>
+			<h2>コースの紹介</h2>
 		</div>
 	</div>
 </section>
