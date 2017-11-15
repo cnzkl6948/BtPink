@@ -14,15 +14,15 @@ public class AttendanceRate {
 		String keys = "";
 		String labels = "";
 		for (Attendence a : list) {
-			System.out.println(a);
+//			System.out.println(a);
 			data += "{y:'" + a.getToday().substring(0, 10) + "'," + a.getName() + ":"
 					+ ((1.00 - a.getAbsentAvg()) * 100) + "},";
 		}
 		data = data.substring(0, data.length() - 1);
 		keys = "'" + list.get(0).getName() + "'";
-		System.out.println();
+//		System.out.println();
 		AdminMaimPage pageList = new AdminMaimPage(data, keys, keys);
-		System.out.println("출결확률"+pageList);
+//		System.out.println("출결확률"+pageList);
 		return pageList;
 	}
 
@@ -40,7 +40,7 @@ public class AttendanceRate {
 			keys += ",'"+sList[i].split(":")[0]+"'";
 		}
 		 keys=keys.substring(1);
-		 System.out.println("keys 서브 스트링  : "+keys);
+//		 System.out.println("keys 서브 스트링  : "+keys);
 		AdminMaimPage pageList = new AdminMaimPage(data, keys, keys);
 
 		return pageList;

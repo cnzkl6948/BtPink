@@ -3,7 +3,12 @@
 pageEncoding="UTF-8"%>
 <%@ include file="split/Head.jsp"%>
 <link rel="stylesheet" href="./resources/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+<style>
+/* #clsNo{ */
+/* 	font-size: 15px; */
+/* } */
 
+</style>
 <%@ include file="split/Header.jsp"%>
 <%@ include file="split/Sidebar.jsp"%>
 <!-- Content Wrapper. Contains page content -->
@@ -63,11 +68,11 @@ pageEncoding="UTF-8"%>
 							<tbody>
 								<c:forEach var="stu" items="${stuList}" varStatus="status">
 								<tr>
-									<td>${stu.stdno}<input type="hidden" id="stdno${status.index}" name="stuList[${status.index}].stdno" value="${stu.stdno}" readonly="readonly"></td>
-									<td>${stu.name}<input type="hidden" id="name${status.index}" name="stuList[${status.index}].name" value="${stu.name}" readonly="readonly"></td>
-									<td>${stu.age}<input type="hidden" id="age${status.index}" name="stuList[${status.index}].age" value="${stu.age}" readonly="readonly"></td>
-									<td>${stu.classno}<input type="hidden" id="classno${status.index}" name="stuList[${status.index}].classno" value="${stu.classno}"></td>
-									<td>${stu.gender}<input type="hidden" id="gender${status.index}" name="stuList[${status.index}].gender" value="${stu.gender}" readonly="readonly"></td>
+									<td style="font-size:17px">${stu.stdno}<input type="hidden" id="stdno${status.index}" name="stuList[${status.index}].stdno" value="${stu.stdno}" readonly="readonly"></td>
+									<td style="font-size:20px">${stu.name}<input type="hidden" id="name${status.index}" name="stuList[${status.index}].name" value="${stu.name}" readonly="readonly"></td>
+									<td style="font-size:25px">${stu.age}<input type="hidden" id="age${status.index}" name="stuList[${status.index}].age" value="${stu.age}" readonly="readonly"></td>
+									<td style="font-size:25px">${stu.classno}<input type="hidden" id="classno${status.index}" name="stuList[${status.index}].classno" value="${stu.classno}"></td>
+									<td style="font-size:25px">${stu.gender}<input type="hidden" id="gender${status.index}" name="stuList[${status.index}].gender" value="${stu.gender}" readonly="readonly"></td>
 									<td><input type="text" id="hateid${status.index}" name="stuList[${status.index}].hateid" value="${stu.hateid}" style="width:100%"></td>
 									<td><button type="button" class="btn btn-block btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger" onclick="send('${status.index}');">適用</button></td>
 								</tr>
@@ -167,17 +172,7 @@ pageEncoding="UTF-8"%>
 	</div>
 		<!-- /.row (main row) -->
 	</div>
-	
-	<!-- table row -->
-	<section class="content">
-		<div class="row">
-			<div class="col-lg-12">
-				
-			</div>
-			<!-- ./table row -->
-		</div>
-		<!-- /.content-wrapper -->
-	</section>
+</div>
 	<%@ include file="split/Footer.jsp"%>
 	<!-- ChartJS -->
 	<script src="./resources/AdminLTE/bower_components/chart.js/Chart.js"></script>

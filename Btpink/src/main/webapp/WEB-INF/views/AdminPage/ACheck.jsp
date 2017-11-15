@@ -3,6 +3,11 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="split/Head.jsp"%>
 <link rel="stylesheet" href="./resources/css/imghere.css">
+<style>
+#chulcheck{
+	font-size: 30px;
+}
+</style>
 <%@ include file="split/Header.jsp"%>
 <%@ include file="split/Sidebar.jsp"%>
 

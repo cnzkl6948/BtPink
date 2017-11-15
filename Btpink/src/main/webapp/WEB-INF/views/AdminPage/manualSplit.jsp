@@ -63,10 +63,10 @@ pageEncoding="UTF-8"%>
 								<tbody>
 									<c:forEach var="stu" items="${stuList}" varStatus="status">
 									<tr>
-										<td>${stu.stdno}<input type="hidden" id="stdno${status.index}" name="stuList[${status.index}].stdno" value="${stu.stdno}" readonly="readonly"></td>
-										<td>${stu.name}<input type="hidden" id="name${status.index}" name="stuList[${status.index}].name" value="${stu.name}" readonly="readonly"></td>
-										<td>${stu.age}<input type="hidden" id="age${status.index}" name="stuList[${status.index}].age" value="${stu.age}" readonly="readonly"></td>
-										<td>
+										<td style="font-size:17px">${stu.stdno}<input type="hidden" id="stdno${status.index}" name="stuList[${status.index}].stdno" value="${stu.stdno}" readonly="readonly"></td>
+										<td style="font-size:20px">${stu.name}<input type="hidden" id="name${status.index}" name="stuList[${status.index}].name" value="${stu.name}" readonly="readonly"></td>
+										<td style="font-size:25px">${stu.age}<input type="hidden" id="age${status.index}" name="stuList[${status.index}].age" value="${stu.age}" readonly="readonly"></td>
+										<td style="font-size:25px">
 											<select id="classno${status.index}" name="stuList[${status.index}].classno">
 												<c:forEach var="ccc" items="${classList}">
 													<c:choose>
@@ -80,7 +80,7 @@ pageEncoding="UTF-8"%>
 												</c:forEach>
 											</select>
 										</td>
-										<td>${stu.gender}<input type="hidden" id="gender${status.index}" name="stuList[${status.index}].gender" value="${stu.gender}" readonly="readonly"></td>
+										<td style="font-size:25px">${stu.gender}<input type="hidden" id="gender${status.index}" name="stuList[${status.index}].gender" value="${stu.gender}" readonly="readonly"></td>
 										<td>${stu.hateid}<input type="hidden" id="hateid${status.index}" name="stuList[${status.index}].hateid" value="${stu.hateid}" style="width:100%"></td>
 										<td><button type="button" class="btn btn-block btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger" onclick="send('${status.index}');">適用</button></td>
 									</tr>
@@ -158,17 +158,7 @@ pageEncoding="UTF-8"%>
 		</div>
 		<!-- /.row (main row) -->
 	</div>
-	
-	<!-- table row -->
-	<section class="content">
-		<div class="row">
-			<div class="col-lg-12">
-				
-			</div>
-			<!-- ./table row -->
-		</div>
-		<!-- /.content-wrapper -->
-	</section>
+</div>
 	<%@ include file="split/Footer.jsp"%>
 	<!-- ChartJS -->
 	<script src="./resources/AdminLTE/bower_components/chart.js/Chart.js"></script>

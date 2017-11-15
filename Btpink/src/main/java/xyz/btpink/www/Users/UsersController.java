@@ -48,9 +48,9 @@ public class UsersController {
 	// 로그인
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String login(Account account, Locale locale, Model model, HttpSession session) {
-		System.out.println("로그인 접속시 : " + account);
+//		System.out.println("로그인 접속시 : " + account);
 		Account ac = accountDao.login(account);
-		System.out.println("db 갔다온 정보 ac : " + ac);
+//		System.out.println("db 갔다온 정보 ac : " + ac);
 		if (ac.getId() != null) {
 			session.setAttribute("User", ac);
 		}
@@ -80,13 +80,13 @@ public class UsersController {
 			account.setMemNo("P" + num);
 			parent.setMemNo(account.getMemNo());
 			student.setParentno(parent.getMemNo());
-			System.out.println("Parent" + parent);
+//			System.out.println("Parent" + parent);
 			accountDao.AccountInsert(account);
 			parentDao.insert(parent);
 			studentDao.parentUpdate(student);
 		} else {
 			account.setMemNo("T" + num);
-			System.out.println(account);
+//			System.out.println(account);
 			accountDao.AccountInsert(account);
 		}
 		return "redirect:/";
@@ -95,9 +95,9 @@ public class UsersController {
 	// 중복 검사
 	@RequestMapping(value = "idOverlap", method = RequestMethod.GET)
 	public @ResponseBody String idOverlap(Account account, Locale locale, Model model) {
-		System.out.println(account);
+//		System.out.println(account);
 		Account ac = accountDao.idOverlap(account);
-		System.out.println(ac);
+//		System.out.println(ac);
 		try {
 			return ac.getId();
 		} catch (Exception e) {
@@ -119,16 +119,10 @@ public class UsersController {
 	@RequestMapping(value = "joinCheck", method = RequestMethod.GET)
 	public @ResponseBody ArrayList<Student> home(Student st, Locale locale, Model model) {
 		ArrayList<Student> ckList = studentDao.joinCheck(st);
-		System.out.println(ckList);
+//		System.out.println(ckList);
 		return ckList;
 	}
 	
-//	@RequestMapping(value = "myson", method = RequestMethod.GET)
-//	public String MySon(Student st, Locale locale, Model model, HttpSession session) {
-//		ArrayList<Student> ckList = studentDao.joinCheck(st);
-//		System.out.println(ckList);
-//		return "MySon";
-//	}
 
 	@RequestMapping(value = "classCheck", method = RequestMethod.POST)
 	public @ResponseBody ArrayList<ClassVO> classChek(Locale locale, Model model, HttpSession session) {

@@ -42,7 +42,7 @@ public class TensorflowController {
 		logger.info("Get getCount");
 		Base64ToImgDecoder base = new Base64ToImgDecoder();
 		String fileName = base.decoder(image, "count");
-		System.out.println(fileName);
+//		System.out.println(fileName);
 		PythonSocket ps = new PythonSocket();
 		
 		int count = Integer.parseInt(ps.SocketTest(fileName));
@@ -61,7 +61,7 @@ public class TensorflowController {
 		if(cdb != null){
 			// 변화가 생기면 메일 전송
 			if(cdb.getCount() != cctv.getCount()){
-				System.out.println("이메일 전송");
+//				System.out.println("이메일 전송");
 				// 네이버일 경우 smtp.naver.com 을 입력합니다. 
 				// Google일 경우 smtp.gmail.com 을 입력합니다. 
 				String host = "smtp.gmail.com"; 
@@ -103,7 +103,7 @@ public class TensorflowController {
 				mimeMessage.setSubject(subject); //제목셋팅 
 				mimeMessage.setText(body); //내용셋팅 
 				Transport.send(mimeMessage); //javax.mail.Transport.send() 이용
-				System.out.println("이메일 전송 완료");
+//				System.out.println("이메일 전송 완료");
 
 			}
 		}

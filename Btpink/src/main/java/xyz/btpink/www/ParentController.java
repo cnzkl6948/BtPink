@@ -39,25 +39,13 @@ public class ParentController {
 	final int pagePerGroup = 5;				//페이지 이동 그룹 당 표시할 페이지 수
 	
 	/**
-	 * 글쓰기 폼 보기
-	 */
-/*	@RequestMapping (value="writeDemand", method=RequestMethod.GET)
-	public String writeForm(HttpSession session) {
-		//parentId 처리 어떻게 할건지 고민해볼것, 지금은 loginId에 걸어놓음,,임시
-		System.out.println("Write Demand IN");
-		Account account =  (Account) session.getAttribute("User");
-		System.out.println(account.getId());
-		return "MainPage/writeDemand";
-	}
-*/
-	/**
 	 * 글 저장 처리
 	 * @param board 사용자가 입력한 글 내용
 	 */
 	@RequestMapping (value="writeDemand", method=RequestMethod.POST)
 	public String write( HttpSession session,Demand demand, String parentId, String dateRange ) {
 		
-		System.out.println(parentId);
+//		System.out.println(parentId);
 		// parentId를 이용한다.
 		//임시데이터 생성
 		
@@ -75,7 +63,7 @@ public class ParentController {
 		int result = dao.insertDemand(demand);
 		
 		
-		System.out.println(result);
+//		System.out.println(result);
 		return "redirect:/MySon";
 	}
 	

@@ -11,7 +11,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-             人員確認 
+             人数確認 
       </h1>
     </section>
       <!-- Main row -->
@@ -47,7 +47,7 @@
                      <div class="box-header with-border">
                        <h4 class="box-title">
                          <a data-toggle="collapse" data-parent="#accordion">
-                              人員確認メニューについて
+                              人数確認メニューについて
                          </a>
                        </h4>
                      </div>
@@ -67,7 +67,7 @@
                      </div>
                      <div id="collapseTwo" class="panel-collapse collapse in">
                        <div class="box-body">
-                         1.人員確認ボタンを押します。<br>
+                         1.人数確認ボタンを押します。<br>
                          2.ボタンを押すと5分ごとに自動に写真を撮影し、人員数をお察しいたします
                        </div>
                      </div>
@@ -95,7 +95,7 @@
              </div>
              <!-- /.box -->
              <button type="button" class="btn btn-block btn-danger" data-toggle="modal" data-target="#modal-danger" onclick="snapshot()">
-                   人員確認
+                   人数確認
               </button>
             <div class="modal modal-danger fade" id="modal-danger">
                <div class="modal-dialog">
@@ -103,13 +103,13 @@
                      <div class="modal-header">
                         <button type="button" class="btn btn-outline pull-right"
                            data-dismiss="modal" onclick="closeModal()">閉じる</button>
-                        <h4 class="modal-title">人員確認</h4>
+                        <h4 class="modal-title">人数確認</h4>
                      </div>
                      <div class="modal-body">
                         <div id="imgg">
                            <p id="img"></p>
                         </div>
-                        <p id="hitocheck">人員確認中&hellip; <br>写真処理には30秒以上の時間が必要です。 <br>待ってください。</p>
+                        <p id="hitocheck">人数確認中&hellip; <br>写真処理には30秒以上の時間が必要です。 <br>待ってください。</p>
                      </div>
                   </div>
                   <!-- /.modal-content -->

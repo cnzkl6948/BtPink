@@ -26,9 +26,9 @@ public class PythonSocket {
 						InputStreamReader isr = new InputStreamReader(is);
 						BufferedReader stdIn = new BufferedReader(isr);
 						PrintWriter out = new PrintWriter(os, true);
-						System.out.println("Trying to read...");
+//						System.out.println("Trying to read...");
 						
-						System.out.println("Message sent");
+//						System.out.println("Message sent");
 						out.print(path);
 						out.flush();
 						

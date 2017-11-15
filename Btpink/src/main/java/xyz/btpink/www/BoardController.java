@@ -84,13 +84,13 @@ public class BoardController {
 		// 세션에서 로그인한 사용자의 아이디를 읽어서 Board객체의 작성자 정보에 세팅
 //		imgUpdate(filename);
 		Account user = (Account) session.getAttribute("User");
-		System.out.println(user.getId());
+//		System.out.println(user.getId());
 		board.setId(user.getId());
 
 		// 첨부파일없음
-		System.out.println(boardImageCheck);
+//		System.out.println(boardImageCheck);
 		if (boardImageCheck.equalsIgnoreCase("true")) {
-			System.out.println(filename);
+//			System.out.println(filename);
 			board.setBoardImage(filename);
 		} else {
 			board.setBoardImage("");
@@ -150,7 +150,7 @@ public class BoardController {
 	@RequestMapping (value="/readNotice", method=RequestMethod.GET)
 	public String read(int boardnum, Model model, HttpSession session) {
 		// 전달된 글 번호로 해당 글정보 읽기
-		System.out.println("readNotice");
+//		System.out.println("readNotice");
 		Board board = dao.get(boardnum);
 //		System.out.println(board);
 		if (board == null) {
@@ -192,7 +192,7 @@ public class BoardController {
 		int result = dao.deleteBoard(board);
 
 		// 글삭 확인해보자
-		System.out.println(result);
+//		System.out.println(result);
 
 		return "redirect:listNotice";
 	}
@@ -236,7 +236,7 @@ public class BoardController {
 			e.printStackTrace();
 		}
 		// 첨부파일없음
-		System.out.println(boardImageCheck);
+//		System.out.println(boardImageCheck);
 		if (boardImageCheck.equalsIgnoreCase("true")) {
 //			System.out.println(filename);
 			board.setBoardImage(filename);

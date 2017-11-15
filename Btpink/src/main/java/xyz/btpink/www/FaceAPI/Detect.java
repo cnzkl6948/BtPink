@@ -58,7 +58,7 @@ public class Detect {
 //			String url = "{\"url\":\"https://geonho.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 //			String url = "{\"url\":\"https://daheen.btpink.xyz/www/resources/face_detection/" + image + "\"}";
 //			String url = "{\"url\":\"https://suenghan.btpink.xyz/www/resources/face_detection/" + image + "\"}";
-			System.out.println(url);
+//			System.out.println(url);
 
 			StringEntity reqEntity = new StringEntity(url);
 			request.setEntity(reqEntity);
@@ -68,11 +68,11 @@ public class Detect {
 
 			if (entity != null) {
 				// Format and display the JSON response.
-				System.out.println("REST Response:\n");
+//				System.out.println("REST Response:\n");
 				String jsonString = EntityUtils.toString(entity).trim();
 				if (jsonString.charAt(0) == '[') {
 					JSONArray jsonArray = new JSONArray(jsonString);
-					System.out.println("json 길이 : "+jsonArray.length());
+//					System.out.println("json 길이 : "+jsonArray.length());
 					len = jsonArray.length();
 					ArrayList<String> list = new ArrayList<>();
 					String[][] faceId = new String[len][2];
@@ -101,18 +101,18 @@ public class Detect {
 							identifyMap.put(merge, new xyz.btpink.www.vo.IdentfyVO(merge, detectMap.get(identifyMap.get(merge).getFaceId()).getEmotion()));
 						}
 					}
-					System.out.println(identifyMap);
+//					System.out.println(identifyMap);
 					
 				} else if (jsonString.charAt(0) == '{') {
 					JSONObject jsonObject = new JSONObject(jsonString);
-					System.out.println(jsonObject.toString(2));
+//					System.out.println(jsonObject.toString(2));
 				} else {
-					System.out.println(jsonString);
+//					System.out.println(jsonString);
 				}
 			}
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			System.err.println("abs");
+//			System.out.println(e.getMessage());
+//			System.err.println("abs");
 		}
 		 return identifyMap;
 	}
@@ -120,7 +120,7 @@ public class Detect {
 	public String sortByValue(final Map<String, Double> map) {
 		String temp = "";
 		double d = 0.0;
-		System.out.println(map);
+//		System.out.println(map);
 			for ( String s : map.keySet()) {
 				try{
 				if(map.get(s)>d){
@@ -129,7 +129,7 @@ public class Detect {
 				}
 				}catch(Exception e){}
 			}
-			System.out.println(temp);
+//			System.out.println(temp);
 		return temp;
 	}
 

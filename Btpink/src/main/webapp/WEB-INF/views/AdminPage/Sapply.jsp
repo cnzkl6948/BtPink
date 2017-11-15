@@ -10,6 +10,9 @@
 .main-sidebar {
 	z-index: 8;
 }
+#chulcheck{
+	font-size: 30px;
+}
 </style>
 <%@ include file="split/Header.jsp"%>
 <%@ include file="split/Sidebar.jsp"%>

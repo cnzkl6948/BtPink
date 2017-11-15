@@ -45,12 +45,12 @@ public class Identfy {
 				String jsonString = EntityUtils.toString(entity);
 				if (jsonString.charAt(0) == '[') {
 					JSONArray jsonArray = new JSONArray(jsonString);
-					System.out.println("JsonArray 크기 >>" + jsonArray.length());
-					System.out.println(jsonArray.toString());
+//					System.out.println("JsonArray 크기 >>" + jsonArray.length());
+//					System.out.println(jsonArray.toString());
 					for (int i = 0; i < jsonArray.length(); i++) {
 						try{
-						System.out.println(i + "번쨰identfy : " + jsonArray.getJSONObject(i).getJSONArray("candidates")
-								.getJSONObject(0).get("confidence"));
+//						System.out.println(i + "번쨰identfy : " + jsonArray.getJSONObject(i).getJSONArray("candidates")
+//								.getJSONObject(0).get("confidence"));
 						//faceid 와 현재 저장된 사람이미지와 일치도
 						confidence = (double) jsonArray.getJSONObject(i).getJSONArray("candidates").getJSONObject(0)
 								.get("confidence");
@@ -65,7 +65,7 @@ public class Identfy {
 						if (map.size() == 0) {
 							//초기값 저장
 							map.put(personId, identfy);
-							System.out.println(map.get(personId));
+//							System.out.println(map.get(personId));
 						}
 						for (int j = 0; j < map.size(); j++) {
 							//같은 펄슨아이디가 있을시 진입
@@ -86,8 +86,8 @@ public class Identfy {
 				}
 			}
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			System.out.println("큰오류");
+//			System.out.println(e.getMessage());
+//			System.out.println("큰오류");
 		}
 		return map;
 	}

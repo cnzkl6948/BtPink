@@ -84,7 +84,7 @@ public class Base64ToImgDecoder {
 		}
 
 		String result = savedFilename + ".jpg";
-		System.out.println("파일저장완료");
+//		System.out.println("파일저장완료");
 		return result;
 
 	}

@@ -60,7 +60,7 @@ public class MainPageController {
 	@RequestMapping(value = "/MySon", method = RequestMethod.GET)
 	public String kindergarten(Model model, HttpSession session) {
 		Account account = (Account) session.getAttribute("User");
-		System.out.println("myson : "+account);
+//		System.out.println("myson : "+account);
 		
 		String myStdNo = parentDAO.myStdno(account.getMemNo());
 		
@@ -77,7 +77,7 @@ public class MainPageController {
 		model.addAttribute("mySon", mySon);
 		
 		ArrayList<Attendence> result = attendenceDAO.selectStudent(account);
-		System.out.println(result);
+//		System.out.println(result);
 		int cnt = result.size();
 		int count = 0;
 		String emotion = "";
@@ -85,7 +85,7 @@ public class MainPageController {
 			count++;
 			// DB에 저장되어 있던 감정
 			String emo = a.getEmotion();
-			System.out.println(emo);
+//			System.out.println(emo);
 			// DB날짜를 년 월 일로 나눔
 			int gYear = Integer.parseInt(a.getToday().split(" ")[0].split("-")[0]);
 			int gMonth = Integer.parseInt(a.getToday().split(" ")[0].split("-")[1]);
@@ -146,11 +146,11 @@ public class MainPageController {
 					emotion += "},";
 				}
 			} catch (Exception e) {
-				System.err.println("결석");
+//				System.err.println("결석");
 			}
 
 		}
-		System.out.println(emotion);
+//		System.out.println(emotion);
 		model.addAttribute("emotionEvent", emotion);
 		String className = parentDAO.getClassName(account.getId());
 		studentInfomation sf=parentDAO.studentInfomation(account);

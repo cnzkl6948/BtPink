@@ -31,21 +31,21 @@ public class FaceAPIController {
 		long time = System.currentTimeMillis();
 		SimpleDateFormat dayTime = new SimpleDateFormat("kk:mm");
 		String str = dayTime.format(new Date(time));
-		System.out.println(str);
+//		System.out.println(str);
 		int hour = Integer.parseInt(str.split(":")[0]);
 		int minite = Integer.parseInt(str.split(":")[1]);
 
 		Base64ToImgDecoder base = new Base64ToImgDecoder();
 		String fileName = base.decoder(image, "detect");
-		System.out.println(fileName);
+//		System.out.println(fileName);
 		Thread.sleep(5000);
 		Detect detect = new Detect();
-		System.out.println("Controller 초기");
+//		System.out.println("Controller 초기");
 		Map<String, IdentfyVO> identfy = detect.getFaceId(fileName);
-		System.out.println("ident null 인가요 ?" + identfy);
+//		System.out.println("ident null 인가요 ?" + identfy);
 		if (identfy.size() == 0) {
 			identfy = null;
-			System.out.println("사람없음으로 들어옴");
+//			System.out.println("사람없음으로 들어옴");
 		} else {
 			if (9 < hour || (hour == 9 && minite > 0)) {
 				for (String result : identfy.keySet()) {
@@ -63,7 +63,7 @@ public class FaceAPIController {
 				}
 			}
 		}
-		System.out.println("Controller 마지막");
+//		System.out.println("Controller 마지막");
 
 		return identfy;
 	}
